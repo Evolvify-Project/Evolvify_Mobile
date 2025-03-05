@@ -2,8 +2,8 @@ import 'package:evolvify/core/utils/constant.dart';
 import 'package:flutter/material.dart';
 
 class CustomButtonBorder extends StatelessWidget {
-  const CustomButtonBorder({super.key});
-
+  const CustomButtonBorder({super.key, required this.title});
+  final String title;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -15,7 +15,7 @@ class CustomButtonBorder extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 12),
           child: Text(
-            'Sign up',
+            title,
             style: TextStyle(
               color: AppColors.kPrimaryColor,
               fontSize: 24,

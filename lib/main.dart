@@ -1,5 +1,6 @@
 import 'package:evolvify/core/utils/constant.dart';
 import 'package:evolvify/features/splash%20screen/splash_screen_one.dart';
+import 'package:evolvify/features/splash%20screen/splash_screen_two.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(scaffoldBackgroundColor: Colors.white),
-      home: SplashScreenOne(),
+      home: SplashScreenTwo(),
     );
   }
 }
