@@ -1,3 +1,5 @@
+import 'package:evolvify/core/utils/constant.dart';
+import 'package:evolvify/features/splash%20screen/splash_screen_one.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -7,9 +9,12 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-
   @override
   Widget build(BuildContext context) {
-    return MaterialApp();
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(scaffoldBackgroundColor: Colors.white),
+      home: SplashScreenOne(),
+    );
   }
 }
