@@ -2,7 +2,7 @@ import 'package:evolvify/core/utils/app_style.dart';
 import 'package:evolvify/core/utils/constant.dart';
 import 'package:evolvify/core/widgets/arrow_button.dart';
 import 'package:evolvify/core/widgets/custom_button.dart';
-import 'package:evolvify/core/widgets/custom_check_box.dart';
+
 import 'package:evolvify/core/widgets/custom_evolvify_text.dart';
 import 'package:evolvify/core/widgets/custom_text_field.dart';
 import 'package:evolvify/features/auth/presentation/views/widgets/Remember_and_Forgot_Password.dart';
@@ -19,12 +19,13 @@ class LoginView extends StatelessWidget {
       body: Expanded(
         child: Stack(
           children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 64),
-              child: Column(
-                children: [
-                  SizedBox(height: 13),
-                  Align(
+            Column(
+              children: [
+                SizedBox(height: 23),
+
+                Padding(
+                  padding: const EdgeInsets.only(left: 16),
+                  child: Align(
                     alignment: AlignmentDirectional.topStart,
                     child: ArrowBackButton(
                       onTap: () {
@@ -32,35 +33,41 @@ class LoginView extends StatelessWidget {
                       },
                     ),
                   ),
-                  SizedBox(height: 6),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 64),
+                  child: Column(
+                    children: [
+                      SizedBox(height: 6),
 
-                  SvgPicture.asset('assets/images/logo.svg'),
-                  const SizedBox(height: 11),
-                  CustomEvolvifyText(),
-                  SizedBox(height: 73),
-                  Text(
-                    'Sign in to your account',
-                    style: AppStyle.styleMedium20,
+                      SvgPicture.asset('assets/images/logo.svg'),
+                      const SizedBox(height: 11),
+                      CustomEvolvifyText(),
+                      SizedBox(height: 65),
+                      Text(
+                        'Sign in to your account',
+                        style: AppStyle.styleMedium20,
+                      ),
+                      SizedBox(height: 16),
+                      CustomTextFormField(
+                        hintText: 'Username',
+                        image: 'assets/images/person.svg',
+                      ),
+                      SizedBox(height: 34),
+                      CustomTextFormField(
+                        hintText: 'Password',
+                        image: 'assets/images/lock.svg',
+                      ),
+                      SizedBox(height: 34),
+                      RememberandForgotPassword(),
+                      SizedBox(height: 30),
+                      CustomButton(title: 'Sign in'),
+                      SizedBox(height: 34),
+                      CustomRow(),
+                    ],
                   ),
-                  SizedBox(height: 16),
-                  CustomTextFormField(
-                    hintText: 'Username',
-                    image: 'assets/images/person.svg',
-                  ),
-                  SizedBox(height: 34),
-                  CustomTextFormField(
-                    hintText: 'Password',
-                    image: 'assets/images/lock.svg',
-                  ),
-                  SizedBox(height: 34),
-                  RememberandForgotPassword(),
-                  SizedBox(height: 34),
-                  CustomButton(title: 'Sign in'),
-                  SizedBox(height: 34),
-                  CustomRow(),
-                  Spacer(),
-                ],
-              ),
+                ),
+              ],
             ),
 
             Positioned(
@@ -70,7 +77,8 @@ class LoginView extends StatelessWidget {
             ),
             Positioned(
               left: 0,
-              bottom: 30,
+              // bottom: 10,
+              bottom: 0,
               child: SvgPicture.asset('assets/images/Ellipse 31 (1).svg'),
             ),
           ],
