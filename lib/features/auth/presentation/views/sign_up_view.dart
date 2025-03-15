@@ -18,77 +18,79 @@ class SignUpView extends StatelessWidget {
       body: Expanded(
         child: Stack(
           children: [
-            Column(
-              children: [
-                SizedBox(height: 23),
-
-                Padding(
-                  padding: const EdgeInsets.only(left: 16),
-                  child: Align(
-                    alignment: AlignmentDirectional.topStart,
-                    child: ArrowBackButton(
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
+            SingleChildScrollView(
+              child: Column(
+                children: [
+                  SizedBox(height: 23),
+              
+                  Padding(
+                    padding: const EdgeInsets.only(left: 16),
+                    child: Align(
+                      alignment: AlignmentDirectional.topStart,
+                      child: ArrowBackButton(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                      ),
                     ),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 64),
-                  child: Column(
-                    children: [
-                      SizedBox(height: 6),
-
-                      SvgPicture.asset('assets/images/logo.svg'),
-                      const SizedBox(height: 11),
-                      CustomEvolvifyText(),
-                      SizedBox(height: 65),
-                      Text(
-                        'Create your account',
-                        style: AppStyle.styleMedium20,
-                      ),
-                      SizedBox(height: 16),
-                      CustomTextFormField(
-                        hintText: 'Username',
-                        image: 'assets/images/person.svg',
-                      ),
-                      SizedBox(height: 34),
-                      CustomTextFormField(
-                        hintText: 'Password',
-                        image: 'assets/images/lock.svg',
-                      ),
-                      SizedBox(height: 34),
-                      CustomTextFormField(
-                        hintText: 'Email',
-                        image: 'assets/images/Email.svg',
-                      ),
-                      SizedBox(height: 34),
-                      CustomTextFormField(
-                        hintText: 'phone',
-                        image: 'assets/images/phone.svg',
-                      ),
-                      SizedBox(height: 22),
-                      CustomButton(title: 'Sign up'),
-                      SizedBox(height: 15),
-                      LineWithText(),
-                      SizedBox(height: 20),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 19),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            SocialMediaItem(image: 'assets/images/google.svg'),
-                            SocialMediaItem(
-                              image: 'assets/images/facebook.svg',
-                            ),
-                            SocialMediaItem(image: 'assets/images/apple2.svg'),
-                          ],
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 64),
+                    child: Column(
+                      children: [
+                        SizedBox(height: 6),
+              
+                        SvgPicture.asset('assets/images/logo.svg'),
+                        const SizedBox(height: 11),
+                        CustomEvolvifyText(),
+                        SizedBox(height: 65),
+                        Text(
+                          'Create your account',
+                          style: AppStyle.styleMedium20,
                         ),
-                      ),
-                    ],
+                        SizedBox(height: 16),
+                        CustomTextFormField(
+                          hintText: 'Username',
+                          image: 'assets/images/person.svg',
+                        ),
+                        SizedBox(height: 34),
+                        CustomTextFormField(
+                          hintText: 'Password',
+                          image: 'assets/images/lock.svg',
+                        ),
+                        SizedBox(height: 34),
+                        CustomTextFormField(
+                          hintText: 'Email',
+                          image: 'assets/images/Email.svg',
+                        ),
+                        SizedBox(height: 34),
+                        CustomTextFormField(
+                          hintText: 'phone',
+                          image: 'assets/images/phone.svg',
+                        ),
+                        SizedBox(height: 22),
+                        CustomButton(title: 'Sign up'),
+                        SizedBox(height: 15),
+                        LineWithText(),
+                        SizedBox(height: 20),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 19),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              SocialMediaItem(image: 'assets/images/google.svg'),
+                              SocialMediaItem(
+                                image: 'assets/images/facebook.svg',
+                              ),
+                              SocialMediaItem(image: 'assets/images/apple2.svg'),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
 
             Positioned(

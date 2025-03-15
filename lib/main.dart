@@ -1,23 +1,24 @@
-import 'package:evolvify/core/utils/constant.dart';
-import 'package:evolvify/features/auth/presentation/views/login_view.dart';
+import 'package:device_preview/device_preview.dart';
 import 'package:evolvify/features/auth/presentation/views/sign_up_view.dart';
-import 'package:evolvify/features/splash%20screen/splash_screen_one.dart';
-import 'package:evolvify/features/splash%20screen/splash_screen_two.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    DevicePreview(enabled: true, builder: (context) => const EvolvifyApp()),
+  );
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class EvolvifyApp extends StatelessWidget {
+  const EvolvifyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      locale: DevicePreview.locale(context),
+      builder: DevicePreview.appBuilder,
       theme: ThemeData(scaffoldBackgroundColor: Colors.white),
-      home: SignUpView()
+      home: SignUpView(),
     );
   }
 }
