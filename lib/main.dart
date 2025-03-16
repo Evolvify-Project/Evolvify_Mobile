@@ -1,4 +1,6 @@
 import 'package:device_preview/device_preview.dart';
+import 'package:evolvify/features/auth/presentation/views/forget_password_view.dart';
+import 'package:evolvify/features/auth/presentation/views/login_view.dart';
 import 'package:evolvify/features/auth/presentation/views/sign_up_view.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +20,7 @@ class EvolvifyApp extends StatelessWidget {
       locale: DevicePreview.locale(context),
       builder: DevicePreview.appBuilder,
       theme: ThemeData(scaffoldBackgroundColor: Colors.white),
-      home: SignUpView(),
+      home: ForgetPasswordView(),
     );
   }
 }

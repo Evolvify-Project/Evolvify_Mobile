@@ -2,14 +2,15 @@ import 'package:evolvify/core/utils/constant.dart';
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
-  const CustomButton({super.key, required this.title});
+  const CustomButton({super.key, required this.title, this.borderRadius});
   final String title;
   @override
+  final double? borderRadius;
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
         color: AppColors.kPrimaryColor,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(borderRadius ?? 25),
       ),
       child: Center(
         child: Padding(

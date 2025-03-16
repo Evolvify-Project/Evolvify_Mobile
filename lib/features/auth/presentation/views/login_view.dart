@@ -1,6 +1,7 @@
 import 'package:evolvify/core/utils/app_style.dart';
 import 'package:evolvify/core/utils/constant.dart';
 import 'package:evolvify/core/widgets/arrow_button.dart';
+import 'package:evolvify/core/widgets/custom_arrow_back.dart';
 import 'package:evolvify/core/widgets/custom_button.dart';
 
 import 'package:evolvify/core/widgets/custom_evolvify_text.dart';
@@ -21,19 +22,7 @@ class LoginView extends StatelessWidget {
           children: [
             Column(
               children: [
-                SizedBox(height: 23),
-
-                Padding(
-                  padding: const EdgeInsets.only(left: 16),
-                  child: Align(
-                    alignment: AlignmentDirectional.topStart,
-                    child: ArrowBackButton(
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                    ),
-                  ),
-                ),
+                CustomArrowBack(),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 64),
                   child: Column(
@@ -61,7 +50,7 @@ class LoginView extends StatelessWidget {
                       SizedBox(height: 34),
                       RememberandForgotPassword(),
                       SizedBox(height: 30),
-                      CustomButton(title: 'Sign in'),
+                      CustomButton(title: 'Sign in', borderRadius: 15),
                       SizedBox(height: 34),
                       CustomRow(),
                     ],

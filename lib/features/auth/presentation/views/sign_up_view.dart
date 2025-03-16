@@ -22,7 +22,7 @@ class SignUpView extends StatelessWidget {
               child: Column(
                 children: [
                   SizedBox(height: 23),
-              
+
                   Padding(
                     padding: const EdgeInsets.only(left: 16),
                     child: Align(
@@ -39,7 +39,7 @@ class SignUpView extends StatelessWidget {
                     child: Column(
                       children: [
                         SizedBox(height: 6),
-              
+
                         SvgPicture.asset('assets/images/logo.svg'),
                         const SizedBox(height: 11),
                         CustomEvolvifyText(),
@@ -69,7 +69,7 @@ class SignUpView extends StatelessWidget {
                           image: 'assets/images/phone.svg',
                         ),
                         SizedBox(height: 22),
-                        CustomButton(title: 'Sign up'),
+                        CustomButton(title: 'Sign up', borderRadius: 15),
                         SizedBox(height: 15),
                         LineWithText(),
                         SizedBox(height: 20),
@@ -78,11 +78,15 @@ class SignUpView extends StatelessWidget {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              SocialMediaItem(image: 'assets/images/google.svg'),
+                              SocialMediaItem(
+                                image: 'assets/images/google.svg',
+                              ),
                               SocialMediaItem(
                                 image: 'assets/images/facebook.svg',
                               ),
-                              SocialMediaItem(image: 'assets/images/apple2.svg'),
+                              SocialMediaItem(
+                                image: 'assets/images/apple2.svg',
+                              ),
                             ],
                           ),
                         ),

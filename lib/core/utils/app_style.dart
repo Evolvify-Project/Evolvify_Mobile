@@ -20,4 +20,16 @@ abstract class AppStyle {
     fontSize: 14,
     fontFamily: 'Roboto',
   );
+  static TextStyle styleRegular15 = TextStyle(
+    color: AppColors.kPrimaryColor,
+    fontWeight: FontWeight.w600,
+    fontSize: 14,
+    fontFamily: 'PlusJakartaSans',
+  );
+  static TextStyle styleNexa15 = TextStyle(
+    color: Color(0xff868686),
+    fontSize: 15,
+    fontFamily: 'Nexa',
+    fontWeight: FontWeight.w600,
+  );
 }
