@@ -29,7 +29,19 @@ abstract class AppStyle {
   static TextStyle styleNexa15 = TextStyle(
     color: Color(0xff868686),
     fontSize: 15,
-    fontFamily: 'Nexa',
+    // fontFamily: 'Nexa',
     fontWeight: FontWeight.w600,
+  );
+  static TextStyle styleMedium28 = TextStyle(
+    color: AppColors.kPrimaryColor,
+    fontSize: 28,
+    fontWeight: FontWeight.w500,
+    fontFamily: 'PlusJakartaSans',
+  );
+  static TextStyle styleMedium12 = TextStyle(
+    color: Color(0xffC4C4C4),
+    fontSize: 12,
+    fontWeight: FontWeight.w500,
+    fontFamily: 'PlusJakartaSans',
   );
 }

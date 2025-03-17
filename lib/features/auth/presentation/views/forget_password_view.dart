@@ -25,14 +25,7 @@ class ForgetPasswordView extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    'Forgot Password ?',
-                    style: TextStyle(
-                      color: AppColors.kPrimaryColor,
-                      fontSize: 28,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
+                  Text('Forgot Password ?', style: AppStyle.styleMedium28),
                   const SizedBox(height: 20),
                   SvgPicture.asset('assets/images/forgot_Password .svg'),
                   const SizedBox(height: 20),
