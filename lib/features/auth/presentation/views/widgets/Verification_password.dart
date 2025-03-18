@@ -1,6 +1,7 @@
 import 'package:evolvify/core/utils/app_style.dart';
 import 'package:evolvify/core/utils/constant.dart';
 import 'package:evolvify/core/widgets/custom_button.dart';
+import 'package:evolvify/features/auth/presentation/views/widgets/show_Password_Reset_Dialog.dart';
 import 'package:evolvify/features/auth/presentation/views/widgets/text_field_code.dart';
 import 'package:flutter/material.dart';
 
@@ -67,14 +68,12 @@ class _VerityPasswordState extends State<VerityPassword> {
           title: 'Verify',
           onTap: () {
             fillBox == 4 ? verifyCode : null;
+            showPasswordResetDialog(context);
           },
         ),
       ],
     );
   }
 
-  void verifyCode() {
-   
-
-  }
+  void verifyCode() {}
 }
