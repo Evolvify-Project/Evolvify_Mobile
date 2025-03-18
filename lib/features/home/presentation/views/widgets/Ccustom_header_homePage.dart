@@ -1,0 +1,24 @@
+import 'package:evolvify/core/utils/app_style.dart';
+import 'package:flutter/material.dart';
+import 'package:svg_flutter/svg.dart';
+
+class CustomHeaderHomePage extends StatelessWidget {
+  const CustomHeaderHomePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      title: Text(
+        'Hi, Mohamed!',
+        style: AppStyle.styleBold22.copyWith(fontSize: 26),
+      ),
+      subtitle: Text(
+        'Ready to grow today?',
+        style: AppStyle.styleRegularGrey14,
+      ),
+      trailing: CircleAvatar(
+        child: SvgPicture.asset('assets/images/ProfileAvatar.svg'),
+      ),
+    );
+  }
+}

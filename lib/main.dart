@@ -4,6 +4,7 @@ import 'package:evolvify/features/auth/presentation/views/login_view.dart';
 import 'package:evolvify/features/auth/presentation/views/sign_up_view.dart';
 import 'package:evolvify/features/auth/presentation/views/verify_password_view.dart';
 import 'package:evolvify/features/auth/presentation/views/widgets/Verification_password.dart';
+import 'package:evolvify/features/home/presentation/views/home_view.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -25,7 +26,7 @@ class EvolvifyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.white,
         fontFamily: 'PlusJakartaSans',
       ),
-      home: VerifyPasswordView(),
+      home: HomeView(),
     );
   }
 }

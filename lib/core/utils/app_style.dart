@@ -44,4 +44,17 @@ abstract class AppStyle {
     fontWeight: FontWeight.w500,
     fontFamily: 'PlusJakartaSans',
   );
+  static TextStyle styleBold22 = TextStyle(
+    color: Color(0xff0B121F),
+    fontSize: 22,
+    fontWeight: FontWeight.w700,
+    fontFamily: 'PlusJakartaSans',
+  );
+
+  static TextStyle styleRegularGrey14 = TextStyle(
+    color: Color(0xff70747E),
+    fontSize: 14,
+    fontWeight: FontWeight.w400,
+    fontFamily: 'PlusJakartaSans',
+  );
 }
