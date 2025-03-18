@@ -40,13 +40,17 @@ class _VerityPasswordState extends State<VerityPassword> {
     return Column(
       children: [
         Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.center,
+
           children: List.generate(4, (index) {
-            return TextFieldCode(
-              controllers: controllers[index],
-              onChanged: (value) {
-                onChange(value, index);
-              },
+            return Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12),
+              child: TextFieldCode(
+                controllers: controllers[index],
+                onChanged: (value) {
+                  onChange(value, index);
+                },
+              ),
             );
           }),
         ),

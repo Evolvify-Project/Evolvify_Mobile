@@ -7,6 +7,7 @@ void showPasswordResetDialog(BuildContext context) {
     barrierDismissible: true,
     builder: (BuildContext context) {
       return AlertDialog(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(60)),
         iconPadding: EdgeInsets.only(top: 30, bottom: 20),
         backgroundColor: Colors.white,
         icon: SvgPicture.asset('assets/images/passwordDone.svg'),

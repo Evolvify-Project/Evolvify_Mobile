@@ -14,20 +14,17 @@ class TextFieldCode extends StatelessWidget {
         border: Border.all(color: Color(0xffD9D9D9)),
         borderRadius: BorderRadius.circular(8),
       ),
-      child: Padding(
-        padding: const EdgeInsets.only(left: 20),
-        child: TextFormField(
-          controller: controllers,
-          onChanged: onChanged,
-          textAlign: TextAlign.center,
-          keyboardType: TextInputType.number,
-
-          maxLength: 1,
-
-          decoration: InputDecoration(
-            border: InputBorder.none,
-            counterText: '',
-          ),
+      child: TextFormField(
+        controller: controllers,
+        onChanged: onChanged,
+        textAlign: TextAlign.center,
+        keyboardType: TextInputType.number,
+      
+        maxLength: 1,
+      
+        decoration: InputDecoration(
+          border: InputBorder.none,
+          counterText: '',
         ),
       ),
     );
