@@ -1,4 +1,5 @@
 import 'package:evolvify/features/home/presentation/views/widgets/Ccustom_header_homePage.dart';
+import 'package:evolvify/core/widgets/customSearch.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
@@ -9,7 +10,15 @@ class HomeView extends StatelessWidget {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 28),
-        child: Column(children: [SizedBox(height: 28), CustomHeaderHomePage()]),
+        child: Column(
+          children: [
+            SizedBox(height: 28),
+            CustomHeaderHomePage(),
+            SizedBox(height: 26),
+            CustOmSearch(),
+            
+          ],
+        ),
       ),
     );
   }
