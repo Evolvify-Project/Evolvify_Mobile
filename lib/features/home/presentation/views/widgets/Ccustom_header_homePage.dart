@@ -8,6 +8,7 @@ class CustomHeaderHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      contentPadding: EdgeInsets.all(0),
       title: Text(
         'Hi, Mohamed!',
         style: AppStyle.styleBold22.copyWith(fontSize: 26),
