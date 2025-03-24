@@ -1,3 +1,4 @@
+import 'package:evolvify/core/utils/app_router.dart';
 import 'package:evolvify/core/utils/app_style.dart';
 import 'package:evolvify/core/utils/constant.dart';
 
@@ -5,6 +6,7 @@ import 'package:evolvify/core/widgets/custom_arrow_back.dart';
 import 'package:evolvify/core/widgets/custom_button.dart';
 import 'package:evolvify/features/auth/presentation/views/widgets/contact_card.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:svg_flutter/svg.dart';
 
 class ForgetPasswordView extends StatelessWidget {
@@ -46,7 +48,12 @@ class ForgetPasswordView extends StatelessWidget {
                     image: 'assets/images/mail-fill.svg',
                   ),
                   const SizedBox(height: 20),
-                  CustomButton(title: 'Next'),
+                  CustomButton(
+                    title: 'Next',
+                    onTap: () {
+                      GoRouter.of(context).push(AppRouter.kVerifyPassWordView);
+                    },
+                  ),
                 ],
               ),
             ),

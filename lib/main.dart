@@ -1,10 +1,5 @@
 import 'package:device_preview/device_preview.dart';
-import 'package:evolvify/features/auth/presentation/views/forget_password_view.dart';
-import 'package:evolvify/features/auth/presentation/views/login_view.dart';
-import 'package:evolvify/features/auth/presentation/views/sign_up_view.dart';
-import 'package:evolvify/features/auth/presentation/views/verify_password_view.dart';
-import 'package:evolvify/features/auth/presentation/views/widgets/Verification_password.dart';
-import 'package:evolvify/features/home/presentation/views/home_view.dart';
+import 'package:evolvify/core/utils/app_router.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -18,7 +13,8 @@ class EvolvifyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
+      routerConfig: AppRouter.router,
       debugShowCheckedModeBanner: false,
       locale: DevicePreview.locale(context),
       builder: DevicePreview.appBuilder,
@@ -26,7 +22,6 @@ class EvolvifyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.white,
         fontFamily: 'PlusJakartaSans',
       ),
-      home: HomeView(),
     );
   }
 }

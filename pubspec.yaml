@@ -33,6 +33,7 @@ dependencies:
   device_preview: ^1.2.0
   flutter:
     sdk: flutter
+  go_router: ^14.8.1
   google_nav_bar: ^5.0.7
   svg_flutter: ^0.0.1
 

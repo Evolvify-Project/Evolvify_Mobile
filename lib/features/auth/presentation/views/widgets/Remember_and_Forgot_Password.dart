@@ -1,5 +1,7 @@
+import 'package:evolvify/core/utils/app_router.dart';
 import 'package:evolvify/core/widgets/custom_check_box.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class RememberandForgotPassword extends StatelessWidget {
   const RememberandForgotPassword({super.key});
@@ -26,7 +28,9 @@ class RememberandForgotPassword extends StatelessWidget {
         Spacer(),
 
         GestureDetector(
-          onTap: () {},
+          onTap: () {
+            GoRouter.of(context).push(AppRouter.kForgetPassWordView);
+          },
           child: Text(
             ' Forgot Your Password?',
             style: TextStyle(

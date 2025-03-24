@@ -1,3 +1,4 @@
+import 'package:evolvify/core/utils/app_router.dart';
 import 'package:evolvify/core/utils/app_style.dart';
 import 'package:evolvify/core/utils/constant.dart';
 import 'package:evolvify/core/widgets/arrow_button.dart';
@@ -9,6 +10,7 @@ import 'package:evolvify/core/widgets/custom_text_field.dart';
 import 'package:evolvify/features/auth/presentation/views/widgets/Remember_and_Forgot_Password.dart';
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:svg_flutter/svg.dart';
 
 class LoginView extends StatelessWidget {
@@ -88,7 +90,9 @@ class CustomRow extends StatelessWidget {
         Text('Don’t have an account?', style: AppStyle.styleRegular14),
         SizedBox(width: 12),
         GestureDetector(
-          onTap: () {},
+          onTap: () {
+            GoRouter.of(context).push(AppRouter.kSignUpView);
+          },
           child: Text(
             'Sign Up',
             style: AppStyle.styleMedium20.copyWith(
