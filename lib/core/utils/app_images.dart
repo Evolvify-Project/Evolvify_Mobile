@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_single_quotes
-class AppImage {
-  AppImage._();
-
+class Assets {
+  Assets._();
+  
   /// Assets for imagesApple
   /// assets/images/apple.svg
   static const String imagesApple = "assets/images/apple.svg";
@@ -14,8 +14,13 @@ class AppImage {
   /// assets/images/community.svg
   static const String imagesCommunity = "assets/images/community.svg";
 
-  /// Assets for imagesEllipse 31
-  /// assets/images/Ellipse 31.svg
+  /// Assets for imagesEllipse31
+  /// assets/images/Ellipse31.svg
+  static const String imagesEllipse31 = "assets/images/Ellipse31.svg";
+
+  /// Assets for imagesEllipse32
+  /// assets/images/Ellipse32.svg
+  static const String imagesEllipse32 = "assets/images/Ellipse32.svg";
 
   /// Assets for imagesEmail
   /// assets/images/Email.svg
@@ -25,10 +30,9 @@ class AppImage {
   /// assets/images/facebook.svg
   static const String imagesFacebook = "assets/images/facebook.svg";
 
-  /// Assets for imagesForgotPassword
+  /// Assets for imagesForgotPassword 
   /// assets/images/forgot_Password .svg
-  static const String imagesForgotPassword =
-      "assets/images/forgot_Password .svg";
+  static const String imagesForgotPassword  = "assets/images/forgot_Password .svg";
 
   /// Assets for imagesGoogle
   /// assets/images/google.svg
@@ -46,11 +50,37 @@ class AppImage {
   /// assets/images/logo.svg
   static const String imagesLogo = "assets/images/logo.svg";
 
+  /// Assets for imagesLogo2
+  /// assets/images/logo2.svg
+  static const String imagesLogo2 = "assets/images/logo2.svg";
+
   /// Assets for imagesMailFill
   /// assets/images/mail-fill.svg
   static const String imagesMailFill = "assets/images/mail-fill.svg";
 
-  /// Assets for imagesMessage fill
+  /// Assets for imagesMessageFill
+  /// assets/images/message_fill.svg
+  static const String imagesMessageFill = "assets/images/message_fill.svg";
+
+  /// Assets for imagesOnBoardingFive
+  /// assets/images/onBoardingFive.svg
+  static const String imagesOnBoardingFive = "assets/images/onBoardingFive.svg";
+
+  /// Assets for imagesOnBoardingFour
+  /// assets/images/onBoardingFour.svg
+  static const String imagesOnBoardingFour = "assets/images/onBoardingFour.svg";
+
+  /// Assets for imagesOnBoardingOne
+  /// assets/images/onBoardingOne.svg
+  static const String imagesOnBoardingOne = "assets/images/onBoardingOne.svg";
+
+  /// Assets for imagesOnBoardingThree
+  /// assets/images/onBoardingThree.svg
+  static const String imagesOnBoardingThree = "assets/images/onBoardingThree.svg";
+
+  /// Assets for imagesOnBoardingTwo
+  /// assets/images/onBoardingTwo.svg
+  static const String imagesOnBoardingTwo = "assets/images/onBoardingTwo.svg";
 
   /// Assets for imagesOpenAILogo
   /// assets/images/openAI-logo.svg
@@ -76,7 +106,11 @@ class AppImage {
   /// assets/images/ProfileAvatar.svg
   static const String imagesProfileAvatar = "assets/images/ProfileAvatar.svg";
 
+  /// Assets for imagesRectangle 3463866
+  /// assets/images/Rectangle 3463866.png
+
   /// Assets for imagesSearchNormal
   /// assets/images/search-normal.svg
   static const String imagesSearchNormal = "assets/images/search-normal.svg";
 }
+

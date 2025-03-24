@@ -1,3 +1,4 @@
+import 'package:evolvify/core/utils/app_images.dart';
 import 'package:evolvify/core/utils/app_router.dart';
 import 'package:evolvify/core/widgets/custom_button.dart';
 import 'package:evolvify/core/widgets/custom_evolvify_text.dart';
@@ -18,7 +19,7 @@ class SplashScreenOne extends StatelessWidget {
           child: Column(
             children: [
               Spacer(),
-              SvgPicture.asset('assets/images/logo.svg'),
+              SvgPicture.asset(Assets.imagesLogo),
               const SizedBox(height: 11),
               CustomEvolvifyText(),
               SizedBox(height: 123),

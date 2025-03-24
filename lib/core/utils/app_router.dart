@@ -2,21 +2,26 @@ import 'package:evolvify/features/auth/presentation/views/forget_password_view.d
 import 'package:evolvify/features/auth/presentation/views/login_view.dart';
 import 'package:evolvify/features/auth/presentation/views/sign_up_view.dart';
 import 'package:evolvify/features/auth/presentation/views/verify_password_view.dart';
+import 'package:evolvify/features/home/presentation/views/home_view.dart';
+import 'package:evolvify/features/on_Boarding/on_Boarding_pageview.dart';
+import 'package:evolvify/features/on_Boarding/presentation/views/logo_view.dart';
+import 'package:evolvify/features/on_Boarding/presentation/views/widgets/on_boarding_view.dart';
 import 'package:evolvify/features/splash%20screen/splash_screen_one.dart';
 import 'package:go_router/go_router.dart';
 
 abstract class AppRouter {
-  static const kHomeView = '/homeview';
   static const kloginView = '/loginView';
+  static const kHomeView = '/homeview';
+  static const kSplashScreenOne = '/SplashScreenOne';
   static const kSignUpView = '/SignUpView';
   static const kForgetPassWordView = '/ForgetPassWordView';
   static const kVerifyPassWordView = '/VerifyPassWordView';
-
-
+  static const kOnBordingView = '/OnBordingView';
+  static const khomeView = '/homeView';
   static const kSearchView = '/searchview';
   static final router = GoRouter(
     routes: [
-      GoRoute(path: '/', builder: (context, state) => SplashScreenOne()),
+      GoRoute(path: '/', builder: (context, state) => LogoView()),
       GoRoute(path: kloginView, builder: (context, state) => LoginView()),
       GoRoute(path: kSignUpView, builder: (context, state) => SignUpView()),
       GoRoute(
@@ -27,7 +32,15 @@ abstract class AppRouter {
         path: kVerifyPassWordView,
         builder: (context, state) => VerifyPasswordView(),
       ),
-        
+      GoRoute(
+        path: kSplashScreenOne,
+        builder: (context, state) => SplashScreenOne(),
+      ),
+      GoRoute(
+        path: kOnBordingView,
+        builder: (context, state) => OnBoardingPageview(),
+      ),
+      GoRoute(path: khomeView, builder: (context, state) => HomeView()),
     ],
   );
 }
