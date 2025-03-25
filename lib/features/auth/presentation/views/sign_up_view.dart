@@ -1,5 +1,6 @@
 import 'package:evolvify/core/utils/app_style.dart';
-import 'package:evolvify/core/widgets/arrow_button.dart' show ArrowBackButton;
+
+import 'package:evolvify/core/widgets/custom_arrow_back.dart';
 import 'package:evolvify/core/widgets/custom_button.dart';
 import 'package:evolvify/core/widgets/custom_evolvify_text.dart';
 
@@ -23,17 +24,7 @@ class SignUpView extends StatelessWidget {
                 children: [
                   SizedBox(height: 23),
 
-                  Padding(
-                    padding: const EdgeInsets.only(left: 16),
-                    child: Align(
-                      alignment: AlignmentDirectional.topStart,
-                      child: ArrowBackButton(
-                        onTap: () {
-                          Navigator.pop(context);
-                        },
-                      ),
-                    ),
-                  ),
+               CustomArrowBack(),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 64),
                     child: Column(
@@ -97,17 +88,17 @@ class SignUpView extends StatelessWidget {
               ),
             ),
 
-            Positioned(
-              right: 0,
-              top: 40,
-              child: SvgPicture.asset('assets/images/Ellipse 32.svg'),
-            ),
-            Positioned(
-              left: 0,
-              // bottom: 10,
-              bottom: 0,
-              child: SvgPicture.asset('assets/images/Ellipse 31 (1).svg'),
-            ),
+            // Positioned(
+            //   right: 0,
+            //   top: 40,
+            //   child: SvgPicture.asset('assets/images/Ellipse 32.svg'),
+            // ),
+            // Positioned(
+            //   left: 0,
+            //   // bottom: 10,
+            //   bottom: 0,
+            //   child: SvgPicture.asset('assets/images/Ellipse 31 (1).svg'),
+            // ),
           ],
         ),
       ),

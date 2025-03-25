@@ -2,17 +2,17 @@ import 'package:evolvify/core/utils/constant.dart';
 import 'package:flutter/material.dart';
 
 class CustomButtonBorder extends StatelessWidget {
-  const CustomButtonBorder({super.key, required this.title,this.onTap});
+  const CustomButtonBorder({super.key, required this.title, this.onTap});
   final String title;
   final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap:onTap ,
+      onTap: onTap,
       child: Container(
         decoration: BoxDecoration(
           border: Border.all(color: AppColors.kPrimaryColor),
-          borderRadius: BorderRadius.circular(25),
+          borderRadius: BorderRadius.circular(15),
         ),
         child: Center(
           child: Padding(

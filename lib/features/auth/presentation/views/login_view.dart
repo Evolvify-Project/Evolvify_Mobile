@@ -19,10 +19,10 @@ class LoginView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Expanded(
-        child: Stack(
-          children: [
-            Column(
+      body: Stack(
+        children: [
+          SingleChildScrollView(
+            child: Column(
               children: [
                 CustomArrowBack(),
                 Padding(
@@ -60,20 +60,20 @@ class LoginView extends StatelessWidget {
                 ),
               ],
             ),
+          ),
 
-            Positioned(
-              right: 0,
-              top: 40,
-              child: SvgPicture.asset('assets/images/Ellipse 31.svg'),
-            ),
-            Positioned(
-              left: 0,
-              // bottom: 10,
-              bottom: 0,
-              child: SvgPicture.asset('assets/images/Ellipse 31 (1).svg'),
-            ),
-          ],
-        ),
+          // Positioned(
+          //   right: 0,
+          //   top: 40,
+          //   child: SvgPicture.asset('assets/images/Ellipse 31.svg'),
+          // ),
+          // Positioned(
+          //   left: 0,
+          //   // bottom: 10,
+          //   bottom: 0,
+          //   child: SvgPicture.asset('assets/images/Ellipse 31 (1).svg'),
+          // ),
+        ],
       ),
     );
   }

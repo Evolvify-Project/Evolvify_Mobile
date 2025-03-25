@@ -16,28 +16,30 @@ class SplashScreenOne extends StatelessWidget {
       body: Expanded(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 40),
-          child: Column(
-            children: [
-              Spacer(),
-              SvgPicture.asset(Assets.imagesLogo),
-              const SizedBox(height: 11),
-              CustomEvolvifyText(),
-              SizedBox(height: 123),
-              CustomButton(
-                title: ' Sign in',
-                onTap: () {
-                  GoRouter.of(context).push(AppRouter.kloginView);
-                },
-              ),
-              SizedBox(height: 44),
-              CustomButtonBorder(
-                title: 'Sign up',
-                onTap: () {
-                  GoRouter.of(context).push(AppRouter.kSignUpView);
-                },
-              ),
-              Spacer(),
-            ],
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                SizedBox(height: 240),
+                SvgPicture.asset(Assets.imagesLogo),
+                const SizedBox(height: 11),
+                CustomEvolvifyText(),
+                SizedBox(height: 123),
+                CustomButton(
+                  title: ' Sign in',
+                  onTap: () {
+                    GoRouter.of(context).push(AppRouter.kloginView);
+                  },
+                ),
+                SizedBox(height: 16),
+                CustomButtonBorder(
+                  title: 'Sign up',
+                  onTap: () {
+                    GoRouter.of(context).push(AppRouter.kSignUpView);
+                  },
+                ),
+                Spacer(),
+              ],
+            ),
           ),
         ),
       ),
