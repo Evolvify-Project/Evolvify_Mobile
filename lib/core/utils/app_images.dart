@@ -10,6 +10,10 @@ class Assets {
   /// assets/images/apple2.svg
   static const String imagesApple2 = "assets/images/apple2.svg";
 
+  /// Assets for imagesComment
+  /// assets/images/comment.svg
+  static const String imagesComment = "assets/images/comment.svg";
+
   /// Assets for imagesCommunity
   /// assets/images/community.svg
   static const String imagesCommunity = "assets/images/community.svg";
@@ -41,6 +45,10 @@ class Assets {
   /// Assets for imagesHome
   /// assets/images/home.svg
   static const String imagesHome = "assets/images/home.svg";
+
+  /// Assets for imagesLike
+  /// assets/images/like.svg
+  static const String imagesLike = "assets/images/like.svg";
 
   /// Assets for imagesLock
   /// assets/images/lock.svg
@@ -98,6 +106,10 @@ class Assets {
   /// assets/images/phone.svg
   static const String imagesPhone = "assets/images/phone.svg";
 
+  /// Assets for imagesPlus
+  /// assets/images/plus.svg
+  static const String imagesPlus = "assets/images/plus.svg";
+
   /// Assets for imagesProfile
   /// assets/images/profile.svg
   static const String imagesProfile = "assets/images/profile.svg";
@@ -107,10 +119,18 @@ class Assets {
   static const String imagesProfileAvatar = "assets/images/ProfileAvatar.svg";
 
   /// Assets for imagesRectangle 3463866
-  /// assets/images/Rectangle 3463866.png
+
 
   /// Assets for imagesSearchNormal
   /// assets/images/search-normal.svg
   static const String imagesSearchNormal = "assets/images/search-normal.svg";
+
+  /// Assets for imagesShare
+  /// assets/images/share.svg
+  static const String imagesShare = "assets/images/share.svg";
+
+  /// Assets for imagesUser
+  /// assets/images/user.svg
+  static const String imagesUser = "assets/images/user.svg";
 }
 

@@ -2,6 +2,7 @@ import 'package:evolvify/features/auth/presentation/views/forget_password_view.d
 import 'package:evolvify/features/auth/presentation/views/login_view.dart';
 import 'package:evolvify/features/auth/presentation/views/sign_up_view.dart';
 import 'package:evolvify/features/auth/presentation/views/verify_password_view.dart';
+import 'package:evolvify/features/community/presentation/views/community_page.dart';
 import 'package:evolvify/features/home/presentation/views/home_view.dart';
 import 'package:evolvify/features/on_Boarding/on_Boarding_pageview.dart';
 import 'package:evolvify/features/on_Boarding/presentation/views/logo_view.dart';
@@ -21,7 +22,7 @@ abstract class AppRouter {
   static const kSearchView = '/searchview';
   static final router = GoRouter(
     routes: [
-      GoRoute(path: '/', builder: (context, state) => HomeView()),
+      GoRoute(path: '/', builder: (context, state) => CommunityPage()),
       GoRoute(path: kloginView, builder: (context, state) => LoginView()),
       GoRoute(path: kSignUpView, builder: (context, state) => SignUpView()),
       GoRoute(
