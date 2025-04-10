@@ -1,6 +1,8 @@
 import 'package:evolvify/core/utils/app_images.dart';
+import 'package:evolvify/core/utils/app_router.dart';
 import 'package:evolvify/core/utils/app_style.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:svg_flutter/svg.dart';
 
 class CommunityHeader extends StatelessWidget {
@@ -13,7 +15,12 @@ class CommunityHeader extends StatelessWidget {
       children: [
         Text('Community', style: AppStyle.styleSemiBold24),
 
-        SvgPicture.asset(Assets.imagesPlus),
+        GestureDetector(
+          onTap: () {
+            GoRouter.of(context).push(AppRouter.kCreatePost);
+          },
+          child: SvgPicture.asset(Assets.imagesPlus),
+        ),
       ],
     );
   }

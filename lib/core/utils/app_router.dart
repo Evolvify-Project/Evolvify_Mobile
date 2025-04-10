@@ -1,8 +1,10 @@
+import 'package:evolvify/core/widgets/bottom_nav_bar.dart';
 import 'package:evolvify/features/auth/presentation/views/forget_password_view.dart';
 import 'package:evolvify/features/auth/presentation/views/login_view.dart';
 import 'package:evolvify/features/auth/presentation/views/sign_up_view.dart';
 import 'package:evolvify/features/auth/presentation/views/verify_password_view.dart';
 import 'package:evolvify/features/community/presentation/views/community_page.dart';
+import 'package:evolvify/features/community/presentation/views/create_post.dart';
 import 'package:evolvify/features/home/presentation/views/home_view.dart';
 import 'package:evolvify/features/on_Boarding/on_Boarding_pageview.dart';
 import 'package:evolvify/features/on_Boarding/presentation/views/logo_view.dart';
@@ -20,6 +22,7 @@ abstract class AppRouter {
   static const kOnBordingView = '/OnBordingView';
   static const khomeView = '/homeView';
   static const kSearchView = '/searchview';
+  static const kCreatePost = '/createPost';
   static final router = GoRouter(
     routes: [
       GoRoute(path: '/', builder: (context, state) => CommunityPage()),
@@ -42,6 +45,7 @@ abstract class AppRouter {
         builder: (context, state) => OnBoardingPageview(),
       ),
       GoRoute(path: khomeView, builder: (context, state) => HomeView()),
+      GoRoute(path: kCreatePost, builder: (context, state) => CreatePost()),
     ],
   );
 }

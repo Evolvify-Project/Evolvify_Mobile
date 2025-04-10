@@ -30,7 +30,9 @@ environment:
 dependencies:
   cupertino_icons: ^1.0.8
   curved_navigation_bar: ^1.0.6
+  dartz: ^0.10.1
   device_preview: ^1.2.0
+  dio: ^5.8.0+1
   flutter:
     sdk: flutter
   go_router: ^14.8.1

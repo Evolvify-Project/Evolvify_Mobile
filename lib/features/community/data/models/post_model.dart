@@ -1,10 +1,22 @@
-class PostModel {
-  final String content, react, comment, reply;
 
-  PostModel({
-    required this.content,
-    required this.react,
-    required this.comment,
-    required this.reply,
-  });
+
+class PostModel {
+  final String content;
+
+  PostModel({required this.content});
+  
+factory PostModel.fromJson(Map<String, dynamic> json)=>PostModel(content: json['content'] );
+
+
 }
+
+
+
+
+
+
+
+
+
+
+  
