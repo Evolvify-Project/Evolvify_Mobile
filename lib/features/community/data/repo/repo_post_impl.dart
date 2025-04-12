@@ -1,11 +1,13 @@
+import 'dart:math';
+
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:evolvify/core/errors/failures.dart';
 import 'package:evolvify/core/utils/api_services.dart';
 import 'package:evolvify/features/community/data/models/post_model.dart';
-import 'package:evolvify/features/community/data/repo/repo_create_post.dart';
+import 'package:evolvify/features/community/data/repo/repo_post.dart';
 
-class RepoCreatePostImpl implements RepoCreatePost {
+class RepoPostImpl implements RepoPost {
   @override
   Future<Either<Failure, PostModel>> createPost({required content}) async {
     try {
@@ -14,6 +16,25 @@ class RepoCreatePostImpl implements RepoCreatePost {
         data: {'content': content},
       );
       return right(PostModel.fromJson(data));
+    } on Exception catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioException(e));
+      }
+
+      return left(ServerFailure(e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<PostModel>>> fetchAllPosts() async {
+    try {
+      var data = await ApiServices().get(endPoint: 'Community/Post');
+      List<PostModel> postsList = [];
+      for (var item in data['data']) {
+        postsList.add(PostModel.fromJson(item));
+      }
+   
+      return right(postsList);
     } on Exception catch (e) {
       if (e is DioException) {
         return left(ServerFailure.fromDioException(e));

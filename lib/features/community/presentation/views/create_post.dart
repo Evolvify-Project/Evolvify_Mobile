@@ -1,5 +1,5 @@
 import 'package:evolvify/core/utils/app_style.dart';
-import 'package:evolvify/features/community/presentation/manager/cubit/create_post_cubit.dart';
+import 'package:evolvify/features/community/presentation/manager/createPost_cubit/create_post_cubit.dart';
 
 import 'package:evolvify/features/community/presentation/views/widgets/custom_botton_Post.dart';
 import 'package:evolvify/features/community/presentation/views/widgets/custom_text_field.dart';

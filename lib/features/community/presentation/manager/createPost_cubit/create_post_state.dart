@@ -5,14 +5,7 @@ sealed class CreatePostState {}
 
 final class CreatePostInitial extends CreatePostState {}
 
-final class CreatePostloading extends CreatePostState {
-   final List<PostModel> posts;
-
-  CreatePostloading({required this.posts});
-
-
-
-}
+final class CreatePostloading extends CreatePostState {}
 
 final class CreatePostsuccess extends CreatePostState {}
 
