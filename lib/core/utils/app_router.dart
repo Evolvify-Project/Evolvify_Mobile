@@ -3,6 +3,7 @@ import 'package:evolvify/features/auth/presentation/views/forget_password_view.d
 import 'package:evolvify/features/auth/presentation/views/login_view.dart';
 import 'package:evolvify/features/auth/presentation/views/sign_up_view.dart';
 import 'package:evolvify/features/auth/presentation/views/verify_password_view.dart';
+import 'package:evolvify/features/community/presentation/manager/cubit/create_post_cubit.dart';
 import 'package:evolvify/features/community/presentation/views/community_page.dart';
 import 'package:evolvify/features/community/presentation/views/create_post.dart';
 import 'package:evolvify/features/home/presentation/views/home_view.dart';
@@ -10,6 +11,7 @@ import 'package:evolvify/features/on_Boarding/on_Boarding_pageview.dart';
 import 'package:evolvify/features/on_Boarding/presentation/views/logo_view.dart';
 import 'package:evolvify/features/on_Boarding/presentation/views/widgets/on_boarding_view.dart';
 import 'package:evolvify/features/splash%20screen/splash_screen_one.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 abstract class AppRouter {
@@ -25,7 +27,14 @@ abstract class AppRouter {
   static const kCreatePost = '/createPost';
   static final router = GoRouter(
     routes: [
-      GoRoute(path: '/', builder: (context, state) => CommunityPage()),
+      GoRoute(
+        path: '/',
+        builder:
+            (context, state) => BlocProvider(
+              create: (context) => CreatePostCubit(),
+              child: CommunityPage(),
+            ),
+      ),
       GoRoute(path: kloginView, builder: (context, state) => LoginView()),
       GoRoute(path: kSignUpView, builder: (context, state) => SignUpView()),
       GoRoute(
@@ -45,7 +54,14 @@ abstract class AppRouter {
         builder: (context, state) => OnBoardingPageview(),
       ),
       GoRoute(path: khomeView, builder: (context, state) => HomeView()),
-      GoRoute(path: kCreatePost, builder: (context, state) => CreatePost()),
+      GoRoute(
+        path: kCreatePost,
+        builder:
+            (context, state) => BlocProvider(
+              create: (context) => CreatePostCubit(),
+              child: CreatePostPage(),
+            ),
+      ),
     ],
   );
 }

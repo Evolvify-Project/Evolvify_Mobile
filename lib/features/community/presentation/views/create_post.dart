@@ -1,11 +1,14 @@
 import 'package:evolvify/core/utils/app_style.dart';
+import 'package:evolvify/features/community/presentation/manager/cubit/create_post_cubit.dart';
 
 import 'package:evolvify/features/community/presentation/views/widgets/custom_botton_Post.dart';
 import 'package:evolvify/features/community/presentation/views/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class CreatePost extends StatelessWidget {
-  const CreatePost({super.key});
+class CreatePostPage extends StatelessWidget {
+  CreatePostPage({super.key});
+  final TextEditingController postController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -30,15 +33,26 @@ class CreatePost extends StatelessWidget {
             ),
             SizedBox(height: 12),
             CustomTextFormField(
-              onChanged: (value){
-                
-              },
+              controller: postController,
+
               mixLine: 12,
               hint: 'What do you think right now?',
-
             ),
             SizedBox(height: 18),
-            CustomBottonPost(),
+            CustomBottonPost(
+              onTap: () {
+                final content = postController.text.trim();
+                if (content.isNotEmpty) {
+                  BlocProvider.of<CreatePostCubit>(context).createpost(content);
+                  postController.clear();
+                  Navigator.pop(context);
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text('Post content cannot be empty.')),
+                  );
+                }
+              },
+            ),
           ],
         ),
       ),

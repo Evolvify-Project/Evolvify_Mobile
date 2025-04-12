@@ -7,11 +7,12 @@ import 'package:evolvify/features/community/data/repo/repo_create_post.dart';
 
 class RepoCreatePostImpl implements RepoCreatePost {
   @override
-  Future<Either<Failure, PostModel>> createPost({
-    required String content,
-  }) async {
+  Future<Either<Failure, PostModel>> createPost({required content}) async {
     try {
-      var data = await ApiServices().post(endPoint: 'Community/Post');
+      var data = await ApiServices().post(
+        endPoint: 'Community/Post',
+        data: {'content': content},
+      );
       return right(PostModel.fromJson(data));
     } on Exception catch (e) {
       if (e is DioException) {

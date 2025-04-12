@@ -8,15 +8,17 @@ class CustomTextFormField extends StatelessWidget {
     required this.hint,
     this.mixLine = 1,
     this.onSaved,
-    this.onChanged,
+    this.onChanged,this.controller
   });
   final String hint;
   final int mixLine;
   final void Function(String?)? onSaved;
   final void Function(String)? onChanged;
+  final TextEditingController? controller;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller:controller ,
       onChanged: onChanged,
       onSaved: onSaved,
       validator: (value) {
