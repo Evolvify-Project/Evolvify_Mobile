@@ -6,7 +6,7 @@ class ApiServices {
 
   Future<Map<String, dynamic>> post({
     required String endPoint,
-    required data,
+    data,
   }) async {
     var response = await _dio.post('$_baseUrl$endPoint');
     return response.data;
