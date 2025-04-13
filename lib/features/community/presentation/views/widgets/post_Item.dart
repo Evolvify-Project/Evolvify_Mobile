@@ -44,7 +44,12 @@ class PostItem extends StatelessWidget {
             ),
             child: Row(
               children: [
-                SvgPicture.asset(Assets.imagesLike),
+                GestureDetector(
+                  
+                  onTap: () {
+                    
+                  },
+                  child: SvgPicture.asset(Assets.imagesLike)),
                 SizedBox(width: 3),
                 Text(
                   '12',

@@ -5,6 +5,10 @@ class PostModel {
   final String content;
   final String createdAt;
   final String userId;
+ 
+  final int likesCount;
+  final List<Comment> comments;
+
 
   PostModel({required this.id, required this.content, required this.createdAt, required this.userId});
 
