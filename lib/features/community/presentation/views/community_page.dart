@@ -1,6 +1,5 @@
 import 'package:evolvify/features/community/presentation/views/widgets/community_header.dart';
 import 'package:evolvify/features/community/presentation/views/widgets/custom_search_community.dart';
-
 import 'package:evolvify/features/community/presentation/views/widgets/posts_List.dart';
 import 'package:flutter/material.dart';
 

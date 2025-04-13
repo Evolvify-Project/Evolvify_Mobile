@@ -1,14 +1,13 @@
-
 import 'package:evolvify/core/utils/app_images.dart';
 import 'package:evolvify/features/community/data/models/UserInfo_model.dart';
+import 'package:evolvify/features/community/data/models/post_model.dart';
 import 'package:evolvify/features/community/presentation/views/widgets/User_Info_ListTile.dart';
 import 'package:flutter/material.dart';
 import 'package:svg_flutter/svg.dart';
 
 class PostItem extends StatelessWidget {
-  const PostItem({
-    super.key,
-  });
+  const PostItem({super.key, required this.postModel});
+  final PostModel postModel;
 
   @override
   Widget build(BuildContext context) {
@@ -18,22 +17,21 @@ class PostItem extends StatelessWidget {
         border: Border.all(color: Color(0xffA8A8A8)),
       ),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           UserInfoListTile(
             userinfoModel: UserinfoModel(
               title: 'Nour Zain',
-              subtitle: '30 minutses ago',
+              subtitle: postModel.createdAt,
               image: Assets.imagesUser,
             ),
           ),
           Padding(
             padding: const EdgeInsets.only(left: 17, right: 35),
             child: Text(
-              'What are the best methods you’ve used to improve your [time management/communication skills?',
-              style: TextStyle(
-                fontSize: 12,
-                fontWeight: FontWeight.w600,
-              ),
+              textAlign: TextAlign.start,
+              postModel.content,
+              style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
             ),
           ),
           Divider(height: 30, color: Color(0xffC4C4C4)),

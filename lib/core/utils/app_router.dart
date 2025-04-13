@@ -33,8 +33,17 @@ abstract class AppRouter {
         builder:
             (context, state) => MultiBlocProvider(
               providers: [
-                BlocProvider(create: (context) => FetchPostsCubit()),
-                BlocProvider(create: (context) => CreatePostCubit()),
+                BlocProvider(
+                  create: (context) => FetchPostsCubit()..fetchAllposts(),
+                ),
+                BlocProvider(
+                  create:
+                      (context) => CreatePostCubit(() {
+                        BlocProvider.of<FetchPostsCubit>(
+                          context,
+                        ).fetchAllposts();
+                      }),
+                ),
               ],
               child: CommunityPage(),
             ),
@@ -63,8 +72,17 @@ abstract class AppRouter {
         builder:
             (context, state) => MultiBlocProvider(
               providers: [
-                BlocProvider(create: (context) => FetchPostsCubit()),
-                BlocProvider(create: (context) => CreatePostCubit()),
+                BlocProvider(
+                  create: (context) => FetchPostsCubit()..fetchAllposts(),
+                ),
+                BlocProvider(
+                  create:
+                      (context) => CreatePostCubit(() {
+                        BlocProvider.of<FetchPostsCubit>(
+                          context,
+                        ).fetchAllposts();
+                      }),
+                ),
               ],
               child: CreatePostPage(),
             ),
