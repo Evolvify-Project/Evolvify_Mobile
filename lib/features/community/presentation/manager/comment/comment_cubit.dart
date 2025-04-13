@@ -9,7 +9,7 @@ class CommentCubit extends Cubit<CommentState> {
   CommentCubit() : super(CommentInitial());
   emit(CommentLoading);
   
-  Future<void> like(postId,content) async {
+  Future<void> comment(postId,content) async {
     var result = await RepoPostImpl().commentOnPost(postId, content);
     result.fold(
       (failure) {
