@@ -1,6 +1,6 @@
-class Like {
+class LikeModel {
   final String message;
-  Like({required this.message});
-  factory Like.fromJson(Map<String, dynamic> json) =>
-      Like(message: json['message']);
+  LikeModel({required this.message});
+  factory LikeModel.fromJson(Map<String, dynamic> json) =>
+      LikeModel(message: json['message']);
 }
