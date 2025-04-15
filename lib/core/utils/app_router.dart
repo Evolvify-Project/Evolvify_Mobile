@@ -30,10 +30,8 @@ abstract class AppRouter {
       GoRoute(
         path: '/',
         builder:
-            (context, state) => MultiBlocProvider(
-              providers: CreatePostProviders.providers(context),
-              child: CommunityPage(),
-            ),
+            (context, state) =>
+                CreatePostProviders.buildWithProviders(CommunityPage()),
       ),
       GoRoute(path: kloginView, builder: (context, state) => LoginView()),
       GoRoute(path: kSignUpView, builder: (context, state) => SignUpView()),
@@ -57,10 +55,8 @@ abstract class AppRouter {
       GoRoute(
         path: kCreatePost,
         builder:
-            (context, state) => MultiBlocProvider(
-              providers: CreatePostProviders.providers(context),
-              child: CreatePostPage(),
-            ),
+            (context, state) =>
+                CreatePostProviders.buildWithProviders(CreatePostPage()),
       ),
     ],
   );

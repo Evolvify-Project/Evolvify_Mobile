@@ -1,8 +1,10 @@
 import 'package:evolvify/core/utils/app_images.dart';
 import 'package:evolvify/features/community/data/models/UserInfo_model.dart';
 import 'package:evolvify/features/community/data/models/post_model.dart';
+import 'package:evolvify/features/community/presentation/manager/like/like_cubit.dart';
 import 'package:evolvify/features/community/presentation/views/widgets/User_Info_ListTile.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:svg_flutter/svg.dart';
 
 class PostItem extends StatelessWidget {
@@ -44,15 +46,31 @@ class PostItem extends StatelessWidget {
             ),
             child: Row(
               children: [
-                GestureDetector(
-                  
-                  onTap: () {
-                    
+                BlocBuilder<LikeCubit, LikeState>(
+                  builder: (context, state) {
+                    bool isLiked = state is LikeSuccess;
+                    if (state is LikeLoading) {
+                      return Center(child: CircularProgressIndicator());
+                    } else if (state is LikeFailure) {
+                      return Text(state.error);
+                    }
+
+                    return GestureDetector(
+                      onTap: () {
+                        BlocProvider.of<LikeCubit>(
+                          context,
+                        ).like(postModel.userId);
+                      },
+                      child: SvgPicture.asset(
+                        Assets.imagesLike,
+                        color: isLiked ? Colors.red : Colors.grey,
+                      ),
+                    );
                   },
-                  child: SvgPicture.asset(Assets.imagesLike)),
+                ),
                 SizedBox(width: 3),
                 Text(
-                  '12',
+                  postModel.likesCount.toString(),
                   style: TextStyle(
                     fontSize: 8,
                     color: Color(0xffA8A8A8),

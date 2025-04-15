@@ -8,8 +8,9 @@ import 'package:meta/meta.dart';
 part 'create_post_state.dart';
 
 class CreatePostCubit extends Cubit<CreatePostState> {
-  CreatePostCubit(this.onPostCreated) : super(CreatePostInitial());
-  final Function onPostCreated;
+  CreatePostCubit(this.fetchCubit) : super(CreatePostInitial());
+
+  final FetchPostsCubit fetchCubit;
   Future<void> createpost(content) async {
     emit(CreatePostloading());
 
@@ -20,7 +21,9 @@ class CreatePostCubit extends Cubit<CreatePostState> {
         emit(CreatePostfailure(errMassage: failure.errMessge));
       },
       (result) async {
-        onPostCreated();
+        void onPostCreate() {
+          fetchCubit.fetchAllposts();
+        }
 
         emit(CreatePostsuccess());
       },
