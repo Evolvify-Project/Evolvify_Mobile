@@ -3,6 +3,7 @@ import 'package:evolvify/features/auth/presentation/views/forget_password_view.d
 import 'package:evolvify/features/auth/presentation/views/login_view.dart';
 import 'package:evolvify/features/auth/presentation/views/sign_up_view.dart';
 import 'package:evolvify/features/auth/presentation/views/verify_password_view.dart';
+import 'package:evolvify/features/chatbot%20_ai/presentation/views/chatbot_page.dart';
 import 'package:evolvify/features/community/presentation/views/community_page.dart';
 import 'package:evolvify/features/community/presentation/views/create_post.dart';
 import 'package:evolvify/features/community/presentation/views/widgets/create_post_providers.dart';
@@ -25,10 +26,13 @@ abstract class AppRouter {
   static const khomeView = '/homeView';
   static const kSearchView = '/searchview';
   static const kCreatePost = '/createPost';
+  static const kCommunityPage = '/CommunityPage';
+  static const kChatbotPag = '/ChatbotPag';
   static final router = GoRouter(
     routes: [
+      GoRoute(path: '/', builder: (context, state) => ChatbotPage()),
       GoRoute(
-        path: '/',
+        path: kCommunityPage,
         builder:
             (context, state) =>
                 CreatePostProviders.buildWithProviders(CommunityPage()),

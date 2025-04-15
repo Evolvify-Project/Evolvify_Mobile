@@ -18,7 +18,6 @@ class CommunityPage extends StatelessWidget {
               CommunityHeader(),
               SizedBox(height: 26),
               CustomSearchCommunity(),
-
               PostsList(),
             ],
           ),
