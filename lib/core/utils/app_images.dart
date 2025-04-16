@@ -14,6 +14,14 @@ class Assets {
   /// assets/images/bigChat.svg
   static const String imagesBigChat = "assets/images/bigChat.svg";
 
+  /// Assets for imagesChatSend
+  /// assets/images/chatSend.svg
+  static const String imagesChatSend = "assets/images/chatSend.svg";
+
+  /// Assets for imagesChatbotImage
+  /// assets/images/chatbotImage.svg
+  static const String imagesChatbotImage = "assets/images/chatbotImage.svg";
+
   /// Assets for imagesComment
   /// assets/images/comment.svg
   static const String imagesComment = "assets/images/comment.svg";
@@ -41,6 +49,10 @@ class Assets {
   /// Assets for imagesGoogle
   /// assets/images/google.svg
   static const String imagesGoogle = "assets/images/google.svg";
+
+  /// Assets for imagesImg
+  /// assets/images/img.svg
+  static const String imagesImg = "assets/images/img.svg";
 
   /// Assets for imagesLike
   /// assets/images/like.svg
