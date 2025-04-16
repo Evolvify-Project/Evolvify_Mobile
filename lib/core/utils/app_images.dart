@@ -10,13 +10,13 @@ class Assets {
   /// assets/images/apple2.svg
   static const String imagesApple2 = "assets/images/apple2.svg";
 
+  /// Assets for imagesBigChat
+  /// assets/images/bigChat.svg
+  static const String imagesBigChat = "assets/images/bigChat.svg";
+
   /// Assets for imagesComment
   /// assets/images/comment.svg
   static const String imagesComment = "assets/images/comment.svg";
-
-  /// Assets for imagesCommunity
-  /// assets/images/community.svg
-  static const String imagesCommunity = "assets/images/community.svg";
 
   /// Assets for imagesEllipse31
   /// assets/images/Ellipse31.svg
@@ -42,10 +42,6 @@ class Assets {
   /// assets/images/google.svg
   static const String imagesGoogle = "assets/images/google.svg";
 
-  /// Assets for imagesHome
-  /// assets/images/home.svg
-  static const String imagesHome = "assets/images/home.svg";
-
   /// Assets for imagesLike
   /// assets/images/like.svg
   static const String imagesLike = "assets/images/like.svg";
@@ -70,6 +66,10 @@ class Assets {
   /// assets/images/message_fill.svg
   static const String imagesMessageFill = "assets/images/message_fill.svg";
 
+  /// Assets for imagesMicrophone
+  /// assets/images/Microphone.svg
+  static const String imagesMicrophone = "assets/images/Microphone.svg";
+
   /// Assets for imagesOnBoardingFive
   /// assets/images/onBoardingFive.svg
   static const String imagesOnBoardingFive = "assets/images/onBoardingFive.svg";
@@ -90,10 +90,6 @@ class Assets {
   /// assets/images/onBoardingTwo.svg
   static const String imagesOnBoardingTwo = "assets/images/onBoardingTwo.svg";
 
-  /// Assets for imagesOpenAILogo
-  /// assets/images/openAI-logo.svg
-  static const String imagesOpenAILogo = "assets/images/openAI-logo.svg";
-
   /// Assets for imagesPasswordDone
   /// assets/images/passwordDone.svg
   static const String imagesPasswordDone = "assets/images/passwordDone.svg";
@@ -110,24 +106,29 @@ class Assets {
   /// assets/images/plus.svg
   static const String imagesPlus = "assets/images/plus.svg";
 
-  /// Assets for imagesProfile
-  /// assets/images/profile.svg
-  static const String imagesProfile = "assets/images/profile.svg";
-
   /// Assets for imagesProfileAvatar
   /// assets/images/ProfileAvatar.svg
   static const String imagesProfileAvatar = "assets/images/ProfileAvatar.svg";
-
-  /// Assets for imagesRectangle 3463866
-
 
   /// Assets for imagesSearchNormal
   /// assets/images/search-normal.svg
   static const String imagesSearchNormal = "assets/images/search-normal.svg";
 
+  /// Assets for imagesSend
+  /// assets/images/Send.svg
+  static const String imagesSend = "assets/images/Send.svg";
+
+  /// Assets for imagesSendMessage
+  /// assets/images/sendMessage.svg
+  static const String imagesSendMessage = "assets/images/sendMessage.svg";
+
   /// Assets for imagesShare
   /// assets/images/share.svg
   static const String imagesShare = "assets/images/share.svg";
+
+  /// Assets for imagesSmallchat
+  /// assets/images/smallchat.svg
+  static const String imagesSmallchat = "assets/images/smallchat.svg";
 
   /// Assets for imagesUser
   /// assets/images/user.svg
