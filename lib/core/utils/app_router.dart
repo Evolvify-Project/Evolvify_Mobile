@@ -30,7 +30,12 @@ abstract class AppRouter {
   static const kChatbotPag = '/ChatbotPag';
   static final router = GoRouter(
     routes: [
-      GoRoute(path: '/', builder: (context, state) => ChatbotPage()),
+      GoRoute(path: kChatbotPag, builder: (context, state) => ChatbotPage()),
+      GoRoute(
+        path: '/',
+        builder: (context, state) => CustomBottomNavigationBar(),
+      ),
+
       GoRoute(
         path: kCommunityPage,
         builder:

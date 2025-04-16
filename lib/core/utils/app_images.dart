@@ -14,6 +14,10 @@ class Assets {
   /// assets/images/bigChat.svg
   static const String imagesBigChat = "assets/images/bigChat.svg";
 
+  /// Assets for imagesCamera
+  /// assets/images/camera.svg
+  static const String imagesCamera = "assets/images/camera.svg";
+
   /// Assets for imagesChatSend
   /// assets/images/chatSend.svg
   static const String imagesChatSend = "assets/images/chatSend.svg";
@@ -25,6 +29,10 @@ class Assets {
   /// Assets for imagesComment
   /// assets/images/comment.svg
   static const String imagesComment = "assets/images/comment.svg";
+
+  /// Assets for imagesCommunity
+  /// assets/images/community.svg
+  static const String imagesCommunity = "assets/images/community.svg";
 
   /// Assets for imagesEllipse31
   /// assets/images/Ellipse31.svg
@@ -49,6 +57,10 @@ class Assets {
   /// Assets for imagesGoogle
   /// assets/images/google.svg
   static const String imagesGoogle = "assets/images/google.svg";
+
+  /// Assets for imagesHome
+  /// assets/images/home.svg
+  static const String imagesHome = "assets/images/home.svg";
 
   /// Assets for imagesImg
   /// assets/images/img.svg
@@ -102,6 +114,10 @@ class Assets {
   /// assets/images/onBoardingTwo.svg
   static const String imagesOnBoardingTwo = "assets/images/onBoardingTwo.svg";
 
+  /// Assets for imagesOpenAILogo
+  /// assets/images/openAI-logo.svg
+  static const String imagesOpenAILogo = "assets/images/openAI-logo.svg";
+
   /// Assets for imagesPasswordDone
   /// assets/images/passwordDone.svg
   static const String imagesPasswordDone = "assets/images/passwordDone.svg";
@@ -117,6 +133,10 @@ class Assets {
   /// Assets for imagesPlus
   /// assets/images/plus.svg
   static const String imagesPlus = "assets/images/plus.svg";
+
+  /// Assets for imagesProfile
+  /// assets/images/profile.svg
+  static const String imagesProfile = "assets/images/profile.svg";
 
   /// Assets for imagesProfileAvatar
   /// assets/images/ProfileAvatar.svg

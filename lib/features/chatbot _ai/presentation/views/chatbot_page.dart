@@ -18,7 +18,9 @@ class ChatbotPage extends StatelessWidget {
           ChatBubbleForUser(),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [ChatAiBubble(), SvgPicture.asset(Assets.imagesChatSend)],
+            children: [ChatAiBubble(),
+             SvgPicture.asset(Assets.imagesChatSend)
+             ],
           ),
           SendMessageRow(),
         ],
