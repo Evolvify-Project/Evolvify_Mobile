@@ -5,7 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class CustomRow extends StatelessWidget {
-  const CustomRow({super.key, required this.text1, required this.text2, this.onTap});
+  const CustomRow({
+    super.key,
+    required this.text1,
+    required this.text2,
+    this.onTap,
+  });
   final String text1, text2;
   final void Function()? onTap;
   @override

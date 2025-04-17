@@ -14,8 +14,3 @@ final class CreatePostfailure extends CreatePostState {
 
   CreatePostfailure({required this.errMassage});
 }
-
-
-
-
-

@@ -11,7 +11,6 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 28),
         child: Column(
@@ -34,17 +33,6 @@ class HomeView extends StatelessWidget {
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
 
 // import 'package:evolvify/core/utils/app_images.dart';
 

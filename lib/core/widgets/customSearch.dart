@@ -49,57 +49,31 @@ class _CustOmSearchState extends State<CustOmSearch> {
   }
 }
 
+// Container(
+//   height: (37 / 932) * ScreenUtils.screenHeight(context),
+//   width: (398 / 414) * ScreenUtils.screenWidth(context),
+//   decoration: BoxDecoration(
+//     border: Border.all(
+//       color: kGrey,
+//     ),
+//     borderRadius: BorderRadius.circular(10),
+//     color: Colors.white,
+//   ),
+//   child: Row(
+//     children: [
+//       Padding(
+//         padding: EdgeInsets.only(
+//             left: (16 / 414) * ScreenUtils.screenWidth(context)),
+//         child:IconButton(onPressed: (){}, icon: Icon(Icons.search,color: kGrey,size: 21,))
+//       ),
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // Container(
-    //   height: (37 / 932) * ScreenUtils.screenHeight(context),
-    //   width: (398 / 414) * ScreenUtils.screenWidth(context),
-    //   decoration: BoxDecoration(
-    //     border: Border.all(
-    //       color: kGrey,
-    //     ),
-    //     borderRadius: BorderRadius.circular(10),
-    //     color: Colors.white,
-    //   ),
-    //   child: Row(
-    //     children: [
-    //       Padding(
-    //         padding: EdgeInsets.only(
-    //             left: (16 / 414) * ScreenUtils.screenWidth(context)),
-    //         child:IconButton(onPressed: (){}, icon: Icon(Icons.search,color: kGrey,size: 21,))
-    //       ),
-         
-    //       Text(
-    //         'Search',
-    //         style: TextStyle(
-    //           color: kGrey,
-    //           fontSize:   (16 / 932) * ScreenUtils.screenHeight(context),
-    //         ),
-    //       ),
-    //     ],
-    //   ),
-    // );
- 
-
+//       Text(
+//         'Search',
+//         style: TextStyle(
+//           color: kGrey,
+//           fontSize:   (16 / 932) * ScreenUtils.screenHeight(context),
+//         ),
+//       ),
+//     ],
+//   ),
+// );

@@ -19,13 +19,16 @@ class SkipAndNextButton extends StatelessWidget {
           ),
         ),
         GestureDetector(
-          onTap:onTapNext ,
+          onTap: onTapNext,
           child: Container(
             height: 48,
             width: 52,
             decoration: ShapeDecoration(
               shape: OvalBorder(
-                side: const BorderSide(width: 1, color: AppColors.kPrimaryColor),
+                side: const BorderSide(
+                  width: 1,
+                  color: AppColors.kPrimaryColor,
+                ),
               ),
               color: AppColors.kPrimaryColor,
             ),

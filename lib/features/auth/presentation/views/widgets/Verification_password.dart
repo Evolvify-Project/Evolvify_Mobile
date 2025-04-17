@@ -54,26 +54,33 @@ class _VerityPasswordState extends State<VerityPassword> {
             );
           }),
         ),
-        SizedBox(height: 39),
-        Text('Didn’t Receive the Code ?', style: AppStyle.styleMedium12),
-        Text(
-          'Resend Code',
-          style: AppStyle.styleMedium28.copyWith(fontSize: 12),
-        ),
+        SizedBox(height: 52),
+
         SizedBox(height: 25),
         LinearProgressIndicator(
           value: fillBox / 4,
           backgroundColor: Color(0xffCBCBCB),
           color: AppColors.kPrimaryColor,
         ),
-        SizedBox(height: 12),
-
+        SizedBox(height: 21),
         CustomButton(
+          borderRadius: 25,
           title: 'Verify',
           onTap: () {
             fillBox == 4 ? verifyCode : null;
             showPasswordResetDialog(context);
           },
+        ),
+        SizedBox(height: 21),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('Didn’t Receive the Code ?', style: AppStyle.styleMedium14),
+            Text(
+              '   Resend Code',
+              style: AppStyle.styleMedium28.copyWith(fontSize: 12),
+            ),
+          ],
         ),
       ],
     );

@@ -8,8 +8,8 @@ class TextFieldCode extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 50,
-      height: 50,
+      width: 63,
+      height: 63,
       decoration: BoxDecoration(
         border: Border.all(color: Color(0xffD9D9D9)),
         borderRadius: BorderRadius.circular(8),
@@ -19,13 +19,10 @@ class TextFieldCode extends StatelessWidget {
         onChanged: onChanged,
         textAlign: TextAlign.center,
         keyboardType: TextInputType.number,
-      
+
         maxLength: 1,
-      
-        decoration: InputDecoration(
-          border: InputBorder.none,
-          counterText: '',
-        ),
+
+        decoration: InputDecoration(border: InputBorder.none, counterText: ''),
       ),
     );
   }

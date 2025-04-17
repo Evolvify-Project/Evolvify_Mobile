@@ -35,7 +35,7 @@ abstract class AppStyle {
   static TextStyle styleMedium28 = TextStyle(
     color: AppColors.kPrimaryColor,
     fontSize: 28,
-    fontWeight: FontWeight.w500,
+    fontWeight: FontWeight.bold,
     fontFamily: 'PlusJakartaSans',
   );
   static TextStyle styleSemiBold24 = TextStyle(
@@ -44,9 +44,9 @@ abstract class AppStyle {
     fontWeight: FontWeight.w600,
     fontFamily: 'PlusJakartaSans',
   );
-  static TextStyle styleMedium12 = TextStyle(
-    color: Color(0xffC4C4C4),
-    fontSize: 12,
+  static TextStyle styleMedium14 = TextStyle(
+    color: Color(0xff7A7A7A),
+    fontSize: 14,
     fontWeight: FontWeight.w500,
     fontFamily: 'PlusJakartaSans',
   );

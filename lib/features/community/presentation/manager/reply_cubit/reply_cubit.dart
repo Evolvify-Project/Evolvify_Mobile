@@ -9,8 +9,12 @@ class ReplyCubit extends Cubit<ReplyState> {
   ReplyCubit() : super(ReplyInitial());
   emit(ReplyLoading);
 
-  Future<void> reply(postId, content,commentId) async {
-    var result = await RepoPostImpl().replyToComment(commentId, postId, content);
+  Future<void> reply(postId, content, commentId) async {
+    var result = await RepoPostImpl().replyToComment(
+      commentId,
+      postId,
+      content,
+    );
     result.fold(
       (failure) {
         emit(ReplyFailure(failure.errMessge));

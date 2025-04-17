@@ -7,8 +7,9 @@ class CustomArrowBack extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 13),
+      padding: const EdgeInsets.only(left: 14),
       child: Align(
+        alignment: Alignment.topLeft,
         child: ArrowBackButton(
           onTap: () {
             Navigator.pop(context);
