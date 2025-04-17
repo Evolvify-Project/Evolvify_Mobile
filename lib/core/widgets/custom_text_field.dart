@@ -45,7 +45,7 @@ class CustomTextFormField extends StatelessWidget {
               decoration: InputDecoration(
                 hintText: hintText,
                 hintStyle: TextStyle(
-                  fontSize: 12,
+                  fontSize: 14,
                   color: Color(0xffA1A1A1),
                   fontWeight: FontWeight.w500,
                 ),

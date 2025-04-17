@@ -28,11 +28,13 @@ abstract class AppRouter {
   static const kCreatePost = '/createPost';
   static const kCommunityPage = '/CommunityPage';
   static const kChatbotPag = '/ChatbotPag';
+  static const kCustomBottomNavigationBar = '/CustomBottomNavigationBar';
+
   static final router = GoRouter(
     routes: [
       GoRoute(path: kChatbotPag, builder: (context, state) => ChatbotPage()),
       GoRoute(
-        path: '/',
+        path: kCustomBottomNavigationBar,
         builder: (context, state) => CustomBottomNavigationBar(),
       ),
 
@@ -42,7 +44,7 @@ abstract class AppRouter {
             (context, state) =>
                 CreatePostProviders.buildWithProviders(CommunityPage()),
       ),
-      GoRoute(path: kloginView, builder: (context, state) => LoginView()),
+      GoRoute(path: '/', builder: (context, state) => LoginView()),
       GoRoute(path: kSignUpView, builder: (context, state) => SignUpView()),
       GoRoute(
         path: kForgetPassWordView,

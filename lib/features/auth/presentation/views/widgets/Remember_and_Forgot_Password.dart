@@ -18,7 +18,7 @@ class RememberandForgotPassword extends StatelessWidget {
               'Remember me',
               style: TextStyle(
                 color: Color(0xffA1A1A1),
-                fontSize: 10,
+                fontSize: 14,
                 fontWeight: FontWeight.w400,
                 fontFamily: 'Robto',
               ),
@@ -35,7 +35,7 @@ class RememberandForgotPassword extends StatelessWidget {
             ' Forgot Your Password?',
             style: TextStyle(
               color: Color(0xffA1A1A1),
-              fontSize: 10,
+              fontSize: 14,
               fontWeight: FontWeight.w400,
               fontFamily: 'Robto',
             ),
