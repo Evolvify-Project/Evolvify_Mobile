@@ -1,4 +1,5 @@
 import 'package:evolvify/core/widgets/bottom_nav_bar.dart';
+import 'package:evolvify/features/auth/presentation/manager/login_cubit/cubit/login_cubit.dart';
 import 'package:evolvify/features/auth/presentation/views/forget_password_view.dart';
 import 'package:evolvify/features/auth/presentation/views/login_view.dart';
 import 'package:evolvify/features/auth/presentation/views/sign_up_view.dart';
@@ -44,7 +45,14 @@ abstract class AppRouter {
             (context, state) =>
                 CreatePostProviders.buildWithProviders(CommunityPage()),
       ),
-      GoRoute(path: '/', builder: (context, state) => LoginView()),
+      GoRoute(
+        path: '/',
+        builder:
+            (context, state) => BlocProvider(
+              create: (context) => LoginCubit(),
+              child: LoginView(),
+            ),
+      ),
       GoRoute(path: kSignUpView, builder: (context, state) => SignUpView()),
       GoRoute(
         path: kForgetPassWordView,

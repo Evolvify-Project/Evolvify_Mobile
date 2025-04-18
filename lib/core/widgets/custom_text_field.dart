@@ -11,10 +11,13 @@ class CustomTextFormField extends StatelessWidget {
     this.obscureText = false,
     this.suffixIcon,
     this.image,
+    this.controller,
   });
   String? hintText, image;
+
   Widget? suffixIcon;
   bool? obscureText;
+  TextEditingController? controller;
   Function(String)? onChanged;
   String? Function(String?)? validate;
   @override
@@ -40,7 +43,10 @@ class CustomTextFormField extends StatelessWidget {
             child: SvgPicture.asset(image!),
           ),
           Expanded(
-            child: TextField(
+            child: TextFormField(
+              validator: validate
+              ,
+              controller: controller,
               obscureText: obscureText!,
               decoration: InputDecoration(
                 hintText: hintText,

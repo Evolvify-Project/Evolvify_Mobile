@@ -1,12 +1,9 @@
 import 'package:evolvify/core/utils/app_images.dart';
-import 'package:evolvify/core/utils/app_style.dart';
-
+import 'package:evolvify/core/utils/app_style.dart'; 
 import 'package:evolvify/core/widgets/custom_arrow_back.dart';
-
 import 'package:evolvify/features/auth/presentation/views/widgets/Verification_password.dart';
 import 'package:flutter/material.dart';
 import 'package:svg_flutter/svg.dart';
-
 class VerifyPasswordView extends StatelessWidget {
   const VerifyPasswordView({super.key});
 
