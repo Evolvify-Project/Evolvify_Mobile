@@ -1,3 +1,4 @@
+import 'package:evolvify/core/utils/api_services.dart';
 import 'package:evolvify/core/utils/app_images.dart';
 import 'package:evolvify/core/utils/app_router.dart';
 import 'package:evolvify/core/utils/app_style.dart';
@@ -5,6 +6,8 @@ import 'package:evolvify/core/widgets/custom_arrow_back.dart';
 import 'package:evolvify/core/widgets/custom_button.dart';
 import 'package:evolvify/core/widgets/custom_text_field.dart';
 import 'package:evolvify/core/widgets/showSnackBar.dart';
+import 'package:evolvify/features/auth/data/model/auth_model.dart';
+import 'package:evolvify/features/auth/data/repo/auth_repo_impl.dart';
 import 'package:evolvify/features/auth/presentation/manager/login_cubit/cubit/login_cubit.dart';
 import 'package:evolvify/features/auth/presentation/views/widgets/CustomMedia.dart';
 import 'package:evolvify/features/auth/presentation/views/widgets/Remember_and_Forgot_Password.dart';
@@ -116,10 +119,15 @@ class LoginView extends StatelessWidget {
                               CustomRow(
                                 text1: 'Don’t have an account?',
                                 text2: 'Sign Up',
-                                onTap: () {
-                                  GoRouter.of(
-                                    context,
-                                  ).push(AppRouter.kSignUpView);
+                                onTap: () async {
+                                  // GoRouter.of(
+                                  //   context,
+                                  // ).push(AppRouter.kSignUpView);
+                                  var data = await ApiServices().post(
+                                    endPoint: 'Accounts/login',
+                                    data: {'email': '', 'passWord': ''},
+                                  );
+                                  print(AuthModel.fromJson(data).toString());
                                 },
                               ),
                             ],

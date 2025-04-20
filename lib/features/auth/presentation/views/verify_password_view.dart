@@ -37,6 +37,7 @@ class VerifyPasswordView extends StatelessWidget {
 
                 SizedBox(height: 52),
                 VerityPassword(),
+               
               ],
             ),
           ),

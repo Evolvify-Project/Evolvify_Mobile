@@ -8,8 +8,8 @@ class TextFieldCode extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 63,
-      height: 63,
+      width: 55,
+      height: 55,
       decoration: BoxDecoration(
         border: Border.all(color: Color(0xffD9D9D9)),
         borderRadius: BorderRadius.circular(8),

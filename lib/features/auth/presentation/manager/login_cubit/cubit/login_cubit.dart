@@ -23,6 +23,7 @@ class LoginCubit extends Cubit<LoginState> {
       },
       (token) {
         preferences.setString('token', token.token ?? '');
+        preferences.setString('email', emailController.text);
         emit(Loginsuccess());
       },
     );

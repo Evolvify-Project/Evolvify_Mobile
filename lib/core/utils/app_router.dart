@@ -1,5 +1,8 @@
 import 'package:evolvify/core/widgets/bottom_nav_bar.dart';
+import 'package:evolvify/features/auth/presentation/manager/Verify_cubit/cubit/verify_pass_cubit.dart';
+import 'package:evolvify/features/auth/presentation/manager/forget_cubit/cubit/forget_pass_cubit.dart';
 import 'package:evolvify/features/auth/presentation/manager/login_cubit/cubit/login_cubit.dart';
+import 'package:evolvify/features/auth/presentation/manager/register_cubit/cubit/register_cubit.dart';
 import 'package:evolvify/features/auth/presentation/views/forget_password_view.dart';
 import 'package:evolvify/features/auth/presentation/views/login_view.dart';
 import 'package:evolvify/features/auth/presentation/views/sign_up_view.dart';
@@ -53,14 +56,29 @@ abstract class AppRouter {
               child: LoginView(),
             ),
       ),
-      GoRoute(path: kSignUpView, builder: (context, state) => SignUpView()),
+      GoRoute(
+        path: kSignUpView,
+        builder:
+            (context, state) => BlocProvider(
+              create: (context) => RegisterCubit(),
+              child: SignUpView(),
+            ),
+      ),
       GoRoute(
         path: kForgetPassWordView,
-        builder: (context, state) => ForgetPasswordView(),
+        builder:
+            (context, state) => BlocProvider(
+              create: (context) => ForgetPassCubit(),
+              child: ForgetPasswordView(),
+            ),
       ),
       GoRoute(
         path: kVerifyPassWordView,
-        builder: (context, state) => VerifyPasswordView(),
+        builder:
+            (context, state) => BlocProvider(
+              create: (context) => VerifyPassCubit(),
+              child: VerifyPasswordView(),
+            ),
       ),
       GoRoute(
         path: kSplashScreenOne,

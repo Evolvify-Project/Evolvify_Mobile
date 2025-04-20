@@ -18,4 +18,5 @@ abstract class RepoPost {
     String content,
     String postId,
   );
+  
 }
