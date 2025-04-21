@@ -15,7 +15,7 @@ class AuthRepoImpl implements AuthRepo {
         endPoint: 'Accounts/login',
         data: {'email': email, 'passWord': passWord},
       );
-      print(AuthModel.fromJson(data).toString());
+      print('📩 MESSAGE: ${data['message']}');
       return right(AuthModel.fromJson(data));
     } on Exception catch (e) {
       if (e is DioException) {
@@ -31,13 +31,24 @@ class AuthRepoImpl implements AuthRepo {
     email,
     passWord,
     userName,
+    confirmPassword,
   }) async {
     try {
       var data = await ApiServices().post(
         endPoint: 'Accounts/register',
-        data: {'email': email, 'passWord': passWord, 'userName': userName},
+        data: {
+          'email': email,
+          'passWord': passWord,
+          'userName': userName,
+          'confirmPassword': confirmPassword,
+        },
       );
-      return right(AuthModel.fromJson(data));
+      print('📩 MESSAGE: ${data['message']}');
+      if (data['data'] == null) {
+        return left(ServerFailure(data['message'] ?? 'Something went wrong'));
+      }
+
+      return right(AuthModel.fromJson(data['data']));
     } on Exception catch (e) {
       if (e is DioException) {
         return left(ServerFailure.fromDioException(e));
@@ -54,6 +65,7 @@ class AuthRepoImpl implements AuthRepo {
         endPoint: 'Accounts/ForgetPassword',
         data: {'Email': email},
       );
+      print('📩 MESSAGE: ${data['message']}');
       return Right(data['message'] ?? 'Check your inbox');
     } on Exception catch (e) {
       if (e is DioException) {
@@ -71,6 +83,8 @@ class AuthRepoImpl implements AuthRepo {
         endPoint: 'Accounts/ResetPassword',
         data: {'code': code, 'email': email},
       );
+      print('📩 MESSAGE: ${data['message']}');
+
       return Right(AuthModel.fromJson(data));
     } on Exception catch (e) {
       if (e is DioException) {

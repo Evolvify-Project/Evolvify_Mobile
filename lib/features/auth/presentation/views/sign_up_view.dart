@@ -20,10 +20,36 @@ import 'package:svg_flutter/svg.dart';
 
 class SignUpView extends StatelessWidget {
   const SignUpView({super.key});
+  String? validatePassword(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Password is required';
+    }
+    if (value.length < 8 ||
+        !RegExp(r'[A-Z]').hasMatch(value) ||
+        !RegExp(r'[a-z]').hasMatch(value) ||
+        !RegExp(r'[@#]').hasMatch(value)) {
+      return 'Use at least one capital letter, one small letter, and one symbol ( @ or #)';
+    }
+    return null;
+  }
 
   @override
   Widget build(BuildContext context) {
     var c = context.read<RegisterCubit>();
+
+    String? validateConfirmPassword(String? value) {
+      if (value == null || value.isEmpty) {
+        return 'Confirm Password is required';
+      }
+      if (value != c.passwordController.text ||
+          !RegExp(r'[A-Z]').hasMatch(value) ||
+          !RegExp(r'[a-z]').hasMatch(value) ||
+          !RegExp(r'[@#]').hasMatch(value)) {
+        return 'Use at least one capital letter, one small letter, and one symbol ( @ or #)';
+      }
+      return null;
+    }
+
     return BlocConsumer<RegisterCubit, RegisterState>(
       listener: (context, state) {
         if (state is Registerloading) {
@@ -47,7 +73,7 @@ class SignUpView extends StatelessWidget {
                   ),
                 ),
               ),
-              Positioned(top: 48, left: 0, child: CustomArrowBack()),
+              const Positioned(top: 48, left: 0, child: CustomArrowBack()),
 
               Positioned(
                 child: SingleChildScrollView(
@@ -60,7 +86,7 @@ class SignUpView extends StatelessWidget {
                           'Create your account',
                           style: AppStyle.styleBold52.copyWith(fontSize: 24),
                         ),
-                        SizedBox(height: 29),
+                        SizedBox(height: 39),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 28),
                           child: Column(
@@ -79,39 +105,56 @@ class SignUpView extends StatelessWidget {
                                 controller: c.userNameController,
                                 hintText: 'Username',
                                 image: 'assets/images/person.svg',
+                                validate: (value) {
+                                  if (value!.contains(' ')) {
+                                    return 'can only contain letters or digits no space';
+                                  }
+                                  return null;
+                                },
+                              ),
+                              const SizedBox(height: 19),
+                              CustomTextFormField(
+                                controller: c.emailController,
+                                hintText: 'Email',
+                                image: 'assets/images/Email.svg',
+                                validate: (value) {
+                                  if (!value!.contains("@gmail.com")) {
+                                    return 'email should contain @gmail.com  ';
+                                  }
+                                  return null;
+                                },
                               ),
                               SizedBox(height: 19),
                               CustomTextFormField(
                                 controller: c.passwordController,
                                 hintText: 'Password',
                                 image: 'assets/images/lock.svg',
+                                validate: validatePassword,
                               ),
                               SizedBox(height: 19),
                               CustomTextFormField(
-                                controller: c.emailController,
-                                hintText: 'Email',
-                                image: 'assets/images/Email.svg',
+                                controller: c.confirmPasswordController,
+                                hintText: 'Confirm Password',
+                                image: 'assets/images/lock.svg',
+                                validate: validateConfirmPassword,
                               ),
-                              SizedBox(height: 19),
 
-                              // CustomTextFormField(
-                              //   hintText: 'phone',
-                              //   image: 'assets/images/phone.svg',
-                              // ),
+                              SizedBox(height: 35),
 
-                              // SizedBox(height: 35),
-                              CustomButton(
-                                title: 'Sign up',
-                                borderRadius: 15,
-                                onTap: () {
-                                  c.vaildateRegister();
-                                },
-                              ),
-                              SizedBox(height: 20),
-                              LineWithText(),
-                              SizedBox(height: 25),
-                              CustomMedia(),
-                              SizedBox(height: 25),
+                              state is Registerloading
+                                  ? const CircularProgressIndicator()
+                                  : CustomButton(
+                                    title: 'Sign up',
+                                    borderRadius: 15,
+                                    onTap: () {
+                                      c.vaildateRegister();
+                                    },
+                                  ),
+                              const SizedBox(height: 20),
+                              const LineWithText(),
+                              const SizedBox(height: 25),
+                              const CustomMedia(),
+                              const SizedBox(height: 25),
                               CustomRow(
                                 text1: 'Already have an account?',
                                 text2: 'Sign In',

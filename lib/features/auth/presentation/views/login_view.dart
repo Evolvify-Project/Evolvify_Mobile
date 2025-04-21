@@ -1,4 +1,3 @@
-import 'package:evolvify/core/utils/api_services.dart';
 import 'package:evolvify/core/utils/app_images.dart';
 import 'package:evolvify/core/utils/app_router.dart';
 import 'package:evolvify/core/utils/app_style.dart';
@@ -6,8 +5,6 @@ import 'package:evolvify/core/widgets/custom_arrow_back.dart';
 import 'package:evolvify/core/widgets/custom_button.dart';
 import 'package:evolvify/core/widgets/custom_text_field.dart';
 import 'package:evolvify/core/widgets/showSnackBar.dart';
-import 'package:evolvify/features/auth/data/model/auth_model.dart';
-import 'package:evolvify/features/auth/data/repo/auth_repo_impl.dart';
 import 'package:evolvify/features/auth/presentation/manager/login_cubit/cubit/login_cubit.dart';
 import 'package:evolvify/features/auth/presentation/views/widgets/CustomMedia.dart';
 import 'package:evolvify/features/auth/presentation/views/widgets/Remember_and_Forgot_Password.dart';
@@ -48,7 +45,7 @@ class LoginView extends StatelessWidget {
                   ),
                 ),
               ),
-              Positioned(top: 48, left: 0, child: CustomArrowBack()),
+              const Positioned(top: 48, left: 0, child: CustomArrowBack()),
 
               Positioned(
                 child: SingleChildScrollView(
@@ -66,7 +63,7 @@ class LoginView extends StatelessWidget {
                           key: c.formKey,
                           child: Column(
                             children: [
-                              SizedBox(height: 6),
+                              const SizedBox(height: 6),
 
                               SvgPicture.asset(Assets.imagesSmallEvolvify),
                               const SizedBox(height: 11),
@@ -76,20 +73,20 @@ class LoginView extends StatelessWidget {
                                   fontSize: 24,
                                 ),
                               ),
-                              SizedBox(height: 41),
+                              const SizedBox(height: 41),
 
                               CustomTextFormField(
                                 controller: c.emailController,
                                 hintText: 'Email',
                                 image: 'assets/images/Email.svg',
                                 validate: (value) {
-                                  if (value!.isEmpty) {
+                                  if (!value!.contains('@')) {
                                     return 'Email should contains @';
                                   }
                                   return null;
                                 },
                               ),
-                              SizedBox(height: 19),
+                              const SizedBox(height: 19),
                               CustomTextFormField(
                                 validate: (value) {
                                   if (value!.length < 8) {
@@ -101,16 +98,18 @@ class LoginView extends StatelessWidget {
                                 hintText: 'Password',
                                 image: 'assets/images/lock.svg',
                               ),
-                              SizedBox(height: 25),
-                              RememberandForgotPassword(),
+                              const SizedBox(height: 25),
+                              const RememberandForgotPassword(),
                               SizedBox(height: 39),
-                              CustomButton(
-                                title: 'Sign in',
-                                borderRadius: 15,
-                                onTap: () {
-                                  c.validateUser();
-                                },
-                              ),
+                              state is Loginloading
+                                  ? const CircularProgressIndicator()
+                                  : CustomButton(
+                                    title: 'Sign in',
+                                    borderRadius: 15,
+                                    onTap: () {
+                                      c.validateUser();
+                                    },
+                                  ),
                               SizedBox(height: 20),
                               LineWithText(),
                               SizedBox(height: 25),
@@ -120,14 +119,9 @@ class LoginView extends StatelessWidget {
                                 text1: 'Don’t have an account?',
                                 text2: 'Sign Up',
                                 onTap: () async {
-                                  // GoRouter.of(
-                                  //   context,
-                                  // ).push(AppRouter.kSignUpView);
-                                  var data = await ApiServices().post(
-                                    endPoint: 'Accounts/login',
-                                    data: {'email': '', 'passWord': ''},
-                                  );
-                                  print(AuthModel.fromJson(data).toString());
+                                  GoRouter.of(
+                                    context,
+                                  ).push(AppRouter.kSignUpView);
                                 },
                               ),
                             ],

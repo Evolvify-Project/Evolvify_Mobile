@@ -11,6 +11,7 @@ class RegisterCubit extends Cubit<RegisterState> {
   TextEditingController emailController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  TextEditingController confirmPasswordController = TextEditingController();
 
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   bool isLoading = false;
@@ -22,20 +23,23 @@ class RegisterCubit extends Cubit<RegisterState> {
     emit(Registerloading());
 
     var registerResult = await AuthRepoImpl().register(
-      userName: userNameController,
-      email: emailController,
-      // phone: phoneController,
-      passWord: passwordController,
+      userName: userNameController.text,
+      email: emailController.text,
+      confirmPassword: confirmPasswordController.text,
+      passWord: passwordController.text,
     );
 
     registerResult.fold(
       (failure) {
-        isLoading = false;
+        print(' ${failure.errMessge}');
         emit(Registerfailure(errMassage: failure.errMessge));
       },
       (token) {
         isLoading = false;
-        preferences.setString('token', token.token ?? '');
+        if (token.token != null) {
+          preferences.setString('token', token.token!);
+        }
+
         emit(Registersuccess());
       },
     );
@@ -47,3 +51,5 @@ class RegisterCubit extends Cubit<RegisterState> {
     }
   }
 }
+// teest12@example.com
+// PassWord@123

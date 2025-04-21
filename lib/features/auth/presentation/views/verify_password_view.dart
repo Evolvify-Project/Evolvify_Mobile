@@ -26,7 +26,7 @@ class VerifyPasswordView extends StatelessWidget {
                     fontWeight: FontWeight.w600,
                   ),
                 ),
-                SizedBox(height: 24),
+                const SizedBox(height: 24),
 
                 SvgPicture.asset(Assets.imagesSmallEvolvify),
                 const SizedBox(height: 11),

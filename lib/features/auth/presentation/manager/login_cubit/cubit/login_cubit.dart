@@ -14,8 +14,8 @@ class LoginCubit extends Cubit<LoginState> {
     SharedPreferences preferences = await SharedPreferences.getInstance();
 
     var result = await AuthRepoImpl().login(
-      email: emailController,
-      passWord: passwordController,
+      email: emailController.text,
+      passWord: passwordController.text,
     );
     result.fold(
       (failure) {

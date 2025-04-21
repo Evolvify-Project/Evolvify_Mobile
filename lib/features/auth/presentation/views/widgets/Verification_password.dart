@@ -62,6 +62,7 @@ class _VerityPasswordState extends State<VerityPassword> {
       listener: (context, state) {
         if (state is VerifyPassSucess) {
           showSnackBar(context, text: state.message);
+          print(state.message);
           showPasswordResetDialog(context);
         } else if (state is VerifyPassFailure) {
           showSnackBar(context, text: state.errMessage);

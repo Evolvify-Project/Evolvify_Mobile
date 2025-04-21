@@ -18,7 +18,7 @@ class AuthModel {
     email: json['email'] as String?,
     password: json['password'] as String?,
     confirmPassword: json['confirmPassword'] as String?,
-    token: json['token'] as String,
+    token: json['token'] as String?,
   );
 
   Map<String, dynamic> toJson() => {
