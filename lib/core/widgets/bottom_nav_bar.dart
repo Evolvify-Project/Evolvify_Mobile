@@ -21,23 +21,22 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
     return Scaffold(
       body: _pages[_currentIndex],
 
-      floatingActionButton: Container(
-        margin: EdgeInsets.only(bottom: 30),
-        padding: EdgeInsets.all(20), // padding حوالين الزر
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          color: Colors.white, // الخلفية حوالين الزر
-        ),
-        child: FloatingActionButton(
-          shape: CircleBorder(),
-          backgroundColor: Color(0xff98D1FF),
-          onPressed: () {},
-          child: SvgPicture.asset(Assets.imagesCamera),
-        ),
-      ),
+      // floatingActionButton: Container(
+      //   margin: EdgeInsets.only(bottom: 30),
+      //   padding: EdgeInsets.all(20), // padding حوالين الزر
+      //   decoration: BoxDecoration(
+      //     shape: BoxShape.circle,
+      //     color: Colors.white, // الخلفية حوالين الزر
+      //   ),
+      //   child: FloatingActionButton(
+      //     shape: CircleBorder(),
+      //     backgroundColor: Color(0xff98D1FF),
+      //     onPressed: () {},
+      //     child: SvgPicture.asset(Assets.imagesCamera),
+      //   ),
+      // ),
 
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-
+      // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: Container(
         height: 80,
         decoration: BoxDecoration(
@@ -51,7 +50,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
             children: [
               _buildBottomNavItem(Assets.imagesHome, 'Home', 0),
               _buildBottomNavItem(Assets.imagesChatbotImage, 'Chatbot', 1),
-              SizedBox(width: 50),
+              _buildBottomNavItem(Assets.imagesCamera, 'camera', 2),
               _buildBottomNavItem(Assets.imagesCommunity, 'Community', 3),
               _buildBottomNavItem(Assets.imagesProfile, 'Profile', 4),
             ],

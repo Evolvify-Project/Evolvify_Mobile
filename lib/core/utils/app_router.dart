@@ -38,7 +38,7 @@ abstract class AppRouter {
     routes: [
       GoRoute(path: kChatbotPag, builder: (context, state) => ChatbotPage()),
       GoRoute(
-        path: kCustomBottomNavigationBar,
+        path: '/',
         builder: (context, state) => CustomBottomNavigationBar(),
       ),
 
@@ -49,7 +49,7 @@ abstract class AppRouter {
                 CreatePostProviders.buildWithProviders(CommunityPage()),
       ),
       GoRoute(
-        path: '/',
+        path: kloginView,
         builder:
             (context, state) => BlocProvider(
               create: (context) => LoginCubit(),

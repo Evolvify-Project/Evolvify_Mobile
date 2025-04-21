@@ -61,6 +61,8 @@ class _VerityPasswordState extends State<VerityPassword> {
     return BlocConsumer<VerifyPassCubit, VerifyPassState>(
       listener: (context, state) {
         if (state is VerifyPassSucess) {
+            print('✅ OTP Confirm Message: ${state.message}');
+  // print('✅ Maybe OTP Code: ${state.otpCode}');
           showSnackBar(context, text: state.message);
           print(state.message);
           showPasswordResetDialog(context);

@@ -166,6 +166,14 @@ class Assets {
   /// assets/images/share.svg
   static const String imagesShare = "assets/images/share.svg";
 
+  /// Assets for imagesSkill
+  /// assets/images/skill.png
+  static const String imagesSkill = "assets/images/skill.png";
+
+  /// Assets for imagesSkill2
+  /// assets/images/skill2.png
+  static const String imagesSkill2 = "assets/images/skill2.png";
+
   /// Assets for imagesSmallEvolvify
   /// assets/images/smallEvolvify.svg
   static const String imagesSmallEvolvify = "assets/images/smallEvolvify.svg";
