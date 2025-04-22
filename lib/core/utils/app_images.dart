@@ -189,5 +189,13 @@ class Assets {
   /// Assets for imagesVector
   /// assets/images/Vector.svg
   static const String imagesVector = "assets/images/Vector.svg";
+
+  /// Assets for imagesXp
+  /// assets/images/xp.png
+  static const String imagesXp = "assets/images/xp.png";
+
+  /// Assets for imagesXs
+  /// assets/images/xs.svg
+  static const String imagesXs = "assets/images/xs.svg";
 }
 

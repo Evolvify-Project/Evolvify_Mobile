@@ -3,42 +3,48 @@ import 'package:flutter/material.dart';
 import 'package:svg_flutter/svg_flutter.dart';
 
 class CustOmSearch extends StatefulWidget {
-  CustOmSearch({super.key, this.onChanged, this.prefixIcon});
+  CustOmSearch({super.key, this.onChanged, this.prefixIcon, this.onTap});
   Widget? prefixIcon;
   Function(String)? onChanged;
+  void Function()? onTap;
   @override
   State<CustOmSearch> createState() => _CustOmSearchState();
 }
+
+void Function()? onTap;
 
 class _CustOmSearchState extends State<CustOmSearch> {
   String _searchQuery = '';
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(8),
-        color: Color(0xffEAF4FF),
-      ),
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8),
+          color: Color(0xffEAF4FF),
+        ),
 
-      child: TextFormField(
-        onChanged: (value) {
-          setState(() {
-            _searchQuery = value;
-          });
-        },
-        decoration: InputDecoration(
-          hintText: 'What skill do you want to learn?',
-          hintStyle: AppStyle.styleRegularGrey14.copyWith(
-            color: Color(0xff888C94),
-          ),
-          suffixIcon: Padding(
-            padding: const EdgeInsets.only(right: 12),
-            child: SvgPicture.asset('assets/images/search-normal.svg'),
-          ),
-          enabledBorder: outlineBorder(),
-          focusedBorder: outlineBorder(),
+        child: TextFormField(
+          onChanged: (value) {
+            setState(() {
+              _searchQuery = value;
+            });
+          },
+          decoration: InputDecoration(
+            hintText: 'What skill do you want to learn?',
+            hintStyle: AppStyle.styleRegularGrey14.copyWith(
+              color: Color(0xff888C94),
+            ),
+            suffixIcon: Padding(
+              padding: const EdgeInsets.only(right: 12),
+              child: SvgPicture.asset('assets/images/search-normal.svg'),
+            ),
+            enabledBorder: outlineBorder(),
+            focusedBorder: outlineBorder(),
 
-          contentPadding: EdgeInsets.only(top: 16, bottom: 18, left: 16),
+            contentPadding: EdgeInsets.only(top: 16, bottom: 18, left: 16),
+          ),
         ),
       ),
     );

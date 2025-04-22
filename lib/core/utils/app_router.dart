@@ -15,6 +15,7 @@ import 'package:evolvify/features/home/presentation/views/home_view.dart';
 import 'package:evolvify/features/on_Boarding/on_Boarding_pageview.dart';
 import 'package:evolvify/features/on_Boarding/presentation/views/logo_view.dart';
 import 'package:evolvify/features/on_Boarding/presentation/views/widgets/on_boarding_view.dart';
+import 'package:evolvify/features/search/presentation/views/search_view.dart';
 import 'package:evolvify/features/splash%20screen/splash_screen_one.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -37,8 +38,9 @@ abstract class AppRouter {
   static final router = GoRouter(
     routes: [
       GoRoute(path: kChatbotPag, builder: (context, state) => ChatbotPage()),
+      GoRoute(path: '/', builder: (context, state) => SearchView()),
       GoRoute(
-        path: '/',
+        path: kCustomBottomNavigationBar,
         builder: (context, state) => CustomBottomNavigationBar(),
       ),
 
