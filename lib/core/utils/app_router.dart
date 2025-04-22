@@ -1,4 +1,5 @@
 import 'package:evolvify/core/widgets/bottom_nav_bar.dart';
+import 'package:evolvify/features/Courses/presentation/views/course_overview.dart';
 import 'package:evolvify/features/auth/presentation/manager/Verify_cubit/cubit/verify_pass_cubit.dart';
 import 'package:evolvify/features/auth/presentation/manager/forget_cubit/cubit/forget_pass_cubit.dart';
 import 'package:evolvify/features/auth/presentation/manager/login_cubit/cubit/login_cubit.dart';
@@ -33,12 +34,17 @@ abstract class AppRouter {
   static const kCreatePost = '/createPost';
   static const kCommunityPage = '/CommunityPage';
   static const kChatbotPag = '/ChatbotPag';
+  static const kCourseOverview = '/CourseOverview';
   static const kCustomBottomNavigationBar = '/CustomBottomNavigationBar';
 
   static final router = GoRouter(
     routes: [
+      GoRoute(
+        path: '/',
+        builder: (context, state) => CourseOverview(),
+      ),
       GoRoute(path: kChatbotPag, builder: (context, state) => ChatbotPage()),
-      GoRoute(path: '/', builder: (context, state) => SearchView()),
+      GoRoute(path:kSearchView , builder: (context, state) => SearchView()),
       GoRoute(
         path: kCustomBottomNavigationBar,
         builder: (context, state) => CustomBottomNavigationBar(),
