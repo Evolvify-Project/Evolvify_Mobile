@@ -16,12 +16,12 @@ class CustomButtonBorder extends StatelessWidget {
         ),
         child: Center(
           child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 12),
+            padding: const EdgeInsets.symmetric(vertical: 8),
             child: Text(
               title,
               style: TextStyle(
                 color: AppColors.kPrimaryColor,
-                fontSize: 24,
+                fontSize: 20,
                 fontWeight: FontWeight.w600,
                 fontFamily: 'Roboto',
               ),

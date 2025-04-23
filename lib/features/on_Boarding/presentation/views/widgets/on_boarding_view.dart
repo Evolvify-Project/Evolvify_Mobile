@@ -27,7 +27,8 @@ class OnBoardingView extends StatelessWidget {
         child: Column(
           children: [
             SizedBox(height: 119),
-            SvgPicture.asset(onBoardingModel.image),
+            // SvgPicture.asset(onBoardingModel.image),
+            Image.asset(onBoardingModel.image),
             SizedBox(height: 42),
             Text(
               onBoardingModel.titlt,

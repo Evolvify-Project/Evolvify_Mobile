@@ -51,11 +51,11 @@ class _ForgetPasswordViewState extends State<ForgetPasswordView> {
     return Scaffold(
       body: Stack(
         children: [
-          Positioned(top: 33, child: CustomArrowBack()),
+          Positioned(top: 35, child: CustomArrowBack()),
           SingleChildScrollView(
             child: Column(
               children: [
-                SizedBox(height: 33),
+                SizedBox(height: 35),
 
                 BlocConsumer<ForgetPassCubit, ForgetPassState>(
                   listener: (context, state) {
@@ -75,8 +75,10 @@ class _ForgetPasswordViewState extends State<ForgetPasswordView> {
                             'Forgot Password ?',
                             style: AppStyle.styleMedium28,
                           ),
+                          const SizedBox(height: 17),
                           // const SizedBox(height: 87),
-                          SvgPicture.asset(Assets.imagesForgetPassword2),
+                          // SvgPicture.asset(Assets.imagesForgetPassword2),
+                          Image.asset(Assets.imagesForget),
                           const SizedBox(height: 17),
                           Text(
                             'Where would you like to receive a \n                    Verification Code ?',

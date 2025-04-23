@@ -12,7 +12,7 @@ class OnBoardingPageview extends StatefulWidget {
   @override
   static List items = [
     OnBoardingModel(
-      image: Assets.imagesOnBoardingOne,
+      image: Assets.imagesRectangle1,
       titlt: 'Learn in a Modern Way',
       desc:
           'Courses are designed interactively to '
@@ -20,7 +20,7 @@ class OnBoardingPageview extends StatefulWidget {
           'and effectively',
     ),
     OnBoardingModel(
-      image: Assets.imagesOnBoardingTwo,
+      image: Assets.imagesRectangle2,
       titlt: 'Choose What Suits You!',
       desc:
           'Access personalized courses '
@@ -28,7 +28,7 @@ class OnBoardingPageview extends StatefulWidget {
           'personal growth needs',
     ),
     OnBoardingModel(
-      image: Assets.imagesOnBoardingThree,
+      image: Assets.imagesRectangle3,
       titlt: 'Your Smart  AI Chatbot',
       desc:
           'Chat with the Evolvify AI assistant to '
@@ -36,7 +36,7 @@ class OnBoardingPageview extends StatefulWidget {
           'and answers to your questions',
     ),
     OnBoardingModel(
-      image: Assets.imagesOnBoardingFour,
+      image: Assets.imagesRectangle4,
       titlt: 'Ready to Begin?',
       desc:
           'Start your journey with Evolvify today'
