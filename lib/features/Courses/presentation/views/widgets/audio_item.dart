@@ -1,3 +1,4 @@
+import 'package:evolvify/features/Courses/presentation/views/widgets/show_course_complete.dart';
 import 'package:flutter/material.dart';
 
 class AudioItem extends StatefulWidget {
@@ -19,6 +20,7 @@ class AudioItemState extends State<AudioItem> {
       onTap: () {
         setState(() {
           isClicked = true;
+           showCourseComplete(context);
           // Navigator.push(
           //   context,
           //   MaterialPageRoute(

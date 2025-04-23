@@ -3,6 +3,7 @@ import 'package:evolvify/features/Courses/presentation/views/widgets/Custom_butt
 
 import 'package:evolvify/features/Courses/presentation/views/widgets/audio_list.dart';
 import 'package:evolvify/features/Courses/presentation/views/widgets/custom_button_courses.dart';
+import 'package:evolvify/features/Courses/presentation/views/widgets/show_course_complete.dart';
 import 'package:evolvify/features/Courses/presentation/views/widgets/video_section.dart';
 
 import 'package:flutter/material.dart';
@@ -60,10 +61,18 @@ class CourseOverview extends StatelessWidget {
                     Row(
                       children: [
                         Expanded(
-                          child: CustomButtonCoursesBorder(text: 'Save'),
+                          child: CustomButtonCoursesBorder(
+                            text: 'Save',
+                            onPressed: () {},
+                          ),
                         ),
                         SizedBox(width: 16),
-                        Expanded(child: CustomButtonCourses(text: 'Watch now')),
+                        Expanded(
+                          child: CustomButtonCourses(
+                            text: 'Watch now',
+                            onPressed: () {},
+                          ),
+                        ),
                       ],
                     ),
                   ],

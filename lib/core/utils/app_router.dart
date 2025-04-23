@@ -47,13 +47,13 @@ abstract class AppRouter {
       GoRoute(path: kChatbotPag, builder: (context, state) => ChatbotPage()),
       GoRoute(path: kSearchView, builder: (context, state) => SearchView()),
 
-      // GoRoute(
-      //   path: '/',
-      //   builder:
-      //       (context, state) => CreatePostProviders.buildWithProviders(
-      //         CustomBottomNavigationBar(),
-      //       ),
-      // ),
+      GoRoute(
+        path: '/',
+        builder:
+            (context, state) => CreatePostProviders.buildWithProviders(
+              CustomBottomNavigationBar(),
+            ),
+      ),
       GoRoute(
         path: kCommunityPage,
         builder:
@@ -96,7 +96,7 @@ abstract class AppRouter {
         path: kSplashScreenOne,
         builder: (context, state) => SplashScreenOne(),
       ),
-      GoRoute(path: '/', builder: (context, state) => LogoView()),
+      // GoRoute(path: '/', builder: (context, state) => LogoView()),
       GoRoute(
         path: kOnBordingView,
         builder: (context, state) => OnBoardingPageview(),
