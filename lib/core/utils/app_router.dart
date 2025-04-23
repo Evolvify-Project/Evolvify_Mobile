@@ -22,6 +22,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 abstract class AppRouter {
+  static const klogoView = '/logoView';
   static const kloginView = '/loginView';
   static const kHomeView = '/homeview';
   static const kSplashScreenOne = '/SplashScreenOne';
@@ -40,16 +41,19 @@ abstract class AppRouter {
   static final router = GoRouter(
     routes: [
       GoRoute(
-        path: '/',
+        path: kCourseOverview,
         builder: (context, state) => CourseOverview(),
       ),
       GoRoute(path: kChatbotPag, builder: (context, state) => ChatbotPage()),
-      GoRoute(path:kSearchView , builder: (context, state) => SearchView()),
-      GoRoute(
-        path: kCustomBottomNavigationBar,
-        builder: (context, state) => CustomBottomNavigationBar(),
-      ),
+      GoRoute(path: kSearchView, builder: (context, state) => SearchView()),
 
+      GoRoute(
+        path: '/',
+        builder:
+            (context, state) => CreatePostProviders.buildWithProviders(
+              CustomBottomNavigationBar(),
+            ),
+      ),
       GoRoute(
         path: kCommunityPage,
         builder:
@@ -92,6 +96,7 @@ abstract class AppRouter {
         path: kSplashScreenOne,
         builder: (context, state) => SplashScreenOne(),
       ),
+      // GoRoute(path: '/', builder: (context, state) => LogoView()),
       GoRoute(
         path: kOnBordingView,
         builder: (context, state) => OnBoardingPageview(),

@@ -37,7 +37,6 @@ class SplashScreenOne extends StatelessWidget {
                     GoRouter.of(context).push(AppRouter.kSignUpView);
                   },
                 ),
-                Spacer(),
               ],
             ),
           ),

@@ -14,13 +14,24 @@ class ChatbotPage extends StatelessWidget {
       body: Column(
         children: [
           ChatBotAppBar(),
-          SvgPicture.asset(Assets.imagesChatbotImage),
+          SizedBox(height: 20),
+          Image.asset(Assets.imagesChat),
+          // SvgPicture.asset(Assets.imagesChatbotImage),
+          SizedBox(height: 15),
           ChatBubbleForUser(),
+
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [ChatAiBubble(), SvgPicture.asset(Assets.imagesChatSend)],
+            children: [
+              ChatAiBubble(),
+
+              // SvgPicture.asset(Assets.imagesChatSend)
+            ],
           ),
+          Expanded(child: SizedBox()),
           SendMessageRow(),
+
+          SizedBox(height: 20),
         ],
       ),
     );

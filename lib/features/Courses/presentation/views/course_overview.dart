@@ -3,7 +3,7 @@ import 'package:evolvify/features/Courses/presentation/views/widgets/Custom_butt
 
 import 'package:evolvify/features/Courses/presentation/views/widgets/audio_list.dart';
 import 'package:evolvify/features/Courses/presentation/views/widgets/custom_button_courses.dart';
-import 'package:evolvify/features/Courses/presentation/views/widgets/video.dart';
+import 'package:evolvify/features/Courses/presentation/views/widgets/video_section.dart';
 
 import 'package:flutter/material.dart';
 
@@ -29,7 +29,7 @@ class CourseOverview extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
+              padding: const EdgeInsets.symmetric(horizontal: 25),
               child: SingleChildScrollView(
                 child: Column(
                   children: [
@@ -45,7 +45,7 @@ class CourseOverview extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const Video(),
+                    const VideoSection(),
                     SizedBox(height: 20),
                     const Text(
                       'Course Content',

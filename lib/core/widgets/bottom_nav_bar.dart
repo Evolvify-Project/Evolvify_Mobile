@@ -1,6 +1,8 @@
 import 'package:evolvify/core/utils/app_images.dart';
 import 'package:evolvify/core/utils/constant.dart';
+import 'package:evolvify/features/Courses/presentation/views/course_overview.dart';
 import 'package:evolvify/features/chatbot%20_ai/presentation/views/chatbot_page.dart';
+import 'package:evolvify/features/community/presentation/views/community_page.dart';
 import 'package:evolvify/features/home/presentation/views/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:svg_flutter/svg.dart';
@@ -14,7 +16,12 @@ class CustomBottomNavigationBar extends StatefulWidget {
 class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
   int _currentIndex = 0;
 
-  final List<Widget> _pages = [HomeView(), ChatbotPage()];
+  final List<Widget> _pages = [
+    HomeView(),
+    ChatbotPage(),
+    CommunityPage(),
+    CourseOverview(),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -50,9 +57,9 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
             children: [
               _buildBottomNavItem(Assets.imagesHome, 'Home', 0),
               _buildBottomNavItem(Assets.imagesChatbotImage, 'Chatbot', 1),
-              _buildBottomNavItem(Assets.imagesCamera, 'camera', 2),
-              _buildBottomNavItem(Assets.imagesCommunity, 'Community', 3),
-              _buildBottomNavItem(Assets.imagesProfile, 'Profile', 4),
+              _buildBottomNavItem(Assets.imagesCamera, 'camera', 4),
+              _buildBottomNavItem(Assets.imagesCommunity, 'Community', 2),
+              _buildBottomNavItem(Assets.imagesProfile, 'Profile', 3),
             ],
           ),
         ),

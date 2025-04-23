@@ -22,6 +22,10 @@ class Assets {
   /// assets/images/camera.svg
   static const String imagesCamera = "assets/images/camera.svg";
 
+  /// Assets for imagesChat
+  /// assets/images/chat.png
+  static const String imagesChat = "assets/images/chat.png";
+
   /// Assets for imagesChatSend
   /// assets/images/chatSend.svg
   static const String imagesChatSend = "assets/images/chatSend.svg";
@@ -149,6 +153,22 @@ class Assets {
   /// Assets for imagesProfileAvatar
   /// assets/images/ProfileAvatar.svg
   static const String imagesProfileAvatar = "assets/images/ProfileAvatar.svg";
+
+  /// Assets for imagesRectangle1
+  /// assets/images/Rectangle1.png
+  static const String imagesRectangle1 = "assets/images/Rectangle1.png";
+
+  /// Assets for imagesRectangle2
+  /// assets/images/Rectangle2.png
+  static const String imagesRectangle2 = "assets/images/Rectangle2.png";
+
+  /// Assets for imagesRectangle3
+  /// assets/images/Rectangle3.png
+  static const String imagesRectangle3 = "assets/images/Rectangle3.png";
+
+  /// Assets for imagesRectangle4
+  /// assets/images/Rectangle4.png
+  static const String imagesRectangle4 = "assets/images/Rectangle4.png";
 
   /// Assets for imagesSearchNormal
   /// assets/images/search-normal.svg
