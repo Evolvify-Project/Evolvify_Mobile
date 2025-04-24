@@ -4,6 +4,7 @@ import 'package:evolvify/features/Courses/presentation/views/course_overview.dar
 import 'package:evolvify/features/chatbot%20_ai/presentation/views/chatbot_page.dart';
 import 'package:evolvify/features/community/presentation/views/community_page.dart';
 import 'package:evolvify/features/home/presentation/views/home_view.dart';
+import 'package:evolvify/features/search/presentation/views/filter_view.dart';
 import 'package:flutter/material.dart';
 import 'package:svg_flutter/svg.dart';
 
@@ -20,7 +21,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
     HomeView(),
     ChatbotPage(),
     CommunityPage(),
-    CourseOverview(),
+    FilterView(),
   ];
 
   @override
