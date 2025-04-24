@@ -1,5 +1,7 @@
+import 'package:evolvify/core/utils/app_router.dart';
 import 'package:evolvify/features/Courses/presentation/views/widgets/custom_button_courses.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class AssessmentView extends StatelessWidget {
   const AssessmentView({super.key});
@@ -30,7 +32,12 @@ class AssessmentView extends StatelessWidget {
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
             ),
             SizedBox(height: 170),
-            CustomButtonCourses(text: 'Get Start'),
+            CustomButtonCourses(
+              text: 'Get Start',
+              onPressed: () {
+                GoRouter.of(context).push(AppRouter.kTestView);
+              },
+            ),
           ],
         ),
       ),

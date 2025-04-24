@@ -24,7 +24,7 @@ class ChatBotAppBar extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            ArrowBackButton(onTap: () {}),
+            ArrowBackButton(),
             SizedBox(width: 8),
 
             Column(

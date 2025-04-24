@@ -11,9 +11,7 @@ class CustomArrowBack extends StatelessWidget {
       child: Align(
         alignment: Alignment.topLeft,
         child: ArrowBackButton(
-          onTap: () {
-            Navigator.pop(context);
-          },
+        
         ),
       ),
     );

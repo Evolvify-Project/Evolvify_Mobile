@@ -1,5 +1,6 @@
 import 'package:evolvify/core/widgets/bottom_nav_bar.dart';
 import 'package:evolvify/features/Assessment/presentation/views/assessment_view.dart';
+import 'package:evolvify/features/Assessment/presentation/views/test_view.dart';
 import 'package:evolvify/features/Courses/presentation/views/course_overview.dart';
 import 'package:evolvify/features/auth/presentation/manager/Verify_cubit/cubit/verify_pass_cubit.dart';
 import 'package:evolvify/features/auth/presentation/manager/forget_cubit/cubit/forget_pass_cubit.dart';
@@ -24,6 +25,7 @@ import 'package:go_router/go_router.dart';
 
 abstract class AppRouter {
   static const klogoView = '/logoView';
+  static const kTestView = '/TestView';
   static const kAssessmentView = '/assessmentView';
   static const kloginView = '/loginView';
   static const kHomeView = '/homeview';
@@ -48,6 +50,7 @@ abstract class AppRouter {
       ),
       GoRoute(path: kChatbotPag, builder: (context, state) => ChatbotPage()),
       GoRoute(path: kSearchView, builder: (context, state) => SearchView()),
+       GoRoute(path: kTestView, builder: (context, state) => TestView()),
 
       // GoRoute(
       //   path: '/',

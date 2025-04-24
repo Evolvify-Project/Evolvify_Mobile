@@ -1,8 +1,8 @@
 import 'package:evolvify/core/utils/constant.dart';
 import 'package:flutter/material.dart';
 
-class CustomButtonCourses extends StatelessWidget {
-  const CustomButtonCourses({
+class TestButton extends StatelessWidget {
+  const TestButton({
     super.key,
     this.backgroundColor,
     required this.text,
@@ -15,21 +15,24 @@ class CustomButtonCourses extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 59,
+      height: 50,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(14),
+            borderRadius: BorderRadius.circular(10),
+            side: BorderSide(color: Color(0xffC4C4C4), width: 1),
           ),
           elevation: 0,
-          backgroundColor: AppColors.kPrimaryColor,
+          backgroundColor: Colors.white,
         ),
-        onPressed: onPressed,
+        onPressed: () {},
         child: Center(
           child: Text(
             text,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
             style: TextStyle(
-              color: Colors.white,
+              color: Colors.black,
               fontSize: 20,
               fontWeight: FontWeight.w500,
             ),
