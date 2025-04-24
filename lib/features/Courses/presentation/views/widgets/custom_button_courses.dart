@@ -1,4 +1,3 @@
-
 import 'package:evolvify/core/utils/constant.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +15,7 @@ class CustomButtonCourses extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 48,
+      height: 52,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(

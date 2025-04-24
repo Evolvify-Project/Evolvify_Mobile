@@ -1,4 +1,5 @@
 import 'package:evolvify/core/widgets/bottom_nav_bar.dart';
+import 'package:evolvify/features/Assessment/presentation/views/assessment_view.dart';
 import 'package:evolvify/features/Courses/presentation/views/course_overview.dart';
 import 'package:evolvify/features/auth/presentation/manager/Verify_cubit/cubit/verify_pass_cubit.dart';
 import 'package:evolvify/features/auth/presentation/manager/forget_cubit/cubit/forget_pass_cubit.dart';
@@ -23,6 +24,7 @@ import 'package:go_router/go_router.dart';
 
 abstract class AppRouter {
   static const klogoView = '/logoView';
+  static const kAssessmentView = '/assessmentView';
   static const kloginView = '/loginView';
   static const kHomeView = '/homeview';
   static const kSplashScreenOne = '/SplashScreenOne';
@@ -47,13 +49,13 @@ abstract class AppRouter {
       GoRoute(path: kChatbotPag, builder: (context, state) => ChatbotPage()),
       GoRoute(path: kSearchView, builder: (context, state) => SearchView()),
 
-      GoRoute(
-        path: '/',
-        builder:
-            (context, state) => CreatePostProviders.buildWithProviders(
-              CustomBottomNavigationBar(),
-            ),
-      ),
+      // GoRoute(
+      //   path: '/',
+      //   builder:
+      //       (context, state) => CreatePostProviders.buildWithProviders(
+      //         CustomBottomNavigationBar(),
+      //       ),
+      // ),
       GoRoute(
         path: kCommunityPage,
         builder:
@@ -96,6 +98,7 @@ abstract class AppRouter {
         path: kSplashScreenOne,
         builder: (context, state) => SplashScreenOne(),
       ),
+      GoRoute(path: '/', builder: (context, state) => AssessmentView()),
       // GoRoute(path: '/', builder: (context, state) => LogoView()),
       GoRoute(
         path: kOnBordingView,
