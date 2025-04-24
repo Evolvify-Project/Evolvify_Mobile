@@ -20,8 +20,8 @@ class _CircularProgressQuesState extends State<CircularProgressQues> {
       alignment: Alignment.center,
       children: [
         SizedBox(
-          width: 100,
-          height: 100,
+          width: 108,
+          height: 102,
           child: CircularProgressIndicator(
             value: progress,
             strokeWidth: 10,

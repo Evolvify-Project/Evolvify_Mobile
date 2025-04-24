@@ -16,40 +16,43 @@ class TestView extends StatelessWidget {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
-        child: Column(
-          children: [
-            SizedBox(height: 25),
-            Row(
-              children: [
-                ArrowBackButton(),
-                Spacer(flex: 1),
-                CutomTitle(title: 'Test your skills     '),
-                Spacer(flex: 1),
-              ],
-            ),
-            SizedBox(height: 25),
-            CircularRow(),
-            SizedBox(height: 35),
-            QuestionSection(),
-            SizedBox(height: 75),
-            Row(
-              children: [
-                Expanded(
-                  child: CustomButtonCoursesBorder(
-                    text: 'Back',
-                    onPressed: () {},
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              SizedBox(height: 30),
+              Row(
+                children: [
+                  ArrowBackButton(),
+                  Spacer(flex: 1),
+                  CutomTitle(title: 'Test your skills     '),
+                  Spacer(flex: 1),
+                ],
+              ),
+              SizedBox(height: 25),
+              CircularRow(),
+              SizedBox(height: 35),
+              QuestionSection(),
+              SizedBox(height: 75),
+              Row(
+                children: [
+                  Expanded(
+                    child: CustomButtonCoursesBorder(
+                      text: 'Back',
+                      onPressed: () {},
+                    ),
                   ),
-                ),
-                SizedBox(width: 30),
-                Expanded(
-                  child: CustomButtonCourses(
-                    text: 'Continue',
-                    onPressed: () {},
+                  SizedBox(width: 30),
+                  Expanded(
+                    child: CustomButtonCourses(
+                      text: 'Continue',
+                      onPressed: () {},
+                    ),
                   ),
-                ),
-              ],
-            ),
-          ],
+                ],
+              ),
+              SizedBox(height: 20),
+            ],
+          ),
         ),
       ),
     );

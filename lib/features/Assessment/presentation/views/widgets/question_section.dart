@@ -1,11 +1,8 @@
-
 import 'package:evolvify/features/Assessment/presentation/views/widgets/test_button.dart';
 import 'package:flutter/material.dart';
 
 class QuestionSection extends StatelessWidget {
-  const QuestionSection({
-    super.key,
-  });
+  const QuestionSection({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,22 +12,31 @@ class QuestionSection extends StatelessWidget {
         borderRadius: BorderRadius.circular(15),
         color: Color(0xffE8F1FF),
       ),
-      child: Column(
-        children: [
-          Text(
-            'What is the most important skill \n to develop for job interviews?',
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
-          ),
-          SizedBox(height: 60),
-          TestButton(text: ' Researching the company '),
-          SizedBox(height: 12),
-          TestButton(text: ' Researching the company '),
-          SizedBox(height: 12),
-          TestButton(text: ' Researching the company '),
-          SizedBox(height: 12),
-          TestButton(text: ' Researching the company '),
-        ],
+      child: IntrinsicHeight(
+        child: Column(
+          children: [
+            Text(
+              'What is the most important skill \n to develop for job interviews?Confidence and self-control under pressure in different high-stress environments   ',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+            ),
+            SizedBox(height: 50),
+            TestButton(text: ' Researching the self-control '),
+            SizedBox(height: 12),
+            TestButton(
+              text: ' Researching the Confidence Communication skills   ',
+            ),
+            SizedBox(height: 12),
+            TestButton(
+              text:
+                  'Researching the self-control Researching the company Confidence ',
+            ),
+            SizedBox(height: 12),
+            TestButton(text: ' Researching the company Confidence  '),
+          ],
+        ),
       ),
+      //   },
+      // ),
     );
   }
 }
