@@ -12,7 +12,7 @@ class MostWatchingItem extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         // SvgPicture.asset(Assets.imagesImg),
-        Image.asset(Assets.imagesSkill),
+        Image.asset(Assets.imagesImg),
         SizedBox(height: 15),
         Text(
           'Public Speaking: Speak \n'

@@ -1,4 +1,5 @@
 import 'package:evolvify/core/widgets/bottom_nav_bar.dart';
+import 'package:evolvify/features/Assessment/presentation/views/Recommended_Content_view.dart';
 import 'package:evolvify/features/Assessment/presentation/views/assessment_view.dart';
 import 'package:evolvify/features/Assessment/presentation/views/test_result_view.dart';
 import 'package:evolvify/features/Assessment/presentation/views/test_view.dart';
@@ -43,6 +44,7 @@ abstract class AppRouter {
   static const kChatbotPag = '/ChatbotPag';
   static const kCourseOverview = '/CourseOverview';
   static const kCustomBottomNavigationBar = '/CustomBottomNavigationBar';
+  static const kRecommendedContentView = '/RecommendedContentView';
 
   static final router = GoRouter(
     routes: [
@@ -52,7 +54,7 @@ abstract class AppRouter {
       ),
       GoRoute(path: kChatbotPag, builder: (context, state) => ChatbotPage()),
       GoRoute(path: kSearchView, builder: (context, state) => SearchView()),
-      GoRoute(path: kTestView, builder: (context, state) => TestView()),
+      GoRoute(path: '/', builder: (context, state) => RecommendedContentView()),
 
       // GoRoute(
       //   path: '/',
@@ -109,7 +111,10 @@ abstract class AppRouter {
         path: kOnBordingView,
         builder: (context, state) => OnBoardingPageview(),
       ),
-      GoRoute(path: '/', builder: (context, state) => TestResultView()),
+      GoRoute(
+        path: kTestResultView,
+        builder: (context, state) => TestResultView(),
+      ),
       GoRoute(path: khomeView, builder: (context, state) => HomeView()),
       GoRoute(
         path: kCreatePost,

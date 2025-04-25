@@ -99,8 +99,8 @@ class Assets {
   static const String imagesHome = "assets/images/home.svg";
 
   /// Assets for imagesImg
-  /// assets/images/img.svg
-  static const String imagesImg = "assets/images/img.svg";
+  /// assets/images/img.png
+  static const String imagesImg = "assets/images/img.png";
 
   /// Assets for imagesInter
   /// assets/images/inter.png
