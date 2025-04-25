@@ -2,6 +2,14 @@
 class Assets {
   Assets._();
   
+  /// Assets for imagesAdvanced
+  /// assets/images/advanced.png
+  static const String imagesAdvanced = "assets/images/advanced.png";
+
+  /// Assets for imagesAdvancedIndicatior
+  /// assets/images/advancedIndicatior.png
+  static const String imagesAdvancedIndicatior = "assets/images/advancedIndicatior.png";
+
   /// Assets for imagesApple
   /// assets/images/apple.svg
   static const String imagesApple = "assets/images/apple.svg";
@@ -17,6 +25,14 @@ class Assets {
   /// Assets for imagesBack
   /// assets/images/back.png
   static const String imagesBack = "assets/images/back.png";
+
+  /// Assets for imagesBegginer
+  /// assets/images/begginer.png
+  static const String imagesBegginer = "assets/images/begginer.png";
+
+  /// Assets for imagesBeginnerIndicatior
+  /// assets/images/beginner_Indicatior.png
+  static const String imagesBeginnerIndicatior = "assets/images/beginner_Indicatior.png";
 
   /// Assets for imagesBigChat
   /// assets/images/bigChat.svg
@@ -85,6 +101,14 @@ class Assets {
   /// Assets for imagesImg
   /// assets/images/img.svg
   static const String imagesImg = "assets/images/img.svg";
+
+  /// Assets for imagesInter
+  /// assets/images/inter.png
+  static const String imagesInter = "assets/images/inter.png";
+
+  /// Assets for imagesIntermediateIndicatior
+  /// assets/images/Intermediate_Indicatior.png
+  static const String imagesIntermediateIndicatior = "assets/images/Intermediate_Indicatior.png";
 
   /// Assets for imagesLike
   /// assets/images/like.svg
@@ -209,6 +233,10 @@ class Assets {
   /// Assets for imagesSmallchat
   /// assets/images/smallchat.svg
   static const String imagesSmallchat = "assets/images/smallchat.svg";
+
+  /// Assets for imagesTestResult
+  /// assets/images/testResult.png
+  static const String imagesTestResult = "assets/images/testResult.png";
 
   /// Assets for imagesUser
   /// assets/images/user.svg
