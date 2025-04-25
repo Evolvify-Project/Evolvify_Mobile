@@ -13,6 +13,7 @@ import 'package:evolvify/features/auth/presentation/views/login_view.dart';
 import 'package:evolvify/features/auth/presentation/views/sign_up_view.dart';
 import 'package:evolvify/features/auth/presentation/views/verify_password_view.dart';
 import 'package:evolvify/features/chatbot%20_ai/presentation/views/chatbot_page.dart';
+import 'package:evolvify/features/community/presentation/views/comments_view.dart';
 import 'package:evolvify/features/community/presentation/views/community_page.dart';
 import 'package:evolvify/features/community/presentation/views/create_post.dart';
 import 'package:evolvify/features/community/presentation/views/widgets/create_post_providers.dart';
@@ -41,6 +42,7 @@ abstract class AppRouter {
   static const kSearchView = '/searchview';
   static const kCreatePost = '/createPost';
   static const kCommunityPage = '/CommunityPage';
+  static const kCommentsViewg = '/CommentsView';
   static const kChatbotPag = '/ChatbotPag';
   static const kCourseOverview = '/CourseOverview';
   static const kCustomBottomNavigationBar = '/CustomBottomNavigationBar';
@@ -54,7 +56,10 @@ abstract class AppRouter {
       ),
       GoRoute(path: kChatbotPag, builder: (context, state) => ChatbotPage()),
       GoRoute(path: kSearchView, builder: (context, state) => SearchView()),
-      GoRoute(path: '/', builder: (context, state) => RecommendedContentView()),
+      GoRoute(
+        path: kRecommendedContentView,
+        builder: (context, state) => RecommendedContentView(),
+      ),
 
       // GoRoute(
       //   path: '/',
@@ -101,10 +106,8 @@ abstract class AppRouter {
               child: VerifyPasswordView(),
             ),
       ),
-      GoRoute(
-        path: kSplashScreenOne,
-        builder: (context, state) => SplashScreenOne(),
-      ),
+
+      GoRoute(path: '/', builder: (context, state) => CommentsView()),
       // GoRoute(path: '/', builder: (context, state) => AssessmentView()),
       // GoRoute(path: '/', builder: (context, state) => LogoView()),
       GoRoute(

@@ -19,7 +19,7 @@ class VerityPassword extends StatefulWidget {
 
 class _VerityPasswordState extends State<VerityPassword> {
   final List<TextEditingController> controllers = List.generate(
-    4,
+    6,
     (_) => TextEditingController(),
   );
   int fillBox = 0;
@@ -61,8 +61,8 @@ class _VerityPasswordState extends State<VerityPassword> {
     return BlocConsumer<VerifyPassCubit, VerifyPassState>(
       listener: (context, state) {
         if (state is VerifyPassSucess) {
-            print('✅ OTP Confirm Message: ${state.message}');
-  // print('✅ Maybe OTP Code: ${state.otpCode}');
+          print('✅ OTP Confirm Message: ${state.message}');
+          
           showSnackBar(context, text: state.message);
           print(state.message);
           showPasswordResetDialog(context);
@@ -76,9 +76,9 @@ class _VerityPasswordState extends State<VerityPassword> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
 
-              children: List.generate(4, (index) {
+              children: List.generate(6, (index) {
                 return Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 12),
+                  padding: const EdgeInsets.symmetric(horizontal: 5),
                   child: TextFieldCode(
                     controllers: controllers[index],
                     onChanged: (value) {
@@ -103,10 +103,10 @@ class _VerityPasswordState extends State<VerityPassword> {
                   borderRadius: 25,
                   title: 'Verify',
                   onTap: () {
-                    if (fillBox == 4) {
+                    if (fillBox == 6) {
                       verifyCode();
                     } else {
-                      showSnackBar(context, text: "Please fill all 4 digits");
+                      showSnackBar(context, text: "Please fill all 6 digits");
                     }
                   },
                 ),
@@ -132,7 +132,7 @@ class _VerityPasswordState extends State<VerityPassword> {
 
   void verifyCode() {
     final code = controllers.map((e) => e.text).join();
-    if (code.length < 4) {
+    if (code.length < 6) {
       showSnackBar(context, text: 'Please complete the code ');
     } else if (email == null) {
       showSnackBar(context, text: ' email not found');
