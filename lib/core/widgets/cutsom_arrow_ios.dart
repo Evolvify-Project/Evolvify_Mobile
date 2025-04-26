@@ -1,10 +1,7 @@
-
 import 'package:flutter/material.dart';
 
 class CutsomArrowios extends StatelessWidget {
-  const CutsomArrowios({
-    super.key,
-  });
+  const CutsomArrowios({super.key});
 
   @override
   Widget build(BuildContext context) {

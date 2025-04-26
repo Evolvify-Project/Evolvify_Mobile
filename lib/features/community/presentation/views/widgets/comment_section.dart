@@ -1,13 +1,16 @@
-
 import 'package:evolvify/core/utils/app_images.dart';
 import 'package:evolvify/core/utils/constant.dart';
+
 import 'package:flutter/material.dart';
 
-class CommentSection extends StatelessWidget {
-  const CommentSection({
-    super.key,
-  });
+class CommentSection extends StatefulWidget {
+  const CommentSection({super.key, this.onTapReply});
+  final void Function()? onTapReply;
+  @override
+  State<CommentSection> createState() => _CommentSectionState();
+}
 
+class _CommentSectionState extends State<CommentSection> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -32,29 +35,32 @@ class CommentSection extends StatelessWidget {
               Text(
                 maxLines: 3,
                 'Ultricies ultricies interdum dolor sodales. \n Vitae feugiat vitae vitae quis id consectetur.',
-                style: TextStyle(
-                  fontSize: 12,
-                  fontWeight: FontWeight.w400,
-                ),
+                style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400),
               ),
               SizedBox(height: 8),
               Row(
                 children: [
-                  Text(
-                    'Like .',
-                    style: TextStyle(
-                      color: Color(0xff4267B2),
-                      fontSize: 12,
-                      fontWeight: FontWeight.w400,
+                  GestureDetector(
+                    onTap: () {},
+                    child: Text(
+                      'Like .',
+                      style: TextStyle(
+                        color: Color(0xff4267B2),
+                        fontSize: 12,
+                        fontWeight: FontWeight.w400,
+                      ),
                     ),
                   ),
                   SizedBox(width: 5),
-                  Text(
-                    'Reply .',
-                    style: TextStyle(
-                      color: Color(0xff4267B2),
-                      fontSize: 12,
-                      fontWeight: FontWeight.w400,
+                  GestureDetector(
+                    onTap: widget.onTapReply,
+                    child: Text(
+                      'Reply .',
+                      style: TextStyle(
+                        color: Color(0xff4267B2),
+                        fontSize: 12,
+                        fontWeight: FontWeight.w400,
+                      ),
                     ),
                   ),
                   SizedBox(width: 5),

@@ -8,6 +8,8 @@ import 'package:evolvify/features/auth/presentation/manager/Verify_cubit/cubit/v
 import 'package:evolvify/features/auth/presentation/manager/forget_cubit/cubit/forget_pass_cubit.dart';
 import 'package:evolvify/features/auth/presentation/manager/login_cubit/cubit/login_cubit.dart';
 import 'package:evolvify/features/auth/presentation/manager/register_cubit/cubit/register_cubit.dart';
+import 'package:evolvify/features/auth/presentation/views/Password_Reset_view.dart';
+import 'package:evolvify/features/auth/presentation/views/Set_new_password.dart';
 import 'package:evolvify/features/auth/presentation/views/forget_password_view.dart';
 import 'package:evolvify/features/auth/presentation/views/login_view.dart';
 import 'package:evolvify/features/auth/presentation/views/sign_up_view.dart';
@@ -32,6 +34,8 @@ abstract class AppRouter {
   static const kAssessmentView = '/assessmentView';
   static const kTestResultView = '/TestResultView';
   static const kloginView = '/loginView';
+  static const kPasswordResetView = '/PasswordResetView';
+  static const kSetNewPassword = '/SetNewPassword';
   static const kHomeView = '/homeview';
   static const kSplashScreenOne = '/SplashScreenOne';
   static const kSignUpView = '/SignUpView';
@@ -106,8 +110,12 @@ abstract class AppRouter {
               child: VerifyPasswordView(),
             ),
       ),
-
-      GoRoute(path: '/', builder: (context, state) => CommentsView()),
+      GoRoute(path: '/', builder: (context, state) => PasswordResetView()),
+      GoRoute(
+        path: kSetNewPassword,
+        builder: (context, state) => SetNewPassword(),
+      ),
+      // GoRoute(path: '/', builder: (context, state) => CommentsView()),
       // GoRoute(path: '/', builder: (context, state) => AssessmentView()),
       // GoRoute(path: '/', builder: (context, state) => LogoView()),
       GoRoute(
