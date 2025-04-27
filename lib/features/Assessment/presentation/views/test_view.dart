@@ -1,5 +1,7 @@
+import 'package:evolvify/core/utils/api_services.dart';
 import 'package:evolvify/core/widgets/arrow_button.dart';
 import 'package:evolvify/core/widgets/cutom_title.dart';
+import 'package:evolvify/features/Assessment/data/repo/assessment_repo_impl.dart';
 import 'package:evolvify/features/Assessment/presentation/views/widgets/circular_row.dart';
 import 'package:evolvify/features/Assessment/presentation/views/widgets/question_section.dart';
 import 'package:evolvify/features/Courses/presentation/views/widgets/Custom_button_courses_border.dart';
@@ -45,7 +47,9 @@ class TestView extends StatelessWidget {
                   Expanded(
                     child: CustomButtonCourses(
                       text: 'Continue',
-                      onPressed: () {},
+                      onPressed: ()async {
+                       await AssessmentRepoImpl().getQuestions();
+                      },
                     ),
                   ),
                 ],

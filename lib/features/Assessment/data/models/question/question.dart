@@ -2,13 +2,13 @@ import 'dart:convert';
 
 import 'package:equatable/equatable.dart';
 
-import 'datum.dart';
+import 'questiom_model.dart';
 
 class Question extends Equatable {
   final bool? success;
   final int? statusCode;
   final String? message;
-  final List<Datum>? data;
+  final List<QuestionModel>? data;
   final List<dynamic>? errors;
 
   const Question({
@@ -25,7 +25,7 @@ class Question extends Equatable {
     message: data['message'] as String?,
     data:
         (data['data'] as List<dynamic>?)
-            ?.map((e) => Datum.fromMap(e as Map<String, dynamic>))
+            ?.map((e) => QuestionModel.fromJson(e as Map<String, dynamic>))
             .toList(),
     errors: data['errors'] as List<dynamic>?,
   );
