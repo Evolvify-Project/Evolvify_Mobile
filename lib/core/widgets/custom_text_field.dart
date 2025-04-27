@@ -44,8 +44,7 @@ class CustomTextFormField extends StatelessWidget {
           ),
           Expanded(
             child: TextFormField(
-              validator: validate
-              ,
+              validator: validate,
               controller: controller,
               obscureText: obscureText!,
               decoration: InputDecoration(

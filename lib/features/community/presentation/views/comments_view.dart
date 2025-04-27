@@ -21,7 +21,6 @@ class _CommentsViewState extends State<CommentsView> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            
             // SizedBox(height: 20),
             // Row(
             //   children: [
@@ -33,7 +32,7 @@ class _CommentsViewState extends State<CommentsView> {
             //   ],
             // ),
             CommentsList(),
-           
+
             // Padding(
             //   padding: const EdgeInsets.all(15),
             //   child: Row(

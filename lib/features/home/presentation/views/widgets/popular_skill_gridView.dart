@@ -20,20 +20,18 @@ class PopularSkillgridView extends StatelessWidget {
     );
   }
 }
-        
-        
-        // ClipRRect(
-        //   borderRadius: BorderRadius.circular(12),
-        //   child: AspectRatio(
-        //     aspectRatio: 1 / 2,
-        //     child:Image.asset(Assets.imagesSkill2)
-            
-            // CachedNetworkImage(
-            //   imageUrl: Assets.imagesSkill2,
-            //   fit: BoxFit.fill,
-            //   errorWidget: (context, url, error) => const Icon(Icons.error),
-            //   placeholder:
-            //       (context, url) =>
-            //           const Center(child: CircularProgressIndicator()),
-            // ),
-         
+
+// ClipRRect(
+//   borderRadius: BorderRadius.circular(12),
+//   child: AspectRatio(
+//     aspectRatio: 1 / 2,
+//     child:Image.asset(Assets.imagesSkill2)
+
+// CachedNetworkImage(
+//   imageUrl: Assets.imagesSkill2,
+//   fit: BoxFit.fill,
+//   errorWidget: (context, url, error) => const Icon(Icons.error),
+//   placeholder:
+//       (context, url) =>
+//           const Center(child: CircularProgressIndicator()),
+// ),

@@ -6,7 +6,8 @@ class PassWordTextFiled extends StatelessWidget {
     this.hintText,
     this.onChanged,
     this.borderRaduis,
-
+    this.validator,
+    this.controller,
     this.obscureText = false,
   });
   String? hintText;
@@ -14,15 +15,17 @@ class PassWordTextFiled extends StatelessWidget {
   bool? obscureText;
 
   Function(String)? onChanged;
-
+  TextEditingController? controller;
+  String? Function(String?)? validator;
   double? borderRaduis;
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 11, right: 11),
-      child: TextField(
+      child: TextFormField(
+        validator: validator,
         obscureText: obscureText!,
-
+        controller: controller,
         onChanged: onChanged,
         decoration: InputDecoration(
           focusedBorder: border(),

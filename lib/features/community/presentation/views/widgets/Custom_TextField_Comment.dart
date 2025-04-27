@@ -40,7 +40,7 @@ class CustomTextFieldComment extends StatelessWidget {
 
   OutlineInputBorder border() {
     return OutlineInputBorder(
-      borderRadius: BorderRadius.circular( 25),
+      borderRadius: BorderRadius.circular(25),
       borderSide: BorderSide(color: Color(0xff979C9E)),
     );
   }

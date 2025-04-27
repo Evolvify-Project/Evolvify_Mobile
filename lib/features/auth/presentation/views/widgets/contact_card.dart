@@ -10,11 +10,11 @@ class ContactCard extends StatefulWidget {
     required this.title,
     required this.subTitle,
     required this.image,
-   
+
     required this.selected,
   });
   final String title, subTitle, image;
-  
+
   final bool selected;
 
   @override
@@ -26,9 +26,7 @@ class _ContactCardState extends State<ContactCard> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        setState(() {
-         
-        });
+        setState(() {});
       },
       child: Container(
         decoration: BoxDecoration(

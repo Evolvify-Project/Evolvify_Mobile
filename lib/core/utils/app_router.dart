@@ -8,11 +8,12 @@ import 'package:evolvify/features/auth/presentation/manager/Verify_cubit/cubit/v
 import 'package:evolvify/features/auth/presentation/manager/forget_cubit/cubit/forget_pass_cubit.dart';
 import 'package:evolvify/features/auth/presentation/manager/login_cubit/cubit/login_cubit.dart';
 import 'package:evolvify/features/auth/presentation/manager/register_cubit/cubit/register_cubit.dart';
+import 'package:evolvify/features/auth/presentation/manager/reset_cubit/cubit/reset_cubit.dart';
 import 'package:evolvify/features/auth/presentation/views/Password_Reset_view.dart';
 import 'package:evolvify/features/auth/presentation/views/Set_new_password.dart';
 import 'package:evolvify/features/auth/presentation/views/forget_password_view.dart';
 import 'package:evolvify/features/auth/presentation/views/login_view.dart';
-import 'package:evolvify/features/auth/presentation/views/sign_up_view.dart';
+import 'package:evolvify/features/auth/presentation/views/register_view.dart';
 import 'package:evolvify/features/auth/presentation/views/verify_password_view.dart';
 import 'package:evolvify/features/chatbot%20_ai/presentation/views/chatbot_page.dart';
 import 'package:evolvify/features/community/presentation/views/comments_view.dart';
@@ -78,14 +79,14 @@ abstract class AppRouter {
             (context, state) =>
                 CreatePostProviders.buildWithProviders(CommunityPage()),
       ),
-      GoRoute(
-        path: kloginView,
-        builder:
-            (context, state) => BlocProvider(
-              create: (context) => LoginCubit(),
-              child: LoginView(),
-            ),
-      ),
+      // GoRoute(
+      //   path: '/',
+      //   builder:
+      //       (context, state) => BlocProvider(
+      //         create: (context) => LoginCubit(),
+      //         child: LoginView(),
+      //       ),
+      // ),
       GoRoute(
         path: kSignUpView,
         builder:
@@ -110,22 +111,37 @@ abstract class AppRouter {
               child: VerifyPasswordView(),
             ),
       ),
-      GoRoute(path: '/', builder: (context, state) => PasswordResetView()),
+      GoRoute(
+        path: kPasswordResetView,
+        builder: (context, state) => PasswordResetView(),
+      ),
       GoRoute(
         path: kSetNewPassword,
-        builder: (context, state) => SetNewPassword(),
+        builder: (context, state) {
+          final extra = state.extra as Map<String, dynamic>;
+          final String code = extra['code'];
+          final String email = extra['email'];
+
+          return BlocProvider(
+            create: (context) => ResetCubit(code, email),
+            child: const SetNewPassword(),
+          );
+        },
       ),
       // GoRoute(path: '/', builder: (context, state) => CommentsView()),
-      // GoRoute(path: '/', builder: (context, state) => AssessmentView()),
+      GoRoute(path: '/', builder: (context, state) => AssessmentView()),
+      GoRoute(path: kTestView, builder: (context, state) => TestView()),
+      GoRoute(
+        path: kTestResultView,
+        builder: (context, state) => TestResultView(),
+      ),
+
       // GoRoute(path: '/', builder: (context, state) => LogoView()),
       GoRoute(
         path: kOnBordingView,
         builder: (context, state) => OnBoardingPageview(),
       ),
-      GoRoute(
-        path: kTestResultView,
-        builder: (context, state) => TestResultView(),
-      ),
+
       GoRoute(path: khomeView, builder: (context, state) => HomeView()),
       GoRoute(
         path: kCreatePost,

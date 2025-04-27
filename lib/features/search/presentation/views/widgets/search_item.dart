@@ -5,7 +5,7 @@ class SearchItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  ListTile(
+    return ListTile(
       contentPadding: EdgeInsets.all(0),
       title: Text(
         'Interview Skills',

@@ -8,7 +8,7 @@ final class ForgetPassInitial extends ForgetPassState {}
 final class ForgetPassloading extends ForgetPassState {}
 
 final class ForgetPasssuccess extends ForgetPassState {
-  final  message;
+  final message;
 
   ForgetPasssuccess({required this.message});
 }

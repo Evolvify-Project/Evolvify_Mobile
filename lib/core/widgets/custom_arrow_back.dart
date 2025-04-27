@@ -8,12 +8,7 @@ class CustomArrowBack extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 14),
-      child: Align(
-        alignment: Alignment.topLeft,
-        child: ArrowBackButton(
-        
-        ),
-      ),
+      child: Align(alignment: Alignment.topLeft, child: ArrowBackButton()),
     );
   }
 }

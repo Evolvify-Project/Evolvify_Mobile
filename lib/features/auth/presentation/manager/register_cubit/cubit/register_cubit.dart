@@ -51,5 +51,6 @@ class RegisterCubit extends Cubit<RegisterState> {
     }
   }
 }
+
 // teest12@example.com
 // PassWord@123

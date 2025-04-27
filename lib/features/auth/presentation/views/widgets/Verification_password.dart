@@ -1,3 +1,4 @@
+import 'package:evolvify/core/utils/app_router.dart';
 import 'package:evolvify/core/utils/app_style.dart';
 import 'package:evolvify/core/utils/constant.dart';
 import 'package:evolvify/core/widgets/custom_button.dart';
@@ -7,6 +8,7 @@ import 'package:evolvify/features/auth/presentation/views/widgets/show_Password_
 import 'package:evolvify/features/auth/presentation/views/widgets/text_field_code.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -62,10 +64,19 @@ class _VerityPasswordState extends State<VerityPassword> {
       listener: (context, state) {
         if (state is VerifyPassSucess) {
           print('✅ OTP Confirm Message: ${state.message}');
-          
-          showSnackBar(context, text: state.message);
           print(state.message);
-          showPasswordResetDialog(context);
+          showSnackBar(context, text: state.message);
+          // if   (email != null) {
+          //     GoRouter.of(context).push(
+          //       AppRouter.kSetNewPassword,
+          //       extra: {
+          //         'code': controllers.map((e) => e.text).join(),
+          //         'email': email!,
+          //       },
+          //     );
+          //   } else {
+          //     showSnackBar(context, text: 'Email not loaded, please try again.');
+          //   }
         } else if (state is VerifyPassFailure) {
           showSnackBar(context, text: state.errMessage);
         }
@@ -142,5 +153,13 @@ class _VerityPasswordState extends State<VerityPassword> {
     BlocProvider.of<VerifyPassCubit>(
       context,
     ).verifyPassWord(code: code, email: email!);
+    if (email != null) {
+      GoRouter.of(context).push(
+        AppRouter.kSetNewPassword,
+        extra: {'code': controllers.map((e) => e.text).join(), 'email': email!},
+      );
+    } else {
+      showSnackBar(context, text: 'Email not loaded, please try again.');
+    }
   }
 }

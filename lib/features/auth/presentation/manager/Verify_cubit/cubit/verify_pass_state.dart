@@ -8,7 +8,7 @@ final class VerifyPassInitial extends VerifyPassState {}
 final class VerifyPassLoading extends VerifyPassState {}
 
 final class VerifyPassSucess extends VerifyPassState {
-  final  message;
+  final message;
 
   VerifyPassSucess(this.message);
 }

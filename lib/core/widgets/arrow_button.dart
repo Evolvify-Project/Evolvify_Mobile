@@ -2,8 +2,7 @@ import 'package:evolvify/core/utils/constant.dart';
 import 'package:flutter/material.dart';
 
 class ArrowBackButton extends StatelessWidget {
- 
- const ArrowBackButton({super.key});
+  const ArrowBackButton({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -20,7 +20,7 @@ class AudioItemState extends State<AudioItem> {
       onTap: () {
         setState(() {
           isClicked = true;
-           showCourseComplete(context);
+          showCourseComplete(context);
           // Navigator.push(
           //   context,
           //   MaterialPageRoute(
