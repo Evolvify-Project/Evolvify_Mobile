@@ -1,4 +1,5 @@
 import 'package:evolvify/core/widgets/bottom_nav_bar.dart';
+import 'package:evolvify/features/Assessment/presentation/manager/question_cubit/question_cubit.dart';
 import 'package:evolvify/features/Assessment/presentation/views/Recommended_Content_view.dart';
 import 'package:evolvify/features/Assessment/presentation/views/assessment_view.dart';
 import 'package:evolvify/features/Assessment/presentation/views/test_result_view.dart';
@@ -130,7 +131,14 @@ abstract class AppRouter {
       ),
       // GoRoute(path: '/', builder: (context, state) => CommentsView()),
       GoRoute(path: '/', builder: (context, state) => AssessmentView()),
-      GoRoute(path: kTestView, builder: (context, state) => TestView()),
+      GoRoute(
+        path: kTestView,
+        builder:
+            (context, state) => BlocProvider(
+              create: (context) => QuestionCubit(),
+              child: TestView(),
+            ),
+      ),
       GoRoute(
         path: kTestResultView,
         builder: (context, state) => TestResultView(),

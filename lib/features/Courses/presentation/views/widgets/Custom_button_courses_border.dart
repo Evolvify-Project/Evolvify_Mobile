@@ -25,7 +25,7 @@ class CustomButtonCoursesBorder extends StatelessWidget {
           elevation: 0,
           backgroundColor: Colors.white,
         ),
-        onPressed: () {},
+        onPressed: onPressed,
         child: Center(
           child: Text(
             text,
