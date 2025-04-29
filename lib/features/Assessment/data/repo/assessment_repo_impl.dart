@@ -1,4 +1,3 @@
-
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:evolvify/core/errors/failures.dart';
@@ -20,6 +19,25 @@ class AssessmentRepoImpl implements AssessmentRepo {
 
       print(questionList);
       return right(questionList);
+    } on Exception catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioException(e));
+      }
+
+      return left(ServerFailure(e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, String>> submitQuestions(
+    Map<String, Map<String, String>> answers,
+  ) async {
+    try {
+      var data = await ApiServices().post(
+        endPoint: 'Assessments/submit-answers',
+        data: answers,
+      );
+      return right('success');
     } on Exception catch (e) {
       if (e is DioException) {
         return left(ServerFailure.fromDioException(e));
