@@ -29,15 +29,15 @@ class AssessmentRepoImpl implements AssessmentRepo {
   }
 
   @override
-  Future<Either<Failure, String>> submitQuestions(
-    Map<String, Map<String, String>> answers,
-  ) async {
+  Future<Either<Failure, Unit>> submitAnswers(
+       Map<String, String> answers) async {
+      
     try {
-      var data = await ApiServices().post(
+    var data=await  ApiServices().post(
         endPoint: 'Assessments/submit-answers',
-        data: answers,
+          data: {'data':answers},
       );
-      return right('success');
+      return right(unit);
     } on Exception catch (e) {
       if (e is DioException) {
         return left(ServerFailure.fromDioException(e));

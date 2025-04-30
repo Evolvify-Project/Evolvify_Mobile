@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:evolvify/core/utils/app_images.dart';
 import 'package:evolvify/core/utils/app_router.dart';
 import 'package:evolvify/core/utils/app_style.dart';
@@ -16,8 +18,21 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:svg_flutter/svg.dart';
 
-class LoginView extends StatelessWidget {
+class LoginView extends StatefulWidget {
   const LoginView({super.key});
+
+  @override
+  State<LoginView> createState() => _LoginViewState();
+}
+
+class _LoginViewState extends State<LoginView> {
+  void initState() {
+    super.initState();
+
+    Timer(Duration(seconds: 120), () {
+      GoRouter.of(context).push(AppRouter.kAssessmentView);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {

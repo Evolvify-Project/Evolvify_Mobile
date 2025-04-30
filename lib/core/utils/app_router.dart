@@ -1,5 +1,6 @@
 import 'package:evolvify/core/widgets/bottom_nav_bar.dart';
 import 'package:evolvify/features/Assessment/presentation/manager/question_cubit/question_cubit.dart';
+import 'package:evolvify/features/Assessment/presentation/manager/submit_ques_cubit/submit_ques_cubit.dart';
 import 'package:evolvify/features/Assessment/presentation/views/Recommended_Content_view.dart';
 import 'package:evolvify/features/Assessment/presentation/views/assessment_view.dart';
 import 'package:evolvify/features/Assessment/presentation/views/test_result_view.dart';
@@ -75,7 +76,7 @@ abstract class AppRouter {
       //       ),
       // ),
       GoRoute(
-        path: kCommunityPage,
+        path: '/',
         builder:
             (context, state) =>
                 CreatePostProviders.buildWithProviders(CommunityPage()),
@@ -129,13 +130,22 @@ abstract class AppRouter {
           );
         },
       ),
-      // GoRoute(path: '/', builder: (context, state) => CommentsView()),
-      GoRoute(path: '/', builder: (context, state) => AssessmentView()),
+      GoRoute(
+        path: kCommentsViewg,
+        builder: (context, state) => CommentsView(),
+      ),
+      GoRoute(
+        path: kAssessmentView,
+        builder: (context, state) => AssessmentView(),
+      ),
       GoRoute(
         path: kTestView,
         builder:
-            (context, state) => BlocProvider(
-              create: (context) => QuestionCubit(),
+            (context, state) => MultiBlocProvider(
+              providers: [
+                BlocProvider(create: (context) => QuestionCubit()),
+                BlocProvider(create: (context) => SubmitQuesCubit()),
+              ],
               child: TestView(),
             ),
       ),

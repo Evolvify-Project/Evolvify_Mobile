@@ -4,6 +4,7 @@ import 'package:evolvify/core/widgets/arrow_button.dart';
 import 'package:evolvify/core/widgets/cutom_title.dart';
 import 'package:evolvify/features/Assessment/data/models/question/questiom_model.dart';
 import 'package:evolvify/features/Assessment/presentation/manager/question_cubit/question_cubit.dart';
+import 'package:evolvify/features/Assessment/presentation/manager/submit_ques_cubit/submit_ques_cubit.dart';
 import 'package:evolvify/features/Assessment/presentation/views/widgets/circular_row.dart';
 import 'package:evolvify/features/Assessment/presentation/views/widgets/question_section.dart';
 import 'package:evolvify/features/Courses/presentation/views/widgets/Custom_button_courses_border.dart';
@@ -27,9 +28,12 @@ class _TestViewState extends State<TestView> {
 
   QuestionModel? questionModel;
   int currentIndex = 0;
+  bool isSelect = false;
+  String? selectedAnswer;
 
   @override
   Widget build(BuildContext context) {
+    final submitCubit = context.read<SubmitQuesCubit>();
     return Scaffold(
       body: BlocBuilder<QuestionCubit, QuestionState>(
         builder: (context, state) {
@@ -62,7 +66,23 @@ class _TestViewState extends State<TestView> {
                           '${(currentIndex + 1).toInt()}/${questions.length}',
                     ),
                     SizedBox(height: 35),
-                    QuestionSection(questionModel: question),
+
+                    QuestionSection(
+                      isSelect: isSelect,
+                      questionModel: question,
+                      selectedAnswer: selectedAnswer,
+                      onSelectedAnswer: (String selected) {
+                        setState(() {
+                          isSelect = true;
+                          selectedAnswer = selected;
+                        });
+                        submitCubit.saveAnswer(
+                          questionId: 'Q${currentIndex + 1}',
+                          answer: selected,
+                        );
+                      },
+                    ),
+
                     // SizedBox(height: 75),
                     SizedBox(height: 25),
 
@@ -72,26 +92,43 @@ class _TestViewState extends State<TestView> {
                           child: CustomButtonCoursesBorder(
                             text: 'Back',
                             onPressed: () {
-                              currentIndex > 0
-                                  ? setState(() {
-                                    currentIndex--;
-                                    log('Updated progress: $progress');
-                                  })
-                                  : null;
+                              if (currentIndex > 0) {
+                                setState(() {
+                                  currentIndex--;
+                                  isSelect = false;
+                                  selectedAnswer = null;
+                                });
+                              }
                             },
                           ),
                         ),
                         SizedBox(width: 30),
                         Expanded(
                           child: CustomButtonCourses(
-                            text: 'Continue',
+                            text:
+                                currentIndex == questions.length - 1
+                                    ? 'Submit'
+                                    : 'Continue',
                             onPressed: () {
-                              currentIndex < questions.length - 1
-                                  ? setState(() {
-                                    currentIndex++;
-                                    print('Updated progress: $progress');
-                                  })
-                                  : null;
+                              if (selectedAnswer == null) return;
+
+                              final questionId =
+                                  question.id ?? 'Q${currentIndex + 1}';
+                              submitCubit.saveAnswer(
+                                questionId: questionId,
+                                answer: selectedAnswer!,
+                              );
+
+                              if (currentIndex < questions.length - 1) {
+                                setState(() {
+                                  currentIndex++;
+                                  isSelect = false;
+                                  selectedAnswer = null;
+                                });
+                              } else {
+                                // آخر سؤال - ارسال البيانات
+                                submitCubit.submitAnswers();
+                              }
                             },
                           ),
                         ),

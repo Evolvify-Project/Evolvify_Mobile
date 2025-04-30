@@ -6,5 +6,5 @@ import 'package:evolvify/features/Assessment/data/models/question/questiom_model
 
 abstract class AssessmentRepo {
   Future<Either<Failure, List< QuestionModel>>> getQuestions();
-  Future<Either<Failure, String>> submitQuestions(Map<String, Map<String, String>> answers);
+  Future<Either<Failure, Unit>> submitAnswers( Map<String, String> answers);
 }

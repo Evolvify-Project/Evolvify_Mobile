@@ -5,6 +5,7 @@ import 'package:evolvify/features/community/presentation/views/widgets/custom_bo
 import 'package:evolvify/features/community/presentation/views/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class CreatePostPage extends StatelessWidget {
   CreatePostPage({super.key});
@@ -17,7 +18,6 @@ class CreatePostPage extends StatelessWidget {
         listener: (context, state) {
           if (state is CreatePostsuccess) {
             showSnackBar(context, text: 'Post created successfully!');
-            Navigator.pop(context);
           } else if (state is CreatePostfailure) {
             showSnackBar(context, text: 'Error: ${state.errMassage}');
           }
@@ -33,7 +33,8 @@ class CreatePostPage extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 20),
                 child: GestureDetector(
                   onTap: () {
-                    Navigator.of(context).pop();
+                    GoRouter.of(context).pop();
+                    //  Navigator.pop(context);
                   },
                   child: Text(
                     'Cancel',
@@ -58,8 +59,6 @@ class CreatePostPage extends StatelessWidget {
                       context,
                     ).createpost(content);
                     postController.clear();
-
-                    Navigator.pop(context);
                   } else {
                     showSnackBar(
                       context,
