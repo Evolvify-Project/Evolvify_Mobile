@@ -7,6 +7,7 @@ import 'package:evolvify/core/widgets/custom_arrow_back.dart';
 import 'package:evolvify/core/widgets/custom_button.dart';
 import 'package:evolvify/core/widgets/custom_text_field.dart';
 import 'package:evolvify/core/widgets/showSnackBar.dart';
+import 'package:evolvify/features/auth/data/repo/auth_repo_impl.dart';
 import 'package:evolvify/features/auth/presentation/manager/login_cubit/cubit/login_cubit.dart';
 import 'package:evolvify/features/auth/presentation/views/widgets/CustomMedia.dart';
 import 'package:evolvify/features/auth/presentation/views/widgets/Remember_and_Forgot_Password.dart';
@@ -29,7 +30,7 @@ class _LoginViewState extends State<LoginView> {
   void initState() {
     super.initState();
 
-    Timer(Duration(seconds: 120), () {
+    Timer(Duration(seconds: 2), () {
       GoRouter.of(context).push(AppRouter.kAssessmentView);
     });
   }
@@ -134,9 +135,11 @@ class _LoginViewState extends State<LoginView> {
                                 text1: 'Don’t have an account?',
                                 text2: 'Sign Up',
                                 onTap: () async {
-                                  GoRouter.of(
-                                    context,
-                                  ).push(AppRouter.kSignUpView);
+                                  // GoRouter.of(
+                                  //   context,
+                                  // ).push(AppRouter.kSignUpView);
+                                  AuthRepoImpl().login();
+                                  print(AuthRepoImpl().login());
                                 },
                               ),
                             ],

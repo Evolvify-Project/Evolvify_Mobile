@@ -15,8 +15,13 @@ class AuthRepoImpl implements AuthRepo {
         endPoint: 'Accounts/login',
         data: {'email': email, 'passWord': passWord},
       );
+
       print('📩 MESSAGE: ${data['message']}');
-      return right(AuthModel.fromJson(data));
+      print(data);
+      final token = data['data']['accessToken'];
+      print('🟢 Extracted Token: $token');
+
+      return right(AuthModel(token: token));
     } on Exception catch (e) {
       if (e is DioException) {
         return left(ServerFailure.fromDioException(e));

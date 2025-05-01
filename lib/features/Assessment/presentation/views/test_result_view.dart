@@ -36,6 +36,20 @@ class TestResultView extends StatelessWidget {
               ),
               SizedBox(height: 15),
               CustomLevelofUser(
+                title: 'Interview Skills',
+                subtitle: 'Advanced',
+                icon: Assets.imagesAdvanced,
+                progress: Assets.imagesAdvancedIndicatior,
+              ),
+              SizedBox(height: 15),
+              CustomLevelofUser(
+                title: 'Presentation Skills',
+                subtitle: 'Intermediate',
+                icon: Assets.imagesInter,
+                progress: Assets.imagesIntermediateIndicatior,
+              ),
+              SizedBox(height: 15),
+              CustomLevelofUser(
                 title: 'Presentation Skills',
                 subtitle: 'Intermediate',
                 icon: Assets.imagesInter,
@@ -48,7 +62,14 @@ class TestResultView extends StatelessWidget {
                 icon: Assets.imagesBegginer,
                 progress: Assets.imagesBeginnerIndicatior,
               ),
-              SizedBox(height: 25),
+              SizedBox(height: 15),
+              CustomLevelofUser(
+                title: 'Teamwork Skills',
+                subtitle: 'Beginner',
+                icon: Assets.imagesBegginer,
+                progress: Assets.imagesBeginnerIndicatior,
+              ),
+              SizedBox(height: 20),
 
               StartPlanButton(),
             ],

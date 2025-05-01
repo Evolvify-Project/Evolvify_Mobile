@@ -14,7 +14,7 @@ class RepoPostImpl implements RepoPost {
     try {
       var data = await ApiServices().post(
         endPoint: 'Community/Post',
-        data: {'content': content},
+        data: {'content':content},
       );
       return right(PostModel.fromJson(data));
     } on Exception catch (e) {

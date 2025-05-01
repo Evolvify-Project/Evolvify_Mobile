@@ -2,17 +2,17 @@ import 'package:evolvify/core/utils/constant.dart';
 import 'package:flutter/material.dart';
 
 class TestButton extends StatelessWidget {
-   TestButton({
+  TestButton({
     super.key,
     this.backgroundColor,
     required this.text,
     this.textColor,
-   required this.onPressed,
-   required this.isSelected,
+    required this.onPressed,
+    required this.isSelected,
   });
   final Color? backgroundColor, textColor;
   final String text;
-final VoidCallback onPressed; 
+  final VoidCallback onPressed;
   bool isSelected;
   @override
   Widget build(BuildContext context) {
@@ -20,14 +20,13 @@ final VoidCallback onPressed;
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(
-            
             borderRadius: BorderRadius.circular(10),
             side: BorderSide(color: Color(0xffC4C4C4), width: 1),
           ),
           elevation: 0,
-          backgroundColor: isSelected ?Color(0xff59B5FF): Colors.white,
+          backgroundColor: isSelected ? Color(0xff59B5FF) : Colors.white,
         ),
-        onPressed:onPressed,
+        onPressed: onPressed,
         child: Center(
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 10),
@@ -35,7 +34,7 @@ final VoidCallback onPressed;
               text,
 
               style: TextStyle(
-                color:  Colors.black,
+                color: Colors.black,
                 fontSize: 20,
                 fontWeight: FontWeight.w500,
               ),

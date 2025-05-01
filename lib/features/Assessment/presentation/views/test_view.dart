@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:evolvify/core/utils/app_router.dart';
 import 'package:evolvify/core/widgets/arrow_button.dart';
 import 'package:evolvify/core/widgets/cutom_title.dart';
 import 'package:evolvify/features/Assessment/data/models/question/questiom_model.dart';
@@ -11,6 +12,7 @@ import 'package:evolvify/features/Courses/presentation/views/widgets/Custom_butt
 import 'package:evolvify/features/Courses/presentation/views/widgets/custom_button_courses.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class TestView extends StatefulWidget {
   const TestView({super.key});
@@ -112,8 +114,7 @@ class _TestViewState extends State<TestView> {
                             onPressed: () {
                               if (selectedAnswer == null) return;
 
-                              final questionId =
-                                  question.id ?? 'Q${currentIndex + 1}';
+                              final questionId = 'Q${currentIndex + 1}';
                               submitCubit.saveAnswer(
                                 questionId: questionId,
                                 answer: selectedAnswer!,
@@ -128,6 +129,11 @@ class _TestViewState extends State<TestView> {
                               } else {
                                 // آخر سؤال - ارسال البيانات
                                 submitCubit.submitAnswers();
+                              }
+                              if (currentIndex == questions.length - 1) {
+                                GoRouter.of(
+                                  context,
+                                ).push(AppRouter.kTestResultView);
                               }
                             },
                           ),
