@@ -21,7 +21,7 @@ class CreatePostProviders {
               ),
               BlocProvider<LikeCubit>(create: (_) => LikeCubit()),
               BlocProvider<CommentCubit>(create: (_) => CommentCubit()),
-              BlocProvider<ReplyCubit>(create: (_) => ReplyCubit()),
+              // BlocProvider<ReplyCubit>(create: (_) => ReplyCubit()),
             ],
             child: child,
           );

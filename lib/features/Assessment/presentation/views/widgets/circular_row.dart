@@ -2,7 +2,12 @@ import 'package:evolvify/features/Assessment/presentation/views/widgets/Circular
 import 'package:flutter/material.dart';
 
 class CircularRow extends StatelessWidget {
-  const CircularRow({super.key, required this.progrss, required this.value, required this.num});
+  const CircularRow({
+    super.key,
+    required this.progrss,
+    required this.value,
+    required this.num,
+  });
   final double progrss;
   final String value;
   final double num;
@@ -24,7 +29,7 @@ class CircularRow extends StatelessWidget {
           ],
         ),
         Spacer(flex: 1),
-        CircularProgressQues(progress: progrss,num: num,),
+        CircularProgressQues(progress: progrss, num: num),
         Spacer(flex: 2),
       ],
     );

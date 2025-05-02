@@ -14,11 +14,11 @@ final class QuestionLosding extends QuestionState {}
 final class QuestionSuccess extends QuestionState {
   final List questionsList;
 
- const QuestionSuccess({required this.questionsList});
+  const QuestionSuccess({required this.questionsList});
 }
 
 final class QuestionFailure extends QuestionState {
   final String errMessage;
 
- const QuestionFailure({required this.errMessage});
+  const QuestionFailure({required this.errMessage});
 }

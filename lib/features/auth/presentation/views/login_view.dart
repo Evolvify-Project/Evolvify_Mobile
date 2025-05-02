@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:evolvify/core/utils/app_images.dart';
 import 'package:evolvify/core/utils/app_router.dart';
 import 'package:evolvify/core/utils/app_style.dart';
@@ -30,8 +29,8 @@ class _LoginViewState extends State<LoginView> {
   void initState() {
     super.initState();
 
-    Timer(Duration(seconds: 2), () {
-      GoRouter.of(context).push(AppRouter.kAssessmentView);
+    Timer(Duration(seconds: 30), () {
+      GoRouter.of(context).push(AppRouter.kCommunityPage);
     });
   }
 

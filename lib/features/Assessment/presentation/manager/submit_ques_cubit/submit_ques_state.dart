@@ -8,15 +8,13 @@ sealed class SubmitQuesState extends Equatable {
 }
 
 final class SubmitQuesInitial extends SubmitQuesState {}
+
 final class SubmitQuesLoading extends SubmitQuesState {}
-final class SubmitQuesSucess extends SubmitQuesState {
-  
-}
 
-
+final class SubmitQuesSucess extends SubmitQuesState {}
 
 final class SubmitQuesFailure extends SubmitQuesState {
   final String errMessage;
 
- const SubmitQuesFailure({required this.errMessage});
+  const SubmitQuesFailure({required this.errMessage});
 }

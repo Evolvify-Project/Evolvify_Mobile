@@ -30,12 +30,12 @@ class AssessmentRepoImpl implements AssessmentRepo {
 
   @override
   Future<Either<Failure, Unit>> submitAnswers(
-       Map<String, String> answers) async {
-      
+    Map<String, String> answers,
+  ) async {
     try {
-    var data=await  ApiServices().post(
+      var data = await ApiServices().post(
         endPoint: 'Assessments/submit-answers',
-          data: {'data':answers},
+        data: {'data': answers},
       );
       return right(unit);
     } on Exception catch (e) {

@@ -10,7 +10,12 @@ class QuestionModel extends Equatable {
   final String? questionText;
   final Choices? choices;
 
-  const QuestionModel({this.questionId, this.code, this.questionText, this.choices});
+  const QuestionModel({
+    this.questionId,
+    this.code,
+    this.questionText,
+    this.choices,
+  });
 
   factory QuestionModel.fromJson(Map<String, dynamic> json) => QuestionModel(
     questionId: json['questionId'] as String?,

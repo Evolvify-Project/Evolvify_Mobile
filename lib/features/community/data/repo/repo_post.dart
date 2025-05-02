@@ -1,9 +1,11 @@
 import 'package:dartz/dartz.dart';
 import 'package:evolvify/core/errors/failures.dart';
-import 'package:evolvify/features/community/data/models/comment_model.dart';
+import 'package:evolvify/features/community/data/models/comment.dart';
+
 import 'package:evolvify/features/community/data/models/like_model.dart';
-import 'package:evolvify/features/community/data/models/post_model.dart';
-import 'package:evolvify/features/community/data/models/reply_model.dart';
+import 'package:evolvify/features/community/data/models/post.dart';
+import 'package:evolvify/features/community/data/models/reply.dart';
+
 
 abstract class RepoPost {
   Future<Either<Failure, PostModel>> createPost({required content});

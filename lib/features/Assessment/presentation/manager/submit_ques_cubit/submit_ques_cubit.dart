@@ -8,11 +8,12 @@ part 'submit_ques_state.dart';
 
 class SubmitQuesCubit extends Cubit<SubmitQuesState> {
   SubmitQuesCubit() : super(SubmitQuesInitial());
- final Map<String, String> userAnswers = {};
-   
-   void saveAnswer({required String questionId,required String answer}) {
+  final Map<String, String> userAnswers = {};
+
+  void saveAnswer({required String questionId, required String answer}) {
     userAnswers[questionId] = answer;
   }
+
   Future<void> submitAnswers() async {
     emit(SubmitQuesLoading());
 

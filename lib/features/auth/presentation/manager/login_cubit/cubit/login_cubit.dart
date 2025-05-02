@@ -22,8 +22,7 @@ class LoginCubit extends Cubit<LoginState> {
         emit(Loginfailure(errMassage: failure.errMessge));
       },
       (data) {
-        
-       preferences.setString('token', data.token ?? '');
+        preferences.setString('token', data.token ?? '');
         preferences.setString('email', emailController.text);
         emit(Loginsuccess());
       },

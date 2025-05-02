@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
-import 'package:evolvify/features/community/data/models/comment_model.dart';
+import 'package:evolvify/features/community/data/models/comment.dart';
+
 import 'package:evolvify/features/community/data/repo/repo_post_impl.dart';
 import 'package:meta/meta.dart';
 
@@ -16,7 +17,7 @@ class CommentCubit extends Cubit<CommentState> {
         emit(CommentFailure(failure.errMessge));
       },
       (comment) {
-        emit(CommentSuccess(comment));
+        // emit(CommentSuccess(comment));
       },
     );
   }

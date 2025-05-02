@@ -1,3 +1,4 @@
+import 'package:evolvify/core/utils/app_images.dart';
 import 'package:evolvify/core/utils/constant.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +17,7 @@ class CustomSearchCommunity extends StatelessWidget {
         child: ListTile(
           leading: CircleAvatar(
             radius: 17,
-            // child: SvgPicture.asset(Assets.imagesUser),
+            child: Image.asset(Assets.imagesUser),
           ),
           title: Container(
             height: 36,

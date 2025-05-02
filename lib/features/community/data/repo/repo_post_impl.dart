@@ -2,10 +2,12 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:evolvify/core/errors/failures.dart';
 import 'package:evolvify/core/utils/api_services.dart';
-import 'package:evolvify/features/community/data/models/comment_model.dart';
+import 'package:evolvify/features/community/data/models/comment.dart';
+
 import 'package:evolvify/features/community/data/models/like_model.dart';
-import 'package:evolvify/features/community/data/models/post_model.dart';
-import 'package:evolvify/features/community/data/models/reply_model.dart';
+import 'package:evolvify/features/community/data/models/post.dart';
+import 'package:evolvify/features/community/data/models/reply.dart';
+
 import 'package:evolvify/features/community/data/repo/repo_post.dart';
 
 class RepoPostImpl implements RepoPost {
@@ -14,8 +16,9 @@ class RepoPostImpl implements RepoPost {
     try {
       var data = await ApiServices().post(
         endPoint: 'Community/Post',
-        data: {'content':content},
+        data: {'content': content},
       );
+      print(PostModel.fromJson(data));
       return right(PostModel.fromJson(data));
     } on Exception catch (e) {
       if (e is DioException) {

@@ -1,18 +1,20 @@
-part of 'reply_cubit.dart';
+// part of 'reply_cubit.dart';
 
-@immutable
-sealed class ReplyState {}
+// import 'package:evolvify/features/community/data/models/reply.dart';
 
-final class ReplyInitial extends ReplyState {}
+// @immutable
+// sealed class ReplyState {}
 
-class ReplyLoading extends ReplyState {}
+// final class ReplyInitial extends ReplyState {}
 
-class ReplySuccess extends ReplyState {
-  final ReplyModel reply;
-  ReplySuccess(this.reply);
-}
+// class ReplyLoading extends ReplyState {}
 
-class ReplyFailure extends ReplyState {
-  final String error;
-  ReplyFailure(this.error);
-}
+// class ReplySuccess extends ReplyState {
+//   final ReplyModel reply;
+//   ReplySuccess(this.reply);
+// }
+
+// class ReplyFailure extends ReplyState {
+//   final String error;
+//   ReplyFailure(this.error);
+// }

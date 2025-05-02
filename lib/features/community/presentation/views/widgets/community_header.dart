@@ -1,8 +1,8 @@
 import 'package:evolvify/core/utils/app_images.dart';
 import 'package:evolvify/core/utils/app_router.dart';
 import 'package:evolvify/core/utils/app_style.dart';
-import 'package:evolvify/features/community/data/models/post_model.dart';
-import 'package:evolvify/features/community/presentation/manager/fetchPosts_cubit/fetch_posts_cubit.dart';
+
+
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -23,7 +23,7 @@ class CommunityHeader extends StatelessWidget {
           onTap: () async {
             GoRouter.of(context).push(AppRouter.kCreatePost);
           },
-          child: SvgPicture.asset(Assets.imagesPlus),
+          child: Image.asset(Assets.imagesPlus),
         ),
       ],
     );

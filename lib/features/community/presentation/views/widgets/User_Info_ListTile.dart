@@ -1,8 +1,7 @@
+import 'package:evolvify/core/utils/app_images.dart';
 import 'package:evolvify/core/utils/app_style.dart';
 import 'package:evolvify/features/community/data/models/UserInfo_model.dart';
 import 'package:flutter/material.dart';
-
-import 'package:svg_flutter/svg.dart';
 
 class UserInfoListTile extends StatelessWidget {
   const UserInfoListTile({super.key, required this.userinfoModel});
@@ -10,7 +9,7 @@ class UserInfoListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: CircleAvatar(child: SvgPicture.asset(userinfoModel.image)),
+      leading: CircleAvatar(child: Image.asset(userinfoModel.image)),
       title: FittedBox(
         fit: BoxFit.scaleDown,
         alignment: AlignmentDirectional.centerStart,

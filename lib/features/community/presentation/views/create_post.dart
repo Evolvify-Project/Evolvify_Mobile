@@ -18,7 +18,6 @@ class CreatePostPage extends StatelessWidget {
         listener: (context, state) {
           if (state is CreatePostsuccess) {
             showSnackBar(context, text: 'Post created successfully!');
-            
           } else if (state is CreatePostfailure) {
             showSnackBar(context, text: 'Error: ${state.errMassage}');
           }
@@ -60,6 +59,7 @@ class CreatePostPage extends StatelessWidget {
                       context,
                     ).createpost(content);
                     postController.clear();
+                    GoRouter.of(context).pop();
                   } else {
                     showSnackBar(
                       context,

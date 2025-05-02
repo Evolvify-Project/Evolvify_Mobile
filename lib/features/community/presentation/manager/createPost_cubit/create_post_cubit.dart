@@ -14,7 +14,7 @@ class CreatePostCubit extends Cubit<CreatePostState> {
   Future<void> createpost(content) async {
     emit(CreatePostloading());
 
-    final result = await RepoPostImpl().createPost(content:content);
+    final result = await RepoPostImpl().createPost(content: content);
 
     result.fold(
       (failure) {

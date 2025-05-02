@@ -1,11 +1,8 @@
 import 'package:evolvify/core/utils/app_images.dart';
 import 'package:evolvify/features/community/data/models/UserInfo_model.dart';
-import 'package:evolvify/features/community/data/models/post_model.dart';
-import 'package:evolvify/features/community/presentation/manager/like/like_cubit.dart';
+import 'package:evolvify/features/community/data/models/post.dart';
 import 'package:evolvify/features/community/presentation/views/widgets/User_Info_ListTile.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:svg_flutter/svg.dart';
 
 class PostItem extends StatelessWidget {
   const PostItem({super.key, required this.postModel});
@@ -24,7 +21,7 @@ class PostItem extends StatelessWidget {
           UserInfoListTile(
             userinfoModel: UserinfoModel(
               title: 'Nour Zain',
-              subtitle: postModel.createdAt,
+              subtitle: postModel.createdAt ??'',
               image: Assets.imagesUser,
             ),
           ),
@@ -32,7 +29,7 @@ class PostItem extends StatelessWidget {
             padding: const EdgeInsets.only(left: 17, right: 35),
             child: Text(
               textAlign: TextAlign.start,
-              postModel.content,
+              postModel.content ??'',
               style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
             ),
           ),
@@ -46,28 +43,8 @@ class PostItem extends StatelessWidget {
             ),
             child: Row(
               children: [
-                BlocBuilder<LikeCubit, LikeState>(
-                  builder: (context, state) {
-                    bool isLiked = state is LikeSuccess;
-                    if (state is LikeLoading) {
-                      return Center(child: CircularProgressIndicator());
-                    } else if (state is LikeFailure) {
-                      return Text(state.error);
-                    }
+                Image.asset(Assets.imagesLike, color: Colors.grey),
 
-                    return GestureDetector(
-                      onTap: () {
-                        BlocProvider.of<LikeCubit>(
-                          context,
-                        ).like(postModel.userId);
-                      },
-                      child: SvgPicture.asset(
-                        Assets.imagesLike,
-                        color: isLiked ? Colors.red : Colors.grey,
-                      ),
-                    );
-                  },
-                ),
                 SizedBox(width: 3),
                 Text(
                   postModel.likesCount.toString(),
@@ -78,7 +55,8 @@ class PostItem extends StatelessWidget {
                   ),
                 ),
                 SizedBox(width: 8),
-                SvgPicture.asset(Assets.imagesComment),
+                Image.asset(Assets.imagesComment),
+                // SvgPicture.asset(Assets.imagesComment),
                 SizedBox(width: 3),
                 Text(
                   '12',
@@ -89,7 +67,8 @@ class PostItem extends StatelessWidget {
                   ),
                 ),
                 Spacer(),
-                SvgPicture.asset(Assets.imagesShare),
+                Image.asset(Assets.imagesShare),
+                // SvgPicture.asset(Assets.imagesShare),
               ],
             ),
           ),

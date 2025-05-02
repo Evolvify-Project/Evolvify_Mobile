@@ -12,7 +12,7 @@ class QuestionSection extends StatelessWidget {
   });
   final QuestionModel questionModel;
   final void Function(String)? onSelectedAnswer;
-    final bool isSelect;
+  final bool isSelect;
   final String? selectedAnswer;
   @override
   Widget build(BuildContext context) {
