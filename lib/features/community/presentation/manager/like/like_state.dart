@@ -8,8 +8,11 @@ final class LikeInitial extends LikeState {}
 class LikeLoading extends LikeState {}
 
 class LikeSuccess extends LikeState {
-  final LikeModel like;
-  LikeSuccess(this.like);
+  final String postId;
+  final bool isLiked;
+  final int likesCount;
+
+  LikeSuccess({required this.postId, required this.isLiked, required this.likesCount});
 }
 
 class LikeFailure extends LikeState {

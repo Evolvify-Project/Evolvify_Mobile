@@ -59,13 +59,13 @@ class CreatePostPage extends StatelessWidget {
                       context,
                     ).createpost(content);
                     postController.clear();
-                    GoRouter.of(context).pop();
                   } else {
                     showSnackBar(
                       context,
                       text: 'Post content cannot be empty.',
                     );
                   }
+                  Navigator.pop(context);
                 },
               ),
             ],

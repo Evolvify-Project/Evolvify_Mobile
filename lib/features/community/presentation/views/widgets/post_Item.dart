@@ -1,13 +1,16 @@
 import 'package:evolvify/core/utils/app_images.dart';
 import 'package:evolvify/features/community/data/models/UserInfo_model.dart';
 import 'package:evolvify/features/community/data/models/post.dart';
+import 'package:evolvify/features/community/presentation/manager/like/like_cubit.dart';
 import 'package:evolvify/features/community/presentation/views/widgets/User_Info_ListTile.dart';
+import 'package:evolvify/features/community/presentation/views/widgets/like_on_post.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class PostItem extends StatelessWidget {
-  const PostItem({super.key, required this.postModel});
+  PostItem({super.key, required this.postModel});
   final PostModel postModel;
-
+ 
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -21,7 +24,7 @@ class PostItem extends StatelessWidget {
           UserInfoListTile(
             userinfoModel: UserinfoModel(
               title: 'Nour Zain',
-              subtitle: postModel.createdAt ??'',
+              subtitle: postModel.createdAt ?? '',
               image: Assets.imagesUser,
             ),
           ),
@@ -29,7 +32,7 @@ class PostItem extends StatelessWidget {
             padding: const EdgeInsets.only(left: 17, right: 35),
             child: Text(
               textAlign: TextAlign.start,
-              postModel.content ??'',
+              postModel.content ?? '',
               style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
             ),
           ),
@@ -43,23 +46,13 @@ class PostItem extends StatelessWidget {
             ),
             child: Row(
               children: [
-                Image.asset(Assets.imagesLike, color: Colors.grey),
-
-                SizedBox(width: 3),
-                Text(
-                  postModel.likesCount.toString(),
-                  style: TextStyle(
-                    fontSize: 8,
-                    color: Color(0xffA8A8A8),
-                    fontWeight: FontWeight.w300,
-                  ),
-                ),
-                SizedBox(width: 8),
+                CustomLikeOnPost(postModel: postModel,),
+                
                 Image.asset(Assets.imagesComment),
                 // SvgPicture.asset(Assets.imagesComment),
                 SizedBox(width: 3),
                 Text(
-                  '12',
+                  postModel.commentsCount.toString(),
                   style: TextStyle(
                     fontSize: 8,
                     color: Color(0xffA8A8A8),

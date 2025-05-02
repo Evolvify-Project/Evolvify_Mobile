@@ -29,7 +29,7 @@ class _LoginViewState extends State<LoginView> {
   void initState() {
     super.initState();
 
-    Timer(Duration(seconds: 30), () {
+    Timer(Duration(seconds: 20), () {
       GoRouter.of(context).push(AppRouter.kCommunityPage);
     });
   }

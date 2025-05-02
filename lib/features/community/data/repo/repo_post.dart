@@ -10,7 +10,7 @@ import 'package:evolvify/features/community/data/models/reply.dart';
 abstract class RepoPost {
   Future<Either<Failure, PostModel>> createPost({required content});
   Future<Either<Failure, List<PostModel>>> fetchAllPosts();
-  Future<Either<Failure, LikeModel>> likePost(String postId);
+  Future<Either<Failure, PostModel>> likePost(String postId);
   Future<Either<Failure, CommentModel>> commentOnPost(
     String postId,
     String content,

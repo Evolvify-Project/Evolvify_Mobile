@@ -49,12 +49,12 @@ class RepoPostImpl implements RepoPost {
   }
 
   @override
-  Future<Either<Failure, LikeModel>> likePost(String postId) async {
+  Future<Either<Failure, PostModel>> likePost(String postId) async {
     try {
       var data = await ApiServices().post(
-        endPoint: 'Community/Post/$postId/like',
+        endPoint: 'Community/Post/$postId/Like',
       );
-      return right(LikeModel.fromJson(data));
+      return right(PostModel.fromJson(data));
     } on Exception catch (e) {
       if (e is DioException) {
         return left(ServerFailure.fromDioException(e));
