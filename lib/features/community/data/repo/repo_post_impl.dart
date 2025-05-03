@@ -71,7 +71,7 @@ class RepoPostImpl implements RepoPost {
   ) async {
     try {
       var data = await ApiServices().post(
-        endPoint: 'Community/Post/$postId/comment',
+        endPoint: 'Community/Post/$postId/Comment',
         data: {'content': content},
       );
       return right(CommentModel.fromJson(data));

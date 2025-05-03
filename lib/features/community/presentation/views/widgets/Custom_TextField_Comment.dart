@@ -6,21 +6,24 @@ class CustomTextFieldComment extends StatelessWidget {
     this.hintText,
     this.onChanged,
     this.borderRaduis,
+    this.onPressedComment,
 
+    required this.commentController,
     this.obscureText = false,
   });
   String? hintText;
 
   bool? obscureText;
-
+  void Function()? onPressedComment;
   Function(String)? onChanged;
 
   double? borderRaduis;
+  TextEditingController commentController;
   @override
   Widget build(BuildContext context) {
     return TextField(
       obscureText: obscureText!,
-
+      controller: commentController,
       onChanged: onChanged,
       decoration: InputDecoration(
         focusedBorder: border(),
@@ -33,14 +36,17 @@ class CustomTextFieldComment extends StatelessWidget {
           fontSize: 16,
           fontWeight: FontWeight.w400,
         ),
-        suffixIcon: Icon(Icons.send),
+        suffixIcon: IconButton(
+          onPressed: onPressedComment,
+          icon: Icon(Icons.send),
+        ),
       ),
     );
   }
 
   OutlineInputBorder border() {
     return OutlineInputBorder(
-      borderRadius: BorderRadius.circular(25),
+      borderRadius: BorderRadius.circular(20),
       borderSide: BorderSide(color: Color(0xff979C9E)),
     );
   }

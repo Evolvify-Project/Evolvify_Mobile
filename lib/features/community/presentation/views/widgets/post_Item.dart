@@ -3,6 +3,7 @@ import 'package:evolvify/features/community/data/models/UserInfo_model.dart';
 import 'package:evolvify/features/community/data/models/post.dart';
 import 'package:evolvify/features/community/presentation/manager/like/like_cubit.dart';
 import 'package:evolvify/features/community/presentation/views/widgets/User_Info_ListTile.dart';
+import 'package:evolvify/features/community/presentation/views/widgets/comment_on_post.dart';
 import 'package:evolvify/features/community/presentation/views/widgets/like_on_post.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,7 +11,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class PostItem extends StatelessWidget {
   PostItem({super.key, required this.postModel});
   final PostModel postModel;
- 
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -46,22 +47,8 @@ class PostItem extends StatelessWidget {
             ),
             child: Row(
               children: [
-                CustomLikeOnPost(postModel: postModel,),
-                
-                Image.asset(Assets.imagesComment),
-                // SvgPicture.asset(Assets.imagesComment),
-                SizedBox(width: 3),
-                Text(
-                  postModel.commentsCount.toString(),
-                  style: TextStyle(
-                    fontSize: 8,
-                    color: Color(0xffA8A8A8),
-                    fontWeight: FontWeight.w300,
-                  ),
-                ),
-                Spacer(),
-                Image.asset(Assets.imagesShare),
-                // SvgPicture.asset(Assets.imagesShare),
+                CustomLikeOnPost(postModel: postModel),
+                CommentOnPost(postModel: postModel),
               ],
             ),
           ),

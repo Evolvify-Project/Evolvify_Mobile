@@ -18,6 +18,7 @@ import 'package:evolvify/features/auth/presentation/views/login_view.dart';
 import 'package:evolvify/features/auth/presentation/views/register_view.dart';
 import 'package:evolvify/features/auth/presentation/views/verify_password_view.dart';
 import 'package:evolvify/features/chatbot%20_ai/presentation/views/chatbot_page.dart';
+import 'package:evolvify/features/community/data/models/post.dart';
 import 'package:evolvify/features/community/presentation/views/comments_view.dart';
 import 'package:evolvify/features/community/presentation/views/community_page.dart';
 import 'package:evolvify/features/community/presentation/views/create_post.dart';
@@ -28,6 +29,7 @@ import 'package:evolvify/features/on_Boarding/presentation/views/logo_view.dart'
 import 'package:evolvify/features/on_Boarding/presentation/views/widgets/on_boarding_view.dart';
 import 'package:evolvify/features/search/presentation/views/search_view.dart';
 import 'package:evolvify/features/splash%20screen/splash_screen_one.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
@@ -132,7 +134,13 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: kCommentsViewg,
-        builder: (context, state) => CommentsView(),
+        pageBuilder: (context, state) {
+    final postModel = state.extra as PostModel;
+    return MaterialPage(
+      child: CommentsView(postModel: postModel), 
+    );
+  },
+      
       ),
       GoRoute(
         path: kAssessmentView,

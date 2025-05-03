@@ -16,15 +16,12 @@ class _CommentsListState extends State<CommentsList> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: ListView.builder(
-        itemCount: 5,
+        itemCount: 6,
         shrinkWrap: true,
         itemBuilder: (context, index) {
           return CommentSection(
             onTapReply: () {
-              setState(() {
-                isShowTextField == true;
-                CustomTextFieldComment(hintText: '    Add a comment...');
-              });
+              setState(() {});
             },
           );
         },
