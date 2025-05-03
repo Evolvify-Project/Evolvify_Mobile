@@ -8,17 +8,22 @@ part 'fetch_posts_state.dart';
 
 class FetchPostsCubit extends Cubit<FetchPostsState> {
   FetchPostsCubit() : super(FetchPostsInitial());
-
+  List<PostModel> posts = [];
   Future<void> fetchAllposts() async {
     emit(FetchPostsloading());
     var postsList = await RepoPostImpl().fetchAllPosts();
     postsList.fold(
-      (Failure) {
-        emit(FetchPostsfailure(errMassage: Failure.errMessge));
+      (failure) {
+        emit(FetchPostsfailure(errMassage: failure.errMessge));
       },
-      (PostsList) {
-        emit(FetchPostssuccess(posts: PostsList));
+      (postsList) {
+        posts = postsList;
+        emit(FetchPostssuccess(posts: postsList));
       },
     );
+  }
+   void addNewPost(PostModel newPost) {
+    posts.insert(0, newPost); 
+    emit(FetchPostssuccess(posts: List.from(posts)));
   }
 }

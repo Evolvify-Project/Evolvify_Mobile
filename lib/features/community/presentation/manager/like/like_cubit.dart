@@ -12,7 +12,7 @@ class LikeCubit extends Cubit<LikeState> {
   Map<String, bool> islikepost = {};
   Map<String, int> likeCount = {};
   Future<void> likeOnPost(postId, {required bool currentlyLiked}) async {
-    var result = await RepoPostImpl().likePost(postId);
+    var result = await RepoPostImpl().likePost(postId ?? '');
     result.fold(
       (failure) {
         emit(LikeFailure(failure.errMessge));

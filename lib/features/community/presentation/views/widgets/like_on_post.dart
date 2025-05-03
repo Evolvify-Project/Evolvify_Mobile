@@ -25,7 +25,7 @@ class _CustomLikeOnPostState extends State<CustomLikeOnPost> {
         final isLiked = cubit.isPostLiked(widget.postModel.id ?? ' ');
         final count = cubit.getLikesCount(
           widget.postModel.id ?? ' ',
-          widget.postModel.likesCount!.toInt(),
+          (widget.postModel.likesCount ?? 0),
         );
 
         return Row(

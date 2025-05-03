@@ -37,7 +37,7 @@ class RepoPostImpl implements RepoPost {
       for (var item in data['data']) {
         postsList.add(PostModel.fromJson(item));
       }
-
+      print(postsList);
       return right(postsList);
     } on Exception catch (e) {
       if (e is DioException) {

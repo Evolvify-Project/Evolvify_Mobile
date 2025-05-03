@@ -76,19 +76,19 @@ abstract class AppRouter {
       //       ),
       // ),
       GoRoute(
-        path: kCommunityPage,
+        path: '/',
         builder:
             (context, state) =>
                 CreatePostProviders.buildWithProviders(CommunityPage()),
       ),
-      GoRoute(
-        path: '/',
-        builder:
-            (context, state) => BlocProvider(
-              create: (context) => LoginCubit(),
-              child: LoginView(),
-            ),
-      ),
+      // GoRoute(
+      //   path: '/',
+      //   builder:
+      //       (context, state) => BlocProvider(
+      //         create: (context) => LoginCubit(),
+      //         child: LoginView(),
+      //       ),
+      // ),
       GoRoute(
         path: kSignUpView,
         builder:
