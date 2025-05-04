@@ -1,22 +1,22 @@
 import 'package:awesome_icons/awesome_icons.dart';
 import 'package:evolvify/core/utils/app_images.dart';
+import 'package:evolvify/features/Assessment/data/models/courses_model.dart';
 import 'package:flutter/material.dart';
 import 'package:svg_flutter/svg.dart';
 
 class MostWatchingItem extends StatelessWidget {
-  const MostWatchingItem({super.key});
-
+  const MostWatchingItem({super.key, required this.coursesModel});
+  final CoursesModel coursesModel;
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // SvgPicture.asset(Assets.imagesImg),
-        Image.asset(Assets.imagesImg),
+        // Image.network(coursesModel.imageUrl ?? ''),
         SizedBox(height: 15),
         Text(
-          'Public Speaking: Speak \n'
-          'with Confidence',
+          coursesModel.title ?? '',
+
           style: TextStyle(
             color: Colors.black,
             fontSize: 15,
@@ -25,7 +25,10 @@ class MostWatchingItem extends StatelessWidget {
           maxLines: 2,
         ),
         SizedBox(height: 5),
-        Text('Beginner', style: TextStyle(color: Color(0xffFF001E))),
+        Text(
+          coursesModel.level ?? '',
+          style: TextStyle(color: Color(0xffFF001E)),
+        ),
         SizedBox(height: 8),
         Row(
           children: [

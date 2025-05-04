@@ -1,9 +1,7 @@
 import 'dart:developer';
-
 import 'package:evolvify/core/utils/app_router.dart';
 import 'package:evolvify/core/widgets/arrow_button.dart';
 import 'package:evolvify/core/widgets/cutom_title.dart';
-
 import 'package:evolvify/features/Assessment/presentation/manager/question_cubit/question_cubit.dart';
 import 'package:evolvify/features/Assessment/presentation/manager/submit_ques_cubit/submit_ques_cubit.dart';
 import 'package:evolvify/features/Assessment/presentation/views/widgets/circular_row.dart';
@@ -55,6 +53,7 @@ class _TestViewState extends State<TestView> {
           GoRouter.of(
             context,
           ).push(AppRouter.kTestResultView, extra: state.results);
+          print(state.results);
         } else if (state is SubmitQuesFailure) {
           ScaffoldMessenger.of(
             context,
@@ -99,14 +98,17 @@ class _TestViewState extends State<TestView> {
                         questionModel: question,
                         selectedAnswer: selectedAnswer,
                         onSelectedAnswer: (String selected) {
+                          // هنا نقوم بتحديث الكود لاختيار الحروف A, B, C, D
                           setState(() {
                             isSelect = true;
-                            selectedAnswer = selected;
+                            selectedAnswer =
+                                selected; // تخزين الحرف (A أو B أو C أو D)
                           });
                           submitCubit.saveAnswer(
                             questionCode:
                                 question.code ?? 'Q${currentIndex + 1}',
-                            answer: selected,
+                            answer:
+                                selectedAnswer!, // إرسال الإجابة بالحرف (A أو B أو C أو D)
                             section: section,
                           );
                         },

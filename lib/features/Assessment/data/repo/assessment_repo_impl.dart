@@ -4,6 +4,7 @@ import 'package:evolvify/core/errors/failures.dart';
 import 'package:evolvify/core/utils/api_services.dart';
 import 'package:evolvify/features/Assessment/data/models/question/questiom_model.dart';
 import 'package:evolvify/features/Assessment/data/models/question/skill_result.dart';
+import 'package:evolvify/features/Assessment/data/models/recommend_courses/recommend_courses.dart';
 
 import 'package:evolvify/features/Assessment/data/repo/assessment_repo.dart';
 
@@ -52,6 +53,28 @@ class AssessmentRepoImpl implements AssessmentRepo {
       if (e is DioException) {
         return left(ServerFailure.fromDioException(e));
       }
+      return left(ServerFailure(e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<RecommendCoursesModel>>>
+  getRecommendCourses() async {
+    try {
+      var data = await ApiServices().get(endPoint: 'Courses/recommended');
+
+      List<RecommendCoursesModel> recommendCoursesList =
+          (data["data"] as List)
+              .map((course) => RecommendCoursesModel.fromJson(course))
+              .toList();
+
+      print(recommendCoursesList);
+      return right(recommendCoursesList);
+    } on Exception catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioException(e));
+      }
+
       return left(ServerFailure(e.toString()));
     }
   }

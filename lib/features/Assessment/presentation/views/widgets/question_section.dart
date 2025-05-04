@@ -14,6 +14,7 @@ class QuestionSection extends StatelessWidget {
   final void Function(String)? onSelectedAnswer;
   final bool isSelect;
   final String? selectedAnswer;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -30,35 +31,36 @@ class QuestionSection extends StatelessWidget {
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
             ),
             SizedBox(height: 50),
+
             TestButton(
               text: questionModel.choices!.a ?? '',
-              isSelected: selectedAnswer == questionModel.choices!.a,
+              isSelected: selectedAnswer == 'A',
               onPressed: () {
-                onSelectedAnswer?.call(questionModel.choices!.a ?? '');
+                onSelectedAnswer?.call('A');
               },
             ),
             SizedBox(height: 12),
             TestButton(
               text: questionModel.choices!.b ?? '',
-              isSelected: selectedAnswer == questionModel.choices!.b,
+              isSelected: selectedAnswer == 'B',
               onPressed: () {
-                onSelectedAnswer?.call(questionModel.choices!.b ?? '');
+                onSelectedAnswer?.call('B');
               },
             ),
             SizedBox(height: 12),
             TestButton(
               text: questionModel.choices!.c ?? '',
-              isSelected: selectedAnswer == questionModel.choices!.c,
+              isSelected: selectedAnswer == 'C',
               onPressed: () {
-                onSelectedAnswer?.call(questionModel.choices!.c ?? '');
+                onSelectedAnswer?.call('C');
               },
             ),
             SizedBox(height: 12),
             TestButton(
               text: questionModel.choices!.d ?? '',
-              isSelected: selectedAnswer == questionModel.choices!.d,
+              isSelected: selectedAnswer == 'D',
               onPressed: () {
-                onSelectedAnswer?.call(questionModel.choices!.d ?? '');
+                onSelectedAnswer?.call('D');
               },
             ),
           ],

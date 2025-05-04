@@ -1,5 +1,6 @@
 import 'package:evolvify/core/widgets/bottom_nav_bar.dart';
 import 'package:evolvify/features/Assessment/data/models/question/skill_result.dart';
+import 'package:evolvify/features/Assessment/presentation/manager/RecommendCourses_cubit/recommend_courses_cubit.dart';
 import 'package:evolvify/features/Assessment/presentation/manager/question_cubit/question_cubit.dart';
 import 'package:evolvify/features/Assessment/presentation/manager/submit_ques_cubit/submit_ques_cubit.dart';
 import 'package:evolvify/features/Assessment/presentation/views/Recommended_Content_view.dart';
@@ -66,7 +67,15 @@ abstract class AppRouter {
       ),
       GoRoute(path: kChatbotPag, builder: (context, state) => ChatbotPage()),
       GoRoute(path: kSearchView, builder: (context, state) => SearchView()),
-      GoRoute(path: '/', builder: (context, state) => RecommendedContentView()),
+      GoRoute(
+        path: kRecommendedContentView,
+        builder:
+            (context, state) => BlocProvider(
+              create:
+                  (context) => RecommendCoursesCubit()..getRecommendCourses(),
+              child: RecommendedContentView(),
+            ),
+      ),
 
       // GoRoute(
       //   path: '/',
@@ -81,14 +90,14 @@ abstract class AppRouter {
             (context, state) =>
                 CreatePostProviders.buildWithProviders(CommunityPage()),
       ),
-      // GoRoute(
-      //   path: '/',
-      //   builder:
-      //       (context, state) => BlocProvider(
-      //         create: (context) => LoginCubit(),
-      //         child: LoginView(),
-      //       ),
-      // ),
+      GoRoute(
+        path: '/',
+        builder:
+            (context, state) => BlocProvider(
+              create: (context) => LoginCubit(),
+              child: LoginView(),
+            ),
+      ),
       GoRoute(
         path: kSignUpView,
         builder:
