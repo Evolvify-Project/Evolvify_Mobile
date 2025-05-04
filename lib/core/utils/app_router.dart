@@ -107,6 +107,14 @@ abstract class AppRouter {
             ),
       ),
       GoRoute(
+        path: kloginView,
+        builder:
+            (context, state) => BlocProvider(
+          create: (context) => LoginCubit(),
+          child: LoginView(),
+        ),
+      ),
+      GoRoute(
         path: kForgetPassWordView,
         builder:
             (context, state) => BlocProvider(
