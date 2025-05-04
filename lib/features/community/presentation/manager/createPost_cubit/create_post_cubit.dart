@@ -20,9 +20,9 @@ class CreatePostCubit extends Cubit<CreatePostState> {
       (failure) {
         emit(CreatePostfailure(errMassage: failure.errMessge));
       },
-      (newPost)async {
+      (newPost) async {
         await fetchCubit.fetchAllposts();
-      
+
         print(newPost);
 
         emit(CreatePostsuccess());

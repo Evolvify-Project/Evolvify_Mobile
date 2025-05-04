@@ -13,7 +13,9 @@ class CommentOnPost extends StatelessWidget {
       children: [
         GestureDetector(
           onTap: () {
-            GoRouter.of(context).push(AppRouter.kCommentsViewg,extra: postModel);
+            GoRouter.of(
+              context,
+            ).push(AppRouter.kCommentsViewg, extra: postModel);
           },
           child: Image.asset(Assets.imagesComment),
         ),

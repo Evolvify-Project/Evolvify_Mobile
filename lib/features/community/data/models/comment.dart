@@ -23,7 +23,7 @@ class CommentModel extends Equatable {
     this.replies,
   });
 
-  factory CommentModel.fromJson(Map<String, dynamic> json) =>CommentModel(
+  factory CommentModel.fromJson(Map<String, dynamic> json) => CommentModel(
     id: json['id'] as String?,
     content: json['content'] as String?,
     createdAt: json['createdAt'] as String?,

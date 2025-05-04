@@ -173,10 +173,6 @@ class Assets {
   /// assets/images/passwordDone.svg
   static const String imagesPasswordDone = "assets/images/passwordDone.svg";
 
-  /// Assets for imagesPerson
-  /// assets/images/person.svg
-  static const String imagesPerson = "assets/images/person.svg";
-
   /// Assets for imagesPhone
   /// assets/images/phone.svg
   static const String imagesPhone = "assets/images/phone.svg";

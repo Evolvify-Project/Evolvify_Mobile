@@ -56,6 +56,7 @@ class SignUpView extends StatelessWidget {
           const Center(child: CircularProgressIndicator());
         } else if (state is Registersuccess) {
           showSnackBar(context, text: 'login success');
+          GoRouter.of(context).push(AppRouter.kAssessmentView);
         } else if (state is Registerfailure) {
           showSnackBar(context, text: state.errMassage);
         }
@@ -104,7 +105,7 @@ class SignUpView extends StatelessWidget {
                               CustomTextFormField(
                                 controller: c.userNameController,
                                 hintText: 'Username',
-                                image: 'assets/images/person.svg',
+                                image: 'assets/images/lock.svg',
                                 validate: (value) {
                                   if (value!.contains(' ')) {
                                     return 'can only contain letters or digits no space';

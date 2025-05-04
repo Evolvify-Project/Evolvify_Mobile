@@ -1,4 +1,5 @@
 import 'package:evolvify/core/widgets/bottom_nav_bar.dart';
+import 'package:evolvify/features/Assessment/data/models/question/skill_result.dart';
 import 'package:evolvify/features/Assessment/presentation/manager/question_cubit/question_cubit.dart';
 import 'package:evolvify/features/Assessment/presentation/manager/submit_ques_cubit/submit_ques_cubit.dart';
 import 'package:evolvify/features/Assessment/presentation/views/Recommended_Content_view.dart';
@@ -65,10 +66,7 @@ abstract class AppRouter {
       ),
       GoRoute(path: kChatbotPag, builder: (context, state) => ChatbotPage()),
       GoRoute(path: kSearchView, builder: (context, state) => SearchView()),
-      GoRoute(
-        path: kRecommendedContentView,
-        builder: (context, state) => RecommendedContentView(),
-      ),
+      GoRoute(path: '/', builder: (context, state) => RecommendedContentView()),
 
       // GoRoute(
       //   path: '/',
@@ -78,7 +76,7 @@ abstract class AppRouter {
       //       ),
       // ),
       GoRoute(
-        path: '/',
+        path: kCommunityPage,
         builder:
             (context, state) =>
                 CreatePostProviders.buildWithProviders(CommunityPage()),
@@ -135,12 +133,9 @@ abstract class AppRouter {
       GoRoute(
         path: kCommentsViewg,
         pageBuilder: (context, state) {
-    final postModel = state.extra as PostModel;
-    return MaterialPage(
-      child: CommentsView(postModel: postModel), 
-    );
-  },
-      
+          final postModel = state.extra as PostModel;
+          return MaterialPage(child: CommentsView(postModel: postModel));
+        },
       ),
       GoRoute(
         path: kAssessmentView,
@@ -159,7 +154,14 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: kTestResultView,
-        builder: (context, state) => TestResultView(),
+        builder: (context, state) {
+          final extra = state.extra;
+          if (extra is List<SkillResult>) {
+            return TestResultView(skillResult: extra);
+          } else {
+            return Scaffold(body: Center(child: Text('No results found')));
+          }
+        },
       ),
 
       // GoRoute(path: '/', builder: (context, state) => LogoView()),

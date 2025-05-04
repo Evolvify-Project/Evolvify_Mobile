@@ -11,7 +11,11 @@ final class SubmitQuesInitial extends SubmitQuesState {}
 
 final class SubmitQuesLoading extends SubmitQuesState {}
 
-final class SubmitQuesSucess extends SubmitQuesState {}
+final class SubmitQuesSucess extends SubmitQuesState {
+  final List<SkillResult> results;
+
+  SubmitQuesSucess({required this.results});
+}
 
 final class SubmitQuesFailure extends SubmitQuesState {
   final String errMessage;

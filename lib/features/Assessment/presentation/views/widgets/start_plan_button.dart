@@ -1,5 +1,8 @@
+import 'package:evolvify/core/utils/app_router.dart';
 import 'package:evolvify/core/utils/constant.dart';
+import 'package:evolvify/core/widgets/customSearch.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class StartPlanButton extends StatelessWidget {
   const StartPlanButton({super.key});
@@ -17,7 +20,9 @@ class StartPlanButton extends StatelessWidget {
           elevation: 0,
           backgroundColor: AppColors.kPrimaryColor,
         ),
-        onPressed: () {},
+        onPressed: () {
+          GoRouter.of(context).push(AppRouter.kRecommendedContentView);
+        },
         child: Padding(
           padding: const EdgeInsets.only(left: 30),
           child: Center(

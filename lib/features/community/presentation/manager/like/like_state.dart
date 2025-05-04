@@ -12,7 +12,11 @@ class LikeSuccess extends LikeState {
   final bool isLiked;
   final int likesCount;
 
-  LikeSuccess({required this.postId, required this.isLiked, required this.likesCount});
+  LikeSuccess({
+    required this.postId,
+    required this.isLiked,
+    required this.likesCount,
+  });
 }
 
 class LikeFailure extends LikeState {

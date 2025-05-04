@@ -22,8 +22,9 @@ class FetchPostsCubit extends Cubit<FetchPostsState> {
       },
     );
   }
-   void addNewPost(PostModel newPost) {
-    posts.insert(0, newPost); 
+
+  void addNewPost(PostModel newPost) {
+    posts.insert(0, newPost);
     emit(FetchPostssuccess(posts: List.from(posts)));
   }
 }

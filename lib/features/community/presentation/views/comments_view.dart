@@ -42,7 +42,6 @@ class _CommentsViewState extends State<CommentsView> {
             BlocConsumer<CommentCubit, CommentState>(
               listener: (context, state) {
                 if (state is CommentSuccess) {
-                  
                 } else if (state is CommentFailure) {
                   showSnackBar(context, text: 'Error: ${state.error}');
                 }

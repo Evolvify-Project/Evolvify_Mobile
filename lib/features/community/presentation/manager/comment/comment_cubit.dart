@@ -8,7 +8,7 @@ part 'comment_state.dart';
 
 class CommentCubit extends Cubit<CommentState> {
   CommentCubit() : super(CommentInitial());
-    
+
   Future<void> comment(postId, content) async {
     emit(CommentLoading());
     var result = await RepoPostImpl().commentOnPost(postId, content);

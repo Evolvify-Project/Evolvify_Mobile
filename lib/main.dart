@@ -18,33 +18,30 @@ class EvolvifyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-  return  MultiBlocProvider(
-  providers: [
-    BlocProvider<FetchPostsCubit>(
-      create: (_) => FetchPostsCubit()..fetchAllposts(),
-    ),
-    BlocProvider<CreatePostCubit>(
-      create: (context) => CreatePostCubit(
-        BlocProvider.of<FetchPostsCubit>(context),
-      ),
-    ),
-    BlocProvider<LikeCubit>(
-      create: (_) => LikeCubit(),
-    ),
-    BlocProvider<CommentCubit>(
-      create: (_) => CommentCubit(),
-    ),
-  ],
-  child: MaterialApp.router(
-    routerConfig: AppRouter.router,
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<FetchPostsCubit>(
+          create: (_) => FetchPostsCubit()..fetchAllposts(),
+        ),
+        BlocProvider<CreatePostCubit>(
+          create:
+              (context) =>
+                  CreatePostCubit(BlocProvider.of<FetchPostsCubit>(context)),
+        ),
+        BlocProvider<LikeCubit>(create: (_) => LikeCubit()),
+        BlocProvider<CommentCubit>(create: (_) => CommentCubit()),
+      ],
+      child: MaterialApp.router(
+        routerConfig: AppRouter.router,
 
-      debugShowCheckedModeBanner: false,
-      locale: DevicePreview.locale(context),
-      builder: DevicePreview.appBuilder,
-      theme: ThemeData(
-        scaffoldBackgroundColor: Colors.white,
-        fontFamily: 'PlusJakartaSans',
+        debugShowCheckedModeBanner: false,
+        locale: DevicePreview.locale(context),
+        builder: DevicePreview.appBuilder,
+        theme: ThemeData(
+          scaffoldBackgroundColor: Colors.white,
+          fontFamily: 'PlusJakartaSans',
+        ),
       ),
-  ));
+    );
   }
 }
