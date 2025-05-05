@@ -1,8 +1,7 @@
 import 'package:awesome_icons/awesome_icons.dart';
-import 'package:evolvify/core/utils/app_images.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:evolvify/features/Assessment/data/models/courses_model.dart';
 import 'package:flutter/material.dart';
-import 'package:svg_flutter/svg.dart';
 
 class MostWatchingItem extends StatelessWidget {
   const MostWatchingItem({super.key, required this.coursesModel});
@@ -12,7 +11,18 @@ class MostWatchingItem extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // Image.network(coursesModel.imageUrl ?? ''),
+        AspectRatio(
+          aspectRatio: 1.7 / 1.4,
+          child: CachedNetworkImage(
+            imageUrl: '',
+            // coursesModel.imageUrl ?? '',
+            fit: BoxFit.fill,
+            errorWidget: (context, url, error) => const Icon(Icons.error),
+            placeholder:
+                (context, url) =>
+                    const Center(child: CircularProgressIndicator()),
+          ),
+        ),
         SizedBox(height: 15),
         Text(
           coursesModel.title ?? '',

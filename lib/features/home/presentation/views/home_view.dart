@@ -33,7 +33,7 @@ class HomeView extends StatelessWidget {
               child: CustomRowText(text1: 'Most watching Skill'),
             ),
             SliverToBoxAdapter(child: SizedBox(height: 20)),
-            // MostSkillsListView(),
+            SliverToBoxAdapter(child: MostSkillsListView()),
             SliverToBoxAdapter(child: SizedBox(height: 20)),
             SliverToBoxAdapter(child: CustomRowText(text1: 'Popular Skill')),
             SliverToBoxAdapter(child: SizedBox(height: 20)),

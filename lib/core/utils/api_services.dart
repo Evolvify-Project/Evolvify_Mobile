@@ -12,7 +12,7 @@ class ApiServices {
   }
 
   Future<Map<String, dynamic>> post({required String endPoint, data}) async {
-    final token = await _loadToken(); // استدعاء التوكن بشكل صحيح
+    final token = await _loadToken(); 
 
     Response response = await _dio.post(
       '$_baseUrl$endPoint',

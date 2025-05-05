@@ -25,6 +25,7 @@ import 'package:evolvify/features/community/presentation/views/comments_view.dar
 import 'package:evolvify/features/community/presentation/views/community_page.dart';
 import 'package:evolvify/features/community/presentation/views/create_post.dart';
 import 'package:evolvify/features/community/presentation/views/widgets/create_post_providers.dart';
+import 'package:evolvify/features/home/presentation/manager/Courses_cubit/courses_cubit.dart';
 import 'package:evolvify/features/home/presentation/views/home_view.dart';
 import 'package:evolvify/features/on_Boarding/on_Boarding_pageview.dart';
 import 'package:evolvify/features/on_Boarding/presentation/views/logo_view.dart';
@@ -77,13 +78,14 @@ abstract class AppRouter {
             ),
       ),
 
-      // GoRoute(
-      //   path: '/',
-      //   builder:
-      //       (context, state) => CreatePostProviders.buildWithProviders(
-      //         CustomBottomNavigationBar(),
-      //       ),
-      // ),
+      GoRoute(
+        path: '/',
+        builder:
+            (context, state) => BlocProvider(
+              create: (context) => CoursesCubit()..getgetMostWatchingSkill(),
+              child: CustomBottomNavigationBar(),
+            ),
+      ),
       GoRoute(
         path: kCommunityPage,
         builder:
@@ -177,7 +179,7 @@ abstract class AppRouter {
         },
       ),
 
-      GoRoute(path: '/', builder: (context, state) => LogoView()),
+      // GoRoute(path: '/', builder: (context, state) => LogoView()),
       GoRoute(
         path: kOnBordingView,
         builder: (context, state) => OnBoardingPageview(),
