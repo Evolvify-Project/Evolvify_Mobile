@@ -36,7 +36,7 @@ class StartPlanButton extends StatelessWidget {
                     fontWeight: FontWeight.w500,
                   ),
                 ),
-                SizedBox(width: 30),
+                SizedBox(width: 20),
                 Container(
                   height: 35,
                   width: 35,

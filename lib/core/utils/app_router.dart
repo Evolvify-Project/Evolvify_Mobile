@@ -91,7 +91,7 @@ abstract class AppRouter {
                 CreatePostProviders.buildWithProviders(CommunityPage()),
       ),
       GoRoute(
-        path: '/',
+        path: kloginView,
         builder:
             (context, state) => BlocProvider(
               create: (context) => LoginCubit(),
@@ -125,6 +125,10 @@ abstract class AppRouter {
       GoRoute(
         path: kPasswordResetView,
         builder: (context, state) => PasswordResetView(),
+      ),
+      GoRoute(
+        path: kSplashScreenOne,
+        builder: (context, state) => SplashScreenOne(),
       ),
       GoRoute(
         path: kSetNewPassword,
@@ -173,7 +177,7 @@ abstract class AppRouter {
         },
       ),
 
-      // GoRoute(path: '/', builder: (context, state) => LogoView()),
+      GoRoute(path: '/', builder: (context, state) => LogoView()),
       GoRoute(
         path: kOnBordingView,
         builder: (context, state) => OnBoardingPageview(),

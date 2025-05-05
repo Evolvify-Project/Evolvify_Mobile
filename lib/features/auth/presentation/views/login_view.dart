@@ -30,7 +30,7 @@ class _LoginViewState extends State<LoginView> {
   void initState() {
     super.initState();
 
-    Timer(Duration(seconds: 120), () {
+    Timer(Duration(seconds: 30), () {
       GoRouter.of(context).push(AppRouter.kAssessmentView);
     });
   }

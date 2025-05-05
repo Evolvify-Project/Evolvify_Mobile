@@ -1,10 +1,8 @@
 import 'package:evolvify/core/utils/app_images.dart';
-import 'package:evolvify/core/utils/app_router.dart';
-import 'package:evolvify/core/widgets/custom_button.dart';
+
 import 'package:evolvify/features/on_Boarding/model/on_Boarding_model.dart';
 import 'package:evolvify/features/on_Boarding/presentation/views/widgets/on_boarding_view.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 class OnBoardingPageview extends StatefulWidget {
   OnBoardingPageview({super.key});

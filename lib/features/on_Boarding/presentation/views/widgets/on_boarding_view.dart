@@ -26,19 +26,19 @@ class OnBoardingView extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 30),
         child: Column(
           children: [
-            SizedBox(height: 119),
-            // SvgPicture.asset(onBoardingModel.image),
+            SizedBox(height: 100),
+
             Image.asset(onBoardingModel.image),
-            SizedBox(height: 42),
+            SizedBox(height: 20),
             Text(
               onBoardingModel.titlt,
               style: TextStyle(
-                fontSize: 24,
+                fontSize: 20,
                 fontWeight: FontWeight.w600,
                 color: AppColors.kPrimaryColor,
               ),
             ),
-            SizedBox(height: 28),
+            SizedBox(height: 20),
             Text(
               textAlign: TextAlign.center,
               maxLines: 3,
@@ -47,12 +47,12 @@ class OnBoardingView extends StatelessWidget {
               onBoardingModel.desc,
 
               style: TextStyle(
-                fontSize: 20,
+                fontSize: 18,
                 fontWeight: FontWeight.w500,
                 color: Color(0xff2A2A2A),
               ),
             ),
-            index <= 2 ? SizedBox(height: 145) : SizedBox(height: 70),
+            index <= 2 ? SizedBox(height: 120) : SizedBox(height: 70),
 
             index <= 2
                 ? SkipAndNextButton(
