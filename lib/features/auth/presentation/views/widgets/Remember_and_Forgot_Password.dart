@@ -1,4 +1,5 @@
 import 'package:evolvify/core/utils/app_router.dart';
+import 'package:evolvify/core/utils/app_style.dart';
 import 'package:evolvify/core/widgets/custom_check_box.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -18,7 +19,7 @@ class RememberandForgotPassword extends StatelessWidget {
               'Remember me',
               style: TextStyle(
                 color: Color(0xffA1A1A1),
-                fontSize: 14,
+                fontSize: getResponsiveFontSize(context, fontSize: 14),
                 fontWeight: FontWeight.w400,
                 fontFamily: 'Robto',
               ),
@@ -35,7 +36,7 @@ class RememberandForgotPassword extends StatelessWidget {
             ' Forgot Your Password?',
             style: TextStyle(
               color: Color(0xffA1A1A1),
-              fontSize: 14,
+              fontSize: getResponsiveFontSize(context, fontSize: 14),
               fontWeight: FontWeight.w400,
               fontFamily: 'Robto',
             ),

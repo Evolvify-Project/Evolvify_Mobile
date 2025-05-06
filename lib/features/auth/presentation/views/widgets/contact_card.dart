@@ -49,14 +49,16 @@ class _ContactCardState extends State<ContactCard> {
                 padding: const EdgeInsets.only(bottom: 6),
                 child: Text(
                   widget.title,
-                  style: AppStyle.styleNexa15.copyWith(fontSize: 14),
+                  style: AppStyle.styleNexa15(context).copyWith(
+                    fontSize: getResponsiveFontSize(context, fontSize: 14),
+                  ),
                 ),
               ),
             ),
             subtitle: Center(
               child: Text(
                 widget.subTitle,
-                style: AppStyle.styleNexa15.copyWith(
+                style: AppStyle.styleNexa15(context).copyWith(
                   color: AppColors.kPrimaryColor,
                 ),
               ),

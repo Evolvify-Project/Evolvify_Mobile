@@ -33,7 +33,7 @@ class _CustOmSearchState extends State<CustOmSearch> {
           },
           decoration: InputDecoration(
             hintText: 'What skill do you want to learn?',
-            hintStyle: AppStyle.styleRegularGrey14.copyWith(
+            hintStyle: AppStyle.styleRegularGrey14(context).copyWith(
               color: Color(0xff888C94),
             ),
             suffixIcon: Padding(

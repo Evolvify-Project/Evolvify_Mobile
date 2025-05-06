@@ -1,3 +1,4 @@
+import 'package:evolvify/core/utils/app_style.dart';
 import 'package:evolvify/features/Courses/presentation/views/widgets/video.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +18,7 @@ class VideoSection extends StatelessWidget {
           'with Confidence',
           style: TextStyle(
             color: Colors.black,
-            fontSize: 20,
+            fontSize: getResponsiveFontSize(context, fontSize: 20),
             fontWeight: FontWeight.bold,
           ),
           maxLines: 2,
@@ -29,14 +30,20 @@ class VideoSection extends StatelessWidget {
           children: [
             Text(
               '6h 30min',
-              style: TextStyle(color: Color(0xff888C94), fontSize: 11),
+              style: TextStyle(
+                color: Color(0xff888C94),
+                fontSize: getResponsiveFontSize(context, fontSize: 11),
+              ),
             ),
             SizedBox(width: 6),
 
             SizedBox(width: 30),
             Text(
               '7 lessons',
-              style: TextStyle(color: Color(0xff888C94), fontSize: 11),
+              style: TextStyle(
+                color: Color(0xff888C94),
+                fontSize: getResponsiveFontSize(context, fontSize: 11),
+              ),
             ),
           ],
         ),

@@ -1,3 +1,4 @@
+import 'package:evolvify/core/utils/app_style.dart';
 import 'package:flutter/material.dart';
 
 class CircularProgressQues extends StatefulWidget {
@@ -26,7 +27,7 @@ class _CircularProgressQuesState extends State<CircularProgressQues> {
         ),
         Text(
           '${((widget.num).toInt())}',
-          style: TextStyle(fontSize: 32, fontWeight: FontWeight.w700),
+          style: TextStyle(fontSize: getResponsiveFontSize(context, fontSize: 32), fontWeight: FontWeight.w700),
         ),
       ],
     );

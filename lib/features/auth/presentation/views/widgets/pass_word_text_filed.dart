@@ -1,3 +1,4 @@
+import 'package:evolvify/core/utils/app_style.dart';
 import 'package:flutter/material.dart';
 
 class PassWordTextFiled extends StatelessWidget {
@@ -11,9 +12,7 @@ class PassWordTextFiled extends StatelessWidget {
     this.obscureText = false,
   });
   String? hintText;
-
   bool? obscureText;
-
   Function(String)? onChanged;
   TextEditingController? controller;
   String? Function(String?)? validator;
@@ -35,7 +34,7 @@ class PassWordTextFiled extends StatelessWidget {
           contentPadding: EdgeInsets.only(left: 20, top: 12, bottom: 12),
           hintStyle: TextStyle(
             color: Color(0xffB3B3B3),
-            fontSize: 14,
+            fontSize: getResponsiveFontSize(context, fontSize: 14),
             fontWeight: FontWeight.w400,
           ),
           suffixIcon: Icon(Icons.password_sharp),

@@ -1,5 +1,6 @@
 import 'package:evolvify/core/utils/app_images.dart';
 import 'package:evolvify/core/utils/app_router.dart';
+import 'package:evolvify/core/utils/app_style.dart';
 import 'package:evolvify/core/utils/constant.dart';
 import 'package:evolvify/core/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +23,7 @@ class GetstartView extends StatelessWidget {
             Text(
               'Ready to Begin?',
               style: TextStyle(
-                fontSize: 24,
+                fontSize: getResponsiveFontSize(context, fontSize: 24),
                 fontWeight: FontWeight.w600,
                 color: AppColors.kPrimaryColor,
               ),
@@ -33,7 +34,7 @@ class GetstartView extends StatelessWidget {
               'Start your journey with Evolvify  \n    and develop your skills!',
 
               style: TextStyle(
-                fontSize: 20,
+                fontSize: getResponsiveFontSize(context, fontSize: 20),
                 fontWeight: FontWeight.w400,
                 color: Color(0xff2A2A2A),
               ),

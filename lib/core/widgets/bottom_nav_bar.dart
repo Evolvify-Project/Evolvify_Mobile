@@ -1,4 +1,5 @@
 import 'package:evolvify/core/utils/app_images.dart';
+import 'package:evolvify/core/utils/app_style.dart';
 import 'package:evolvify/core/utils/constant.dart';
 import 'package:evolvify/features/Courses/presentation/views/course_overview.dart';
 import 'package:evolvify/features/chatbot%20_ai/presentation/views/chatbot_page.dart';
@@ -90,7 +91,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
             label,
             style: TextStyle(
               color: _currentIndex == index ? Color(0xff98D1FF) : Colors.white,
-              fontSize: 12,
+              fontSize: getResponsiveFontSize(context, fontSize: 12),
             ),
           ),
         ],

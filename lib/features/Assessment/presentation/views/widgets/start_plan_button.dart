@@ -1,6 +1,6 @@
 import 'package:evolvify/core/utils/app_router.dart';
+import 'package:evolvify/core/utils/app_style.dart';
 import 'package:evolvify/core/utils/constant.dart';
-import 'package:evolvify/core/widgets/customSearch.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -32,7 +32,7 @@ class StartPlanButton extends StatelessWidget {
                   'Start Your Learning Plan',
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 20,
+                    fontSize:getResponsiveFontSize(context, fontSize: 20),
                     fontWeight: FontWeight.w500,
                   ),
                 ),

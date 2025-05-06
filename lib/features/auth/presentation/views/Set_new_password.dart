@@ -1,9 +1,9 @@
+import 'package:evolvify/core/utils/app_style.dart';
 import 'package:evolvify/core/widgets/custom_button.dart';
 import 'package:evolvify/core/widgets/cutsom_arrow_ios.dart';
 import 'package:evolvify/core/widgets/showSnackBar.dart';
 import 'package:evolvify/features/auth/presentation/manager/reset_cubit/cubit/reset_cubit.dart';
 import 'package:evolvify/features/auth/presentation/views/widgets/pass_word_text_filed.dart';
-import 'package:evolvify/features/auth/presentation/views/widgets/show_Password_Reset_Dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -67,7 +67,7 @@ class SetNewPassword extends StatelessWidget {
                       Text(
                         'Set a new password',
                         style: TextStyle(
-                          fontSize: 24,
+                          fontSize: getResponsiveFontSize(context, fontSize: 24),
                           fontWeight: FontWeight.w500,
                         ),
                       ),
@@ -76,7 +76,7 @@ class SetNewPassword extends StatelessWidget {
                         'Create a new password. Ensure it differs \n'
                         'from previous ones for security',
                         style: TextStyle(
-                          fontSize: 17,
+                          fontSize: getResponsiveFontSize(context, fontSize: 17),
                           fontWeight: FontWeight.w400,
                           color: Color(0xff989898),
                         ),
@@ -85,7 +85,7 @@ class SetNewPassword extends StatelessWidget {
                       Text(
                         'Password',
                         style: TextStyle(
-                          fontSize: 20,
+                          fontSize: getResponsiveFontSize(context, fontSize: 20),
                           fontWeight: FontWeight.w600,
                           color: Color(0xff2A2A2A),
                         ),
@@ -100,7 +100,7 @@ class SetNewPassword extends StatelessWidget {
                       Text(
                         'Confirm Password',
                         style: TextStyle(
-                          fontSize: 20,
+                          fontSize: getResponsiveFontSize(context, fontSize: 20),
                           fontWeight: FontWeight.w600,
                           color: Color(0xff2A2A2A),
                         ),

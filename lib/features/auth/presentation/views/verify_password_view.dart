@@ -22,8 +22,8 @@ class VerifyPasswordView extends StatelessWidget {
                 SizedBox(height: 55),
                 Text(
                   'Verification',
-                  style: AppStyle.styleMedium28.copyWith(
-                    fontSize: 24,
+                  style: AppStyle.styleMedium28(context).copyWith(
+                    fontSize: getResponsiveFontSize(context, fontSize: 24),
                     fontWeight: FontWeight.w600,
                   ),
                 ),
@@ -33,7 +33,7 @@ class VerifyPasswordView extends StatelessWidget {
                 const SizedBox(height: 11),
                 Text(
                   'Evolvify',
-                  style: AppStyle.styleBold52.copyWith(fontSize: 24),
+                  style: AppStyle.styleBold52(context).copyWith(fontSize: getResponsiveFontSize(context, fontSize: 24)),
                 ),
 
                 SizedBox(height: 52),

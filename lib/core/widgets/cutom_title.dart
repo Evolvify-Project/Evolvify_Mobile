@@ -1,3 +1,4 @@
+import 'package:evolvify/core/utils/app_style.dart';
 import 'package:evolvify/core/utils/constant.dart';
 import 'package:flutter/material.dart';
 
@@ -9,7 +10,7 @@ class CutomTitle extends StatelessWidget {
     return Text(
       title,
       style: TextStyle(
-        fontSize: 24,
+        fontSize: getResponsiveFontSize(context, fontSize: 24),
         fontWeight: FontWeight.w600,
         color: AppColors.kPrimaryColor,
       ),

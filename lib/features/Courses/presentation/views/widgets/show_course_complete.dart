@@ -1,3 +1,4 @@
+import 'package:evolvify/core/utils/app_style.dart';
 import 'package:evolvify/core/utils/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:svg_flutter/svg_flutter.dart';
@@ -16,7 +17,7 @@ void showCourseComplete(BuildContext context) {
           'Course Completed',
           textAlign: TextAlign.center,
           style: TextStyle(
-            fontSize: 22,
+            fontSize: getResponsiveFontSize(context, fontSize: 22),
             fontWeight: FontWeight.w600,
             color: Color(0xff202244),
           ),
@@ -27,7 +28,7 @@ void showCourseComplete(BuildContext context) {
           textAlign: TextAlign.center,
 
           style: TextStyle(
-            fontSize: 14,
+            fontSize: getResponsiveFontSize(context, fontSize: 14),
             fontWeight: FontWeight.w500,
             color: Color(0xff545454),
           ),
@@ -55,7 +56,7 @@ void showCourseComplete(BuildContext context) {
                         'Test Now',
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: 20,
+                          fontSize: getResponsiveFontSize(context, fontSize: 20),
                           fontWeight: FontWeight.w500,
                         ),
                       ),

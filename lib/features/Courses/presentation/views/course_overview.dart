@@ -1,3 +1,4 @@
+import 'package:evolvify/core/utils/app_style.dart';
 import 'package:evolvify/core/utils/constant.dart';
 import 'package:evolvify/core/widgets/cutsom_arrow_ios.dart';
 import 'package:evolvify/features/Courses/presentation/views/widgets/Custom_button_courses_border.dart';
@@ -33,18 +34,21 @@ class CourseOverview extends StatelessWidget {
                         'Course Overview',
                         style: TextStyle(
                           color: AppColors.kPrimaryColor,
-                          fontSize: 25,
+                          fontSize: getResponsiveFontSize(
+                            context,
+                            fontSize: 25,
+                          ),
                           fontWeight: FontWeight.w500,
                         ),
                       ),
                     ),
                     const VideoSection(),
                     SizedBox(height: 20),
-                    const Text(
+                  Text(
                       'Course Content',
                       style: TextStyle(
                         color: AppColors.kPrimaryColor,
-                        fontSize: 25,
+                        fontSize: getResponsiveFontSize(context, fontSize: 25),
                         fontWeight: FontWeight.w500,
                       ),
                     ),

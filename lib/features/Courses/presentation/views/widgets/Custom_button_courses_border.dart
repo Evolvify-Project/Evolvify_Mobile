@@ -1,3 +1,4 @@
+import 'package:evolvify/core/utils/app_style.dart';
 import 'package:evolvify/core/utils/constant.dart';
 import 'package:flutter/material.dart';
 
@@ -31,7 +32,7 @@ class CustomButtonCoursesBorder extends StatelessWidget {
             text,
             style: TextStyle(
               color: AppColors.kPrimaryColor,
-              fontSize: 20,
+              fontSize: getResponsiveFontSize(context, fontSize: 20),
               fontWeight: FontWeight.w500,
             ),
           ),

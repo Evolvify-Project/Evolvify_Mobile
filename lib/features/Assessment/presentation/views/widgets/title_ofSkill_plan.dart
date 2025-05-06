@@ -1,3 +1,4 @@
+import 'package:evolvify/core/utils/app_style.dart';
 import 'package:flutter/material.dart';
 
 class TitleOfSkillPlan extends StatelessWidget {
@@ -16,7 +17,7 @@ class TitleOfSkillPlan extends StatelessWidget {
         padding: const EdgeInsets.only(left: 10, top: 4, bottom: 4, right: 25),
         child: Text(
           title,
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+          style: TextStyle(fontSize:getResponsiveFontSize(context, fontSize: 20), fontWeight: FontWeight.w600),
         ),
       ),
     );

@@ -1,9 +1,7 @@
 import 'package:evolvify/core/utils/app_images.dart';
 import 'package:evolvify/core/utils/app_router.dart';
 import 'package:evolvify/core/utils/app_style.dart';
-
 import 'package:flutter/material.dart';
-
 import 'package:go_router/go_router.dart';
 
 class CommunityHeader extends StatelessWidget {
@@ -14,7 +12,7 @@ class CommunityHeader extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text('Community', style: AppStyle.styleSemiBold24),
+        Text('Community', style: AppStyle.styleSemiBold24(context)),
 
         GestureDetector(
           onTap: () async {

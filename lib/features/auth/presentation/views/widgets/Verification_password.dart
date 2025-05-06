@@ -4,7 +4,6 @@ import 'package:evolvify/core/utils/constant.dart';
 import 'package:evolvify/core/widgets/custom_button.dart';
 import 'package:evolvify/core/widgets/showSnackBar.dart';
 import 'package:evolvify/features/auth/presentation/manager/Verify_cubit/cubit/verify_pass_cubit.dart';
-import 'package:evolvify/features/auth/presentation/views/widgets/show_Password_Reset_Dialog.dart';
 import 'package:evolvify/features/auth/presentation/views/widgets/text_field_code.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -127,11 +126,13 @@ class _VerityPasswordState extends State<VerityPassword> {
               children: [
                 Text(
                   'Didn’t Receive the Code ?',
-                  style: AppStyle.styleMedium14,
+                  style: AppStyle.styleMedium14(context),
                 ),
                 Text(
                   '   Resend Code',
-                  style: AppStyle.styleMedium28.copyWith(fontSize: 12),
+                  style: AppStyle.styleMedium28(context).copyWith(
+                    fontSize: getResponsiveFontSize(context, fontSize: 12),
+                  ),
                 ),
               ],
             ),

@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:svg_flutter/svg.dart';
+
 
 class ForgetPasswordView extends StatefulWidget {
   const ForgetPasswordView({super.key});
@@ -73,7 +73,7 @@ class _ForgetPasswordViewState extends State<ForgetPasswordView> {
                         children: [
                           Text(
                             'Forgot Password ?',
-                            style: AppStyle.styleMedium28,
+                            style: AppStyle.styleMedium28(context),
                           ),
                           const SizedBox(height: 17),
                           // const SizedBox(height: 87),
@@ -82,7 +82,7 @@ class _ForgetPasswordViewState extends State<ForgetPasswordView> {
                           const SizedBox(height: 17),
                           Text(
                             'Where would you like to receive a \n                    Verification Code ?',
-                            style: AppStyle.styleRegular15,
+                            style: AppStyle.styleRegular15(context),
                           ),
                           // const SizedBox(height: 42),
                           // ContactCard(

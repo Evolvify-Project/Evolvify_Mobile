@@ -38,7 +38,9 @@ class CreatePostPage extends StatelessWidget {
                     },
                     child: Text(
                       'Cancel',
-                      style: AppStyle.styleSemiBold24.copyWith(fontSize: 14),
+                      style: AppStyle.styleSemiBold24(context).copyWith(
+                        fontSize: getResponsiveFontSize(context, fontSize: 14),
+                      ),
                     ),
                   ),
                 ),

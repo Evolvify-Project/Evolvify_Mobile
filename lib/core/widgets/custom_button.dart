@@ -1,3 +1,4 @@
+import 'package:evolvify/core/utils/app_style.dart';
 import 'package:evolvify/core/utils/constant.dart';
 import 'package:flutter/material.dart';
 
@@ -27,7 +28,7 @@ class CustomButton extends StatelessWidget {
               title,
               style: TextStyle(
                 color: Colors.white,
-                fontSize: 20,
+                fontSize: getResponsiveFontSize(context, fontSize: 20),
                 fontWeight: FontWeight.w500,
                 fontFamily: 'Roboto',
               ),

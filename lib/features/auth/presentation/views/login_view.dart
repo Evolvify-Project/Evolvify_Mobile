@@ -6,8 +6,6 @@ import 'package:evolvify/core/widgets/custom_arrow_back.dart';
 import 'package:evolvify/core/widgets/custom_button.dart';
 import 'package:evolvify/core/widgets/custom_text_field.dart';
 import 'package:evolvify/core/widgets/showSnackBar.dart';
-import 'package:evolvify/features/Assessment/data/repo/assessment_repo_impl.dart';
-import 'package:evolvify/features/auth/data/repo/auth_repo_impl.dart';
 import 'package:evolvify/features/auth/presentation/manager/login_cubit/cubit/login_cubit.dart';
 import 'package:evolvify/features/auth/presentation/views/widgets/CustomMedia.dart';
 import 'package:evolvify/features/auth/presentation/views/widgets/Remember_and_Forgot_Password.dart';
@@ -70,7 +68,12 @@ class _LoginViewState extends State<LoginView> {
                       SizedBox(height: 50),
                       Text(
                         'Sign in',
-                        style: AppStyle.styleBold52.copyWith(fontSize: 24),
+                        style: AppStyle.styleBold52(context).copyWith(
+                          fontSize: getResponsiveFontSize(
+                            context,
+                            fontSize: 24,
+                          ),
+                        ),
                       ),
                       SizedBox(height: 90),
                       Padding(
@@ -85,8 +88,8 @@ class _LoginViewState extends State<LoginView> {
                               const SizedBox(height: 11),
                               Text(
                                 'Evolvify',
-                                style: AppStyle.styleBold52.copyWith(
-                                  fontSize: 24,
+                                style: AppStyle.styleBold52(context).copyWith(
+                                  fontSize:getResponsiveFontSize(context, fontSize: 24)
                                 ),
                               ),
                               const SizedBox(height: 41),

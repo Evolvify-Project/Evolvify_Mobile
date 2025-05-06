@@ -35,12 +35,15 @@ class SearchView extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text('Recent', style: AppStyle.styleBold22),
+                      Text('Recent', style: AppStyle.styleBold22(context)),
                       Text(
                         'Clear All',
                         style: TextStyle(
                           color: Color(0xff233A66),
-                          fontSize: 18,
+                          fontSize: getResponsiveFontSize(
+                            context,
+                            fontSize: 18,
+                          ),
                           fontWeight: FontWeight.w400,
                         ),
                       ),

@@ -1,4 +1,5 @@
 import 'package:evolvify/core/utils/app_images.dart';
+import 'package:evolvify/core/utils/app_style.dart';
 import 'package:evolvify/core/utils/constant.dart';
 
 import 'package:flutter/material.dart';
@@ -26,7 +27,7 @@ class _CommentSectionState extends State<CommentSection> {
               Text(
                 'Courtney Henry',
                 style: TextStyle(
-                  fontSize: 12,
+                  fontSize: getResponsiveFontSize(context, fontSize: 12),
                   fontWeight: FontWeight.w600,
                   color: AppColors.kPrimaryColor,
                 ),
@@ -35,7 +36,7 @@ class _CommentSectionState extends State<CommentSection> {
               Text(
                 maxLines: 3,
                 'Ultricies ultricies interdum dolor sodales. \n Vitae feugiat vitae vitae quis id consectetur.',
-                style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400),
+                style: TextStyle(fontSize: getResponsiveFontSize(context, fontSize: 12), fontWeight: FontWeight.w400),
               ),
               SizedBox(height: 8),
               Row(
@@ -46,7 +47,7 @@ class _CommentSectionState extends State<CommentSection> {
                       'Like .',
                       style: TextStyle(
                         color: Color(0xff4267B2),
-                        fontSize: 12,
+                        fontSize: getResponsiveFontSize(context, fontSize: 12),
                         fontWeight: FontWeight.w400,
                       ),
                     ),
@@ -58,7 +59,7 @@ class _CommentSectionState extends State<CommentSection> {
                       'Reply .',
                       style: TextStyle(
                         color: Color(0xff4267B2),
-                        fontSize: 12,
+                        fontSize:getResponsiveFontSize(context, fontSize: 12),
                         fontWeight: FontWeight.w400,
                       ),
                     ),
@@ -68,7 +69,7 @@ class _CommentSectionState extends State<CommentSection> {
                     '6h',
                     style: TextStyle(
                       color: Color(0xff90949C),
-                      fontSize: 12,
+                      fontSize: getResponsiveFontSize(context, fontSize: 12),
                       fontWeight: FontWeight.w400,
                     ),
                   ),

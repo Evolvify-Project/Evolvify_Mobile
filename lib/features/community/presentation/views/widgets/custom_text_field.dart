@@ -31,7 +31,7 @@ class CustomTextFormField extends StatelessWidget {
       cursorColor: AppColors.kPrimaryColor,
       decoration: InputDecoration(
         hintText: hint,
-        hintStyle: AppStyle.styleRegular14.copyWith(color: Color(0xffA8A8A8)),
+        hintStyle: AppStyle.styleRegular14(context).copyWith(color: Color(0xffA8A8A8)),
         border: buildBorde(),
 
         focusedBorder: buildBorde(),

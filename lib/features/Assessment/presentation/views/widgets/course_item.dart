@@ -1,10 +1,8 @@
 import 'dart:convert';
-
 import 'package:evolvify/features/Assessment/data/models/courses_model.dart';
 import 'package:evolvify/features/Assessment/data/models/recommend_courses/recommend_courses.dart';
 import 'package:evolvify/features/Assessment/presentation/views/widgets/skills_list.dart';
 import 'package:evolvify/features/Assessment/presentation/views/widgets/title_ofSkill_plan.dart';
-
 import 'package:flutter/material.dart';
 
 class RecommendCourse extends StatelessWidget {

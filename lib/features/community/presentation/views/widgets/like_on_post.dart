@@ -1,4 +1,5 @@
 import 'package:evolvify/core/utils/app_images.dart';
+import 'package:evolvify/core/utils/app_style.dart';
 import 'package:evolvify/features/community/data/models/post.dart';
 import 'package:evolvify/features/community/presentation/manager/like/like_cubit.dart';
 import 'package:flutter/material.dart';
@@ -48,7 +49,7 @@ class _CustomLikeOnPostState extends State<CustomLikeOnPost> {
             Text(
               count.toString(),
               style: TextStyle(
-                fontSize: 10,
+                fontSize: getResponsiveFontSize(context, fontSize: 10),
                 color: Color(0xffA8A8A8),
                 fontWeight: FontWeight.w300,
               ),

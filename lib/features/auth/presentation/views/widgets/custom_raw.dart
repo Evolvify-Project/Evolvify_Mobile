@@ -1,8 +1,6 @@
-import 'package:evolvify/core/utils/app_router.dart';
 import 'package:evolvify/core/utils/app_style.dart';
 import 'package:evolvify/core/utils/constant.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 class CustomRow extends StatelessWidget {
   const CustomRow({
@@ -18,14 +16,14 @@ class CustomRow extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(text1, style: AppStyle.styleRegular14),
+        Text(text1, style: AppStyle.styleRegular14(context)),
         SizedBox(width: 12),
         GestureDetector(
           onTap: onTap,
           child: Text(
             text2,
-            style: AppStyle.styleMedium20.copyWith(
-              fontSize: 14,
+            style: AppStyle.styleMedium20(context).copyWith(
+              fontSize: getResponsiveFontSize(context, fontSize: 14),
               color: AppColors.kPrimaryColor,
               fontWeight: FontWeight.bold,
             ),

@@ -1,3 +1,4 @@
+import 'package:evolvify/core/utils/app_style.dart';
 import 'package:flutter/material.dart';
 
 class SearchItem extends StatelessWidget {
@@ -11,7 +12,7 @@ class SearchItem extends StatelessWidget {
         'Interview Skills',
         style: TextStyle(
           color: Color(0xff8E9091),
-          fontSize: 18,
+          fontSize: getResponsiveFontSize(context, fontSize: 18),
           fontWeight: FontWeight.w400,
         ),
       ),

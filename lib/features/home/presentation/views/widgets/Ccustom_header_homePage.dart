@@ -11,11 +11,11 @@ class CustomHeaderHomePage extends StatelessWidget {
       contentPadding: EdgeInsets.all(0),
       title: Text(
         'Hi, Mohamed!',
-        style: AppStyle.styleBold22.copyWith(fontSize: 26),
+        style: AppStyle.styleBold22(context).copyWith(fontSize: getResponsiveFontSize(context, fontSize: 25)),
       ),
       subtitle: Text(
         'Ready to grow today?',
-        style: AppStyle.styleRegularGrey14,
+        style: AppStyle.styleRegularGrey14(context),
       ),
       trailing: CircleAvatar(
         child: SvgPicture.asset('assets/images/ProfileAvatar.svg'),

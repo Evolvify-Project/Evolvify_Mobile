@@ -1,5 +1,6 @@
 import 'package:evolvify/core/utils/app_images.dart';
 import 'package:evolvify/core/utils/app_router.dart';
+import 'package:evolvify/core/utils/app_style.dart';
 import 'package:evolvify/features/Courses/presentation/views/widgets/custom_button_courses.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -27,7 +28,7 @@ class AssessmentView extends StatelessWidget {
               Text(
                 'Welcome!',
                 style: TextStyle(
-                  fontSize: 40,
+                  fontSize: getResponsiveFontSize(context, fontSize: getResponsiveFontSize(context, fontSize: 40),),
                   fontWeight: FontWeight.w600,
                   color: Colors.white,
                 ),
@@ -40,7 +41,7 @@ class AssessmentView extends StatelessWidget {
                 ' ways to develop your skills to enhance \n '
                 '                                  your abilities.',
                 style: TextStyle(
-                  fontSize: 19,
+                  fontSize: getResponsiveFontSize(context, fontSize: 19),
                   color: Colors.white,
                   fontWeight: FontWeight.w500,
                 ),

@@ -1,3 +1,4 @@
+import 'package:evolvify/core/utils/app_style.dart';
 import 'package:evolvify/core/widgets/custom_button.dart';
 import 'package:evolvify/core/widgets/custom_evolvify_text.dart';
 
@@ -24,7 +25,7 @@ class SplashScreenTwo extends StatelessWidget {
                 'Choose your role',
                 style: TextStyle(
                   color: Color(0xff8C8C8C),
-                  fontSize: 24,
+                  fontSize:getResponsiveFontSize(context, fontSize: 24),
                   fontWeight: FontWeight.w600,
                 ),
               ),

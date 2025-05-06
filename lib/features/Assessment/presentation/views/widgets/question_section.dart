@@ -1,3 +1,4 @@
+import 'package:evolvify/core/utils/app_style.dart';
 import 'package:evolvify/features/Assessment/data/models/question/questiom_model.dart';
 import 'package:evolvify/features/Assessment/presentation/views/widgets/test_button.dart';
 import 'package:flutter/material.dart';
@@ -28,7 +29,7 @@ class QuestionSection extends StatelessWidget {
           children: [
             Text(
               questionModel.questionText ?? '',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+              style: TextStyle(fontSize: getResponsiveFontSize(context, fontSize: 20), fontWeight: FontWeight.w600),
             ),
             SizedBox(height: 50),
 

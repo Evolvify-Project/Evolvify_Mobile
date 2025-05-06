@@ -7,6 +7,6 @@ class CustomEvolvifyText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text('Evolvify', style: AppStyle.styleBold52);
+    return Text('Evolvify', style: AppStyle.styleBold52(context));
   }
 }

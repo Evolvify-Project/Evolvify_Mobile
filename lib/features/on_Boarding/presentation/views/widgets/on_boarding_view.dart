@@ -1,4 +1,5 @@
 import 'package:evolvify/core/utils/app_router.dart';
+import 'package:evolvify/core/utils/app_style.dart';
 import 'package:evolvify/core/utils/constant.dart';
 import 'package:evolvify/core/widgets/custom_button.dart';
 import 'package:evolvify/features/on_Boarding/model/on_Boarding_model.dart';
@@ -33,7 +34,7 @@ class OnBoardingView extends StatelessWidget {
             Text(
               onBoardingModel.titlt,
               style: TextStyle(
-                fontSize: 20,
+                fontSize: getResponsiveFontSize(context, fontSize: 20),
                 fontWeight: FontWeight.w600,
                 color: AppColors.kPrimaryColor,
               ),
@@ -47,7 +48,7 @@ class OnBoardingView extends StatelessWidget {
               onBoardingModel.desc,
 
               style: TextStyle(
-                fontSize: 18,
+                fontSize: getResponsiveFontSize(context, fontSize: 18),
                 fontWeight: FontWeight.w500,
                 color: Color(0xff2A2A2A),
               ),

@@ -1,5 +1,5 @@
-import 'dart:developer';
 import 'package:evolvify/core/utils/app_router.dart';
+import 'package:evolvify/core/utils/app_style.dart';
 import 'package:evolvify/core/widgets/arrow_button.dart';
 import 'package:evolvify/core/widgets/cutom_title.dart';
 import 'package:evolvify/features/Assessment/presentation/manager/question_cubit/question_cubit.dart';
@@ -170,7 +170,12 @@ class _TestViewState extends State<TestView> {
               );
             } else if (state is QuestionFailure) {
               return Center(
-                child: Text(state.errMessage, style: TextStyle(fontSize: 18)),
+                child: Text(
+                  state.errMessage,
+                  style: TextStyle(
+                    fontSize: getResponsiveFontSize(context, fontSize: 18),
+                  ),
+                ),
               );
             }
             return Center(child: Text('No questions available.'));

@@ -9,8 +9,8 @@ class CustomRowText extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(text1, style: AppStyle.styleBold22),
-        Text('see more', style: AppStyle.styleRegularGrey14),
+        Text(text1, style: AppStyle.styleBold22(context)),
+        Text('see more', style: AppStyle.styleRegularGrey14(context)),
       ],
     );
   }

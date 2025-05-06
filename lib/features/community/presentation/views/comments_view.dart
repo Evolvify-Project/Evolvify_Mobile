@@ -1,4 +1,5 @@
 import 'package:evolvify/core/utils/app_images.dart';
+import 'package:evolvify/core/utils/app_style.dart';
 import 'package:evolvify/core/widgets/cutsom_arrow_ios.dart';
 import 'package:evolvify/core/widgets/showSnackBar.dart';
 import 'package:evolvify/features/community/data/models/post.dart';
@@ -33,7 +34,7 @@ class _CommentsViewState extends State<CommentsView> {
                 CutsomArrowios(),
                 Text(
                   '16 Comments',
-                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
+                  style: TextStyle(fontSize: getResponsiveFontSize(context, fontSize: 14), fontWeight: FontWeight.w400),
                 ),
               ],
             ),

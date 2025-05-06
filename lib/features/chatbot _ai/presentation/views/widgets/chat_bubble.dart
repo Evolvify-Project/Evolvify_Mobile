@@ -1,3 +1,4 @@
+import 'package:evolvify/core/utils/app_style.dart';
 import 'package:flutter/material.dart';
 
 class ChatAiBubble extends StatelessWidget {
@@ -23,7 +24,7 @@ class ChatAiBubble extends StatelessWidget {
           'Hello,i’m fine,how can i help you?',
           style: TextStyle(
             color: Color(0xff505050),
-            fontSize: 16,
+            fontSize: getResponsiveFontSize(context, fontSize: 16),
             fontWeight: FontWeight.w300,
           ),
         ),
@@ -55,7 +56,7 @@ class ChatBubbleForUser extends StatelessWidget {
           'Hello Evolva,how are you today?',
           style: TextStyle(
             color: Colors.white,
-            fontSize: 16,
+            fontSize: getResponsiveFontSize(context, fontSize: 16),
             fontWeight: FontWeight.w300,
           ),
         ),

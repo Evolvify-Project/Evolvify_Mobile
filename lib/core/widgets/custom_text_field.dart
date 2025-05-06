@@ -1,3 +1,4 @@
+import 'package:evolvify/core/utils/app_style.dart';
 import 'package:flutter/material.dart';
 import 'package:svg_flutter/svg.dart';
 
@@ -50,7 +51,7 @@ class CustomTextFormField extends StatelessWidget {
               decoration: InputDecoration(
                 hintText: hintText,
                 hintStyle: TextStyle(
-                  fontSize: 14,
+                  fontSize: getResponsiveFontSize(context, fontSize: 14),
                   color: Color(0xffA1A1A1),
                   fontWeight: FontWeight.w500,
                 ),

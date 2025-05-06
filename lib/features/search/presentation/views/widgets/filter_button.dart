@@ -1,3 +1,4 @@
+import 'package:evolvify/core/utils/app_style.dart';
 import 'package:evolvify/core/utils/constant.dart';
 import 'package:flutter/material.dart';
 
@@ -32,7 +33,7 @@ class _FilterButtonState extends State<FilterButton> {
               widget.text,
               style: TextStyle(
                 color: isSelect ? Colors.white : Colors.black,
-                fontSize: 18,
+                fontSize:getResponsiveFontSize(context, fontSize: 18),
                 fontWeight: FontWeight.w500,
               ),
             ),

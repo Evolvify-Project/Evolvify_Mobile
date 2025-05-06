@@ -1,3 +1,4 @@
+import 'package:evolvify/core/utils/app_style.dart';
 import 'package:evolvify/core/utils/constant.dart';
 import 'package:evolvify/core/widgets/arrow_button.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +34,7 @@ class ChatBotAppBar extends StatelessWidget {
                 Text(
                   "Evolva",
                   style: TextStyle(
-                    fontSize: 20,
+                    fontSize: getResponsiveFontSize(context, fontSize: 20),
                     fontWeight: FontWeight.bold,
                     color: AppColors.kPrimaryColor,
                   ),
@@ -41,7 +42,7 @@ class ChatBotAppBar extends StatelessWidget {
                 Text(
                   "• Online",
                   style: TextStyle(
-                    fontSize: 15,
+                    fontSize: getResponsiveFontSize(context, fontSize: 15),
                     fontWeight: FontWeight.w500,
                     color: Color(0xff3ABF38),
                   ),

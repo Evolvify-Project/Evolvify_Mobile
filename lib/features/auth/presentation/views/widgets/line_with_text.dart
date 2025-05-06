@@ -1,3 +1,4 @@
+import 'package:evolvify/core/utils/app_style.dart';
 import 'package:flutter/material.dart';
 
 class LineWithText extends StatelessWidget {
@@ -14,7 +15,7 @@ class LineWithText extends StatelessWidget {
             'or continue with',
 
             style: TextStyle(
-              fontSize: 12,
+              fontSize: getResponsiveFontSize(context, fontSize: 12),
               color: Color(0xff797979),
               fontWeight: FontWeight.w500,
             ), // Text style

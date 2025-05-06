@@ -1,5 +1,6 @@
 import 'package:awesome_icons/awesome_icons.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:evolvify/core/utils/app_style.dart';
 import 'package:evolvify/features/Assessment/data/models/courses_model.dart';
 import 'package:flutter/material.dart';
 
@@ -11,25 +12,25 @@ class MostWatchingItem extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        AspectRatio(
-          aspectRatio: 1.7 / 1.4,
-          child: CachedNetworkImage(
-            imageUrl: '',
-            // coursesModel.imageUrl ?? '',
-            fit: BoxFit.fill,
-            errorWidget: (context, url, error) => const Icon(Icons.error),
-            placeholder:
-                (context, url) =>
-                    const Center(child: CircularProgressIndicator()),
-          ),
-        ),
+        // AspectRatio(
+        //   aspectRatio: 1.7 / 1.4,
+        //   child: CachedNetworkImage(
+        //     imageUrl: '',
+        //     // coursesModel.imageUrl ?? '',
+        //     fit: BoxFit.fill,
+        //     errorWidget: (context, url, error) => const Icon(Icons.error),
+        //     placeholder:
+        //         (context, url) =>
+        //             const Center(child: CircularProgressIndicator()),
+        //   ),
+        // ),
         SizedBox(height: 15),
         Text(
           coursesModel.title ?? '',
 
           style: TextStyle(
             color: Colors.black,
-            fontSize: 15,
+            fontSize: getResponsiveFontSize(context, fontSize: 15),
             fontWeight: FontWeight.bold,
           ),
           maxLines: 2,
@@ -44,7 +45,7 @@ class MostWatchingItem extends StatelessWidget {
           children: [
             Text(
               '4.0',
-              style: TextStyle(color: Color(0xff888C94), fontSize: 11),
+              style: TextStyle(color: Color(0xff888C94), fontSize: getResponsiveFontSize(context, fontSize: 11),),
             ),
             SizedBox(width: 6),
             const Icon(
@@ -55,7 +56,7 @@ class MostWatchingItem extends StatelessWidget {
             SizedBox(width: 30),
             Text(
               '(4051)',
-              style: TextStyle(color: Color(0xff888C94), fontSize: 11),
+              style: TextStyle(color: Color(0xff888C94), fontSize: getResponsiveFontSize(context, fontSize: 11),),
             ),
           ],
         ),

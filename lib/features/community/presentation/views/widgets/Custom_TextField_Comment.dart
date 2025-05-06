@@ -1,3 +1,4 @@
+import 'package:evolvify/core/utils/app_style.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextFieldComment extends StatelessWidget {
@@ -33,7 +34,7 @@ class CustomTextFieldComment extends StatelessWidget {
         contentPadding: EdgeInsets.only(left: 20, top: 10, bottom: 10),
         hintStyle: TextStyle(
           color: Color(0xff72777A),
-          fontSize: 16,
+          fontSize: getResponsiveFontSize(context, fontSize: 16),
           fontWeight: FontWeight.w400,
         ),
         suffixIcon: IconButton(

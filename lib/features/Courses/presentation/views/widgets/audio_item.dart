@@ -1,3 +1,4 @@
+import 'package:evolvify/core/utils/app_style.dart';
 import 'package:evolvify/features/Courses/presentation/views/widgets/show_course_complete.dart';
 import 'package:flutter/material.dart';
 
@@ -55,7 +56,7 @@ class AudioItemState extends State<AudioItem> {
       title: Text(
         widget.text!,
         style: TextStyle(
-          fontSize: 16,
+          fontSize: getResponsiveFontSize(context, fontSize: 16),
           color: Colors.black,
           fontWeight: FontWeight.w600,
         ),
@@ -63,7 +64,7 @@ class AudioItemState extends State<AudioItem> {
       subtitle: Text(
         widget.timeLessons!,
         style: TextStyle(
-          fontSize: 16,
+          fontSize: getResponsiveFontSize(context, fontSize: 16),
           color: Color(0xffAEAEAE),
           fontWeight: FontWeight.w400,
         ),
