@@ -1,15 +1,14 @@
 // ignore_for_file: prefer_single_quotes
 class Assets {
   Assets._();
-
+  
   /// Assets for imagesAdvanced
   /// assets/images/advanced.png
   static const String imagesAdvanced = "assets/images/advanced.png";
 
   /// Assets for imagesAdvancedIndicatior
   /// assets/images/advancedIndicatior.png
-  static const String imagesAdvancedIndicatior =
-      "assets/images/advancedIndicatior.png";
+  static const String imagesAdvancedIndicatior = "assets/images/advancedIndicatior.png";
 
   /// Assets for imagesApple
   /// assets/images/apple.svg
@@ -21,8 +20,7 @@ class Assets {
 
   /// Assets for imagesAssessmentBackground
   /// assets/images/assessmentBackground.png
-  static const String imagesAssessmentBackground =
-      "assets/images/assessmentBackground.png";
+  static const String imagesAssessmentBackground = "assets/images/assessmentBackground.png";
 
   /// Assets for imagesBack
   /// assets/images/back.png
@@ -34,16 +32,15 @@ class Assets {
 
   /// Assets for imagesBeginnerIndicatior
   /// assets/images/beginner_Indicatior.png
-  static const String imagesBeginnerIndicatior =
-      "assets/images/beginner_Indicatior.png";
+  static const String imagesBeginnerIndicatior = "assets/images/beginner_Indicatior.png";
 
   /// Assets for imagesBigChat
   /// assets/images/bigChat.svg
   static const String imagesBigChat = "assets/images/bigChat.svg";
 
   /// Assets for imagesCamera
-  /// assets/images/camera.svg
-  static const String imagesCamera = "assets/images/camera.svg";
+  /// assets/images/camera.png
+  static const String imagesCamera = "assets/images/camera.png";
 
   /// Assets for imagesChat
   /// assets/images/chat.png
@@ -62,8 +59,8 @@ class Assets {
   static const String imagesComment = "assets/images/comment.png";
 
   /// Assets for imagesCommunity
-  /// assets/images/community.svg
-  static const String imagesCommunity = "assets/images/community.svg";
+  /// assets/images/community.png
+  static const String imagesCommunity = "assets/images/community.png";
 
   /// Assets for imagesEllipse31
   /// assets/images/Ellipse31.svg
@@ -87,13 +84,11 @@ class Assets {
 
   /// Assets for imagesForgetPassword2
   /// assets/images/forgetPassword2.svg
-  static const String imagesForgetPassword2 =
-      "assets/images/forgetPassword2.svg";
+  static const String imagesForgetPassword2 = "assets/images/forgetPassword2.svg";
 
-  /// Assets for imagesForgotPassword
+  /// Assets for imagesForgotPassword 
   /// assets/images/forgot_Password .svg
-  static const String imagesForgotPassword =
-      "assets/images/forgot_Password .svg";
+  static const String imagesForgotPassword  = "assets/images/forgot_Password .svg";
 
   /// Assets for imagesGoogle
   /// assets/images/google.svg
@@ -113,8 +108,7 @@ class Assets {
 
   /// Assets for imagesIntermediateIndicatior
   /// assets/images/Intermediate_Indicatior.png
-  static const String imagesIntermediateIndicatior =
-      "assets/images/Intermediate_Indicatior.png";
+  static const String imagesIntermediateIndicatior = "assets/images/Intermediate_Indicatior.png";
 
   /// Assets for imagesLike
   /// assets/images/like.png
@@ -158,16 +152,15 @@ class Assets {
 
   /// Assets for imagesOnBoardingThree
   /// assets/images/onBoardingThree.svg
-  static const String imagesOnBoardingThree =
-      "assets/images/onBoardingThree.svg";
+  static const String imagesOnBoardingThree = "assets/images/onBoardingThree.svg";
 
   /// Assets for imagesOnBoardingTwo
   /// assets/images/onBoardingTwo.svg
   static const String imagesOnBoardingTwo = "assets/images/onBoardingTwo.svg";
 
   /// Assets for imagesOpenAILogo
-  /// assets/images/openAI-logo.svg
-  static const String imagesOpenAILogo = "assets/images/openAI-logo.svg";
+  /// assets/images/openAI-logo.png
+  static const String imagesOpenAILogo = "assets/images/openAI-logo.png";
 
   /// Assets for imagesPasswordDone
   /// assets/images/passwordDone.svg
@@ -257,3 +250,4 @@ class Assets {
   /// assets/images/xs.svg
   static const String imagesXs = "assets/images/xs.svg";
 }
+
