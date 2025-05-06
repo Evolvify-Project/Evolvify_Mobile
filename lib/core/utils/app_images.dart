@@ -162,6 +162,10 @@ class Assets {
   /// assets/images/openAI-logo.png
   static const String imagesOpenAILogo = "assets/images/openAI-logo.png";
 
+  /// Assets for imagesP
+  /// assets/images/p.png
+  static const String imagesP = "assets/images/p.png";
+
   /// Assets for imagesPasswordDone
   /// assets/images/passwordDone.svg
   static const String imagesPasswordDone = "assets/images/passwordDone.svg";
