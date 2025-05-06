@@ -95,8 +95,8 @@ class Assets {
   static const String imagesGoogle = "assets/images/google.svg";
 
   /// Assets for imagesHome
-  /// assets/images/home.svg
-  static const String imagesHome = "assets/images/home.svg";
+  /// assets/images/home.png
+  static const String imagesHome = "assets/images/home.png";
 
   /// Assets for imagesImg
   /// assets/images/img.png
@@ -173,6 +173,10 @@ class Assets {
   /// Assets for imagesPlus
   /// assets/images/plus.png
   static const String imagesPlus = "assets/images/plus.png";
+
+  /// Assets for imagesPr
+  /// assets/images/pr.png
+  static const String imagesPr = "assets/images/pr.png";
 
   /// Assets for imagesProfile
   /// assets/images/profile.svg
