@@ -37,12 +37,12 @@ Widget buildSkillTile(SkillResult skillResult) {
         children: [
           Text(
             '${skillResult.skill} Skills ',
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
           ),
           Text(
             skillResult.level,
             style: TextStyle(
-              fontSize: 15,
+              fontSize: 13,
               color: Color(0xff6F6F6F),
               fontWeight: FontWeight.w500,
             ),

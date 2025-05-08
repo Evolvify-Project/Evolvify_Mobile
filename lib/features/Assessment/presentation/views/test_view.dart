@@ -58,6 +58,8 @@ class _TestViewState extends State<TestView> {
           ScaffoldMessenger.of(
             context,
           ).showSnackBar(SnackBar(content: Text(state.errMessage)));
+        } else if (state is SubmitQuesLoading) {
+          Center(child: CircularProgressIndicator());
         }
       },
       child: Scaffold(
@@ -98,17 +100,14 @@ class _TestViewState extends State<TestView> {
                         questionModel: question,
                         selectedAnswer: selectedAnswer,
                         onSelectedAnswer: (String selected) {
-                          // هنا نقوم بتحديث الكود لاختيار الحروف A, B, C, D
                           setState(() {
                             isSelect = true;
-                            selectedAnswer =
-                                selected; // تخزين الحرف (A أو B أو C أو D)
+                            selectedAnswer = selected;
                           });
                           submitCubit.saveAnswer(
                             questionCode:
                                 question.code ?? 'Q${currentIndex + 1}',
-                            answer:
-                                selectedAnswer!, // إرسال الإجابة بالحرف (A أو B أو C أو D)
+                            answer: selectedAnswer!,
                             section: section,
                           );
                         },

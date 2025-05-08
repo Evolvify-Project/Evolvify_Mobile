@@ -1,5 +1,6 @@
 import 'package:awesome_icons/awesome_icons.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:evolvify/core/utils/app_images.dart';
 import 'package:evolvify/core/utils/app_style.dart';
 import 'package:evolvify/features/Assessment/data/models/courses_model.dart';
 import 'package:flutter/material.dart';
@@ -24,6 +25,7 @@ class MostWatchingItem extends StatelessWidget {
         //             const Center(child: CircularProgressIndicator()),
         //   ),
         // ),
+        Image.asset(Assets.imagesT),
         SizedBox(height: 15),
         Text(
           coursesModel.title ?? '',
@@ -45,7 +47,10 @@ class MostWatchingItem extends StatelessWidget {
           children: [
             Text(
               '4.0',
-              style: TextStyle(color: Color(0xff888C94), fontSize: getResponsiveFontSize(context, fontSize: 11),),
+              style: TextStyle(
+                color: Color(0xff888C94),
+                fontSize: getResponsiveFontSize(context, fontSize: 11),
+              ),
             ),
             SizedBox(width: 6),
             const Icon(
@@ -56,7 +61,10 @@ class MostWatchingItem extends StatelessWidget {
             SizedBox(width: 30),
             Text(
               '(4051)',
-              style: TextStyle(color: Color(0xff888C94), fontSize: getResponsiveFontSize(context, fontSize: 11),),
+              style: TextStyle(
+                color: Color(0xff888C94),
+                fontSize: getResponsiveFontSize(context, fontSize: 11),
+              ),
             ),
           ],
         ),

@@ -7,6 +7,7 @@ import 'package:evolvify/features/Assessment/data/models/question/skill_result.d
 import 'package:evolvify/features/Assessment/data/models/recommend_courses/recommend_courses.dart';
 
 import 'package:evolvify/features/Assessment/data/repo/assessment_repo.dart';
+import 'package:flutter/material.dart';
 
 class AssessmentRepoImpl implements AssessmentRepo {
   @override
@@ -14,10 +15,16 @@ class AssessmentRepoImpl implements AssessmentRepo {
     try {
       var data = await ApiServices().get(endPoint: 'Assessments/questions');
 
+      // List<QuestionModel> questionList =
+      //     (data["data"] as List?)
+      //         ?.map((question) => QuestionModel.fromJson(question))
+      //         .toList() ??
+      [];
       List<QuestionModel> questionList =
-          (data["data"] as List)
-              .map((question) => QuestionModel.fromJson(question))
-              .toList();
+          (data["data"] as List?)
+              ?.map((question) => QuestionModel.fromJson(question))
+              .toList() ??
+          [];
 
       // print(questionList);
       return right(questionList);

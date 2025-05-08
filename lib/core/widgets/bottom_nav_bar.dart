@@ -7,29 +7,29 @@ import 'package:evolvify/features/Courses/presentation/views/course_overview.dar
 import 'package:evolvify/features/chatbot%20_ai/presentation/views/chatbot_page.dart';
 import 'package:evolvify/features/community/presentation/views/community_page.dart';
 import 'package:evolvify/features/home/presentation/views/home_view.dart';
-import 'package:evolvify/features/search/presentation/views/filter_view.dart';
+
 import 'package:flutter/material.dart';
 
-class CustomBottomNavigationBar extends StatefulWidget {
-  @override
-  _CustomBottomNavigationBarState createState() =>
-      _CustomBottomNavigationBarState();
-}
+// class CustomBottomNavigationBar extends StatefulWidget {
+//   @override
+//   _CustomBottomNavigationBarState createState() =>
+//       _CustomBottomNavigationBarState();
+// }
 
-class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
-  int _currentIndex = 0;
+// class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
+//   int _currentIndex = 0;
 
-  final List<Widget> _pages = [
-    HomeView(),
-    ChatbotPage(),
-    CourseOverview(),
-    CommunityPage(),
-    FilterView(),
-  ];
+//   final List<Widget> _pages = [
+//     HomeView(),
+//     ChatbotPage(),
+//     CourseOverview(),
+//     CommunityPage(),
+//     FilterView(),
+//   ];
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(body: CurvedNavWithImage());
+  // @override
+  // Widget build(BuildContext context) {
+  //   return Scaffold(body: CurvedNavWithImage());
     //     body: _pages[_currentIndex],
 
     //     // floatingActionButton: Container(
@@ -99,8 +99,8 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
     //       ],
     //     ),
     //   );
-  }
-}
+//   }
+// }
 
 class CurvedNavWithImage extends StatefulWidget {
   @override

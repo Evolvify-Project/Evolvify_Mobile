@@ -29,7 +29,10 @@ class QuestionSection extends StatelessWidget {
           children: [
             Text(
               questionModel.questionText ?? '',
-              style: TextStyle(fontSize: getResponsiveFontSize(context, fontSize: 20), fontWeight: FontWeight.w600),
+              style: TextStyle(
+                fontSize: getResponsiveFontSize(context, fontSize: 20),
+                fontWeight: FontWeight.w600,
+              ),
             ),
             SizedBox(height: 50),
 

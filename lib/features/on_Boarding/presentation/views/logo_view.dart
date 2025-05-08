@@ -39,7 +39,9 @@ class _LogoViewState extends State<LogoView> {
             SizedBox(height: 24),
             Text(
               'Evolvify',
-              style: AppStyle.styleBold52(context).copyWith(color: Colors.white),
+              style: AppStyle.styleBold52(
+                context,
+              ).copyWith(color: Colors.white),
             ),
           ],
         ),

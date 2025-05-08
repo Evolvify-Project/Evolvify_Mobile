@@ -1,3 +1,4 @@
+import 'package:evolvify/core/utils/app_style.dart';
 import 'package:evolvify/core/utils/constant.dart';
 import 'package:flutter/material.dart';
 
@@ -35,7 +36,7 @@ class TestButton extends StatelessWidget {
 
               style: TextStyle(
                 color: Colors.black,
-                fontSize: 20,
+                fontSize: getResponsiveFontSize(context, fontSize: 20),
                 fontWeight: FontWeight.w500,
               ),
             ),

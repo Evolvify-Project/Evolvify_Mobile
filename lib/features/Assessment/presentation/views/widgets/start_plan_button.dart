@@ -10,7 +10,7 @@ class StartPlanButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 60,
+      height: 55,
 
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
@@ -24,7 +24,7 @@ class StartPlanButton extends StatelessWidget {
           GoRouter.of(context).push(AppRouter.kRecommendedContentView);
         },
         child: Padding(
-          padding: const EdgeInsets.only(left: 30),
+          padding: const EdgeInsets.only(left: 40),
           child: Center(
             child: Row(
               children: [
@@ -32,11 +32,11 @@ class StartPlanButton extends StatelessWidget {
                   'Start Your Learning Plan',
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize:getResponsiveFontSize(context, fontSize: 20),
+                    fontSize: getResponsiveFontSize(context, fontSize: 20),
                     fontWeight: FontWeight.w500,
                   ),
                 ),
-                SizedBox(width: 20),
+                SizedBox(width: 30),
                 Container(
                   height: 35,
                   width: 35,

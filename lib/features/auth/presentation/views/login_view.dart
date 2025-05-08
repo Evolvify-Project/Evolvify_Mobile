@@ -28,9 +28,9 @@ class _LoginViewState extends State<LoginView> {
   void initState() {
     super.initState();
 
-    Timer(Duration(seconds: 30), () {
-      GoRouter.of(context).push(AppRouter.kAssessmentView);
-    });
+    // Timer(Duration(seconds: 30), () {
+    //   GoRouter.of(context).push(AppRouter.kAssessmentView);
+    // });
   }
 
   @override
@@ -43,6 +43,7 @@ class _LoginViewState extends State<LoginView> {
             const Center(child: CircularProgressIndicator());
           } else if (state is Loginsuccess) {
             showSnackBar(context, text: 'login success');
+            GoRouter.of(context).push(AppRouter.kAssessmentView);
           } else if (state is Loginfailure) {
             showSnackBar(context, text: state.errMassage);
           }
@@ -89,7 +90,10 @@ class _LoginViewState extends State<LoginView> {
                               Text(
                                 'Evolvify',
                                 style: AppStyle.styleBold52(context).copyWith(
-                                  fontSize:getResponsiveFontSize(context, fontSize: 24)
+                                  fontSize: getResponsiveFontSize(
+                                    context,
+                                    fontSize: 24,
+                                  ),
                                 ),
                               ),
                               const SizedBox(height: 41),

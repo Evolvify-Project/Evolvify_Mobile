@@ -58,6 +58,10 @@ class Assets {
   /// assets/images/comment.png
   static const String imagesComment = "assets/images/comment.png";
 
+  /// Assets for imagesCommunication
+  /// assets/images/communication.png
+  static const String imagesCommunication = "assets/images/communication.png";
+
   /// Assets for imagesCommunity
   /// assets/images/community.png
   static const String imagesCommunity = "assets/images/community.png";
@@ -109,6 +113,10 @@ class Assets {
   /// Assets for imagesIntermediateIndicatior
   /// assets/images/Intermediate_Indicatior.png
   static const String imagesIntermediateIndicatior = "assets/images/Intermediate_Indicatior.png";
+
+  /// Assets for imagesInterview
+  /// assets/images/interview.png
+  static const String imagesInterview = "assets/images/interview.png";
 
   /// Assets for imagesLike
   /// assets/images/like.png
@@ -182,6 +190,10 @@ class Assets {
   /// assets/images/pr.png
   static const String imagesPr = "assets/images/pr.png";
 
+  /// Assets for imagesPresentation
+  /// assets/images/presentation.png
+  static const String imagesPresentation = "assets/images/presentation.png";
+
   /// Assets for imagesProfile
   /// assets/images/profile.svg
   static const String imagesProfile = "assets/images/profile.svg";
@@ -238,9 +250,21 @@ class Assets {
   /// assets/images/smallchat.svg
   static const String imagesSmallchat = "assets/images/smallchat.svg";
 
+  /// Assets for imagesT
+  /// assets/images/t.png
+  static const String imagesT = "assets/images/t.png";
+
+  /// Assets for imagesTeamWork
+  /// assets/images/teamWork.png
+  static const String imagesTeamWork = "assets/images/teamWork.png";
+
   /// Assets for imagesTestResult
   /// assets/images/testResult.png
   static const String imagesTestResult = "assets/images/testResult.png";
+
+  /// Assets for imagesTimeMang
+  /// assets/images/timeMang.png
+  static const String imagesTimeMang = "assets/images/timeMang.png";
 
   /// Assets for imagesUser
   /// assets/images/user.png

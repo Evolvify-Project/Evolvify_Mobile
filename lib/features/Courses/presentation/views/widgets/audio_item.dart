@@ -20,8 +20,8 @@ class AudioItemState extends State<AudioItem> {
       contentPadding: EdgeInsets.symmetric(horizontal: 12),
       onTap: () {
         setState(() {
-          isClicked = true;
-          showCourseComplete(context);
+          // isClicked = true;
+          // showCourseComplete(context);
           // Navigator.push(
           //   context,
           //   MaterialPageRoute(

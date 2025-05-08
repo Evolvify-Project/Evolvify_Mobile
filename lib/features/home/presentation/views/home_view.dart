@@ -18,9 +18,9 @@ class HomeView extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 28),
         child: CustomScrollView(
           slivers: [
-            SliverToBoxAdapter(child: SizedBox(height: 28)),
+            SliverToBoxAdapter(child: SizedBox(height: 40)),
             SliverToBoxAdapter(child: CustomHeaderHomePage()),
-            SliverToBoxAdapter(child: SizedBox(height: 26)),
+            SliverToBoxAdapter(child: SizedBox(height: 10)),
             SliverToBoxAdapter(
               child: CustOmSearch(
                 onTap: () {
@@ -36,7 +36,7 @@ class HomeView extends StatelessWidget {
             SliverToBoxAdapter(child: MostSkillsListView()),
             SliverToBoxAdapter(child: SizedBox(height: 20)),
             SliverToBoxAdapter(child: CustomRowText(text1: 'Popular Skill')),
-            SliverToBoxAdapter(child: SizedBox(height: 20)),
+            SliverToBoxAdapter(child: SizedBox(height: 10)),
             PopularSkillgridView(),
           ],
         ),

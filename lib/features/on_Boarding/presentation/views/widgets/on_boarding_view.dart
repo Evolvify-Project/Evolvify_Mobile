@@ -30,7 +30,7 @@ class OnBoardingView extends StatelessWidget {
             SizedBox(height: 100),
 
             Image.asset(onBoardingModel.image),
-            SizedBox(height: 20),
+            SizedBox(height: 30),
             Text(
               onBoardingModel.titlt,
               style: TextStyle(

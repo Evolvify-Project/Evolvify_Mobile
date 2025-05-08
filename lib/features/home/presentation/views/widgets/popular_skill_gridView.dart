@@ -1,37 +1,61 @@
+import 'package:evolvify/core/utils/app_images.dart';
 import 'package:flutter/material.dart';
 
 class PopularSkillgridView extends StatelessWidget {
-  const PopularSkillgridView({super.key});
+  PopularSkillgridView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return SliverGrid.builder(
-      itemCount: 4,
+      itemCount: 5,
 
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         childAspectRatio: 2.3 / 3,
         crossAxisCount: 2,
-        mainAxisSpacing: 20,
-        crossAxisSpacing: 17,
+        crossAxisSpacing: 15,
       ),
       itemBuilder: (context, index) {
-        return Container(color: Colors.amber);
+      
+        return images[index];
       },
     );
   }
+
+  List images = [
+    GestureDetector(
+      onTap: () {},
+      child: AspectRatio(
+        aspectRatio: 1 / 2,
+        child: Image.asset(Assets.imagesInterview),
+      ),
+    ),
+    GestureDetector(
+      onTap: () {},
+      child: AspectRatio(
+        aspectRatio: 1 / 2,
+        child: Image.asset(Assets.imagesPresentation),
+      ),
+    ),
+    GestureDetector(
+      onTap: () {},
+      child: AspectRatio(
+        aspectRatio: 1 / 2,
+        child: Image.asset(Assets.imagesCommunication),
+      ),
+    ),
+    GestureDetector(
+      onTap: () {},
+      child: AspectRatio(
+        aspectRatio: 1 / 2,
+        child: Image.asset(Assets.imagesTeamWork),
+      ),
+    ),
+    GestureDetector(
+      onTap: () {},
+      child: AspectRatio(
+        aspectRatio: 1 / 2,
+        child: Image.asset(Assets.imagesTimeMang),
+      ),
+    ),
+  ];
 }
-
-// ClipRRect(
-//   borderRadius: BorderRadius.circular(12),
-//   child: AspectRatio(
-//     aspectRatio: 1 / 2,
-//     child:Image.asset(Assets.imagesSkill2)
-
-// CachedNetworkImage(
-//   imageUrl: Assets.imagesSkill2,
-//   fit: BoxFit.fill,
-//   errorWidget: (context, url, error) => const Icon(Icons.error),
-//   placeholder:
-//       (context, url) =>
-//           const Center(child: CircularProgressIndicator()),
-// ),

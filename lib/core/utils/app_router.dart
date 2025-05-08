@@ -83,7 +83,7 @@ abstract class AppRouter {
         builder:
             (context, state) => BlocProvider(
               create: (context) => CoursesCubit()..getgetMostWatchingSkill(),
-              child: CustomBottomNavigationBar(),
+              child: CurvedNavWithImage(),
             ),
       ),
       GoRoute(
@@ -112,9 +112,9 @@ abstract class AppRouter {
         path: kloginView,
         builder:
             (context, state) => BlocProvider(
-          create: (context) => LoginCubit(),
-          child: LoginView(),
-        ),
+              create: (context) => LoginCubit(),
+              child: LoginView(),
+            ),
       ),
       GoRoute(
         path: kForgetPassWordView,

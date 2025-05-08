@@ -14,14 +14,14 @@ class CustomTextFieldChat extends StatelessWidget {
   });
   String? hintText;
 
-  bool? obscureText;
+  bool obscureText = false;
 
   Function(String)? onChanged;
 
   @override
   Widget build(BuildContext context) {
     return TextField(
-      obscureText: obscureText!,
+      obscureText: obscureText,
 
       onChanged: onChanged,
       decoration: InputDecoration(
