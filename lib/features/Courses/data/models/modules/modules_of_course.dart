@@ -2,7 +2,7 @@ import 'package:equatable/equatable.dart';
 
 import 'module.dart';
 
-class Data extends Equatable {
+class ModulesOfCourse extends Equatable {
   final int? id;
   final String? title;
   final String? description;
@@ -13,7 +13,7 @@ class Data extends Equatable {
   final int? numberOfModules;
   final List<Module>? modules;
 
-  const Data({
+  const ModulesOfCourse({
     this.id,
     this.title,
     this.description,
@@ -25,7 +25,7 @@ class Data extends Equatable {
     this.modules,
   });
 
-  factory Data.fromJson(Map<String, dynamic> json) => Data(
+  factory ModulesOfCourse.fromJson(Map<String, dynamic> json) => ModulesOfCourse(
     id: json['id'] as int?,
     title: json['title'] as String?,
     description: json['description'] as String?,
