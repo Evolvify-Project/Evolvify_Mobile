@@ -30,7 +30,10 @@ class CustomSearchCommunity extends StatelessWidget {
               decoration: InputDecoration(
                 contentPadding: EdgeInsets.only(bottom: 20, left: 10),
                 hintText: 'Search...',
-                hintStyle: TextStyle(color: Color(0xff858EAD), fontSize: getResponsiveFontSize(context, fontSize: 12)),
+                hintStyle: TextStyle(
+                  color: Color(0xff858EAD),
+                  fontSize: getResponsiveFontSize(context, fontSize: 12),
+                ),
               ),
             ),
           ),
@@ -43,7 +46,10 @@ class CustomSearchCommunity extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 21, vertical: 10),
               child: Text(
                 'Search',
-                style: TextStyle(fontSize: getResponsiveFontSize(context, fontSize: 12), color: Colors.white),
+                style: TextStyle(
+                  fontSize: getResponsiveFontSize(context, fontSize: 12),
+                  color: Colors.white,
+                ),
               ),
             ),
           ),

@@ -10,13 +10,13 @@ class HomeRepoImpl implements HomeRepo {
   Future<Either<Failure, List<CoursesModel>>> getMostWatchingSkill() async {
     try {
       var data = await ApiServices().get(endPoint: 'Courses');
-   
+
       List<CoursesModel> mostWatchingSkillsList =
           (data["data"] as List)
               .map((course) => CoursesModel.fromJson(course))
               .toList();
 
-      print(mostWatchingSkillsList);
+      // print(mostWatchingSkillsList);
       return right(mostWatchingSkillsList);
     } on Exception catch (e) {
       if (e is DioException) {

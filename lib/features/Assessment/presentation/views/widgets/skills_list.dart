@@ -15,7 +15,7 @@ class RecommendedSkillList extends StatelessWidget {
         itemBuilder: (buildContext, index) {
           return Padding(
             padding: const EdgeInsets.only(left: 23),
-            child: MostWatchingItem(coursesModel:courses[index] ,),
+            child: MostWatchingItem(coursesModel: courses[index]),
           );
         },
       ),

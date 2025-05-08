@@ -44,7 +44,7 @@ class CourseOverview extends StatelessWidget {
                     ),
                     const VideoSection(),
                     SizedBox(height: 20),
-                  Text(
+                    Text(
                       'Course Content',
                       style: TextStyle(
                         color: AppColors.kPrimaryColor,

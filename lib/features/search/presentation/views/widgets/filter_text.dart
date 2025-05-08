@@ -11,7 +11,7 @@ class FilterText extends StatelessWidget {
       text,
       style: TextStyle(
         color: AppColors.kPrimaryColor,
-        fontSize:getResponsiveFontSize(context, fontSize: 22),
+        fontSize: getResponsiveFontSize(context, fontSize: 22),
         fontWeight: FontWeight.w600,
       ),
     );

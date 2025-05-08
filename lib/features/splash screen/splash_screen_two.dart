@@ -25,7 +25,7 @@ class SplashScreenTwo extends StatelessWidget {
                 'Choose your role',
                 style: TextStyle(
                   color: Color(0xff8C8C8C),
-                  fontSize:getResponsiveFontSize(context, fontSize: 24),
+                  fontSize: getResponsiveFontSize(context, fontSize: 24),
                   fontWeight: FontWeight.w600,
                 ),
               ),

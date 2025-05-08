@@ -1,14 +1,15 @@
 // ignore_for_file: prefer_single_quotes
 class Assets {
   Assets._();
-  
+
   /// Assets for imagesAdvanced
   /// assets/images/advanced.png
   static const String imagesAdvanced = "assets/images/advanced.png";
 
   /// Assets for imagesAdvancedIndicatior
   /// assets/images/advancedIndicatior.png
-  static const String imagesAdvancedIndicatior = "assets/images/advancedIndicatior.png";
+  static const String imagesAdvancedIndicatior =
+      "assets/images/advancedIndicatior.png";
 
   /// Assets for imagesApple
   /// assets/images/apple.svg
@@ -20,7 +21,8 @@ class Assets {
 
   /// Assets for imagesAssessmentBackground
   /// assets/images/assessmentBackground.png
-  static const String imagesAssessmentBackground = "assets/images/assessmentBackground.png";
+  static const String imagesAssessmentBackground =
+      "assets/images/assessmentBackground.png";
 
   /// Assets for imagesBack
   /// assets/images/back.png
@@ -32,7 +34,8 @@ class Assets {
 
   /// Assets for imagesBeginnerIndicatior
   /// assets/images/beginner_Indicatior.png
-  static const String imagesBeginnerIndicatior = "assets/images/beginner_Indicatior.png";
+  static const String imagesBeginnerIndicatior =
+      "assets/images/beginner_Indicatior.png";
 
   /// Assets for imagesBigChat
   /// assets/images/bigChat.svg
@@ -53,6 +56,14 @@ class Assets {
   /// Assets for imagesChatbotImage
   /// assets/images/chatbotImage.svg
   static const String imagesChatbotImage = "assets/images/chatbotImage.svg";
+
+  /// Assets for imagesClock
+  /// assets/images/clock.png
+  static const String imagesClock = "assets/images/clock.png";
+
+  /// Assets for imagesClok
+  /// assets/images/clok.svg
+  static const String imagesClok = "assets/images/clok.svg";
 
   /// Assets for imagesComment
   /// assets/images/comment.png
@@ -88,11 +99,13 @@ class Assets {
 
   /// Assets for imagesForgetPassword2
   /// assets/images/forgetPassword2.svg
-  static const String imagesForgetPassword2 = "assets/images/forgetPassword2.svg";
+  static const String imagesForgetPassword2 =
+      "assets/images/forgetPassword2.svg";
 
-  /// Assets for imagesForgotPassword 
+  /// Assets for imagesForgotPassword
   /// assets/images/forgot_Password .svg
-  static const String imagesForgotPassword  = "assets/images/forgot_Password .svg";
+  static const String imagesForgotPassword =
+      "assets/images/forgot_Password .svg";
 
   /// Assets for imagesGoogle
   /// assets/images/google.svg
@@ -112,7 +125,8 @@ class Assets {
 
   /// Assets for imagesIntermediateIndicatior
   /// assets/images/Intermediate_Indicatior.png
-  static const String imagesIntermediateIndicatior = "assets/images/Intermediate_Indicatior.png";
+  static const String imagesIntermediateIndicatior =
+      "assets/images/Intermediate_Indicatior.png";
 
   /// Assets for imagesInterview
   /// assets/images/interview.png
@@ -160,7 +174,8 @@ class Assets {
 
   /// Assets for imagesOnBoardingThree
   /// assets/images/onBoardingThree.svg
-  static const String imagesOnBoardingThree = "assets/images/onBoardingThree.svg";
+  static const String imagesOnBoardingThree =
+      "assets/images/onBoardingThree.svg";
 
   /// Assets for imagesOnBoardingTwo
   /// assets/images/onBoardingTwo.svg
@@ -282,4 +297,3 @@ class Assets {
   /// assets/images/xs.svg
   static const String imagesXs = "assets/images/xs.svg";
 }
-

@@ -20,12 +20,18 @@ class CircularRow extends StatelessWidget {
           children: [
             Text(
               'Question',
-              style: TextStyle(color: Color(0xff8093A6), fontSize: getResponsiveFontSize(context, fontSize: 18),),
+              style: TextStyle(
+                color: Color(0xff8093A6),
+                fontSize: getResponsiveFontSize(context, fontSize: 18),
+              ),
             ),
             Text(
               '${value}',
               // '${value}/20',
-              style: TextStyle(color: Color(0xff8093A6), fontSize: getResponsiveFontSize(context, fontSize: 18),),
+              style: TextStyle(
+                color: Color(0xff8093A6),
+                fontSize: getResponsiveFontSize(context, fontSize: 18),
+              ),
             ),
           ],
         ),

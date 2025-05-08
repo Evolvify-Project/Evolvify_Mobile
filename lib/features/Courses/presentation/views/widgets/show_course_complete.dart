@@ -56,7 +56,10 @@ void showCourseComplete(BuildContext context) {
                         'Test Now',
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: getResponsiveFontSize(context, fontSize: 20),
+                          fontSize: getResponsiveFontSize(
+                            context,
+                            fontSize: 20,
+                          ),
                           fontWeight: FontWeight.w500,
                         ),
                       ),

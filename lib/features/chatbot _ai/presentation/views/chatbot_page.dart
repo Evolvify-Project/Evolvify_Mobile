@@ -10,7 +10,7 @@ class ChatbotPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-       resizeToAvoidBottomInset: true,
+      resizeToAvoidBottomInset: true,
       body: Column(
         children: [
           ChatBotAppBar(),
@@ -20,10 +20,7 @@ class ChatbotPage extends StatelessWidget {
           Expanded(
             child: ListView(children: [ChatBubbleForUser(), ChatAiBubble()]),
           ),
-          SafeArea(
-            child: SendMessageRow(),
-            
-          ),
+          SafeArea(child: SendMessageRow()),
         ],
       ),
     );

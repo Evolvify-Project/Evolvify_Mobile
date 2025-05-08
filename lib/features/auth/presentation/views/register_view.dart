@@ -85,7 +85,12 @@ class SignUpView extends StatelessWidget {
                         SizedBox(height: 50),
                         Text(
                           'Create your account',
-                          style: AppStyle.styleBold52(context).copyWith(fontSize: getResponsiveFontSize(context, fontSize: 24)),
+                          style: AppStyle.styleBold52(context).copyWith(
+                            fontSize: getResponsiveFontSize(
+                              context,
+                              fontSize: 24,
+                            ),
+                          ),
                         ),
                         SizedBox(height: 39),
                         Padding(
@@ -97,7 +102,10 @@ class SignUpView extends StatelessWidget {
                               Text(
                                 'Evolvify',
                                 style: AppStyle.styleBold52(context).copyWith(
-                                  fontSize: getResponsiveFontSize(context, fontSize: 24),
+                                  fontSize: getResponsiveFontSize(
+                                    context,
+                                    fontSize: 24,
+                                  ),
                                 ),
                               ),
                               SizedBox(height: 35),

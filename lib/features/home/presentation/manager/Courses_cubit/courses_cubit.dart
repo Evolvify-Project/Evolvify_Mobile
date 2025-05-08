@@ -7,7 +7,7 @@ part 'courses_state.dart';
 
 class CoursesCubit extends Cubit<CoursesState> {
   CoursesCubit() : super(CoursesInitial());
-  
+
   Future<void> getgetMostWatchingSkill() async {
     emit(CoursesLosding());
     var courses = await HomeRepoImpl().getMostWatchingSkill();
@@ -16,7 +16,7 @@ class CoursesCubit extends Cubit<CoursesState> {
         emit(CoursesFailure(errMessage: failure.errMessge));
       },
       (coursesList) {
-        emit(CoursesSuccess(coursesList:coursesList));
+        emit(CoursesSuccess(coursesList: coursesList));
         print(coursesList);
       },
     );

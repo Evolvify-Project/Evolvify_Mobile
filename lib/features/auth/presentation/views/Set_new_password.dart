@@ -67,7 +67,10 @@ class SetNewPassword extends StatelessWidget {
                       Text(
                         'Set a new password',
                         style: TextStyle(
-                          fontSize: getResponsiveFontSize(context, fontSize: 24),
+                          fontSize: getResponsiveFontSize(
+                            context,
+                            fontSize: 24,
+                          ),
                           fontWeight: FontWeight.w500,
                         ),
                       ),
@@ -76,7 +79,10 @@ class SetNewPassword extends StatelessWidget {
                         'Create a new password. Ensure it differs \n'
                         'from previous ones for security',
                         style: TextStyle(
-                          fontSize: getResponsiveFontSize(context, fontSize: 17),
+                          fontSize: getResponsiveFontSize(
+                            context,
+                            fontSize: 17,
+                          ),
                           fontWeight: FontWeight.w400,
                           color: Color(0xff989898),
                         ),
@@ -85,7 +91,10 @@ class SetNewPassword extends StatelessWidget {
                       Text(
                         'Password',
                         style: TextStyle(
-                          fontSize: getResponsiveFontSize(context, fontSize: 20),
+                          fontSize: getResponsiveFontSize(
+                            context,
+                            fontSize: 20,
+                          ),
                           fontWeight: FontWeight.w600,
                           color: Color(0xff2A2A2A),
                         ),
@@ -100,7 +109,10 @@ class SetNewPassword extends StatelessWidget {
                       Text(
                         'Confirm Password',
                         style: TextStyle(
-                          fontSize: getResponsiveFontSize(context, fontSize: 20),
+                          fontSize: getResponsiveFontSize(
+                            context,
+                            fontSize: 20,
+                          ),
                           fontWeight: FontWeight.w600,
                           color: Color(0xff2A2A2A),
                         ),

@@ -27,7 +27,10 @@ class _CircularProgressQuesState extends State<CircularProgressQues> {
         ),
         Text(
           '${((widget.num).toInt())}',
-          style: TextStyle(fontSize: getResponsiveFontSize(context, fontSize: 32), fontWeight: FontWeight.w700),
+          style: TextStyle(
+            fontSize: getResponsiveFontSize(context, fontSize: 32),
+            fontWeight: FontWeight.w700,
+          ),
         ),
       ],
     );

@@ -15,7 +15,9 @@ class SkipAndNextButton extends StatelessWidget {
           onPressed: onPressedSkip,
           child: Text(
             'Skip',
-            style: AppStyle.styleMedium20(context).copyWith(fontWeight: FontWeight.w600),
+            style: AppStyle.styleMedium20(
+              context,
+            ).copyWith(fontWeight: FontWeight.w600),
           ),
         ),
         GestureDetector(

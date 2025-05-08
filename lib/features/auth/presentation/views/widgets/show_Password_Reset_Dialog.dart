@@ -15,13 +15,19 @@ void showPasswordResetDialog(BuildContext context) {
         title: Text(
           'Congratulations!',
           textAlign: TextAlign.center,
-          style: TextStyle(fontSize: getResponsiveFontSize(context, fontSize: 22), fontWeight: FontWeight.w600),
+          style: TextStyle(
+            fontSize: getResponsiveFontSize(context, fontSize: 22),
+            fontWeight: FontWeight.w600,
+          ),
         ),
         contentPadding: EdgeInsets.only(top: 6, bottom: 30),
         content: Text(
           'Password Reset successful\n  You\'ll be redirected to the  \n          login screen now.',
           textAlign: TextAlign.center,
-          style: TextStyle(fontSize: getResponsiveFontSize(context, fontSize: 14), fontWeight: FontWeight.w500),
+          style: TextStyle(
+            fontSize: getResponsiveFontSize(context, fontSize: 14),
+            fontWeight: FontWeight.w500,
+          ),
         ),
       );
     },

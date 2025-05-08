@@ -9,7 +9,6 @@ class CoursesModel extends Equatable {
   final String? level;
   final String? duration;
 
-
   const CoursesModel({
     this.id,
     this.title,

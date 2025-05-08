@@ -1,7 +1,7 @@
 import 'package:evolvify/features/Assessment/data/models/courses_model.dart';
 import 'package:evolvify/features/home/presentation/manager/Courses_cubit/courses_cubit.dart';
 import 'package:evolvify/features/home/presentation/views/widgets/most_watching_Item.dart'
- show MostWatchingItem;
+    show MostWatchingItem;
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -24,7 +24,7 @@ class MostSkillsListView extends StatelessWidget {
               itemCount: coursesList.length,
               itemBuilder: (buildContext, index) {
                 return Padding(
-                  padding: const EdgeInsets.only(left: 23),
+                  padding: const EdgeInsets.only(left: 20),
                   child: MostWatchingItem(coursesModel: coursesList[index]),
                 );
               },

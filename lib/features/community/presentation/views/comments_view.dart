@@ -34,7 +34,10 @@ class _CommentsViewState extends State<CommentsView> {
                 CutsomArrowios(),
                 Text(
                   '16 Comments',
-                  style: TextStyle(fontSize: getResponsiveFontSize(context, fontSize: 14), fontWeight: FontWeight.w400),
+                  style: TextStyle(
+                    fontSize: getResponsiveFontSize(context, fontSize: 14),
+                    fontWeight: FontWeight.w400,
+                  ),
                 ),
               ],
             ),

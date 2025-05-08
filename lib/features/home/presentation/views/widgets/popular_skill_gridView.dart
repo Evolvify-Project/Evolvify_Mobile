@@ -13,9 +13,9 @@ class PopularSkillgridView extends StatelessWidget {
         childAspectRatio: 2.3 / 3,
         crossAxisCount: 2,
         crossAxisSpacing: 15,
+        mainAxisSpacing: 0,
       ),
       itemBuilder: (context, index) {
-      
         return images[index];
       },
     );

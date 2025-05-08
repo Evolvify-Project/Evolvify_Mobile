@@ -28,7 +28,10 @@ class AssessmentView extends StatelessWidget {
               Text(
                 'Welcome!',
                 style: TextStyle(
-                  fontSize: getResponsiveFontSize(context, fontSize: getResponsiveFontSize(context, fontSize: 40),),
+                  fontSize: getResponsiveFontSize(
+                    context,
+                    fontSize: getResponsiveFontSize(context, fontSize: 40),
+                  ),
                   fontWeight: FontWeight.w600,
                   color: Colors.white,
                 ),

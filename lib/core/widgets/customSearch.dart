@@ -33,9 +33,9 @@ class _CustOmSearchState extends State<CustOmSearch> {
           },
           decoration: InputDecoration(
             hintText: 'What skill do you want to learn?',
-            hintStyle: AppStyle.styleRegularGrey14(context).copyWith(
-              color: Color(0xff888C94),
-            ),
+            hintStyle: AppStyle.styleRegularGrey14(
+              context,
+            ).copyWith(color: Color(0xff888C94)),
             suffixIcon: Padding(
               padding: const EdgeInsets.only(right: 12),
               child: SvgPicture.asset('assets/images/search-normal.svg'),

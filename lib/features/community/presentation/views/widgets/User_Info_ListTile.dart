@@ -1,4 +1,3 @@
-
 import 'package:evolvify/core/utils/app_style.dart';
 import 'package:evolvify/features/community/data/models/UserInfo_model.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +14,10 @@ class UserInfoListTile extends StatelessWidget {
         alignment: AlignmentDirectional.centerStart,
         child: Text(
           userinfoModel.title,
-          style: TextStyle(fontSize: getResponsiveFontSize(context, fontSize: 14), fontWeight: FontWeight.w600),
+          style: TextStyle(
+            fontSize: getResponsiveFontSize(context, fontSize: 14),
+            fontWeight: FontWeight.w600,
+          ),
         ),
       ),
       subtitle: FittedBox(

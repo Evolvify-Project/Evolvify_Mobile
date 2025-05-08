@@ -34,7 +34,10 @@ class FilterView extends StatelessWidget {
                         'Filter',
                         style: TextStyle(
                           color: AppColors.kPrimaryColor,
-                          fontSize:getResponsiveFontSize(context, fontSize: 25),
+                          fontSize: getResponsiveFontSize(
+                            context,
+                            fontSize: 25,
+                          ),
                           fontWeight: FontWeight.w600,
                         ),
                       ),

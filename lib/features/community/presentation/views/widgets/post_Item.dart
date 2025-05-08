@@ -8,7 +8,6 @@ import 'package:evolvify/features/community/presentation/views/widgets/comment_o
 import 'package:evolvify/features/community/presentation/views/widgets/like_on_post.dart';
 import 'package:flutter/material.dart';
 
-
 class PostItem extends StatelessWidget {
   PostItem({super.key, required this.postModel});
   final PostModel postModel;
@@ -35,7 +34,10 @@ class PostItem extends StatelessWidget {
             child: Text(
               textAlign: TextAlign.start,
               postModel.content ?? '',
-              style: TextStyle(fontSize: getResponsiveFontSize(context, fontSize: 12), fontWeight: FontWeight.w600),
+              style: TextStyle(
+                fontSize: getResponsiveFontSize(context, fontSize: 12),
+                fontWeight: FontWeight.w600,
+              ),
             ),
           ),
           Divider(height: 30, color: Color(0xffC4C4C4)),

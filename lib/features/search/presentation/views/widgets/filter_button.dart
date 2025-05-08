@@ -33,7 +33,7 @@ class _FilterButtonState extends State<FilterButton> {
               widget.text,
               style: TextStyle(
                 color: isSelect ? Colors.white : Colors.black,
-                fontSize:getResponsiveFontSize(context, fontSize: 18),
+                fontSize: getResponsiveFontSize(context, fontSize: 18),
                 fontWeight: FontWeight.w500,
               ),
             ),

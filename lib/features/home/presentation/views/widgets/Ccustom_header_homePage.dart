@@ -11,7 +11,9 @@ class CustomHeaderHomePage extends StatelessWidget {
       contentPadding: EdgeInsets.all(0),
       title: Text(
         'Hi, Mohamed!',
-        style: AppStyle.styleBold22(context).copyWith(fontSize: getResponsiveFontSize(context, fontSize: 25)),
+        style: AppStyle.styleBold22(
+          context,
+        ).copyWith(fontSize: getResponsiveFontSize(context, fontSize: 25)),
       ),
       subtitle: Text(
         'Ready to grow today?',

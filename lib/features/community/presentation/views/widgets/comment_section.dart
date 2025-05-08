@@ -36,7 +36,10 @@ class _CommentSectionState extends State<CommentSection> {
               Text(
                 maxLines: 3,
                 'Ultricies ultricies interdum dolor sodales. \n Vitae feugiat vitae vitae quis id consectetur.',
-                style: TextStyle(fontSize: getResponsiveFontSize(context, fontSize: 12), fontWeight: FontWeight.w400),
+                style: TextStyle(
+                  fontSize: getResponsiveFontSize(context, fontSize: 12),
+                  fontWeight: FontWeight.w400,
+                ),
               ),
               SizedBox(height: 8),
               Row(
@@ -59,7 +62,7 @@ class _CommentSectionState extends State<CommentSection> {
                       'Reply .',
                       style: TextStyle(
                         color: Color(0xff4267B2),
-                        fontSize:getResponsiveFontSize(context, fontSize: 12),
+                        fontSize: getResponsiveFontSize(context, fontSize: 12),
                         fontWeight: FontWeight.w400,
                       ),
                     ),

@@ -58,9 +58,9 @@ class _ContactCardState extends State<ContactCard> {
             subtitle: Center(
               child: Text(
                 widget.subTitle,
-                style: AppStyle.styleNexa15(context).copyWith(
-                  color: AppColors.kPrimaryColor,
-                ),
+                style: AppStyle.styleNexa15(
+                  context,
+                ).copyWith(color: AppColors.kPrimaryColor),
               ),
             ),
           ),

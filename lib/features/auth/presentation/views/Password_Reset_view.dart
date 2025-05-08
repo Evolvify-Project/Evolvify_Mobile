@@ -24,7 +24,10 @@ class PasswordResetView extends StatelessWidget {
                 SizedBox(height: 25),
                 Text(
                   'Password reset',
-                  style: TextStyle(fontSize: getResponsiveFontSize(context, fontSize: 24), fontWeight: FontWeight.w500),
+                  style: TextStyle(
+                    fontSize: getResponsiveFontSize(context, fontSize: 24),
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
                 SizedBox(height: 23),
                 Text(
