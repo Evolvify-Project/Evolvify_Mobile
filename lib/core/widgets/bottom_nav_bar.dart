@@ -2,6 +2,7 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:evolvify/core/utils/app_images.dart';
 
 import 'package:evolvify/core/utils/constant.dart';
+import 'package:evolvify/features/AI-Assessment/presentation/views/AI-Assessment_view.dart';
 import 'package:evolvify/features/Courses/presentation/views/course_overview.dart';
 
 import 'package:evolvify/features/chatbot%20_ai/presentation/views/chatbot_page.dart';
@@ -113,7 +114,7 @@ class _CurvedNavWithImageState extends State<CurvedNavWithImage> {
   final List<Widget> _pages = [
     HomeView(),
     ChatbotPage(),
-    Text(''),
+    AiassessmentView(),
     CommunityPage(),
 
     CourseOverview(),
