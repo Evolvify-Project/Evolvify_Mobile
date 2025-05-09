@@ -6,14 +6,15 @@ sealed class ModulesState extends Equatable {
   @override
   List<Object> get props => [];
 }
+
 final class ModulesInitial extends ModulesState {}
 
 final class ModulesLosding extends ModulesState {}
 
 final class ModulesSuccess extends ModulesState {
-  final List<ModulesOfCourse> modulesOfCourseList;
+  final ModulesOfCourse modulesOfCourse;
 
-  const ModulesSuccess({required this.modulesOfCourseList});
+  ModulesSuccess({required this.modulesOfCourse});
 }
 
 final class ModulesFailure extends ModulesState {

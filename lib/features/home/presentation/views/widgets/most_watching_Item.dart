@@ -12,7 +12,7 @@ class MostWatchingItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).push(AppRouter.kCourseOverview);
+        GoRouter.of(context).push(AppRouter.kCourseOverview,extra: coursesModel.id);
       },
       child: AspectRatio(
         aspectRatio: 2 / 3,

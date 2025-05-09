@@ -1,53 +1,78 @@
 import 'package:evolvify/core/utils/app_style.dart';
+
+import 'package:evolvify/features/Courses/presentation/manager/cubit/modules_cubit.dart';
 import 'package:evolvify/features/Courses/presentation/views/widgets/video.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class VideoSection extends StatelessWidget {
   const VideoSection({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        SizedBox(height: 15),
-        Video(),
-        SizedBox(height: 15),
-        Text(
-          'Public Speaking: Speak \n'
-          'with Confidence',
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: getResponsiveFontSize(context, fontSize: 20),
-            fontWeight: FontWeight.bold,
-          ),
-          maxLines: 2,
-        ),
-        SizedBox(height: 5),
-        Text('(Beginner)', style: TextStyle(color: Color(0xffFF001E))),
-        SizedBox(height: 8),
-        Row(
-          children: [
-            Text(
-              '6h 30min',
-              style: TextStyle(
-                color: Color(0xff888C94),
-                fontSize: getResponsiveFontSize(context, fontSize: 11),
+    return BlocBuilder<ModulesCubit, ModulesState>(
+      builder: (context, state) {
+        if (state is ModulesLosding) {
+          return Center(child: CircularProgressIndicator());
+        } else if (state is ModulesSuccess) {
+          final modulesOfCourse = state.modulesOfCourse;
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(height: 15),
+              const Video(),
+              const SizedBox(height: 15),
+              Text(
+                modulesOfCourse.title ?? '',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: getResponsiveFontSize(context, fontSize: 20),
+                  fontWeight: FontWeight.bold,
+                ),
+                maxLines: 2,
               ),
-            ),
-            SizedBox(width: 6),
-
-            SizedBox(width: 30),
-            Text(
-              '7 lessons',
-              style: TextStyle(
-                color: Color(0xff888C94),
-                fontSize: getResponsiveFontSize(context, fontSize: 11),
+              const SizedBox(height: 5),
+              Text(
+                modulesOfCourse.description ?? '',
+                style: TextStyle(
+                  color: Color(0xff888C94),
+                  fontSize: getResponsiveFontSize(context, fontSize: 14),
+                  fontWeight: FontWeight.bold,
+                ),
+                maxLines: 2,
               ),
-            ),
-          ],
-        ),
-      ],
+              const SizedBox(height: 5),
+              Text(
+                '(${modulesOfCourse.level})',
+                style: const TextStyle(color: Color(0xffFF001E)),
+              ),
+              const SizedBox(height: 8),
+              Row(
+                children: [
+                  Text(
+                    modulesOfCourse.duration ?? '',
+                    style: TextStyle(
+                      color: const Color(0xff888C94),
+                      fontSize: getResponsiveFontSize(context, fontSize: 14),
+                    ),
+                  ),
+                  const SizedBox(width: 30),
+                  Text(
+                    '${modulesOfCourse.numberOfModules} Lessons',
+                    style: TextStyle(
+                      color: const Color(0xff888C94),
+                      fontSize: getResponsiveFontSize(context, fontSize: 14),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          );
+        } else if (state is ModulesFailure) {
+          return Center(child: Text(state.errMessage));
+        }
+        return Text(' No Courses availble');
+      },
     );
   }
 }

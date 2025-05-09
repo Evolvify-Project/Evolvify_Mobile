@@ -7,6 +7,7 @@ import 'package:evolvify/features/Assessment/presentation/views/Recommended_Cont
 import 'package:evolvify/features/Assessment/presentation/views/assessment_view.dart';
 import 'package:evolvify/features/Assessment/presentation/views/test_result_view.dart';
 import 'package:evolvify/features/Assessment/presentation/views/test_view.dart';
+import 'package:evolvify/features/Courses/presentation/manager/cubit/modules_cubit.dart';
 import 'package:evolvify/features/Courses/presentation/views/course_overview.dart';
 import 'package:evolvify/features/auth/presentation/manager/Verify_cubit/cubit/verify_pass_cubit.dart';
 import 'package:evolvify/features/auth/presentation/manager/forget_cubit/cubit/forget_pass_cubit.dart';
@@ -29,7 +30,6 @@ import 'package:evolvify/features/home/presentation/manager/Courses_cubit/course
 import 'package:evolvify/features/home/presentation/views/home_view.dart';
 import 'package:evolvify/features/on_Boarding/on_Boarding_pageview.dart';
 import 'package:evolvify/features/on_Boarding/presentation/views/logo_view.dart';
-import 'package:evolvify/features/on_Boarding/presentation/views/widgets/on_boarding_view.dart';
 import 'package:evolvify/features/search/presentation/views/search_view.dart';
 import 'package:evolvify/features/splash%20screen/splash_screen_one.dart';
 import 'package:flutter/material.dart';
@@ -64,7 +64,13 @@ abstract class AppRouter {
     routes: [
       GoRoute(
         path: kCourseOverview,
-        builder: (context, state) => CourseOverview(),
+        builder: (context, state) {
+          final id = state.extra as int;
+          return BlocProvider(
+            create: (context) => ModulesCubit()..getModulesOfCourse(id: id),
+            child: CourseOverview(),
+          );
+        },
       ),
       GoRoute(path: kChatbotPag, builder: (context, state) => ChatbotPage()),
       GoRoute(path: kSearchView, builder: (context, state) => SearchView()),

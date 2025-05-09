@@ -1,12 +1,11 @@
 import 'package:evolvify/core/utils/app_style.dart';
-import 'package:evolvify/features/Courses/presentation/views/widgets/show_course_complete.dart';
+import 'package:evolvify/features/Courses/data/models/modules/module.dart';
 import 'package:flutter/material.dart';
 
 class AudioItem extends StatefulWidget {
-  const AudioItem({this.text, this.timeLessons, super.key});
+  const AudioItem({super.key, required this.module});
 
-  final String? text;
-  final String? timeLessons;
+  final Module module;
   @override
   State<AudioItem> createState() => AudioItemState();
 }
@@ -17,7 +16,7 @@ class AudioItemState extends State<AudioItem> {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      contentPadding: EdgeInsets.symmetric(horizontal: 12),
+      contentPadding: EdgeInsets.symmetric(horizontal: 12,),
       onTap: () {
         setState(() {
           // isClicked = true;
@@ -54,7 +53,7 @@ class AudioItemState extends State<AudioItem> {
         ),
       ),
       title: Text(
-        widget.text!,
+        widget.module.title ?? '',
         style: TextStyle(
           fontSize: getResponsiveFontSize(context, fontSize: 16),
           color: Colors.black,
@@ -62,7 +61,7 @@ class AudioItemState extends State<AudioItem> {
         ),
       ),
       subtitle: Text(
-        widget.timeLessons!,
+        '',
         style: TextStyle(
           fontSize: getResponsiveFontSize(context, fontSize: 16),
           color: Color(0xffAEAEAE),

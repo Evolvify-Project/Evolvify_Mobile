@@ -2,12 +2,9 @@ import 'package:evolvify/core/utils/app_style.dart';
 import 'package:evolvify/core/utils/constant.dart';
 import 'package:evolvify/core/widgets/cutsom_arrow_ios.dart';
 import 'package:evolvify/features/Courses/presentation/views/widgets/Custom_button_courses_border.dart';
-
 import 'package:evolvify/features/Courses/presentation/views/widgets/audio_list.dart';
 import 'package:evolvify/features/Courses/presentation/views/widgets/custom_button_courses.dart';
-
 import 'package:evolvify/features/Courses/presentation/views/widgets/video_section.dart';
-
 import 'package:flutter/material.dart';
 
 class CourseOverview extends StatelessWidget {
@@ -42,7 +39,7 @@ class CourseOverview extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const VideoSection(),
+                     VideoSection(),
                     SizedBox(height: 20),
                     Text(
                       'Course Content',
@@ -53,7 +50,7 @@ class CourseOverview extends StatelessWidget {
                       ),
                     ),
 
-                    const AudioList(),
+                    AudioList(),
                     Row(
                       children: [
                         Expanded(
