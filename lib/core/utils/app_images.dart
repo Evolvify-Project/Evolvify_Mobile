@@ -86,6 +86,10 @@ class Assets {
   /// assets/images/Email.svg
   static const String imagesEmail = "assets/images/Email.svg";
 
+  /// Assets for imagesEmotion
+  /// assets/images/emotion.png
+  static const String imagesEmotion = "assets/images/emotion.png";
+
   /// Assets for imagesFacebook
   /// assets/images/facebook.svg
   static const String imagesFacebook = "assets/images/facebook.svg";
