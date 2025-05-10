@@ -10,6 +10,7 @@ import 'package:evolvify/features/Assessment/presentation/views/test_result_view
 import 'package:evolvify/features/Assessment/presentation/views/test_view.dart';
 import 'package:evolvify/features/Courses/presentation/manager/cubit/modules_cubit.dart';
 import 'package:evolvify/features/Courses/presentation/views/course_overview.dart';
+import 'package:evolvify/features/Premium/presentation/views/Premium_view.dart';
 import 'package:evolvify/features/auth/presentation/manager/Verify_cubit/cubit/verify_pass_cubit.dart';
 import 'package:evolvify/features/auth/presentation/manager/forget_cubit/cubit/forget_pass_cubit.dart';
 import 'package:evolvify/features/auth/presentation/manager/login_cubit/cubit/login_cubit.dart';
@@ -46,6 +47,7 @@ abstract class AppRouter {
   static const kPasswordResetView = '/PasswordResetView';
   static const kSetNewPassword = '/SetNewPassword';
   static const kHomeView = '/homeview';
+  static const kPremiumView = '/PremiumView';
   static const kSplashScreenOne = '/SplashScreenOne';
   static const kSignUpView = '/SignUpView';
   static const kForgetPassWordView = '/ForgetPassWordView';
@@ -76,7 +78,11 @@ abstract class AppRouter {
       ),
       GoRoute(path: kChatbotPag, builder: (context, state) => ChatbotPage()),
       GoRoute(path: kSearchView, builder: (context, state) => SearchView()),
-       GoRoute(path: kInterviewView, builder: (context, state) => InterviewView()),
+      GoRoute(
+        path: kInterviewView,
+        builder: (context, state) => InterviewView(),
+      ),
+      GoRoute(path: kPremiumView, builder: (context, state) => PremiumView()),
       GoRoute(
         path: kRecommendedContentView,
         builder:
