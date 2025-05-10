@@ -62,7 +62,7 @@ class Recording extends StatelessWidget {
             ],
           ),
         ),
-        // موجة الصوت
+     
         const Positioned(
           bottom: 12,
           left: 16,
