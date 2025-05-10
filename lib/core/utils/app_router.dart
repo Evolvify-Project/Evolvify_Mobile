@@ -1,4 +1,5 @@
 import 'package:evolvify/core/widgets/bottom_nav_bar.dart';
+import 'package:evolvify/features/AI-Assessment/presentation/views/Interview_view.dart';
 import 'package:evolvify/features/Assessment/data/models/question/skill_result.dart';
 import 'package:evolvify/features/Assessment/presentation/manager/RecommendCourses_cubit/recommend_courses_cubit.dart';
 import 'package:evolvify/features/Assessment/presentation/manager/question_cubit/question_cubit.dart';
@@ -59,6 +60,7 @@ abstract class AppRouter {
   static const kCourseOverview = '/CourseOverview';
   static const kCustomBottomNavigationBar = '/CustomBottomNavigationBar';
   static const kRecommendedContentView = '/RecommendedContentView';
+  static const kInterviewView = '/InterviewView';
 
   static final router = GoRouter(
     routes: [
@@ -74,6 +76,7 @@ abstract class AppRouter {
       ),
       GoRoute(path: kChatbotPag, builder: (context, state) => ChatbotPage()),
       GoRoute(path: kSearchView, builder: (context, state) => SearchView()),
+       GoRoute(path: kInterviewView, builder: (context, state) => InterviewView()),
       GoRoute(
         path: kRecommendedContentView,
         builder:

@@ -1,8 +1,11 @@
+import 'package:evolvify/core/utils/app_images.dart';
+import 'package:evolvify/core/utils/app_router.dart';
 import 'package:evolvify/core/utils/app_style.dart';
 import 'package:evolvify/core/utils/constant.dart';
 import 'package:evolvify/core/widgets/custom_button.dart';
 import 'package:evolvify/features/AI-Assessment/presentation/views/widgets/PremiumSection.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class AiassessmentView extends StatelessWidget {
   const AiassessmentView({super.key});
@@ -15,7 +18,8 @@ class AiassessmentView extends StatelessWidget {
         children: [
           SizedBox(height: 35),
           UpgradetoPremiumSection(),
-          SizedBox(height: 47),
+          SizedBox(height: 50),
+          Image.asset(Assets.imagesSelectCamera),
           SizedBox(height: 18),
           Text(
             'Try Now',
@@ -34,7 +38,7 @@ class AiassessmentView extends StatelessWidget {
               fontSize: getResponsiveFontSize(context, fontSize: 16),
             ),
           ),
-          SizedBox(height: 43),
+          SizedBox(height: 50),
           CustomButton(
             title: 'Start Presentation Analysis',
             borderRadius: 15,
@@ -44,7 +48,9 @@ class AiassessmentView extends StatelessWidget {
           CustomButton(
             title: 'Start Interview Analysis',
             borderRadius: 15,
-            onTap: () {},
+            onTap: () {
+              GoRouter.of(context).push(AppRouter.kInterviewView);
+            },
           ),
         ],
       ),

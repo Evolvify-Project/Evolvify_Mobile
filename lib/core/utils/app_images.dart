@@ -234,6 +234,10 @@ class Assets {
   /// assets/images/search-normal.svg
   static const String imagesSearchNormal = "assets/images/search-normal.svg";
 
+  /// Assets for imagesSelectCamera
+  /// assets/images/selectCamera.png
+  static const String imagesSelectCamera = "assets/images/selectCamera.png";
+
   /// Assets for imagesSend
   /// assets/images/Send.svg
   static const String imagesSend = "assets/images/Send.svg";
@@ -245,6 +249,10 @@ class Assets {
   /// Assets for imagesShare
   /// assets/images/share.png
   static const String imagesShare = "assets/images/share.png";
+
+  /// Assets for imagesSimulation
+  /// assets/images/simulation.png
+  static const String imagesSimulation = "assets/images/simulation.png";
 
   /// Assets for imagesSkill
   /// assets/images/skill.png
