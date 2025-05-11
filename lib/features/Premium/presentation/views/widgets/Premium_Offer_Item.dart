@@ -7,11 +7,12 @@ class PremiumOfferItem extends StatelessWidget {
     super.key,
     required this.title,
     required this.subTitle,
-    required this.offer, required this.color,
+    required this.offer,
+    required this.color,
   });
   final String title, subTitle, offer;
   @override
- final Color color;
+  final Color color;
   Widget build(BuildContext context) {
     return ListTile(
       title: Text(

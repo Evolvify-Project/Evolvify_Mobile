@@ -25,7 +25,7 @@ class PremiumOffer extends StatelessWidget {
           ),
 
           child: PremiumOfferItem(
-            color:AppColors.kPrimaryColor,
+            color: AppColors.kPrimaryColor,
             title: 'Unlimited plan',
             subTitle: 'One time purchase',
             offer: '120.00',

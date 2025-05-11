@@ -12,9 +12,9 @@ final class ModulesInitial extends ModulesState {}
 final class ModulesLosding extends ModulesState {}
 
 final class ModulesSuccess extends ModulesState {
-  final ModulesOfCourse modulesOfCourse;
+  final AllModulesModel allModulesModel;
 
-  ModulesSuccess({required this.modulesOfCourse});
+ ModulesSuccess({required this.allModulesModel});
 }
 
 final class ModulesFailure extends ModulesState {

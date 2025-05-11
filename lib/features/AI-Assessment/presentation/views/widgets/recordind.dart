@@ -1,11 +1,8 @@
-
 import 'package:evolvify/core/utils/app_images.dart';
 import 'package:flutter/material.dart';
 
 class Recording extends StatelessWidget {
-  const Recording({
-    super.key,
-  });
+  const Recording({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,11 +10,7 @@ class Recording extends StatelessWidget {
       children: [
         ClipRRect(
           borderRadius: BorderRadius.circular(16),
-          child: Image.asset(
-            Assets.imagesSimulation,
-    
-            fit: BoxFit.cover,
-          ),
+          child: Image.asset(Assets.imagesSimulation, fit: BoxFit.cover),
         ),
         Positioned(
           top: 12,
@@ -62,7 +55,7 @@ class Recording extends StatelessWidget {
             ],
           ),
         ),
-     
+
         const Positioned(
           bottom: 12,
           left: 16,
@@ -73,6 +66,7 @@ class Recording extends StatelessWidget {
     );
   }
 }
+
 class AudioWaveformPlaceholder extends StatelessWidget {
   const AudioWaveformPlaceholder({super.key});
 

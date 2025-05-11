@@ -8,7 +8,7 @@ import 'package:evolvify/features/Assessment/presentation/views/Recommended_Cont
 import 'package:evolvify/features/Assessment/presentation/views/assessment_view.dart';
 import 'package:evolvify/features/Assessment/presentation/views/test_result_view.dart';
 import 'package:evolvify/features/Assessment/presentation/views/test_view.dart';
-import 'package:evolvify/features/Courses/presentation/manager/cubit/modules_cubit.dart';
+import 'package:evolvify/features/Courses/presentation/manager/ModulesOfCourse/modules_of_course_cubit.dart';
 import 'package:evolvify/features/Courses/presentation/views/course_overview.dart';
 import 'package:evolvify/features/Premium/presentation/views/Premium_view.dart';
 import 'package:evolvify/features/auth/presentation/manager/Verify_cubit/cubit/verify_pass_cubit.dart';

@@ -16,7 +16,7 @@ class AudioItemState extends State<AudioItem> {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      contentPadding: EdgeInsets.symmetric(horizontal: 12,),
+      contentPadding: EdgeInsets.symmetric(horizontal: 12),
       onTap: () {
         setState(() {
           // isClicked = true;

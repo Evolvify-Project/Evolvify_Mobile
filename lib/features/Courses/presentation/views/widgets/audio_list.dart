@@ -1,4 +1,4 @@
-import 'package:evolvify/features/Courses/presentation/manager/cubit/modules_cubit.dart';
+import 'package:evolvify/features/Courses/presentation/manager/ModulesOfCourse/modules_of_course_cubit.dart';
 import 'package:evolvify/features/Courses/presentation/views/widgets/audio_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -8,11 +8,11 @@ class AudioList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ModulesCubit, ModulesState>(
+    return BlocBuilder<ModulesOfCourseCubit, ModulesOfCourseState>(
       builder: (context, state) {
-        if (state is ModulesLosding) {
+        if (state is ModulesOfCourseLosding) {
           return Center(child: CircularProgressIndicator());
-        } else if (state is ModulesSuccess) {
+        } else if (state is ModulesOfCourseSuccess) {
           final modulesOfCourse = state.modulesOfCourse;
           final modulesList = modulesOfCourse.modules!;
           return ListView.builder(
@@ -22,7 +22,7 @@ class AudioList extends StatelessWidget {
               return AudioItem(module: modulesList[index]);
             },
           );
-        } else if (state is ModulesFailure) {
+        } else if (state is ModulesOfCourseFailure) {
           return Center(child: Text(state.errMessage));
         }
         return Text(' No Courses availble');

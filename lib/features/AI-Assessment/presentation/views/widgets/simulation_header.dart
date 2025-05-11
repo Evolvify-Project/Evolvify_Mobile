@@ -1,8 +1,6 @@
-
 import 'package:evolvify/core/utils/app_style.dart';
 import 'package:evolvify/core/widgets/cutsom_arrow_ios.dart';
 import 'package:flutter/material.dart';
-
 
 class SimulationHeader extends StatelessWidget {
   const SimulationHeader({super.key});
@@ -31,9 +29,12 @@ class SimulationHeader extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                 Text(
+                Text(
                   'Real-time Emotion Analysis',
-                  style: TextStyle(fontSize: getResponsiveFontSize(context, fontSize: 24), fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                    fontSize: getResponsiveFontSize(context, fontSize: 24),
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 SizedBox(height: 4),
                 Row(

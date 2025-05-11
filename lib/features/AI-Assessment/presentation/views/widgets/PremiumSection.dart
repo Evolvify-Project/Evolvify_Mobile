@@ -1,17 +1,13 @@
-
 import 'package:evolvify/core/utils/app_images.dart';
 import 'package:evolvify/core/utils/app_style.dart';
 import 'package:flutter/material.dart';
 
 class UpgradetoPremiumSection extends StatelessWidget {
-  const UpgradetoPremiumSection({
-    super.key,
-  });
+  const UpgradetoPremiumSection({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-    
       decoration: BoxDecoration(
         border: Border.all(color: Colors.black),
         borderRadius: BorderRadius.circular(10),
@@ -29,7 +25,7 @@ class UpgradetoPremiumSection extends StatelessWidget {
               child: Icon(Icons.close, color: Colors.white),
             ),
           ),
-    
+
           Padding(
             padding: const EdgeInsets.only(left: 29),
             child: Row(
@@ -41,10 +37,7 @@ class UpgradetoPremiumSection extends StatelessWidget {
                   style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
-                    fontSize: getResponsiveFontSize(
-                      context,
-                      fontSize: 24,
-                    ),
+                    fontSize: getResponsiveFontSize(context, fontSize: 24),
                   ),
                 ),
               ],
@@ -78,10 +71,7 @@ class UpgradetoPremiumSection extends StatelessWidget {
                     'Subscribe Now',
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: getResponsiveFontSize(
-                        context,
-                        fontSize: 16,
-                      ),
+                      fontSize: getResponsiveFontSize(context, fontSize: 16),
                       fontWeight: FontWeight.w500,
                     ),
                   ),

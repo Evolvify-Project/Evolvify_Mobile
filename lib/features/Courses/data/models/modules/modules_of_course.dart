@@ -25,20 +25,21 @@ class ModulesOfCourse extends Equatable {
     this.modules,
   });
 
-  factory ModulesOfCourse.fromJson(Map<String, dynamic> json) => ModulesOfCourse(
-    id: json['id'] as int?,
-    title: json['title'] as String?,
-    description: json['description'] as String?,
-    imageUrl: json['imageUrl'] as String?,
-    category: json['category'] as String?,
-    level: json['level'] as String?,
-    duration: json['duration'] as String?,
-    numberOfModules: json['numberOfModules'] as int?,
-    modules:
-        (json['modules'] as List<dynamic>?)
-            ?.map((e) => Module.fromJson(e as Map<String, dynamic>))
-            .toList(),
-  );
+  factory ModulesOfCourse.fromJson(Map<String, dynamic> json) =>
+      ModulesOfCourse(
+        id: json['id'] as int?,
+        title: json['title'] as String?,
+        description: json['description'] as String?,
+        imageUrl: json['imageUrl'] as String?,
+        category: json['category'] as String?,
+        level: json['level'] as String?,
+        duration: json['duration'] as String?,
+        numberOfModules: json['numberOfModules'] as int?,
+        modules:
+            (json['modules'] as List<dynamic>?)
+                ?.map((e) => Module.fromJson(e as Map<String, dynamic>))
+                .toList(),
+      );
 
   Map<String, dynamic> toJson() => {
     'id': id,

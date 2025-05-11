@@ -39,7 +39,7 @@ class CourseOverview extends StatelessWidget {
                         ),
                       ),
                     ),
-                     VideoSection(),
+                    VideoSection(),
                     SizedBox(height: 20),
                     Text(
                       'Course Content',
