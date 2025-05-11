@@ -31,7 +31,7 @@ import 'package:evolvify/features/community/presentation/views/widgets/create_po
 import 'package:evolvify/features/home/presentation/manager/Courses_cubit/courses_cubit.dart';
 import 'package:evolvify/features/home/presentation/views/home_view.dart';
 import 'package:evolvify/features/on_Boarding/on_Boarding_pageview.dart';
-import 'package:evolvify/features/on_Boarding/presentation/views/logo_view.dart';
+import 'package:evolvify/features/search/presentation/views/search_result_view.dart';
 import 'package:evolvify/features/search/presentation/views/search_view.dart';
 import 'package:evolvify/features/splash%20screen/splash_screen_one.dart';
 import 'package:flutter/material.dart';
@@ -63,6 +63,7 @@ abstract class AppRouter {
   static const kCustomBottomNavigationBar = '/CustomBottomNavigationBar';
   static const kRecommendedContentView = '/RecommendedContentView';
   static const kInterviewView = '/InterviewView';
+  static const kSearchResultView = '/SearchResultView';
 
   static final router = GoRouter(
     routes: [
@@ -71,18 +72,24 @@ abstract class AppRouter {
         builder: (context, state) {
           final id = state.extra as int;
           return BlocProvider(
-            create: (context) => ModulesCubit()..getModulesOfCourse(id: id),
+            create:
+                (context) => ModulesOfCourseCubit()..getModulesOfCourse(id: id),
             child: CourseOverview(),
           );
         },
       ),
       GoRoute(path: kChatbotPag, builder: (context, state) => ChatbotPage()),
       GoRoute(path: kSearchView, builder: (context, state) => SearchView()),
+     
       GoRoute(
         path: kInterviewView,
         builder: (context, state) => InterviewView(),
       ),
       GoRoute(path: kPremiumView, builder: (context, state) => PremiumView()),
+      GoRoute(
+        path: kSearchResultView,
+        builder: (context, state) => SearchResultView(),
+      ),
       GoRoute(
         path: kRecommendedContentView,
         builder:

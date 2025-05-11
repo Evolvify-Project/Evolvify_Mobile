@@ -1,9 +1,11 @@
+import 'package:evolvify/core/utils/app_router.dart';
 import 'package:evolvify/features/home/presentation/views/widgets/Ccustom_header_homePage.dart';
 import 'package:evolvify/core/widgets/customSearch.dart';
 import 'package:evolvify/features/home/presentation/views/widgets/custom_row.dart';
 import 'package:evolvify/features/home/presentation/views/widgets/most_skills_listView.dart';
 import 'package:evolvify/features/home/presentation/views/widgets/popular_skill_gridView.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -21,7 +23,15 @@ class HomeView extends StatelessWidget {
                   SizedBox(height: 40),
                   CustomHeaderHomePage(),
                   SizedBox(height: 10),
-                  CustOmSearch(),
+
+                  CustOmSearch(
+                    onTap:
+                       
+                        () {
+                          GoRouter.of(context).push(AppRouter.kSearchView);
+                        },
+                  ),
+
                   SizedBox(height: 10),
                   CustomRowText(text1: 'Most watching Skill'),
                   SizedBox(height: 20),

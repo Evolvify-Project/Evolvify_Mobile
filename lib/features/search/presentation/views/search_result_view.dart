@@ -1,12 +1,10 @@
-import 'package:evolvify/core/utils/app_router.dart';
+import 'package:evolvify/core/utils/app_images.dart';
 import 'package:evolvify/core/utils/app_style.dart';
 import 'package:evolvify/core/widgets/customSearch.dart';
-import 'package:evolvify/features/search/presentation/views/widgets/search_Item_listView.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
-class SearchView extends StatelessWidget {
-  const SearchView({super.key});
+class SearchResultView extends StatelessWidget {
+  const SearchResultView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -32,31 +30,19 @@ class SearchView extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(height: 12),
-                  CustOmSearch(
-                    onTap: () {
-                      GoRouter.of(context).push(AppRouter.kSearchResultView);
-                    },
-                  ),
+                  CustOmSearch(),
                   SizedBox(height: 25),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text('Recent', style: AppStyle.styleBold22(context)),
                       Text(
-                        'Clear All',
-                        style: TextStyle(
-                          color: Color(0xff233A66),
-                          fontSize: getResponsiveFontSize(
-                            context,
-                            fontSize: 18,
-                          ),
-                          fontWeight: FontWeight.w400,
-                        ),
+                        'Your search result ',
+                        style: AppStyle.styleBold22(context),
                       ),
+
+                      Image.asset(Assets.imagesSetting),
                     ],
                   ),
-
-                  SearchItemListView(),
                 ],
               ),
             ),

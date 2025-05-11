@@ -18,19 +18,7 @@ class AudioItemState extends State<AudioItem> {
     return ListTile(
       contentPadding: EdgeInsets.symmetric(horizontal: 12),
       onTap: () {
-        setState(() {
-          // isClicked = true;
-          // showCourseComplete(context);
-          // Navigator.push(
-          //   context,
-          //   MaterialPageRoute(
-          //     builder: (context) {
-          //       // return VideoPage();
-          //       return Text('');
-          //     },
-          //   ),
-          // );
-        });
+          
       },
       leading: Container(
         padding: const EdgeInsets.all(11),
