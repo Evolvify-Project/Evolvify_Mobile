@@ -10,7 +10,7 @@ class SearchItemListView extends StatelessWidget {
       shrinkWrap: true,
       itemCount: 5,
       itemBuilder: (context, build) {
-        return SearchItem();
+        return SearchItem(text: 'interview');
       },
     );
   }

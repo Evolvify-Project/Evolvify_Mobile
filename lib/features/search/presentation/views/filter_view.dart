@@ -3,11 +3,15 @@ import 'package:evolvify/core/utils/constant.dart';
 import 'package:evolvify/core/widgets/cutsom_arrow_ios.dart';
 import 'package:evolvify/features/Courses/presentation/views/widgets/Custom_button_courses_border.dart';
 import 'package:evolvify/features/Courses/presentation/views/widgets/custom_button_courses.dart';
+import 'package:evolvify/features/search/presentation/manager/search_cubit/search_cubit.dart';
 import 'package:evolvify/features/search/presentation/views/widgets/duration_list.dart';
 import 'package:evolvify/features/search/presentation/views/widgets/filter_text.dart';
 import 'package:evolvify/features/search/presentation/views/widgets/level_list.dart';
+import 'package:evolvify/features/search/presentation/views/widgets/skill_list.dart';
 import 'package:evolvify/features/search/presentation/views/widgets/sort_list.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class FilterView extends StatelessWidget {
   const FilterView({super.key});
@@ -47,16 +51,22 @@ class FilterView extends StatelessWidget {
                     SizedBox(height: 15),
                     LevelListView(),
                     SizedBox(height: 35),
+                    FilterText(text: 'Skill'),
+                    SizedBox(height: 15),
+
+                    SkillList(),
+
+                    SizedBox(height: 35),
                     FilterText(text: 'Sort by'),
                     SizedBox(height: 15),
+
                     SortList(),
                     SizedBox(height: 35),
+
                     FilterText(text: 'Duration'),
                     SizedBox(height: 15),
                     DurationList(),
                     SizedBox(height: 35),
-                    FilterText(text: 'Reviews'),
-                    SizedBox(height: 15),
                     Row(
                       children: [
                         Expanded(
@@ -69,11 +79,15 @@ class FilterView extends StatelessWidget {
                         Expanded(
                           child: CustomButtonCourses(
                             text: 'Apply',
-                            onPressed: () {},
+                            onPressed: () {
+                              GoRouter.of(context).pop();
+                              context.read<SearchCubit>().applyFilters();
+                            },
                           ),
                         ),
                       ],
                     ),
+                    SizedBox(height: 15),
                   ],
                 ),
               ),

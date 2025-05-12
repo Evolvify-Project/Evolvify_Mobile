@@ -7,9 +7,52 @@ part 'search_state.dart';
 
 class SearchCubit extends Cubit<SearchState> {
   SearchCubit() : super(SearchInitial());
-  Future<void> search(String query) async {
+    String currentQuery = '';
+  int? selectedLevel;     
+  int? sortBy;            
+  int? skillId;          
+
+  void setQuery(String query) {
+    currentQuery = query;
+  }
+
+  void setLevel(int level) {
+    selectedLevel = level;
+  }
+
+  void setSortBy(int sort) {
+    sortBy = sort;
+  }
+
+  void setSkillId(int id) {
+   skillId = id;
+  }
+
+  void applyFilters() {
+   search(
+    currentQuery,
+    sortBy: sortBy ?? 1,
+    skillId: skillId,
+    level: selectedLevel,
+  );
+  }
+  Future<void> search(
+    String query, {
+    int pageNumber = 1,
+    int pageSize = 10,
+    int sortBy = 1,
+    int? skillId,
+    int? level,
+  }) async {
     emit(SearchLoading());
-    var searchResult = await SearchRepoImpl().search(query);
+    var searchResult = await SearchRepoImpl().search(
+      query,
+      pageNumber: pageNumber,
+      pageSize: pageSize,
+      sortBy: sortBy,
+      skillId: skillId,
+      level: level,
+    );
     searchResult.fold(
       (failure) {
         emit(SearchFailure(errMessage: failure.errMessge));

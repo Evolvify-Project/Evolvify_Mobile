@@ -3,27 +3,24 @@ import 'package:evolvify/core/utils/constant.dart';
 import 'package:flutter/material.dart';
 
 class FilterButton extends StatefulWidget {
-  const FilterButton({super.key, required this.text});
+  FilterButton({super.key, required this.text, this.onTap,this.isSelect=false});
 
   final String text;
+  void Function()? onTap;
+  bool isSelect ;
   @override
   State<FilterButton> createState() => _FilterButtonState();
 }
 
 class _FilterButtonState extends State<FilterButton> {
-  final bool isSelect = false;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        setState(() {
-          isSelect == true;
-        });
-      },
+      onTap: widget.onTap,
       child: Container(
         margin: EdgeInsets.only(left: 9),
         decoration: BoxDecoration(
-          color: isSelect ? AppColors.kPrimaryColor : Color(0xffEEECEC),
+          color: widget.isSelect ? AppColors.kPrimaryColor : Color(0xffEEECEC),
           borderRadius: BorderRadius.circular(30),
         ),
         child: Padding(
@@ -32,7 +29,7 @@ class _FilterButtonState extends State<FilterButton> {
             child: Text(
               widget.text,
               style: TextStyle(
-                color: isSelect ? Colors.white : Colors.black,
+                color: widget.isSelect ? Colors.white : Colors.black,
                 fontSize: getResponsiveFontSize(context, fontSize: 18),
                 fontWeight: FontWeight.w500,
               ),

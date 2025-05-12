@@ -31,6 +31,8 @@ import 'package:evolvify/features/community/presentation/views/widgets/create_po
 import 'package:evolvify/features/home/presentation/manager/Courses_cubit/courses_cubit.dart';
 import 'package:evolvify/features/home/presentation/views/home_view.dart';
 import 'package:evolvify/features/on_Boarding/on_Boarding_pageview.dart';
+import 'package:evolvify/features/search/presentation/manager/search_cubit/search_cubit.dart';
+import 'package:evolvify/features/search/presentation/views/filter_view.dart';
 import 'package:evolvify/features/search/presentation/views/search_result_view.dart';
 import 'package:evolvify/features/search/presentation/views/search_view.dart';
 import 'package:evolvify/features/splash%20screen/splash_screen_one.dart';
@@ -64,6 +66,7 @@ abstract class AppRouter {
   static const kRecommendedContentView = '/RecommendedContentView';
   static const kInterviewView = '/InterviewView';
   static const kSearchResultView = '/SearchResultView';
+  static const kFilterView = '/FilterView';
 
   static final router = GoRouter(
     routes: [
@@ -79,8 +82,23 @@ abstract class AppRouter {
         },
       ),
       GoRoute(path: kChatbotPag, builder: (context, state) => ChatbotPage()),
-      GoRoute(path: kSearchView, builder: (context, state) => SearchView()),
-     
+      GoRoute(
+        path: kSearchView,
+        builder:
+            (context, state) => BlocProvider(
+              create: (context) => SearchCubit(),
+              child: SearchView(),
+            ),
+      ),
+      GoRoute(
+        path: kFilterView,
+        builder:
+            (context, state) => BlocProvider(
+              create: (context) => SearchCubit(),
+              child: FilterView(),
+            ),
+      ),
+
       GoRoute(
         path: kInterviewView,
         builder: (context, state) => InterviewView(),
@@ -88,8 +106,15 @@ abstract class AppRouter {
       GoRoute(path: kPremiumView, builder: (context, state) => PremiumView()),
       GoRoute(
         path: kSearchResultView,
-        builder: (context, state) => SearchResultView(),
+        builder: (context, state) {
+          final keyword = state.extra as String;
+          return BlocProvider(
+            create: (context) => SearchCubit()..search(keyword),
+            child: SearchResultView(searchquery: keyword),
+          );
+        },
       ),
+      
       GoRoute(
         path: kRecommendedContentView,
         builder:

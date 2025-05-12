@@ -1,12 +1,25 @@
 import 'package:evolvify/core/utils/app_router.dart';
 import 'package:evolvify/core/utils/app_style.dart';
 import 'package:evolvify/core/widgets/customSearch.dart';
-import 'package:evolvify/features/search/presentation/views/widgets/search_Item_listView.dart';
+import 'package:evolvify/features/search/presentation/views/widgets/search_result_list.dart';
+
+
 import 'package:flutter/material.dart';
+
 import 'package:go_router/go_router.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SearchView extends StatelessWidget {
-  const SearchView({super.key});
+  SearchView({super.key});
+  TextEditingController searchController = TextEditingController();
+  void saveSearch(String keyWord) async {
+    final prefs = await SharedPreferences.getInstance();
+    List<String> searchHistoy = prefs.getStringList('search_history') ?? [];
+    if (searchHistoy.contains(keyWord)) {
+      searchHistoy.insert(0, keyWord);
+      prefs.getStringList('search_history');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,8 +47,14 @@ class SearchView extends StatelessWidget {
                   SizedBox(height: 12),
                   CustOmSearch(
                     onTap: () {
-                      GoRouter.of(context).push(AppRouter.kSearchResultView);
+                      final query = searchController.text.trim();
+                      if (query.isNotEmpty) {
+                        GoRouter.of(
+                          context,
+                        ).push(AppRouter.kSearchResultView, extra: query);
+                      }
                     },
+                    controller: searchController,
                   ),
                   SizedBox(height: 25),
                   Row(
@@ -56,7 +75,10 @@ class SearchView extends StatelessWidget {
                     ],
                   ),
 
-                  SearchItemListView(),
+               
+                  SearchResultList()
+                    
+                  
                 ],
               ),
             ),

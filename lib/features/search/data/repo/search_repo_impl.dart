@@ -7,6 +7,8 @@ import 'package:evolvify/features/search/data/repo/search_repo.dart';
 
 class SearchRepoImpl implements SearchRepo {
   @override
+  
+  
   Future<Either<Failure, List<CoursesModel>>> search(
     String query, {
     int pageNumber = 1,
