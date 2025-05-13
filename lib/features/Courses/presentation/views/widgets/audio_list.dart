@@ -15,11 +15,12 @@ class AudioList extends StatelessWidget {
         } else if (state is ModulesOfCourseSuccess) {
           final modulesOfCourse = state.modulesOfCourse;
           final modulesList = modulesOfCourse.modules!;
+        
           return ListView.builder(
             shrinkWrap: true,
             itemCount: modulesList.length,
             itemBuilder: (context, index) {
-              return AudioItem(module: modulesList[index]);
+              return AudioItem(module: modulesList[index],);
             },
           );
         } else if (state is ModulesOfCourseFailure) {

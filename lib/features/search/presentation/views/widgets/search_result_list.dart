@@ -30,13 +30,7 @@ class SearchResultList extends StatelessWidget {
               return MostWatchingItem(coursesModel: searchResultList[index]);
             },
           );
-          // return ListView.builder(
-          //   shrinkWrap: true,
-          //   itemCount: searchResultList.length,
-          //   itemBuilder: (context, index) {
-          //     return MostWatchingItem(coursesModel: searchResultList[index]);
-          //   },
-          // );
+  
         } else if (state is SearchFailure) {
           return Center(child: Text(state.errMessage.toString()));
         }

@@ -7,10 +7,10 @@ part 'search_state.dart';
 
 class SearchCubit extends Cubit<SearchState> {
   SearchCubit() : super(SearchInitial());
-    String currentQuery = '';
-  int? selectedLevel;     
-  int? sortBy;            
-  int? skillId;          
+  String currentQuery = '';
+  int? selectedLevel;
+  int? sortBy;
+  int? skillId;
 
   void setQuery(String query) {
     currentQuery = query;
@@ -25,17 +25,19 @@ class SearchCubit extends Cubit<SearchState> {
   }
 
   void setSkillId(int id) {
-   skillId = id;
+    skillId = id;
   }
 
   void applyFilters() {
-   search(
-    currentQuery,
-    sortBy: sortBy ?? 1,
-    skillId: skillId,
-    level: selectedLevel,
-  );
+    emit(SearchInitial());
+    search(
+      currentQuery,
+      sortBy: sortBy ?? 1,
+      skillId: skillId,
+      level: selectedLevel,
+    );
   }
+
   Future<void> search(
     String query, {
     int pageNumber = 1,

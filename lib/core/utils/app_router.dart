@@ -82,39 +82,48 @@ abstract class AppRouter {
         },
       ),
       GoRoute(path: kChatbotPag, builder: (context, state) => ChatbotPage()),
-      GoRoute(
-        path: kSearchView,
-        builder:
-            (context, state) => BlocProvider(
-              create: (context) => SearchCubit(),
-              child: SearchView(),
-            ),
-      ),
-      GoRoute(
-        path: kFilterView,
-        builder:
-            (context, state) => BlocProvider(
-              create: (context) => SearchCubit(),
-              child: FilterView(),
-            ),
-      ),
+ GoRoute(
+  path: kSearchView,
+  builder: (context, state) {
+
+    return BlocProvider(
+      create: (context) => SearchCubit(),
+      child: SearchView(),
+    );
+  },
+),
+GoRoute(
+  path: kSearchResultView,
+  builder: (context, state) {
+    final keyword = state.extra as String;
+
+ 
+    return BlocProvider.value(
+      value: BlocProvider.of<SearchCubit>(context),
+      child: SearchResultView(searchquery: keyword),
+    );
+  },
+),
+GoRoute(
+  path: kFilterView,
+  builder: (context, state) {
+    
+    
+    return BlocProvider.value(
+      value: BlocProvider.of<SearchCubit>(context),
+      child: FilterView(),
+    );
+  },
+),
+
+
 
       GoRoute(
         path: kInterviewView,
         builder: (context, state) => InterviewView(),
       ),
       GoRoute(path: kPremiumView, builder: (context, state) => PremiumView()),
-      GoRoute(
-        path: kSearchResultView,
-        builder: (context, state) {
-          final keyword = state.extra as String;
-          return BlocProvider(
-            create: (context) => SearchCubit()..search(keyword),
-            child: SearchResultView(searchquery: keyword),
-          );
-        },
-      ),
-      
+     
       GoRoute(
         path: kRecommendedContentView,
         builder:

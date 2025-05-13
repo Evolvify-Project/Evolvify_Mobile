@@ -80,8 +80,8 @@ class FilterView extends StatelessWidget {
                           child: CustomButtonCourses(
                             text: 'Apply',
                             onPressed: () {
-                              GoRouter.of(context).pop();
                               context.read<SearchCubit>().applyFilters();
+                              GoRouter.of(context).pop();
                             },
                           ),
                         ),

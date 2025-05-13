@@ -1,23 +1,62 @@
 import 'package:evolvify/core/utils/app_router.dart';
 import 'package:evolvify/core/utils/app_style.dart';
 import 'package:evolvify/core/widgets/customSearch.dart';
-import 'package:evolvify/features/search/presentation/views/widgets/search_result_list.dart';
-
-
+import 'package:evolvify/features/search/presentation/views/widgets/search_item.dart';
 import 'package:flutter/material.dart';
-
 import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-class SearchView extends StatelessWidget {
-  SearchView({super.key});
+class SearchView extends StatefulWidget {
+const  SearchView({super.key});
+  @override
+  State<SearchView> createState() => _SearchViewState();
+}
+class _SearchViewState extends State<SearchView> {
   TextEditingController searchController = TextEditingController();
+
+  List<String> searchHistoy = [];
+  @override
+  void initState() {
+    super.initState();
+    loadSearchHistory();
+  }
+
+  void loadSearchHistory() async {
+    final prefs = await SharedPreferences.getInstance();
+    setState(() {
+      searchHistoy = prefs.getStringList('search_history') ?? [];
+    });
+  }
+  
+
   void saveSearch(String keyWord) async {
     final prefs = await SharedPreferences.getInstance();
-    List<String> searchHistoy = prefs.getStringList('search_history') ?? [];
-    if (searchHistoy.contains(keyWord)) {
-      searchHistoy.insert(0, keyWord);
-      prefs.getStringList('search_history');
+    searchHistoy = prefs.getStringList('search_history') ?? [];
+
+    searchHistoy.remove(keyWord);
+    searchHistoy.insert(0, keyWord);
+    await prefs.setStringList('search_history', searchHistoy);
+    setState(() {});
+  }
+
+  void clearSearchHistory() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.remove('search_history');
+    setState(() {
+      searchHistoy = [];
+    });
+  }
+
+  void removeItemFromHistory(String keyword) async {
+    final prefs = await SharedPreferences.getInstance();
+    searchHistoy.remove(keyword);
+    await prefs.setStringList('search_history', searchHistoy);
+    setState(() {});
+  }
+
+  void performSearch(String query) {
+    if (query.isNotEmpty) {
+      saveSearch(query);
+      GoRouter.of(context).push(AppRouter.kSearchResultView, extra: query);
     }
   }
 
@@ -46,39 +85,54 @@ class SearchView extends StatelessWidget {
                 children: [
                   SizedBox(height: 12),
                   CustOmSearch(
-                    onTap: () {
-                      final query = searchController.text.trim();
-                      if (query.isNotEmpty) {
-                        GoRouter.of(
-                          context,
-                        ).push(AppRouter.kSearchResultView, extra: query);
-                      }
-                    },
                     controller: searchController,
+                    onSubmitted: performSearch,
+                    onTap: () {
+                      performSearch(searchController.text.trim());
+                    },
                   ),
                   SizedBox(height: 25),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text('Recent', style: AppStyle.styleBold22(context)),
-                      Text(
-                        'Clear All',
-                        style: TextStyle(
-                          color: Color(0xff233A66),
-                          fontSize: getResponsiveFontSize(
-                            context,
-                            fontSize: 18,
+                  if (searchHistoy.isNotEmpty)
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text('Recent', style: AppStyle.styleBold22(context)),
+                        GestureDetector(
+                          onTap: () {
+                            clearSearchHistory;
+                          },
+                          child: Text(
+                            'Clear All',
+                            style: TextStyle(
+                              color: Color(0xff233A66),
+                              fontSize: getResponsiveFontSize(
+                                context,
+                                fontSize: 18,
+                              ),
+                              fontWeight: FontWeight.w400,
+                            ),
                           ),
-                          fontWeight: FontWeight.w400,
                         ),
-                      ),
-                    ],
-                  ),
+                      ],
+                    ),
 
-               
-                  SearchResultList()
-                    
-                  
+                  ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: searchHistoy.length,
+                    itemBuilder: (context, index) {
+                      final keyword = searchHistoy[index];
+                      return SearchItem(
+                        onClick: () {
+                          searchController.text = keyword;
+                          performSearch(keyword);
+                        },
+                        text: keyword,
+                        onTap: () {
+                          removeItemFromHistory(keyword);
+                        },
+                      );
+                    },
+                  ),
                 ],
               ),
             ),
