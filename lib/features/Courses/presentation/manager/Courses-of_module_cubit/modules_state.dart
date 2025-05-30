@@ -8,15 +8,12 @@ sealed class ModulesState extends Equatable {
 }
 
 final class ModulesInitial extends ModulesState {}
-
 final class ModulesLosding extends ModulesState {}
-
 final class ModulesSuccess extends ModulesState {
-  final AllModulesModel allModulesModel;
+  final CoursesOfModuleModel allCoursesModule;
 
- ModulesSuccess({required this.allModulesModel});
+const ModulesSuccess({required this.allCoursesModule});
 }
-
 final class ModulesFailure extends ModulesState {
   final String errMessage;
 

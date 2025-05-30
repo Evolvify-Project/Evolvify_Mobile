@@ -1,4 +1,5 @@
 import 'package:evolvify/core/utils/app_router.dart';
+import 'package:evolvify/features/Assessment/data/models/courses_model.dart';
 import 'package:evolvify/features/Courses/presentation/manager/ModulesOfCourse/modules_of_course_cubit.dart';
 import 'package:evolvify/features/Courses/presentation/views/widgets/audio_item.dart';
 import 'package:flutter/material.dart';
@@ -6,8 +7,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class AudioList extends StatelessWidget {
-  const AudioList({super.key});
-
+  const AudioList({super.key, this.coursesModel});
+  final CoursesModel? coursesModel;
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ModulesOfCourseCubit, ModulesOfCourseState>(
@@ -27,9 +28,15 @@ class AudioList extends StatelessWidget {
                 onTap: () {
                   final title = modulesList[index].title;
                   if (title == 'Communication Barriers') {
-                    GoRouter.of(context).push(AppRouter.kShowCourse);
-                  } else {
                     GoRouter.of(context).push(AppRouter.kShowCourseText);
+                  } else {
+                    GoRouter.of(context).push(
+                      AppRouter.kShowCourse,
+                      extra: {
+                        'moduleId': modulesList[index].id,
+                        'courseId': coursesModel!.id,
+                      },
+                    );
                   }
                 },
               );

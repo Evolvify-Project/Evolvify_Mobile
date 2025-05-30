@@ -8,6 +8,7 @@ import 'package:evolvify/features/Assessment/presentation/views/Recommended_Cont
 import 'package:evolvify/features/Assessment/presentation/views/assessment_view.dart';
 import 'package:evolvify/features/Assessment/presentation/views/test_result_view.dart';
 import 'package:evolvify/features/Assessment/presentation/views/test_view.dart';
+import 'package:evolvify/features/Courses/presentation/manager/Courses-of_module_cubit/modules_cubit.dart';
 import 'package:evolvify/features/Courses/presentation/manager/ModulesOfCourse/modules_of_course_cubit.dart';
 import 'package:evolvify/features/Courses/presentation/views/course_overview.dart';
 import 'package:evolvify/features/Courses/presentation/views/show_course_text.dart';
@@ -86,7 +87,22 @@ abstract class AppRouter {
         },
       ),
       GoRoute(path: kChatbotPag, builder: (context, state) => ChatbotPage()),
-      GoRoute(path: kShowCourse, builder: (context, state) => ShowCourse()),
+      GoRoute(
+        path: kShowCourse,
+        builder: (context, state) {
+          final extra = state.extra as Map<String, dynamic>;
+          final moduleId = extra['moduleId'];
+          final courseId = extra['courseId'];
+
+          return BlocProvider(
+            create:
+                (context) =>
+                    ModulesCubit()
+                      ..getAllModules(courseId: courseId, moduleId: moduleId),
+            child: ShowCourse(),
+          );
+        },
+      ),
       GoRoute(
         path: kSearchView,
         builder: (context, state) {
@@ -191,7 +207,7 @@ abstract class AppRouter {
         path: kPasswordResetView,
         builder: (context, state) => PasswordResetView(),
       ),
-       GoRoute(
+      GoRoute(
         path: kShowCourseText,
         builder: (context, state) => ShowCourseText(),
       ),

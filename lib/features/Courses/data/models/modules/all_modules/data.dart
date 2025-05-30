@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:evolvify/features/Courses/data/models/modules/all_modules/all_modules.dart';
+import 'package:evolvify/features/Courses/data/models/modules/all_modules/courses_module.dart';
 
 
 

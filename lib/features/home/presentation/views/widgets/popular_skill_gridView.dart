@@ -16,46 +16,57 @@ class PopularSkillgridView extends StatelessWidget {
         mainAxisSpacing: 0,
       ),
       itemBuilder: (context, index) {
-        return images[index];
+        return GestureDetector(
+          onTap: () {
+            
+          },
+          child: AspectRatio(aspectRatio: 1 / 2, child: images[index]),
+        );
       },
     );
   }
 
   List images = [
-    GestureDetector(
-      onTap: () {},
-      child: AspectRatio(
-        aspectRatio: 1 / 2,
-        child: Image.asset(Assets.imagesInterview),
-      ),
-    ),
-    GestureDetector(
-      onTap: () {},
-      child: AspectRatio(
-        aspectRatio: 1 / 2,
-        child: Image.asset(Assets.imagesPresentation),
-      ),
-    ),
-    GestureDetector(
-      onTap: () {},
-      child: AspectRatio(
-        aspectRatio: 1 / 2,
-        child: Image.asset(Assets.imagesCommunication),
-      ),
-    ),
-    GestureDetector(
-      onTap: () {},
-      child: AspectRatio(
-        aspectRatio: 1 / 2,
-        child: Image.asset(Assets.imagesTeamWork),
-      ),
-    ),
-    GestureDetector(
-      onTap: () {},
-      child: AspectRatio(
-        aspectRatio: 1 / 2,
-        child: Image.asset(Assets.imagesTimeMang),
-      ),
-    ),
+    Image.asset(Assets.imagesInterview),
+    Image.asset(Assets.imagesPresentation),
+    Image.asset(Assets.imagesCommunication),
+    Image.asset(Assets.imagesTeamWork),
+    Image.asset(Assets.imagesTimeMang),
   ];
+  //   GestureDetector(
+  //     onTap: () {},
+  //     child: AspectRatio(
+  //       aspectRatio: 1 / 2,
+  //       child: Image.asset(Assets.imagesInterview),
+  //     ),
+  //   ),
+  //   GestureDetector(
+  //     onTap: () {},
+  //     child: AspectRatio(
+  //       aspectRatio: 1 / 2,
+  //       child: Image.asset(Assets.imagesPresentation),
+  //     ),
+  //   ),
+  //   GestureDetector(
+  //     onTap: () {},
+  //     child: AspectRatio(
+  //       aspectRatio: 1 / 2,
+  //       child: Image.asset(Assets.imagesCommunication),
+  //     ),
+  //   ),
+  //   GestureDetector(
+  //     onTap: () {},
+  //     child: AspectRatio(
+  //       aspectRatio: 1 / 2,
+  //       child: Image.asset(Assets.imagesTeamWork),
+  //     ),
+  //   ),
+  //   GestureDetector(
+  //     onTap: () {},
+  //     child: AspectRatio(
+  //       aspectRatio: 1 / 2,
+  //       child: Image.asset(Assets.imagesTimeMang),
+  //     ),
+  //   ),
+  // ];
 }
