@@ -8,8 +8,10 @@ class CustomButton extends StatelessWidget {
     required this.title,
     this.onTap,
     this.borderRadius,
+    this.verticalPadding,
   });
   final String title;
+   final double ?verticalPadding;
   @override
   final double? borderRadius;
   final void Function()? onTap;
@@ -23,7 +25,7 @@ class CustomButton extends StatelessWidget {
         ),
         child: Center(
           child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 12),
+            padding:  EdgeInsets.symmetric(vertical:verticalPadding?? 12),
             child: Text(
               title,
               style: TextStyle(

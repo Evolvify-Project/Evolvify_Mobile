@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:evolvify/core/utils/app_style.dart';
 
 import 'package:evolvify/features/Courses/presentation/manager/ModulesOfCourse/modules_of_course_cubit.dart';
@@ -20,7 +21,20 @@ class VideoSection extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 15),
-              const Video(),
+              // const Video(),
+              AspectRatio(
+                aspectRatio: 2 / 1,
+                child: CachedNetworkImage(
+                  imageUrl: modulesOfCourse.imageUrl ?? '',
+
+                  fit: BoxFit.fill,
+                  errorWidget: (context, url, error) => const Icon(Icons.error),
+                  placeholder:
+                      (context, url) =>
+                          const Center(child: CircularProgressIndicator()),
+                ),
+              ),
+
               const SizedBox(height: 15),
               Text(
                 modulesOfCourse.title ?? '',

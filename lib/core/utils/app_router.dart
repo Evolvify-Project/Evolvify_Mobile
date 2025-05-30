@@ -10,6 +10,8 @@ import 'package:evolvify/features/Assessment/presentation/views/test_result_view
 import 'package:evolvify/features/Assessment/presentation/views/test_view.dart';
 import 'package:evolvify/features/Courses/presentation/manager/ModulesOfCourse/modules_of_course_cubit.dart';
 import 'package:evolvify/features/Courses/presentation/views/course_overview.dart';
+import 'package:evolvify/features/Courses/presentation/views/show_course_text.dart';
+import 'package:evolvify/features/Courses/presentation/views/show_course_video.dart';
 import 'package:evolvify/features/Premium/presentation/views/Premium_view.dart';
 import 'package:evolvify/features/auth/presentation/manager/Verify_cubit/cubit/verify_pass_cubit.dart';
 import 'package:evolvify/features/auth/presentation/manager/forget_cubit/cubit/forget_pass_cubit.dart';
@@ -67,6 +69,8 @@ abstract class AppRouter {
   static const kInterviewView = '/InterviewView';
   static const kSearchResultView = '/SearchResultView';
   static const kFilterView = '/FilterView';
+  static const kShowCourse = '/ShowCourse';
+  static const kShowCourseText = '/ShowCourseText';
 
   static final router = GoRouter(
     routes: [
@@ -82,48 +86,43 @@ abstract class AppRouter {
         },
       ),
       GoRoute(path: kChatbotPag, builder: (context, state) => ChatbotPage()),
- GoRoute(
-  path: kSearchView,
-  builder: (context, state) {
+      GoRoute(path: kShowCourse, builder: (context, state) => ShowCourse()),
+      GoRoute(
+        path: kSearchView,
+        builder: (context, state) {
+          return BlocProvider(
+            create: (context) => SearchCubit(),
+            child: SearchView(),
+          );
+        },
+      ),
+      GoRoute(
+        path: kSearchResultView,
+        builder: (context, state) {
+          final keyword = state.extra as String;
 
-    return BlocProvider(
-      create: (context) => SearchCubit(),
-      child: SearchView(),
-    );
-  },
-),
-GoRoute(
-  path: kSearchResultView,
-  builder: (context, state) {
-    final keyword = state.extra as String;
-
- 
-    return BlocProvider.value(
-      value: BlocProvider.of<SearchCubit>(context),
-      child: SearchResultView(searchquery: keyword),
-    );
-  },
-),
-GoRoute(
-  path: kFilterView,
-  builder: (context, state) {
-    
-    
-    return BlocProvider.value(
-      value: BlocProvider.of<SearchCubit>(context),
-      child: FilterView(),
-    );
-  },
-),
-
-
+          return BlocProvider.value(
+            value: BlocProvider.of<SearchCubit>(context),
+            child: SearchResultView(searchquery: keyword),
+          );
+        },
+      ),
+      GoRoute(
+        path: kFilterView,
+        builder: (context, state) {
+          return BlocProvider.value(
+            value: BlocProvider.of<SearchCubit>(context),
+            child: FilterView(),
+          );
+        },
+      ),
 
       GoRoute(
         path: kInterviewView,
         builder: (context, state) => InterviewView(),
       ),
       GoRoute(path: kPremiumView, builder: (context, state) => PremiumView()),
-     
+
       GoRoute(
         path: kRecommendedContentView,
         builder:
@@ -191,6 +190,10 @@ GoRoute(
       GoRoute(
         path: kPasswordResetView,
         builder: (context, state) => PasswordResetView(),
+      ),
+       GoRoute(
+        path: kShowCourseText,
+        builder: (context, state) => ShowCourseText(),
       ),
       GoRoute(
         path: kSplashScreenOne,

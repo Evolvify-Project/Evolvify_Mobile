@@ -1,5 +1,4 @@
 import 'package:evolvify/core/utils/app_style.dart';
-import 'package:evolvify/core/utils/constant.dart';
 import 'package:flutter/material.dart';
 
 class TestButton extends StatelessWidget {
@@ -25,7 +24,7 @@ class TestButton extends StatelessWidget {
             side: BorderSide(color: Color(0xffC4C4C4), width: 1),
           ),
           elevation: 0,
-          backgroundColor: isSelected ? Color(0xff59B5FF) : Colors.white,
+          backgroundColor: isSelected ? Color(0xff64B5F6) : Colors.white,
         ),
         onPressed: onPressed,
         child: Center(

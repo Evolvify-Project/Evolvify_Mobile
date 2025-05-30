@@ -2,15 +2,15 @@ import 'package:equatable/equatable.dart';
 
 import 'content.dart';
 
-class AllModulesModel extends Equatable {
+class CoursesOfModuleModel extends Equatable {
   final int? id;
   final String? title;
   final int? courseId;
   final List<Content>? contents;
 
-  const AllModulesModel({this.id, this.title, this.courseId, this.contents});
+  const CoursesOfModuleModel({this.id, this.title, this.courseId, this.contents});
 
-  factory AllModulesModel.fromJson(Map<String, dynamic> json) => AllModulesModel(
+  factory CoursesOfModuleModel.fromJson(Map<String, dynamic> json) => CoursesOfModuleModel(
     id: json['id'] as int?,
     title: json['title'] as String?,
     courseId: json['courseId'] as int?,

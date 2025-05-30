@@ -4,7 +4,7 @@ import 'package:evolvify/features/Courses/data/models/modules/all_modules/all_mo
 
 
 class Data extends Equatable {
-  final AllModulesModel? data;
+  final CoursesOfModuleModel? data;
 
   const Data({this.data});
 
@@ -12,7 +12,7 @@ class Data extends Equatable {
     data:
         json['data'] == null
             ? null
-            : AllModulesModel.fromJson(json['data'] as Map<String, dynamic>),
+            : CoursesOfModuleModel.fromJson(json['data'] as Map<String, dynamic>),
   );
 
   Map<String, dynamic> toJson() => {'data': data?.toJson()};

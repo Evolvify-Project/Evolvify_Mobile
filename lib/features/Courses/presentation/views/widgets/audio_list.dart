@@ -1,7 +1,9 @@
+import 'package:evolvify/core/utils/app_router.dart';
 import 'package:evolvify/features/Courses/presentation/manager/ModulesOfCourse/modules_of_course_cubit.dart';
 import 'package:evolvify/features/Courses/presentation/views/widgets/audio_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class AudioList extends StatelessWidget {
   const AudioList({super.key});
@@ -15,12 +17,22 @@ class AudioList extends StatelessWidget {
         } else if (state is ModulesOfCourseSuccess) {
           final modulesOfCourse = state.modulesOfCourse;
           final modulesList = modulesOfCourse.modules!;
-        
+
           return ListView.builder(
             shrinkWrap: true,
             itemCount: modulesList.length,
             itemBuilder: (context, index) {
-              return AudioItem(module: modulesList[index],);
+              return AudioItem(
+                module: modulesList[index],
+                onTap: () {
+                  final title = modulesList[index].title;
+                  if (title == 'Communication Barriers') {
+                    GoRouter.of(context).push(AppRouter.kShowCourse);
+                  } else {
+                    GoRouter.of(context).push(AppRouter.kShowCourseText);
+                  }
+                },
+              );
             },
           );
         } else if (state is ModulesOfCourseFailure) {
