@@ -1,5 +1,7 @@
 import 'package:evolvify/core/utils/app_images.dart';
+import 'package:evolvify/core/utils/app_router.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class PopularSkillgridView extends StatelessWidget {
   PopularSkillgridView({super.key});
@@ -18,7 +20,7 @@ class PopularSkillgridView extends StatelessWidget {
       itemBuilder: (context, index) {
         return GestureDetector(
           onTap: () {
-            
+            GoRouter.of(context).push(AppRouter.kAllcourseOfSkillsView);
           },
           child: AspectRatio(aspectRatio: 1 / 2, child: images[index]),
         );

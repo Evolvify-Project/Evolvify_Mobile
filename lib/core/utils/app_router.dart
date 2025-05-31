@@ -32,6 +32,7 @@ import 'package:evolvify/features/community/presentation/views/community_page.da
 import 'package:evolvify/features/community/presentation/views/create_post.dart';
 import 'package:evolvify/features/community/presentation/views/widgets/create_post_providers.dart';
 import 'package:evolvify/features/home/presentation/manager/Courses_cubit/courses_cubit.dart';
+import 'package:evolvify/features/home/presentation/views/allcourse_of_skills_view.dart';
 import 'package:evolvify/features/home/presentation/views/home_view.dart';
 import 'package:evolvify/features/on_Boarding/on_Boarding_pageview.dart';
 import 'package:evolvify/features/search/presentation/manager/search_cubit/search_cubit.dart';
@@ -72,6 +73,7 @@ abstract class AppRouter {
   static const kFilterView = '/FilterView';
   static const kShowCourse = '/ShowCourse';
   static const kShowCourseText = '/ShowCourseText';
+  static const kAllcourseOfSkillsView = '/AllcourseOfSkillsView';
 
   static final router = GoRouter(
     routes: [
@@ -87,6 +89,10 @@ abstract class AppRouter {
         },
       ),
       GoRoute(path: kChatbotPag, builder: (context, state) => ChatbotPage()),
+      GoRoute(
+        path: kAllcourseOfSkillsView,
+        builder: (context, state) => AllcourseOfSkillsView(),
+      ),
       GoRoute(
         path: kShowCourse,
         builder: (context, state) {

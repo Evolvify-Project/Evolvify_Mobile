@@ -3,8 +3,8 @@ import 'package:flick_video_player/flick_video_player.dart';
 import 'package:video_player/video_player.dart';
 
 class Video extends StatefulWidget {
-  const Video({super.key});
-
+  const Video({super.key, required this.urlVideo});
+  final String urlVideo;
   @override
   State<Video> createState() => _VideoState();
 }
@@ -16,7 +16,7 @@ class _VideoState extends State<Video> {
     super.initState();
     flickManager = FlickManager(
       videoPlayerController: VideoPlayerController.networkUrl(
-        Uri.parse("https://www.w3schools.com/html/mov_bbb.mp4"),
+        Uri.parse(widget.urlVideo),
       ),
     );
   }
