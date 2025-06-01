@@ -27,7 +27,7 @@ class CoursesRepoImpl implements CoursesRepo {
   }
 
   @override
-  Future<Either<Failure,CoursesOfModuleModel>> getAllCoursesOfModule({
+  Future<Either<Failure, CoursesOfModuleModel>> getAllCoursesOfModule({
     required int courseId,
     required int moduleId,
   }) async {

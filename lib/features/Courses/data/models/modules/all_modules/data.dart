@@ -1,8 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:evolvify/features/Courses/data/models/modules/all_modules/courses_module.dart';
 
-
-
 class Data extends Equatable {
   final CoursesOfModuleModel? data;
 
@@ -12,7 +10,9 @@ class Data extends Equatable {
     data:
         json['data'] == null
             ? null
-            : CoursesOfModuleModel.fromJson(json['data'] as Map<String, dynamic>),
+            : CoursesOfModuleModel.fromJson(
+              json['data'] as Map<String, dynamic>,
+            ),
   );
 
   Map<String, dynamic> toJson() => {'data': data?.toJson()};

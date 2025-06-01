@@ -5,11 +5,13 @@ import 'package:evolvify/features/search/presentation/views/widgets/search_item.
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
 class SearchView extends StatefulWidget {
-const  SearchView({super.key});
+  const SearchView({super.key});
   @override
   State<SearchView> createState() => _SearchViewState();
 }
+
 class _SearchViewState extends State<SearchView> {
   TextEditingController searchController = TextEditingController();
 
@@ -26,7 +28,6 @@ class _SearchViewState extends State<SearchView> {
       searchHistoy = prefs.getStringList('search_history') ?? [];
     });
   }
-  
 
   void saveSearch(String keyWord) async {
     final prefs = await SharedPreferences.getInstance();

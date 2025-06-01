@@ -5,13 +5,20 @@ class Module extends Equatable {
   final String? title;
   final String? contentType;
 
-  const Module({this.id, this.title,this.contentType});
+  const Module({this.id, this.title, this.contentType});
 
-  factory Module.fromJson(Map<String, dynamic> json) =>
-      Module(id: json['id'] as int?, title: json['title'] as String?, contentType: json["contentType"] as String?);
+  factory Module.fromJson(Map<String, dynamic> json) => Module(
+    id: json['id'] as int?,
+    title: json['title'] as String?,
+    contentType: json["contentType"] as String?,
+  );
 
-  Map<String, dynamic> toJson() => {'id': id, 'title': title,"contentType":contentType};
+  Map<String, dynamic> toJson() => {
+    'id': id,
+    'title': title,
+    "contentType": contentType,
+  };
 
   @override
-  List<Object?> get props => [id, title,contentType];
+  List<Object?> get props => [id, title, contentType];
 }

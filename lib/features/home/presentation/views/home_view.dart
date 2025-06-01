@@ -25,11 +25,9 @@ class HomeView extends StatelessWidget {
                   SizedBox(height: 10),
 
                   CustOmSearch(
-                    onTap:
-                       
-                        () {
-                          GoRouter.of(context).push(AppRouter.kSearchView);
-                        },
+                    onTap: () {
+                      GoRouter.of(context).push(AppRouter.kSearchView);
+                    },
                   ),
 
                   SizedBox(height: 10),
@@ -62,7 +60,7 @@ class HomeView extends StatelessWidget {
 
           SliverPadding(
             padding: const EdgeInsets.symmetric(horizontal: 24),
-            sliver: PopularSkillgridView(),
+            sliver: PopularSkillGridView(),
           ),
         ],
       ),

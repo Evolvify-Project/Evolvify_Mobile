@@ -3,10 +3,15 @@ import 'package:evolvify/core/utils/constant.dart';
 import 'package:flutter/material.dart';
 
 class CustomButtonBorder extends StatelessWidget {
-  const CustomButtonBorder({super.key, required this.title, this.onTap,this.verticalPadding});
+  const CustomButtonBorder({
+    super.key,
+    required this.title,
+    this.onTap,
+    this.verticalPadding,
+  });
   final String title;
   final void Function()? onTap;
- final double ?verticalPadding;
+  final double? verticalPadding;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -18,7 +23,7 @@ class CustomButtonBorder extends StatelessWidget {
         ),
         child: Center(
           child: Padding(
-            padding:  EdgeInsets.symmetric(vertical: verticalPadding ??8  ),
+            padding: EdgeInsets.symmetric(vertical: verticalPadding ?? 8),
             child: Text(
               title,
               style: TextStyle(

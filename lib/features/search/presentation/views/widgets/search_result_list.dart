@@ -30,7 +30,6 @@ class SearchResultList extends StatelessWidget {
               return MostWatchingItem(coursesModel: searchResultList[index]);
             },
           );
-  
         } else if (state is SearchFailure) {
           return Center(child: Text(state.errMessage.toString()));
         }

@@ -15,14 +15,14 @@ class CourseItem extends StatelessWidget {
         boxShadow: [
           BoxShadow(
             color: Colors.grey.withValues(alpha: 0.2),
-            spreadRadius: 3,
-            blurRadius: 3,
-            offset: Offset(0, 2),
+            spreadRadius: 4,
+            blurRadius: 2,
+            offset: Offset(0, 3),
           ),
         ],
       ),
       child: AspectRatio(
-        aspectRatio: 2 / 3,
+        aspectRatio: 1.3 / 1.8,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -38,46 +38,64 @@ class CourseItem extends StatelessWidget {
                         const Center(child: CircularProgressIndicator()),
               ),
             ),
-            // Image.asset(Assets.imagesT),
-            SizedBox(height: 15),
-            Text(
-              coursesModel.title ?? '',
 
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: getResponsiveFontSize(context, fontSize: 15),
-                fontWeight: FontWeight.bold,
+            SizedBox(height: 15),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    coursesModel.title ?? '',
+
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: getResponsiveFontSize(context, fontSize: 15),
+                      fontWeight: FontWeight.bold,
+                    ),
+                    maxLines: 2,
+                  ),
+                  SizedBox(height: 5),
+                  Text(
+                    coursesModel.level ?? '',
+                    maxLines: 2,
+                    style: TextStyle(color: Color(0xffFF001E)),
+                  ),
+                  SizedBox(height: 8),
+                  Row(
+                    children: [
+                      // Image.asset(Assets.imagesClock),
+                      Icon(
+                        Icons.access_time,
+                        color: Color(0xff888C94),
+                        size: 20,
+                      ),
+                      SizedBox(width: 6),
+                      Text(
+                        coursesModel.duration ?? '',
+                        style: TextStyle(
+                          color: Color(0xff888C94),
+                          fontSize: getResponsiveFontSize(
+                            context,
+                            fontSize: 11,
+                          ),
+                        ),
+                      ),
+                      SizedBox(width: 30),
+                      Text(
+                        coursesModel.skill ?? '',
+                        style: TextStyle(
+                          color: Color(0xff888C94),
+                          fontSize: getResponsiveFontSize(
+                            context,
+                            fontSize: 11,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
               ),
-              maxLines: 2,
-            ),
-            SizedBox(height: 5),
-            Text(
-              coursesModel.level ?? '',
-              maxLines: 2,
-              style: TextStyle(color: Color(0xffFF001E)),
-            ),
-            SizedBox(height: 8),
-            Row(
-              children: [
-                // Image.asset(Assets.imagesClock),
-                Icon(Icons.access_time, color: Color(0xff888C94), size: 20),
-                SizedBox(width: 6),
-                Text(
-                  coursesModel.duration ?? '',
-                  style: TextStyle(
-                    color: Color(0xff888C94),
-                    fontSize: getResponsiveFontSize(context, fontSize: 11),
-                  ),
-                ),
-                SizedBox(width: 30),
-                Text(
-                  coursesModel.skill ?? '',
-                  style: TextStyle(
-                    color: Color(0xff888C94),
-                    fontSize: getResponsiveFontSize(context, fontSize: 11),
-                  ),
-                ),
-              ],
             ),
           ],
         ),

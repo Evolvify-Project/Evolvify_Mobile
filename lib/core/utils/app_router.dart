@@ -31,6 +31,7 @@ import 'package:evolvify/features/community/presentation/views/comments_view.dar
 import 'package:evolvify/features/community/presentation/views/community_page.dart';
 import 'package:evolvify/features/community/presentation/views/create_post.dart';
 import 'package:evolvify/features/community/presentation/views/widgets/create_post_providers.dart';
+import 'package:evolvify/features/home/presentation/manager/AllCoursesOfSkill/all_courses_of_skill_cubit.dart';
 import 'package:evolvify/features/home/presentation/manager/Courses_cubit/courses_cubit.dart';
 import 'package:evolvify/features/home/presentation/views/allcourse_of_skills_view.dart';
 import 'package:evolvify/features/home/presentation/views/home_view.dart';
@@ -88,7 +89,7 @@ abstract class AppRouter {
           );
         },
       ),
-       GoRoute(
+      GoRoute(
         path: kShowCourseText,
         builder: (context, state) {
           final extra = state.extra as Map<String, dynamic>;
@@ -107,7 +108,16 @@ abstract class AppRouter {
       GoRoute(path: kChatbotPag, builder: (context, state) => ChatbotPage()),
       GoRoute(
         path: kAllcourseOfSkillsView,
-        builder: (context, state) => AllcourseOfSkillsView(),
+        builder: (context, state) {
+          final skillId = state.extra as int;
+          return BlocProvider(
+            create:
+                (context) =>
+                    AllCoursesOfSkillCubit()
+                      ..getAllCoursesOfSkill(skillId: skillId),
+            child: AllcourseOfSkillsView(),
+          );
+        },
       ),
       GoRoute(
         path: kShowCourse,
@@ -153,7 +163,6 @@ abstract class AppRouter {
             child: FilterView(),
           );
         },
-
       ),
 
       GoRoute(
@@ -230,7 +239,7 @@ abstract class AppRouter {
         path: kPasswordResetView,
         builder: (context, state) => PasswordResetView(),
       ),
-     
+
       GoRoute(
         path: kSplashScreenOne,
         builder: (context, state) => SplashScreenOne(),

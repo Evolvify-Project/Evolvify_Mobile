@@ -2,6 +2,7 @@ import 'package:evolvify/features/search/presentation/manager/search_cubit/searc
 import 'package:evolvify/features/search/presentation/views/widgets/filter_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 class SortList extends StatefulWidget {
   const SortList({super.key});
 

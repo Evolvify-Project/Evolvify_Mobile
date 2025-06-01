@@ -7,8 +7,6 @@ import 'package:evolvify/features/search/data/repo/search_repo.dart';
 
 class SearchRepoImpl implements SearchRepo {
   @override
-  
-  
   Future<Either<Failure, List<CoursesModel>>> search(
     String query, {
     int pageNumber = 1,
@@ -20,10 +18,10 @@ class SearchRepoImpl implements SearchRepo {
     try {
       var data = await ApiServices().get(
         endPoint:
-           'Courses?Search=$query&PageNumber=$pageNumber'
-      '&PageSize=$pageSize&SortBy=$sortBy'
-      '${skillId != null ? '&SkillId=$skillId' : ''}'
-      '${level != null ? '&Level=$level' : ''}'
+            'Courses?Search=$query&PageNumber=$pageNumber'
+            '&PageSize=$pageSize&SortBy=$sortBy'
+            '${skillId != null ? '&SkillId=$skillId' : ''}'
+            '${level != null ? '&Level=$level' : ''}',
       );
       List<CoursesModel> searchCoursesList =
           (data["data"] as List)

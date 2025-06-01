@@ -3,12 +3,18 @@ import 'package:evolvify/features/Courses/data/models/modules/module.dart';
 import 'package:flutter/material.dart';
 
 class AudioItem extends StatefulWidget {
-  const AudioItem({super.key, required this.module, this.leading,this.onTap, required this.image});
+  const AudioItem({
+    super.key,
+    required this.module,
+    this.leading,
+    this.onTap,
+    required this.image,
+  });
 
   final Module module;
   final Widget? leading;
   final String image;
- final void Function()? onTap;
+  final void Function()? onTap;
   @override
   State<AudioItem> createState() => AudioItemState();
 }
@@ -16,12 +22,11 @@ class AudioItem extends StatefulWidget {
 class AudioItemState extends State<AudioItem> {
   bool isClicked = false;
 
-
   @override
   Widget build(BuildContext context) {
     return ListTile(
       contentPadding: EdgeInsets.symmetric(horizontal: 12),
-      onTap:widget.onTap,
+      onTap: widget.onTap,
       leading: Image.asset(widget.image),
       // widget. leading,
       // Container(

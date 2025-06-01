@@ -3,7 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:svg_flutter/svg_flutter.dart';
 
 class CustOmSearch extends StatefulWidget {
-  CustOmSearch({super.key, this.onSubmitted, this.onTap,this.hint,this.controller});
+  CustOmSearch({
+    super.key,
+    this.onSubmitted,
+    this.onTap,
+    this.hint,
+    this.controller,
+  });
 
   Function(String)? onSubmitted;
   void Function()? onTap;
@@ -24,7 +30,7 @@ class _CustOmSearchState extends State<CustOmSearch> {
 
       child: TextField(
         controller: widget.controller,
-       onSubmitted:widget.onSubmitted ,
+        onSubmitted: widget.onSubmitted,
         decoration: InputDecoration(
           hintText: widget.hint ?? 'What skill do you want to learn?',
           hintStyle: AppStyle.styleRegularGrey14(

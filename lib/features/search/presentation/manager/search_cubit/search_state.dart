@@ -20,5 +20,5 @@ final class SearchFailure extends SearchState {
 final class SearchSuccess extends SearchState {
   final List<CoursesModel> courses;
 
- const SearchSuccess({required this.courses});
+  const SearchSuccess({required this.courses});
 }

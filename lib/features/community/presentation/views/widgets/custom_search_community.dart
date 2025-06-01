@@ -2,6 +2,7 @@ import 'package:evolvify/core/utils/app_images.dart';
 import 'package:evolvify/core/utils/app_style.dart';
 import 'package:evolvify/core/utils/constant.dart';
 import 'package:flutter/material.dart';
+
 class CustomSearchCommunity extends StatelessWidget {
   const CustomSearchCommunity({super.key});
 
@@ -45,8 +46,7 @@ class CustomSearchCommunity extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 21, vertical: 10),
               child: Text(
                 'Search',
-                style: 
-                TextStyle(
+                style: TextStyle(
                   fontSize: getResponsiveFontSize(context, fontSize: 12),
                   color: Colors.white,
                 ),

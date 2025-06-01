@@ -3,11 +3,16 @@ import 'package:evolvify/core/utils/constant.dart';
 import 'package:flutter/material.dart';
 
 class FilterButton extends StatefulWidget {
-  FilterButton({super.key, required this.text, this.onTap,this.isSelect=false});
+  FilterButton({
+    super.key,
+    required this.text,
+    this.onTap,
+    this.isSelect = false,
+  });
 
   final String text;
   void Function()? onTap;
-  bool isSelect ;
+  bool isSelect;
   @override
   State<FilterButton> createState() => _FilterButtonState();
 }

@@ -26,4 +26,27 @@ class HomeRepoImpl implements HomeRepo {
       return left(ServerFailure(e.toString()));
     }
   }
+
+  @override
+  Future<Either<Failure, List<CoursesModel>>> getAllCoursesOfSkill({
+    required skillId,
+  }) async {
+    try {
+      var data = await ApiServices().get(endPoint: 'Courses?SkillId=$skillId');
+
+      List<CoursesModel> allCoursesOfSkillList =
+          (data["data"] as List)
+              .map((course) => CoursesModel.fromJson(course))
+              .toList();
+
+      print(allCoursesOfSkillList);
+      return right(allCoursesOfSkillList);
+    } on Exception catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioException(e));
+      }
+
+      return left(ServerFailure(e.toString()));
+    }
+  }
 }
