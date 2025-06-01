@@ -105,7 +105,7 @@ abstract class AppRouter {
                 (context) =>
                     ModulesCubit()
                       ..getAllModules(courseId: courseId, moduleId: moduleId),
-            child: ShowCourse(),
+            child: ShowCourseVideo(),
           );
         },
       ),
@@ -137,6 +137,7 @@ abstract class AppRouter {
             child: FilterView(),
           );
         },
+
       ),
 
       GoRoute(

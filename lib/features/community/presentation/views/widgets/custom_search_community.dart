@@ -45,7 +45,8 @@ class CustomSearchCommunity extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 21, vertical: 10),
               child: Text(
                 'Search',
-                style: TextStyle(
+                style: 
+                TextStyle(
                   fontSize: getResponsiveFontSize(context, fontSize: 12),
                   color: Colors.white,
                 ),
