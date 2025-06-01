@@ -18,6 +18,10 @@ class Assets {
   /// assets/images/apple2.svg
   static const String imagesApple2 = "assets/images/apple2.svg";
 
+  /// Assets for imagesArticle
+  /// assets/images/article.png
+  static const String imagesArticle = "assets/images/article.png";
+
   /// Assets for imagesAssessmentBackground
   /// assets/images/assessmentBackground.png
   static const String imagesAssessmentBackground = "assets/images/assessmentBackground.png";
@@ -190,6 +194,10 @@ class Assets {
   /// assets/images/passwordDone.svg
   static const String imagesPasswordDone = "assets/images/passwordDone.svg";
 
+  /// Assets for imagesPdf
+  /// assets/images/pdf.png
+  static const String imagesPdf = "assets/images/pdf.png";
+
   /// Assets for imagesPhone
   /// assets/images/phone.svg
   static const String imagesPhone = "assets/images/phone.svg";
@@ -302,6 +310,10 @@ class Assets {
   /// assets/images/testResult.png
   static const String imagesTestResult = "assets/images/testResult.png";
 
+  /// Assets for imagesText
+  /// assets/images/text.png
+  static const String imagesText = "assets/images/text.png";
+
   /// Assets for imagesTimeMang
   /// assets/images/timeMang.png
   static const String imagesTimeMang = "assets/images/timeMang.png";
@@ -313,6 +325,10 @@ class Assets {
   /// Assets for imagesVector
   /// assets/images/Vector.svg
   static const String imagesVector = "assets/images/Vector.svg";
+
+  /// Assets for imagesVideoIcon
+  /// assets/images/video_icon.png
+  static const String imagesVideoIcon = "assets/images/video_icon.png";
 
   /// Assets for imagesXp
   /// assets/images/xp.png

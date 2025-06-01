@@ -1,3 +1,4 @@
+import 'package:evolvify/core/utils/app_images.dart';
 import 'package:evolvify/core/utils/app_router.dart';
 
 import 'package:evolvify/features/Courses/presentation/manager/ModulesOfCourse/modules_of_course_cubit.dart';
@@ -19,15 +20,23 @@ class AudioList extends StatelessWidget {
           final modulesOfCourse = state.modulesOfCourse;
 
           final modulesList = modulesOfCourse.modules!;
-
           return ListView.builder(
             shrinkWrap: true,
             itemCount: modulesList.length,
             itemBuilder: (context, index) {
+              final contentType = modulesList[index].contentType;
+
               return AudioItem(
+                image: switch (contentType) {
+                  "Video" => Assets.imagesVideoIcon,
+                  "Text" => Assets.imagesText,
+                  "Article" => Assets.imagesArticle,
+                  "Pdf" => Assets.imagesPdf,
+                  _ => Assets.imagesVideoIcon,
+                },
+
                 module: modulesList[index],
                 onTap: () {
-                  final contentType = modulesList[index].contentType;
                   if (contentType == "Video") {
                     GoRouter.of(context).push(
                       AppRouter.kShowCourse,
@@ -38,7 +47,13 @@ class AudioList extends StatelessWidget {
                     );
                   } else if (contentType == "Text" ||
                       contentType == "Article") {
-                    GoRouter.of(context).push(AppRouter.kShowCourseText);
+                    GoRouter.of(context).push(
+                      AppRouter.kShowCourseText,
+                      extra: {
+                        'moduleId': modulesList[index].id,
+                        'courseId': modulesOfCourse.id,
+                      },
+                    );
                   } else {
                     GoRouter.of(context).push(
                       AppRouter.kShowCourse,

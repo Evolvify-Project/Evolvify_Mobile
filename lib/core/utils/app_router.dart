@@ -88,6 +88,22 @@ abstract class AppRouter {
           );
         },
       ),
+       GoRoute(
+        path: kShowCourseText,
+        builder: (context, state) {
+          final extra = state.extra as Map<String, dynamic>;
+          final moduleId = extra['moduleId'];
+          final courseId = extra['courseId'];
+
+          return BlocProvider(
+            create:
+                (context) =>
+                    ModulesCubit()
+                      ..getAllModules(courseId: courseId, moduleId: moduleId),
+            child: ShowCourseText(),
+          );
+        },
+      ),
       GoRoute(path: kChatbotPag, builder: (context, state) => ChatbotPage()),
       GoRoute(
         path: kAllcourseOfSkillsView,
@@ -214,10 +230,7 @@ abstract class AppRouter {
         path: kPasswordResetView,
         builder: (context, state) => PasswordResetView(),
       ),
-      GoRoute(
-        path: kShowCourseText,
-        builder: (context, state) => ShowCourseText(),
-      ),
+     
       GoRoute(
         path: kSplashScreenOne,
         builder: (context, state) => SplashScreenOne(),

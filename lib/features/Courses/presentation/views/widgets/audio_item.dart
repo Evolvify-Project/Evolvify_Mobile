@@ -3,10 +3,11 @@ import 'package:evolvify/features/Courses/data/models/modules/module.dart';
 import 'package:flutter/material.dart';
 
 class AudioItem extends StatefulWidget {
-  const AudioItem({super.key, required this.module, this.leading,this.onTap});
+  const AudioItem({super.key, required this.module, this.leading,this.onTap, required this.image});
 
   final Module module;
   final Widget? leading;
+  final String image;
  final void Function()? onTap;
   @override
   State<AudioItem> createState() => AudioItemState();
@@ -15,33 +16,34 @@ class AudioItem extends StatefulWidget {
 class AudioItemState extends State<AudioItem> {
   bool isClicked = false;
 
+
   @override
   Widget build(BuildContext context) {
     return ListTile(
       contentPadding: EdgeInsets.symmetric(horizontal: 12),
       onTap:widget.onTap,
-      leading:
+      leading: Image.asset(widget.image),
       // widget. leading,
-      Container(
-        padding: const EdgeInsets.all(11),
-        decoration: BoxDecoration(
-          color: isClicked ? Color(0xffFF7401) : Colors.white,
-          shape: BoxShape.circle,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withValues(alpha: 0.15),
-              spreadRadius: 4,
-              blurRadius: 5,
-              offset: Offset(0, 4),
-            ),
-          ],
-        ),
-        child: Icon(
-          Icons.play_arrow_rounded,
-          color: isClicked ? Colors.white : Color(0xffFF7401),
-          size: 26,
-        ),
-      ),
+      // Container(
+      //   padding: const EdgeInsets.all(11),
+      //   decoration: BoxDecoration(
+      //     color: isClicked ? Color(0xffFF7401) : Colors.white,
+      //     shape: BoxShape.circle,
+      //     boxShadow: [
+      //       BoxShadow(
+      //         color: Colors.grey.withValues(alpha: 0.15),
+      //         spreadRadius: 4,
+      //         blurRadius: 5,
+      //         offset: Offset(0, 4),
+      //       ),
+      //     ],
+      //   ),
+      //   child: Icon(
+      //     Icons.play_arrow_rounded,
+      //     color: isClicked ? Colors.white : Color(0xffFF7401),
+      //     size: 26,
+      //   ),
+      // ),
       title: Text(
         widget.module.title ?? '',
         style: TextStyle(
