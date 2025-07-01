@@ -1,6 +1,9 @@
 import 'package:evolvify/core/utils/app_images.dart';
 import 'package:evolvify/core/utils/app_router.dart';
+import 'package:evolvify/features/home/data/models/skill_model.dart';
+import 'package:evolvify/features/home/presentation/manager/skill/skill_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class PopularSkillGridView extends StatelessWidget {
@@ -18,10 +21,10 @@ class PopularSkillGridView extends StatelessWidget {
         mainAxisSpacing: 0,
       ),
       itemBuilder: (context, index) {
+        final skillId = index + 1;
+
         return GestureDetector(
           onTap: () {
-            skillId = index + 1;
-            print(skillId);
             GoRouter.of(
               context,
             ).push(AppRouter.kAllcourseOfSkillsView, extra: skillId);
@@ -31,6 +34,50 @@ class PopularSkillGridView extends StatelessWidget {
       },
     );
   }
+
+  //
+  // BlocBuilder<SkillCubitCubit, SkillState>(
+  //     builder: (context, state) {
+  //       if (state is SkillLosding) {
+  //         return SliverToBoxAdapter(
+  //           child: Center(child: CircularProgressIndicator()),
+  //         );
+  //       } else if (state is SkillSuccess) {
+  //         final List<SkillModel> skillList = state.skillList;
+
+  //         return SliverGrid.builder(
+  //           itemCount: 5,
+
+  //           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+  //             childAspectRatio: 2.3 / 3,
+  //             crossAxisCount: 2,
+  //             crossAxisSpacing: 15,
+  //             mainAxisSpacing: 0,
+  //           ),
+  //           itemBuilder: (context, index) {
+  //             final skillId = skillList[index].id;
+
+  //             return GestureDetector(
+  //               onTap: () {
+  //                 GoRouter.of(
+  //                   context,
+  //                 ).push(AppRouter.kAllcourseOfSkillsView, extra: skillId);
+  //               },
+  //               child: AspectRatio(aspectRatio: 1 / 2, child: images[index]),
+  //             );
+  //           },
+  //         );
+  //       } else if (state is SkillFailure) {
+  //         return SliverToBoxAdapter(
+  //           child: Center(child: Text(state.errMessage.toString())),
+  //         );
+  //       }
+  //       return SliverToBoxAdapter(
+  //         child: Center(child: Text('No search Result.')),
+  //       );
+  //     },
+  //   );
+  // }
 
   List images = [
     Image.asset(Assets.imagesCommunication),

@@ -1,5 +1,4 @@
-import 'package:evolvify/core/utils/app_style.dart';
-import 'package:evolvify/core/utils/constant.dart';
+
 import 'package:evolvify/features/home/presentation/views/widgets/all_courses_gridView.dart';
 import 'package:flutter/material.dart';
 
@@ -23,17 +22,7 @@ class AllcourseOfSkillsView extends StatelessWidget {
                 icon: Icon(Icons.arrow_back_ios),
                 color: Color(0xff292D32),
               ),
-              Center(
-                child: Text(
-                  'Course Overview',
-                  style: TextStyle(
-                    color: AppColors.kPrimaryColor,
-
-                    fontSize: getResponsiveFontSize(context, fontSize: 21),
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ),
+            
 
               AllCoursesGridView(),
             ],

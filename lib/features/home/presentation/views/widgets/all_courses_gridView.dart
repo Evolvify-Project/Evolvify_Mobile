@@ -1,3 +1,5 @@
+import 'package:evolvify/core/utils/app_style.dart';
+import 'package:evolvify/core/utils/constant.dart';
 import 'package:evolvify/features/Assessment/data/models/courses_model.dart';
 import 'package:evolvify/features/home/presentation/manager/AllCoursesOfSkill/all_courses_of_skill_cubit.dart';
 import 'package:evolvify/features/home/presentation/views/widgets/course_item.dart';
@@ -17,18 +19,35 @@ class AllCoursesGridView extends StatelessWidget {
           final List<CoursesModel> allCoursesOfSkillList =
               state.allCoursesOfSkillList;
           print(allCoursesOfSkillList);
-          return GridView.builder(
-            itemCount: allCoursesOfSkillList.length,
-            shrinkWrap: true,
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              childAspectRatio: 1.3 / 1.8,
-              crossAxisCount: 2,
-              crossAxisSpacing: 20,
-              mainAxisSpacing: 18,
-            ),
-            itemBuilder: (context, index) {
-              return CourseItem(coursesModel: allCoursesOfSkillList[index]);
-            },
+          return Column(
+            children: [
+              Center(
+                child: Text(
+                  '${allCoursesOfSkillList[0].skill} Courses',
+                  style: TextStyle(
+                    color: AppColors.kPrimaryColor,
+
+                    fontSize: getResponsiveFontSize(context, fontSize: 25),
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
+
+              
+              GridView.builder(
+                itemCount: allCoursesOfSkillList.length,
+                shrinkWrap: true,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  childAspectRatio: 1.3 / 1.8,
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 20,
+                  mainAxisSpacing: 18,
+                ),
+                itemBuilder: (context, index) {
+                  return CourseItem(coursesModel: allCoursesOfSkillList[index]);
+                },
+              ),
+            ],
           );
         } else if (state is AllCoursesOfSkillFailure) {
           return Center(child: Text(state.errMessage.toString()));

@@ -169,7 +169,7 @@ abstract class AppRouter {
         path: kInterviewView,
         builder: (context, state) => InterviewView(),
       ),
-      GoRoute(path: kPremiumView, builder: (context, state) => PremiumView()),
+      GoRoute(path: '/', builder: (context, state) => PremiumView()),
 
       GoRoute(
         path: kRecommendedContentView,
@@ -181,14 +181,14 @@ abstract class AppRouter {
             ),
       ),
 
-      GoRoute(
-        path: '/',
-        builder:
-            (context, state) => BlocProvider(
-              create: (context) => CoursesCubit()..getgetMostWatchingSkill(),
-              child: CurvedNavWithImage(),
-            ),
-      ),
+      // GoRoute(
+      //   path: '/',
+      //   builder:
+      //       (context, state) => BlocProvider(
+      //         create: (context) => CoursesCubit()..getgetMostWatchingSkill(),
+      //         child: CurvedNavWithImage(),
+      //       ),
+      // ),
       GoRoute(
         path: kCommunityPage,
         builder:
