@@ -14,6 +14,7 @@ import 'package:evolvify/features/Courses/presentation/views/course_overview.dar
 import 'package:evolvify/features/Courses/presentation/views/show_course_text.dart';
 import 'package:evolvify/features/Courses/presentation/views/show_course_video.dart';
 import 'package:evolvify/features/Premium/presentation/views/Premium_view.dart';
+import 'package:evolvify/features/Premium/presentation/views/payment_method.dart';
 import 'package:evolvify/features/auth/presentation/manager/Verify_cubit/cubit/verify_pass_cubit.dart';
 import 'package:evolvify/features/auth/presentation/manager/forget_cubit/cubit/forget_pass_cubit.dart';
 import 'package:evolvify/features/auth/presentation/manager/login_cubit/cubit/login_cubit.dart';
@@ -75,6 +76,7 @@ abstract class AppRouter {
   static const kShowCourse = '/ShowCourse';
   static const kShowCourseText = '/ShowCourseText';
   static const kAllcourseOfSkillsView = '/AllcourseOfSkillsView';
+  static const kPaymentMethod = '/PaymentMethod';
 
   static final router = GoRouter(
     routes: [
@@ -106,6 +108,10 @@ abstract class AppRouter {
         },
       ),
       GoRoute(path: kChatbotPag, builder: (context, state) => ChatbotPage()),
+      GoRoute(
+        path: kPaymentMethod,
+        builder: (context, state) => PaymentMethod(),
+      ),
       GoRoute(
         path: kAllcourseOfSkillsView,
         builder: (context, state) {
