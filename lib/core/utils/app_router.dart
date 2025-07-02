@@ -13,6 +13,7 @@ import 'package:evolvify/features/Courses/presentation/manager/ModulesOfCourse/m
 import 'package:evolvify/features/Courses/presentation/views/course_overview.dart';
 import 'package:evolvify/features/Courses/presentation/views/show_course_text.dart';
 import 'package:evolvify/features/Courses/presentation/views/show_course_video.dart';
+import 'package:evolvify/features/Premium/presentation/manager/cubit/payment_plans_cubit.dart';
 import 'package:evolvify/features/Premium/presentation/views/Premium_view.dart';
 import 'package:evolvify/features/Premium/presentation/views/card_number_page.dart';
 import 'package:evolvify/features/Premium/presentation/views/payment_method.dart';
@@ -181,7 +182,14 @@ abstract class AppRouter {
         path: kInterviewView,
         builder: (context, state) => InterviewView(),
       ),
-      GoRoute(path: '/', builder: (context, state) => PremiumView()),
+      GoRoute(
+        path: '/',
+        builder:
+            (context, state) => BlocProvider(
+              create: (context) => PaymentPlansCubit()..getPaymentPlans(),
+              child: PremiumView(),
+            ),
+      ),
 
       GoRoute(
         path: kRecommendedContentView,

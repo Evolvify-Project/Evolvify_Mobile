@@ -2,8 +2,8 @@ import 'package:evolvify/core/utils/app_style.dart';
 import 'package:evolvify/core/utils/constant.dart';
 import 'package:flutter/material.dart';
 
-class PremiumOfferItem extends StatelessWidget {
-  const PremiumOfferItem({
+class PremiumItem extends StatelessWidget {
+  const PremiumItem({
     super.key,
     required this.title,
     required this.subTitle,

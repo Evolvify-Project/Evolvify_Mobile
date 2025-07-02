@@ -7,14 +7,16 @@ import 'package:evolvify/features/Premium/data/repo/payment_repo.dart';
 
 class PaymentRepoImpl implements PaymentRepo {
   @override
-  Future<Either<Failure,  List<PaymentPlanModel>>> getPaymentPlans() async {
-     try {
-      var data = await ApiServices().get(endPoint: 'Payment/GetSubscriptionPlans');
-      List<PaymentPlanModel> paymentPlansList = [];
-      for (var item in data['data']) {
-        paymentPlansList.add(PaymentPlanModel.fromJson(item));
-      }
-    
+  Future<Either<Failure, List<PaymentPlanModel>>> getPaymentPlans() async {
+    try {
+      var data = await ApiServices().get(
+        endPoint: 'Payment/GetSubscriptionPlans',
+      );
+      List<PaymentPlanModel> paymentPlansList =
+          (data["data"] as List)
+              .map((plan) => PaymentPlanModel.fromJson(plan))
+              .toList();
+      print(paymentPlansList);
       return right(paymentPlansList);
     } on Exception catch (e) {
       if (e is DioException) {

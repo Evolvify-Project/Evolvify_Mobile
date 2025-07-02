@@ -7,10 +7,10 @@ part 'payment_plans_state.dart';
 class PaymentPlansCubit extends Cubit<PaymentPlansState> {
   PaymentPlansCubit() : super(PaymentPlansInitial());
 
-  Future<void> fetchAllposts() async {
+  Future<void> getPaymentPlans() async {
     emit(PaymentPlansLoading());
-    var paymentPlansList = await PaymentRepoImpl().getPaymentPlans();
-    paymentPlansList.fold(
+    var paymentPlans = await PaymentRepoImpl().getPaymentPlans();
+    paymentPlans.fold(
       (failure) {
         emit(PaymentPlansFailure(errMassage: failure.errMessge));
       },

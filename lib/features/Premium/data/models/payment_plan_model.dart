@@ -2,7 +2,7 @@ class PaymentPlanModel {
   String? name;
   String? description;
   String? stripePriceId;
-  int? price;
+  double? price;
   String? currency;
   String? interval;
 
@@ -20,12 +20,12 @@ class PaymentPlanModel {
       name: json['name'] as String?,
       description: json['description'] as String?,
       stripePriceId: json['stripePriceId'] as String?,
-      price: json['price'] as int?,
+      price: json['price'] as double?,
       currency: json['currency'] as String?,
       interval: json['interval'] as String?,
     );
   }
-
+  
   Map<String, dynamic> toJson() => {
     'name': name,
     'description': description,
@@ -34,4 +34,8 @@ class PaymentPlanModel {
     'currency': currency,
     'interval': interval,
   };
+  String toString() {
+    return 'PaymentPlanModel(name: $name, description: $description, price: $price, currency: $currency, interval: $interval, stripePriceId: $stripePriceId)';
+  }
+   
 }

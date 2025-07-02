@@ -2,9 +2,11 @@ import 'package:evolvify/core/utils/app_images.dart';
 import 'package:evolvify/core/utils/app_style.dart';
 import 'package:evolvify/core/utils/constant.dart';
 import 'package:evolvify/core/widgets/cutsom_arrow_ios.dart';
+import 'package:evolvify/features/Premium/data/repo/payment_repo_impl.dart';
+import 'package:evolvify/features/Premium/presentation/manager/cubit/payment_plans_cubit.dart';
 import 'package:evolvify/features/Premium/presentation/views/widgets/Goals_Premium.dart';
-import 'package:evolvify/features/Premium/presentation/views/widgets/Premium_Offer.dart';
-import 'package:evolvify/features/Premium/presentation/views/widgets/yearly_plan.dart';
+import 'package:evolvify/features/Premium/presentation/views/widgets/plans_list.dart';
+
 import 'package:flutter/material.dart';
 
 class PremiumView extends StatelessWidget {
@@ -47,10 +49,7 @@ class PremiumView extends StatelessWidget {
                 ),
               ),
               GoalsPremium(),
-
-              PremiumOffer(),
-              SizedBox(height: 25),
-              YearlyPlan(),
+              PlansList(),
             ],
           ),
         ),
