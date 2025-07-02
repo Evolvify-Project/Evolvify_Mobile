@@ -7,7 +7,7 @@ part 'skill_state.dart';
 
 class SkillCubitCubit extends Cubit<SkillState> {
   SkillCubitCubit() : super(SkillInitial());
-    Future<void> getSkill() async {
+  Future<void> getSkill() async {
     emit(SkillLosding());
 
     var skills = await HomeRepoImpl().getSkill();
@@ -17,9 +17,7 @@ class SkillCubitCubit extends Cubit<SkillState> {
       },
       (skilList) {
         emit(SkillSuccess(skillList: skilList));
-      
       },
     );
   }
 }
-

@@ -8,6 +8,6 @@ abstract class HomeRepo {
   Future<Either<Failure, List<CoursesModel>>> getAllCoursesOfSkill({
     required skillId,
   });
-  
+
   Future<Either<Failure, List<SkillModel>>> getSkill();
 }

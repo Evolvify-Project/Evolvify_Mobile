@@ -52,8 +52,8 @@ class HomeRepoImpl implements HomeRepo {
   }
 
   @override
-  Future<Either<Failure, List<SkillModel>>> getSkill() async{
-  try {
+  Future<Either<Failure, List<SkillModel>>> getSkill() async {
+    try {
       var data = await ApiServices().get(endPoint: 'Skills');
 
       List<SkillModel> skillsList =

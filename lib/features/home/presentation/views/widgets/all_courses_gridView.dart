@@ -33,7 +33,6 @@ class AllCoursesGridView extends StatelessWidget {
                 ),
               ),
 
-              
               GridView.builder(
                 itemCount: allCoursesOfSkillList.length,
                 shrinkWrap: true,

@@ -47,7 +47,7 @@ class GoalsPremium extends StatelessWidget {
             Goalofpremium(text: 'Premium Simulations'),
           ],
         ),
-        SizedBox(height: 60),
+        SizedBox(height: 50),
       ],
     );
   }

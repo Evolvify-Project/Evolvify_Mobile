@@ -1,4 +1,3 @@
-
 import 'package:evolvify/features/home/presentation/views/widgets/all_courses_gridView.dart';
 import 'package:flutter/material.dart';
 
@@ -22,7 +21,6 @@ class AllcourseOfSkillsView extends StatelessWidget {
                 icon: Icon(Icons.arrow_back_ios),
                 color: Color(0xff292D32),
               ),
-            
 
               AllCoursesGridView(),
             ],
