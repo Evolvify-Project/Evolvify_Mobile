@@ -154,6 +154,10 @@ class Assets {
   /// assets/images/mail-fill.svg
   static const String imagesMailFill = "assets/images/mail-fill.svg";
 
+  /// Assets for imagesMasterCard
+  /// assets/images/Master_Card.png
+  static const String imagesMasterCard = "assets/images/Master_Card.png";
+
   /// Assets for imagesMastercard
   /// assets/images/Mastercard.png
   static const String imagesMastercard = "assets/images/Mastercard.png";

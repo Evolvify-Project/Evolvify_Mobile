@@ -1,9 +1,11 @@
+import 'package:evolvify/core/utils/app_router.dart';
 import 'package:evolvify/core/utils/app_style.dart';
 import 'package:evolvify/core/utils/constant.dart';
 import 'package:evolvify/core/widgets/custom_button.dart';
 import 'package:evolvify/core/widgets/cutsom_arrow_ios.dart';
 import 'package:evolvify/features/Premium/presentation/views/widgets/selection_paymentd.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class PaymentMethod extends StatelessWidget {
   const PaymentMethod({super.key});
@@ -51,7 +53,9 @@ class PaymentMethod extends StatelessWidget {
                   CustomButton(
                     title: 'Add Card Number',
                     verticalPadding: 17,
-                    onTap: () {},
+                    onTap: () {
+                      GoRouter.of(context).push(AppRouter.kCardNumberPage);
+                    },
                   ),
                   SizedBox(height: 30),
                 ],
