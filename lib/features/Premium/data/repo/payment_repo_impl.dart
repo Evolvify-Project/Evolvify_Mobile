@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:evolvify/core/errors/failures.dart';
@@ -26,4 +28,33 @@ class PaymentRepoImpl implements PaymentRepo {
       return left(ServerFailure(e.toString()));
     }
   }
+
+  @override
+  Future<Either<Failure, String>> createSubscription(String stripePriceId) async {
+  try {
+    if (stripePriceId.isEmpty) {
+      return left(ServerFailure("Invalid priceId"));
+    }
+
+    final response = await ApiServices().post(
+      endPoint: 'Payment/create-subscription',
+      data: jsonEncode(stripePriceId),
+    );
+
+    print("📦 Full API Response: $response");
+
+    final url = response["data"]?["checkoutSessionUrl"];
+    if (url == null || url is! String) {
+      return left(ServerFailure("No valid checkoutSessionUrl returned from server"));
+    }
+
+    return right(url);
+  } on Exception catch (e) {
+    if (e is DioException) {
+      return left(ServerFailure.fromDioException(e));
+    }
+    return left(ServerFailure(e.toString()));
+  }
+}
+
 }

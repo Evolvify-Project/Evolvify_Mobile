@@ -47,6 +47,7 @@ dependencies:
   google_nav_bar: ^5.0.7
   shared_preferences: ^2.5.3
   svg_flutter: ^0.0.1
+  url_launcher: ^6.3.1
   video_player: ^2.9.5
 
 dev_dependencies:

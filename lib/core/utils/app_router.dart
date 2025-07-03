@@ -14,6 +14,7 @@ import 'package:evolvify/features/Courses/presentation/views/course_overview.dar
 import 'package:evolvify/features/Courses/presentation/views/show_course_text.dart';
 import 'package:evolvify/features/Courses/presentation/views/show_course_video.dart';
 import 'package:evolvify/features/Premium/presentation/manager/cubit/payment_plans_cubit.dart';
+import 'package:evolvify/features/Premium/presentation/manager/cubit/payment_subscription_cubit.dart';
 import 'package:evolvify/features/Premium/presentation/views/Premium_view.dart';
 import 'package:evolvify/features/Premium/presentation/views/card_number_page.dart';
 import 'package:evolvify/features/Premium/presentation/views/payment_method.dart';
@@ -183,12 +184,23 @@ abstract class AppRouter {
         builder: (context, state) => InterviewView(),
       ),
       GoRoute(
-        path: '/',
+        path: kPremiumView,
         builder:
-            (context, state) => BlocProvider(
-              create: (context) => PaymentPlansCubit()..getPaymentPlans(),
-              child: PremiumView(),
-            ),
+        
+            (context, state) => MultiBlocProvider(
+                    
+              providers: [
+                
+                BlocProvider(
+                   create: (context) => PaymentPlansCubit()..getPaymentPlans(),
+                ),
+                BlocProvider(
+                  
+                  create: (context) => PaymentSubscriptionCubit(),
+                ),
+              ],
+              child:PremiumView(),
+            )
       ),
 
       GoRoute(
@@ -216,7 +228,7 @@ abstract class AppRouter {
                 CreatePostProviders.buildWithProviders(CommunityPage()),
       ),
       GoRoute(
-        path: kloginView,
+        path: '/',
         builder:
             (context, state) => BlocProvider(
               create: (context) => LoginCubit(),

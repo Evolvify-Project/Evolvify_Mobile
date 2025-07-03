@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:evolvify/features/Premium/data/models/payment_plan_model.dart';
 import 'package:evolvify/features/Premium/data/repo/payment_repo_impl.dart';
 
 part 'payment_plans_state.dart';

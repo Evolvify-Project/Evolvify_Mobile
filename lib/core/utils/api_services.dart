@@ -1,5 +1,5 @@
-import 'package:dio/dio.dart';
 
+import 'package:dio/dio.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ApiServices {
@@ -14,7 +14,7 @@ class ApiServices {
   Future<Map<String, dynamic>> post({required String endPoint, data}) async {
     final token = await _loadToken();
 
-    Response response = await _dio.post(
+    final response = await _dio.post(
       '$_baseUrl$endPoint',
       data: data,
       options: Options(
@@ -24,17 +24,18 @@ class ApiServices {
         },
       ),
     );
+
     return response.data;
   }
 
   Future<Map<String, dynamic>> get({required String endPoint}) async {
-    final token = await _loadToken(); // استدعاء التوكن المحفوظ
+    final token = await _loadToken();
 
     final response = await _dio.get(
       '$_baseUrl$endPoint',
       options: Options(
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/json; charset=utf-8',
           if (token != null) 'Authorization': 'Bearer $token',
         },
       ),

@@ -4,4 +4,5 @@ import 'package:evolvify/features/Premium/data/models/payment_plan_model.dart';
 
 abstract class PaymentRepo {
  Future<Either<Failure, List<PaymentPlanModel>>> getPaymentPlans();
+  Future<Either<Failure, String>> createSubscription(String stripePriceId) ;
 }

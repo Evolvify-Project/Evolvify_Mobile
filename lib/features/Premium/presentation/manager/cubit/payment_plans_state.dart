@@ -12,7 +12,7 @@ final class PaymentPlansInitial extends PaymentPlansState {}
 final class PaymentPlansLoading extends PaymentPlansState {}
 
 final class PaymentPlansSuccess extends PaymentPlansState {
-  final List paymentPlansList;
+  final List<PaymentPlanModel> paymentPlansList;
 
  const PaymentPlansSuccess({required this.paymentPlansList});
 }
