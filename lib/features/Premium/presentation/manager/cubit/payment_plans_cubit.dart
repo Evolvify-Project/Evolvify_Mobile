@@ -20,6 +20,4 @@ class PaymentPlansCubit extends Cubit<PaymentPlansState> {
       },
     );
   }
-
-
 }

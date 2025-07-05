@@ -16,5 +16,5 @@ final class QuizAttemptsSuccess extends QuizAttemptsState {}
 final class QuizAttemptsFailure extends QuizAttemptsState {
   final String errMessage;
 
-const  QuizAttemptsFailure({required this.errMessage});
+  const QuizAttemptsFailure({required this.errMessage});
 }

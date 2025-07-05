@@ -14,7 +14,7 @@ final class PaymentPlansLoading extends PaymentPlansState {}
 final class PaymentPlansSuccess extends PaymentPlansState {
   final List<PaymentPlanModel> paymentPlansList;
 
- const PaymentPlansSuccess({required this.paymentPlansList});
+  const PaymentPlansSuccess({required this.paymentPlansList});
 }
 
 final class PaymentPlansFailure extends PaymentPlansState {

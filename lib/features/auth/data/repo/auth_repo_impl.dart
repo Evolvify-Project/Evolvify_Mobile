@@ -5,10 +5,8 @@ import 'package:evolvify/core/utils/api_services.dart';
 import 'package:evolvify/features/auth/data/model/auth_model.dart';
 import 'package:evolvify/features/auth/data/repo/auth_repo.dart';
 
-
 class AuthRepoImpl implements AuthRepo {
   @override
-
   Future<Either<Failure, AuthModel>> login({email, passWord}) async {
     try {
       var data = await ApiServices().post(

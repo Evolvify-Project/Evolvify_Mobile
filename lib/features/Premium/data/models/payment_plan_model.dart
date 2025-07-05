@@ -25,7 +25,7 @@ class PaymentPlanModel {
       interval: json['interval'] as String?,
     );
   }
-  
+
   Map<String, dynamic> toJson() => {
     'name': name,
     'description': description,
@@ -37,5 +37,4 @@ class PaymentPlanModel {
   String toString() {
     return 'PaymentPlanModel(name: $name, description: $description, price: $price, currency: $currency, interval: $interval, stripePriceId: $stripePriceId)';
   }
-   
 }

@@ -14,7 +14,7 @@ final class PaymentSubscriptionLoading extends PaymentSubscriptionState {}
 final class PaymentSubscriptionSuccessful extends PaymentSubscriptionState {
   final String url;
 
-const  PaymentSubscriptionSuccessful({required this.url});
+  const PaymentSubscriptionSuccessful({required this.url});
 }
 
 final class PaymentSubscriptionFailure extends PaymentSubscriptionState {
