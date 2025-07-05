@@ -41,7 +41,7 @@ class PaymentRepoImpl implements PaymentRepo {
       data: jsonEncode(stripePriceId),
     );
 
-    print("📦 Full API Response: $response");
+    print(" Full API Response: $response");
 
     final url = response["data"]?["checkoutSessionUrl"];
     if (url == null || url is! String) {

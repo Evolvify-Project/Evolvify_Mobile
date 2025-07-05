@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'package:evolvify/core/utils/app_images.dart';
 import 'package:evolvify/core/utils/app_router.dart';
 import 'package:evolvify/core/utils/app_style.dart';
@@ -44,7 +43,7 @@ class _LoginViewState extends State<LoginView> {
           } else if (state is Loginsuccess) {
             showSnackBar(context, text: 'login success');
             // GoRouter.of(context).push(AppRouter.kAssessmentView);
-            GoRouter.of(context).push(AppRouter.kPremiumView);
+            GoRouter.of(context).push(AppRouter.kCustomBottomNavigationBar);
           } else if (state is Loginfailure) {
             showSnackBar(context, text: state.errMassage);
           }

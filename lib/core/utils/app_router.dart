@@ -40,6 +40,7 @@ import 'package:evolvify/features/home/presentation/manager/Courses_cubit/course
 import 'package:evolvify/features/home/presentation/views/allcourse_of_skills_view.dart';
 import 'package:evolvify/features/home/presentation/views/home_view.dart';
 import 'package:evolvify/features/on_Boarding/on_Boarding_pageview.dart';
+import 'package:evolvify/features/quiz/presentation/views/quiz_view.dart';
 import 'package:evolvify/features/search/presentation/manager/search_cubit/search_cubit.dart';
 import 'package:evolvify/features/search/presentation/views/filter_view.dart';
 import 'package:evolvify/features/search/presentation/views/search_result_view.dart';
@@ -81,6 +82,7 @@ abstract class AppRouter {
   static const kAllcourseOfSkillsView = '/AllcourseOfSkillsView';
   static const kPaymentMethod = '/PaymentMethod';
   static const kCardNumberPage = '/CardNumberPage';
+  static const kQuizView = '/QuizView';
 
   static final router = GoRouter(
     routes: [
@@ -116,6 +118,7 @@ abstract class AppRouter {
         path: kCardNumberPage,
         builder: (context, state) => CardNumberPage(),
       ),
+      GoRoute(path: kQuizView, builder: (context, state) => QuizView()),
       GoRoute(
         path: kPaymentMethod,
         builder: (context, state) => PaymentMethod(),
@@ -186,21 +189,15 @@ abstract class AppRouter {
       GoRoute(
         path: kPremiumView,
         builder:
-        
             (context, state) => MultiBlocProvider(
-                    
               providers: [
-                
                 BlocProvider(
-                   create: (context) => PaymentPlansCubit()..getPaymentPlans(),
+                  create: (context) => PaymentPlansCubit()..getPaymentPlans(),
                 ),
-                BlocProvider(
-                  
-                  create: (context) => PaymentSubscriptionCubit(),
-                ),
+                BlocProvider(create: (context) => PaymentSubscriptionCubit()),
               ],
-              child:PremiumView(),
-            )
+              child: PremiumView(),
+            ),
       ),
 
       GoRoute(
@@ -213,14 +210,14 @@ abstract class AppRouter {
             ),
       ),
 
-      // GoRoute(
-      //   path: '/',
-      //   builder:
-      //       (context, state) => BlocProvider(
-      //         create: (context) => CoursesCubit()..getgetMostWatchingSkill(),
-      //         child: CurvedNavWithImage(),
-      //       ),
-      // ),
+      GoRoute(
+        path: kCustomBottomNavigationBar,
+        builder:
+            (context, state) => BlocProvider(
+              create: (context) => CoursesCubit()..getgetMostWatchingSkill(),
+              child: CurvedNavWithImage(),
+            ),
+      ),
       GoRoute(
         path: kCommunityPage,
         builder:

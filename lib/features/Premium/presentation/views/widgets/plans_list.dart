@@ -5,7 +5,6 @@ import 'package:evolvify/features/Premium/presentation/manager/cubit/payment_sub
 import 'package:evolvify/features/Premium/presentation/views/widgets/Premium_plan.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'package:url_launcher/url_launcher.dart';
 
 class PlansList extends StatelessWidget {
