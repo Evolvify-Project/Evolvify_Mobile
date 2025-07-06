@@ -1,10 +1,9 @@
-import 'package:evolvify/core/utils/app_router.dart';
-import 'package:evolvify/core/widgets/custom_button.dart';
+
 import 'package:evolvify/core/widgets/cutsom_arrow_ios.dart';
 import 'package:evolvify/features/Courses/presentation/views/widgets/details_of_course.dart';
 import 'package:evolvify/features/splash%20screen/widgets/custom_button_border.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+
 
 class ShowCourseVideo extends StatelessWidget {
   const ShowCourseVideo({super.key});
@@ -33,13 +32,13 @@ class ShowCourseVideo extends StatelessWidget {
                     verticalPadding: 13,
                   ),
                   SizedBox(height: 20),
-                  CustomButton(
-                    title: 'Quick Quiz',
-                    verticalPadding: 14,
-                    onTap: () {
-                      GoRouter.of(context).push(AppRouter.kQuizView, extra: 1);
-                    },
-                  ),
+                  // CustomButton(
+                  //   title: 'Quick Quiz',
+                  //   verticalPadding: 14,
+                  //   onTap: () {
+                  //     GoRouter.of(context).push(AppRouter.kQuizView, extra: 1);
+                  //   },
+                  // ),
                   SizedBox(height: 20),
                 ],
               ),

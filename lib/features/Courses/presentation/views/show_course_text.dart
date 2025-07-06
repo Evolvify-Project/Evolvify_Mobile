@@ -1,4 +1,3 @@
-import 'package:evolvify/core/widgets/custom_button.dart';
 import 'package:evolvify/core/widgets/cutsom_arrow_ios.dart';
 import 'package:evolvify/features/Courses/presentation/views/widgets/articles_details.dart';
 import 'package:evolvify/features/splash%20screen/widgets/custom_button_border.dart';
@@ -30,7 +29,7 @@ class ShowCourseText extends StatelessWidget {
                     verticalPadding: 13,
                   ),
                   SizedBox(height: 20),
-                  CustomButton(title: 'Quick Quiz', verticalPadding: 14),
+                  // CustomButton(title: 'Quick Quiz', verticalPadding: 14),
                 ],
               ),
             ),
