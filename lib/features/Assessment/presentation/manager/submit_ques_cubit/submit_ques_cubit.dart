@@ -43,7 +43,7 @@ class SubmitQuesCubit extends Cubit<SubmitQuesState> {
     required String questionCode,
     required String answer,
   }) {
-    // تأكد من أن القسم الذي يتم تمريره موجود في الخريطة
+  
     section = section.toLowerCase();
     if (userAnswers.containsKey(section)) {
       userAnswers[section]![questionCode] = answer;
@@ -55,7 +55,7 @@ class SubmitQuesCubit extends Cubit<SubmitQuesState> {
   Future<void> submitAnswers() async {
     emit(SubmitQuesLoading());
 
-    // استخدام repo لإرسال البيانات
+    
     var result = await AssessmentRepoImpl().submitAnswers(userAnswers);
     result.fold(
       (failure) {

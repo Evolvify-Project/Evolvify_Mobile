@@ -27,11 +27,9 @@ class QuizRepoImpl implements QuizRepo {
   }
 
   @override
-    Future<Either<Failure, List<QuizModel>>> getquizQues({quizId})async {
-      try {
-      var data = await ApiServices().get(
-        endPoint: 'Questions?=$quizId',
-      );
+  Future<Either<Failure, List<QuizModel>>> getquizQues({quizId}) async {
+    try {
+      var data = await ApiServices().get(endPoint: 'Questions?=$quizId');
       List<QuizModel> quizQuesList =
           (data["data"] as List)
               .map((quiz) => QuizModel.fromJson(quiz))
@@ -46,4 +44,27 @@ class QuizRepoImpl implements QuizRepo {
       return left(ServerFailure(e.toString()));
     }
   }
-}
+  
+  @override
+  Future<Either<Failure, Map<String, dynamic>>> submitquizAnswers(quizAttemptId, answerId)async {
+       try {
+      var data = await ApiServices().post(
+        endPoint: 'UserAnswers',
+        data: {"quizAttemptId": quizAttemptId, "answerId": answerId},
+      );
+
+      final results = data["data"];
+
+      return right(results);
+    } on Exception catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioException(e));
+      }
+      return left(ServerFailure(e.toString()));
+    }
+  }
+  }
+  
+
+
+  
