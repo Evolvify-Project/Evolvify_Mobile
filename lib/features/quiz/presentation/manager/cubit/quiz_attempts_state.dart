@@ -11,7 +11,11 @@ final class QuizAttemptsInitial extends QuizAttemptsState {}
 
 final class QuizAttemptsloading extends QuizAttemptsState {}
 
-final class QuizAttemptsSuccess extends QuizAttemptsState {}
+final class QuizAttemptsSuccess extends QuizAttemptsState {
+  final int quizAttemptId;
+
+  const QuizAttemptsSuccess({required this.quizAttemptId});
+}
 
 final class QuizAttemptsFailure extends QuizAttemptsState {
   final String errMessage;

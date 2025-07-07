@@ -7,16 +7,14 @@ import 'package:flutter/material.dart';
 class QuizQuesSection extends StatelessWidget {
   const QuizQuesSection({
     super.key,
-
-    this.onSelectedAnswer,
-    required this.isSelect,
-    this.selectedAnswer,
+    required this.selectedAnswerId,
     required this.quizModel,
+    required this.onAnswerSelected,
   });
+
   final QuizModel quizModel;
-  final void Function(String)? onSelectedAnswer;
-  final bool isSelect;
-  final String? selectedAnswer;
+  final int? selectedAnswerId;
+  final void Function(int answerId) onAnswerSelected;
 
   @override
   Widget build(BuildContext context) {
@@ -38,35 +36,19 @@ class QuizQuesSection extends StatelessWidget {
           ),
           SizedBox(height: 50),
           Column(
-            children: List.generate(4, (index) {
-              return Padding(
-                padding: const EdgeInsets.only(bottom: 12),
-                child: TestButton(
-                  text: answers[index].answerText ?? '',
-                  isSelected: true,
-                  onPressed: () {},
-                ),
-              );
-            }),
+            children:
+                answers.map((answer) {
+                  final isSelected = selectedAnswerId == answer.id;
+                  return Padding(
+                    padding: const EdgeInsets.only(bottom: 12),
+                    child: TestButton(
+                      text: answer.answerText ?? '',
+                      isSelected: isSelected,
+                      onPressed: () => onAnswerSelected(answer.id!),
+                    ),
+                  );
+                }).toList(),
           ),
-
-          //          ListView.builder(
-          //   shrinkWrap: true,
-          //   physics: NeverScrollableScrollPhysics(),
-          //   itemCount: 4,
-          //   itemBuilder: (context, index) {
-          //     return Padding(
-          //       padding: const EdgeInsets.only(bottom: 12),
-          //       child: TestButton(
-          //         text: answers[index].answerText ?? '',
-          //         isSelected: true,
-          //         onPressed: () {
-          //           // onSelectedAnswer?.call('A');
-          //         },
-          //       ),
-          //     );
-          //   },
-          // ),
         ],
       ),
     );

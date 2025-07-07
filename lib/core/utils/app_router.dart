@@ -41,6 +41,7 @@ import 'package:evolvify/features/home/presentation/views/allcourse_of_skills_vi
 import 'package:evolvify/features/home/presentation/views/home_view.dart';
 import 'package:evolvify/features/on_Boarding/on_Boarding_pageview.dart';
 import 'package:evolvify/features/quiz/presentation/manager/cubit/quiz_answers_cubit.dart';
+import 'package:evolvify/features/quiz/presentation/manager/cubit/quiz_attempts_cubit.dart';
 import 'package:evolvify/features/quiz/presentation/manager/cubit/quiz_ques_cubit.dart';
 import 'package:evolvify/features/quiz/presentation/views/quiz_view.dart';
 import 'package:evolvify/features/search/presentation/manager/search_cubit/search_cubit.dart';
@@ -123,20 +124,18 @@ abstract class AppRouter {
       GoRoute(
         path: kQuizView,
         builder:
-            (context, state) =>
-             MultiBlocProvider(
+            (context, state) => MultiBlocProvider(
               providers: [
                 BlocProvider(
-                  create: (context) =>QuizQuesCubit()..getQuestions(quizId: 1),
+                  create: (context) => QuizQuesCubit()..getQuestions(quizId: 1),
                 ),
-                BlocProvider(
-                  create: (context) => QuizAnswersCubit(),
-                ),
+                BlocProvider(create: (context) => QuizAnswersCubit()),
+                BlocProvider(create: (context) => QuizAttemptsCubit()),
               ],
               child: QuizView(),
-             ),
             ),
-      
+      ),
+
       GoRoute(
         path: kPaymentMethod,
         builder: (context, state) => PaymentMethod(),

@@ -8,21 +8,18 @@ import 'package:evolvify/features/Assessment/data/models/recommend_courses/recom
 
 import 'package:evolvify/features/Assessment/data/repo/assessment_repo.dart';
 
-
 class AssessmentRepoImpl implements AssessmentRepo {
   @override
   Future<Either<Failure, List<QuestionModel>>> getQuestions() async {
     try {
       var data = await ApiServices().get(endPoint: 'Assessments/questions');
 
-      
       List<QuestionModel> questionList =
           (data["data"] as List?)
               ?.map((question) => QuestionModel.fromJson(question))
               .toList() ??
           [];
 
-     
       return right(questionList);
     } on Exception catch (e) {
       if (e is DioException) {

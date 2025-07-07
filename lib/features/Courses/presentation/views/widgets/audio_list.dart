@@ -12,7 +12,6 @@ class AudioList extends StatelessWidget {
   const AudioList({super.key});
 
   @override
-  
   Widget build(BuildContext context) {
     return BlocBuilder<ModulesOfCourseCubit, ModulesOfCourseState>(
       builder: (context, state) {
@@ -41,7 +40,6 @@ class AudioList extends StatelessWidget {
                 onTap: () {
                   final isLast = index == lastIndex;
 
-                 
                   if (contentType == "Video") {
                     GoRouter.of(context).push(
                       AppRouter.kShowCourse,
@@ -50,7 +48,8 @@ class AudioList extends StatelessWidget {
                         'courseId': modulesOfCourse.id,
                       },
                     );
-                  } else if (contentType == "Text" || contentType == "Article") {
+                  } else if (contentType == "Text" ||
+                      contentType == "Article") {
                     GoRouter.of(context).push(
                       AppRouter.kShowCourseText,
                       extra: {
@@ -68,7 +67,6 @@ class AudioList extends StatelessWidget {
                     );
                   }
 
-                  
                   if (isLast) {
                     Future.delayed(Duration(milliseconds: 300), () {
                       showCourseComplete(context);

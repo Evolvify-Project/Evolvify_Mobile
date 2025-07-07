@@ -4,6 +4,8 @@ import 'package:evolvify/core/widgets/cutom_title.dart';
 import 'package:evolvify/features/Assessment/presentation/views/widgets/circular_row.dart';
 import 'package:evolvify/features/Courses/presentation/views/widgets/Custom_button_courses_border.dart';
 import 'package:evolvify/features/Courses/presentation/views/widgets/custom_button_courses.dart';
+import 'package:evolvify/features/quiz/presentation/manager/cubit/quiz_answers_cubit.dart';
+import 'package:evolvify/features/quiz/presentation/manager/cubit/quiz_attempts_cubit.dart';
 import 'package:evolvify/features/quiz/presentation/manager/cubit/quiz_ques_cubit.dart';
 import 'package:evolvify/features/quiz/presentation/views/widgets/quizQues_section.dart';
 import 'package:flutter/material.dart';
@@ -16,31 +18,16 @@ class QuizView extends StatefulWidget {
   State<QuizView> createState() => _QuizViewState();
 }
 
-int currentIndex = 0;
-
 class _QuizViewState extends State<QuizView> {
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   context.read<QuestionCubit>().getQuestions();
-  // }
+  @override
+  void initState() {
+    context.read<QuizAttemptsCubit>().quizAttempts(1);
+  }
 
-  // int currentIndex = 0;
-  // bool isSelect = false;
-  // String? selectedAnswer;
-
-  // String getSectionName(int index) {
-  //   if (index < 6)
-  //     return "Interview";
-  //   else if (index < 12)
-  //     return "Communication";
-  //   else if (index < 18)
-  //     return "Time_Management";
-  //   else if (index < 24)
-  //     return "Presentation";
-  //   else
-  //     return "Teamwork";
-  // }
+  int currentIndex = 0;
+  bool isSelect = false;
+  Map<int, int> userAnswers = {};
+  Map<int, bool> isSelectedMap = {};
 
   @override
   Widget build(BuildContext context) {
@@ -77,7 +64,15 @@ class _QuizViewState extends State<QuizView> {
                     ),
                     SizedBox(height: 35),
 
-                    QuizQuesSection(isSelect: false, quizModel: quizQue),
+                    QuizQuesSection(
+                      selectedAnswerId: userAnswers[quizQue.id!],
+                      onAnswerSelected: (answerId) {
+                        setState(() {
+                          userAnswers[quizQue.id!] = answerId;
+                        });
+                      },
+                      quizModel: quizQue,
+                    ),
                     SizedBox(height: 25),
 
                     Row(
@@ -89,8 +84,6 @@ class _QuizViewState extends State<QuizView> {
                               if (currentIndex > 0) {
                                 setState(() {
                                   currentIndex--;
-                                  // isSelect = false;
-                                  // selectedAnswer = null;
                                 });
                               }
                             },
@@ -104,24 +97,35 @@ class _QuizViewState extends State<QuizView> {
                                     ? 'Submit'
                                     : 'Continue',
                             onPressed: () {
-                              //   if (selectedAnswer == null) return;
+                              final quizAttemptId =
+                                  context
+                                      .read<QuizAttemptsCubit>()
+                                      .quizAttemptId;
+                              final questionId = quizQue.id!;
+                              final selectedAnswer = userAnswers[questionId];
 
-                              //   submitCubit.saveAnswer(
-                              //     questionCode:
-                              //         question.code ?? 'Q${currentIndex + 1}',
-                              //     answer: selectedAnswer!,
-                              //     section: section,
-                              //   );
+                              if (selectedAnswer == null) {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text('Please select an answer.'),
+                                  ),
+                                );
+                                return;
+                              }
+
+                              context
+                                  .read<QuizAnswersCubit>()
+                                  .submitquizAnswers(
+                                    quizAttemptId,
+                                    selectedAnswer,
+                                  );
 
                               if (currentIndex < quizQuesList.length - 1) {
                                 setState(() {
                                   currentIndex++;
-                                  // isSelect = false;
-                                  // selectedAnswer = null;
                                 });
-                                //   } else {
-                                //     submitCubit.submitAnswers();
-                                //   }
+                              } else {
+                                // showScore(context,);
                               }
                             },
                           ),

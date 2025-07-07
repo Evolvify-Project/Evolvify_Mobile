@@ -3,11 +3,12 @@ import 'package:dio/dio.dart';
 import 'package:evolvify/core/errors/failures.dart';
 import 'package:evolvify/core/utils/api_services.dart';
 import 'package:evolvify/features/quiz/data/models/quiz_model/quiz_model.dart';
+import 'package:evolvify/features/quiz/data/models/quiz_score_model/quiz_score_model.dart';
 import 'package:evolvify/features/quiz/data/repo/quiz_repo.dart';
 
 class QuizRepoImpl implements QuizRepo {
   @override
-  Future<Either<Failure, String>> quizAttempts({quizId}) async {
+  Future<Either<Failure, int>> quizAttempts({quizId}) async {
     try {
       var data = await ApiServices().post(
         endPoint: 'QuizAttempts',
@@ -16,7 +17,7 @@ class QuizRepoImpl implements QuizRepo {
 
       print('📩 MESSAGE: ${data['message']}');
 
-      return right(data["message"]);
+      return right(data['data']["quizId"]);
     } on Exception catch (e) {
       if (e is DioException) {
         return left(ServerFailure.fromDioException(e));
@@ -44,10 +45,13 @@ class QuizRepoImpl implements QuizRepo {
       return left(ServerFailure(e.toString()));
     }
   }
-  
+
   @override
-  Future<Either<Failure, Map<String, dynamic>>> submitquizAnswers(quizAttemptId, answerId)async {
-       try {
+  Future<Either<Failure, Map<String, dynamic>>> submitquizAnswers(
+    quizAttemptId,
+    answerId,
+  ) async {
+    try {
       var data = await ApiServices().post(
         endPoint: 'UserAnswers',
         data: {"quizAttemptId": quizAttemptId, "answerId": answerId},
@@ -63,8 +67,20 @@ class QuizRepoImpl implements QuizRepo {
       return left(ServerFailure(e.toString()));
     }
   }
+
+  Future<Either<Failure, QuizScoreModel>> getScore({quizAttemptId}) async {
+    try {
+      var data = await ApiServices().post(
+        endPoint: 'QuizAttempts/CalculateQuizAttemptResult/$quizAttemptId',
+      );
+
+      return right(data['data']);
+    } on Exception catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioException(e));
+      }
+
+      return left(ServerFailure(e.toString()));
+    }
   }
-  
-
-
-  
+}

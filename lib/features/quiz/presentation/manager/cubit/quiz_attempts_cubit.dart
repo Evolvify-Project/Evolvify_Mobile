@@ -7,14 +7,17 @@ part 'quiz_attempts_state.dart';
 class QuizAttemptsCubit extends Cubit<QuizAttemptsState> {
   QuizAttemptsCubit() : super(QuizAttemptsInitial());
 
-  Future<void> quizAttempts(String quizId) async {
+  int? quizAttemptId;
+
+  Future<void> quizAttempts(quizId) async {
     var result = await QuizRepoImpl().quizAttempts(quizId: quizId);
     result.fold(
       (failure) {
-        return emit(QuizAttemptsFailure(errMessage: failure.errMessge));
+        emit(QuizAttemptsFailure(errMessage: failure.errMessge));
       },
-      (url) {
-        emit(QuizAttemptsSuccess());
+      (id) {
+        quizAttemptId = id;
+        emit(QuizAttemptsSuccess(quizAttemptId: quizAttemptId!));
       },
     );
   }

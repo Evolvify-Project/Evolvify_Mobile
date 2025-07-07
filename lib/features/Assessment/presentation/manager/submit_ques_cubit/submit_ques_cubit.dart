@@ -43,7 +43,6 @@ class SubmitQuesCubit extends Cubit<SubmitQuesState> {
     required String questionCode,
     required String answer,
   }) {
-  
     section = section.toLowerCase();
     if (userAnswers.containsKey(section)) {
       userAnswers[section]![questionCode] = answer;
@@ -55,7 +54,6 @@ class SubmitQuesCubit extends Cubit<SubmitQuesState> {
   Future<void> submitAnswers() async {
     emit(SubmitQuesLoading());
 
-    
     var result = await AssessmentRepoImpl().submitAnswers(userAnswers);
     result.fold(
       (failure) {

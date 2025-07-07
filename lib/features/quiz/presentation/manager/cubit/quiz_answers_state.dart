@@ -16,5 +16,5 @@ final class QuizAnswersSuccess extends QuizAnswersState {}
 final class QuizAnswersFailure extends QuizAnswersState {
   final String errMessage;
 
- const QuizAnswersFailure({required this.errMessage});
+  const QuizAnswersFailure({required this.errMessage});
 }

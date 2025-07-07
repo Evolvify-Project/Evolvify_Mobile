@@ -1,9 +1,7 @@
-
 import 'package:evolvify/core/widgets/cutsom_arrow_ios.dart';
 import 'package:evolvify/features/Courses/presentation/views/widgets/details_of_course.dart';
 import 'package:evolvify/features/splash%20screen/widgets/custom_button_border.dart';
 import 'package:flutter/material.dart';
-
 
 class ShowCourseVideo extends StatelessWidget {
   const ShowCourseVideo({super.key});

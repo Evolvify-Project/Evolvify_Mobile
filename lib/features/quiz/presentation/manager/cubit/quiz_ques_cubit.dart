@@ -9,7 +9,7 @@ class QuizQuesCubit extends Cubit<QuizQuesState> {
   QuizQuesCubit() : super(QuizQuesInitial());
   Future<void> getQuestions({quizId}) async {
     emit(QuizQuesLoading());
-    var result = await QuizRepoImpl().getquizQues(quizId:quizId );
+    var result = await QuizRepoImpl().getquizQues(quizId: quizId);
     result.fold(
       (failure) {
         emit(QuizQuesFailure(errMessage: failure.errMessge));
