@@ -4,6 +4,7 @@ import 'package:evolvify/core/errors/failures.dart';
 import 'package:evolvify/core/utils/api_services.dart';
 import 'package:evolvify/features/quiz/data/models/quiz_model/quiz_model.dart';
 import 'package:evolvify/features/quiz/data/models/quiz_score_model/quiz_score_model.dart';
+import 'package:evolvify/features/quiz/data/models/quiz_score_model/score.dart';
 import 'package:evolvify/features/quiz/data/repo/quiz_repo.dart';
 
 class QuizRepoImpl implements QuizRepo {
@@ -68,13 +69,13 @@ class QuizRepoImpl implements QuizRepo {
     }
   }
 
-  Future<Either<Failure, QuizScoreModel>> getScore({quizAttemptId}) async {
+  Future<Either<Failure, Score>> getScore({quizAttemptId}) async {
     try {
       var data = await ApiServices().post(
         endPoint: 'QuizAttempts/CalculateQuizAttemptResult/$quizAttemptId',
       );
 
-      return right(data['data']);
+      return right(data['data']["score"]);
     } on Exception catch (e) {
       if (e is DioException) {
         return left(ServerFailure.fromDioException(e));
