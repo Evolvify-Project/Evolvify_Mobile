@@ -1,15 +1,12 @@
 import 'package:evolvify/core/utils/app_images.dart';
 import 'package:evolvify/core/utils/app_router.dart';
-
 import 'package:evolvify/core/utils/app_style.dart';
 import 'package:evolvify/core/utils/constant.dart';
 import 'package:evolvify/features/quiz/data/models/quiz_score_model/score.dart';
-
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 void showScore(BuildContext context, Score score) {
-
   showDialog(
     context: context,
     barrierDismissible: true,
@@ -28,24 +25,24 @@ void showScore(BuildContext context, Score score) {
             color: Color(0xff202244),
           ),
         ),
-        // contentPadding: EdgeInsets.only(top: 6, bottom: 30),
+
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
-              'Total Questions :${score.total }',
+              'Total Questions :${score.total}',
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: getResponsiveFontSize(context, fontSize: 16),
+                fontSize: getResponsiveFontSize(context, fontSize: 18),
                 fontWeight: FontWeight.w500,
                 color: Color(0xff545454),
               ),
             ),
             Text(
-              'Correct Answer :${score.correct } ',
+              'Correct Answer :${score.correct} ',
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: getResponsiveFontSize(context, fontSize: 16),
+                fontSize: getResponsiveFontSize(context, fontSize: 18),
                 fontWeight: FontWeight.w500,
                 color: Color(0xff545454),
               ),

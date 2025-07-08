@@ -43,7 +43,7 @@ class AllCoursesGridView extends StatelessWidget {
                   mainAxisSpacing: 18,
                 ),
                 itemBuilder: (context, index) {
-                  return CourseItem(coursesModel: allCoursesOfSkillList[index]);
+                  return CourseItem(coursesModel: allCoursesOfSkillList[index],);
                 },
               ),
             ],

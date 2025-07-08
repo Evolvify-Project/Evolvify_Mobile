@@ -39,6 +39,15 @@ class _QuizViewState extends State<QuizView> {
           if (state is ScoreSuccess) {
             final scoreItem = state.score;
             showScore(context, scoreItem);
+          } else if (state is ScoreFailure) {
+            Text(
+              state.errMessage,
+              style: TextStyle(
+                fontSize: getResponsiveFontSize(context, fontSize: 18),
+              ),
+            );
+          } else if (state is ScoreLoading) {
+            Center(child: CircularProgressIndicator());
           }
         },
         child: BlocBuilder<QuizQuesCubit, QuizQuesState>(
