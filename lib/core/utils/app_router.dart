@@ -43,6 +43,7 @@ import 'package:evolvify/features/on_Boarding/on_Boarding_pageview.dart';
 import 'package:evolvify/features/quiz/presentation/manager/cubit/quiz_answers_cubit.dart';
 import 'package:evolvify/features/quiz/presentation/manager/cubit/quiz_attempts_cubit.dart';
 import 'package:evolvify/features/quiz/presentation/manager/cubit/quiz_ques_cubit.dart';
+import 'package:evolvify/features/quiz/presentation/manager/cubit/score_cubit.dart';
 import 'package:evolvify/features/quiz/presentation/views/quiz_view.dart';
 import 'package:evolvify/features/search/presentation/manager/search_cubit/search_cubit.dart';
 import 'package:evolvify/features/search/presentation/views/filter_view.dart';
@@ -131,6 +132,7 @@ abstract class AppRouter {
                 ),
                 BlocProvider(create: (context) => QuizAnswersCubit()),
                 BlocProvider(create: (context) => QuizAttemptsCubit()),
+                BlocProvider(create: (context) => ScoreCubit()),
               ],
               child: QuizView(),
             ),

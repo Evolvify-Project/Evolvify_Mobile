@@ -2,8 +2,6 @@ import 'package:evolvify/core/utils/app_images.dart';
 import 'package:evolvify/core/utils/app_style.dart';
 import 'package:evolvify/core/utils/constant.dart';
 import 'package:evolvify/core/widgets/cutsom_arrow_ios.dart';
-import 'package:evolvify/features/Premium/data/repo/payment_repo_impl.dart';
-import 'package:evolvify/features/Premium/presentation/manager/cubit/payment_plans_cubit.dart';
 import 'package:evolvify/features/Premium/presentation/views/widgets/Goals_Premium.dart';
 import 'package:evolvify/features/Premium/presentation/views/widgets/plans_list.dart';
 

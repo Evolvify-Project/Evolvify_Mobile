@@ -2,11 +2,11 @@ import 'package:evolvify/core/utils/app_images.dart';
 import 'package:evolvify/core/widgets/arrow_button.dart';
 import 'package:evolvify/core/widgets/cutom_title.dart';
 import 'package:evolvify/features/Assessment/data/models/question/skill_result.dart';
-import 'package:evolvify/features/Assessment/presentation/manager/submit_ques_cubit/submit_ques_cubit.dart';
 import 'package:evolvify/features/Assessment/presentation/views/widgets/Level_of_User.dart';
 import 'package:evolvify/features/Assessment/presentation/views/widgets/start_plan_button.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+
+
 
 class TestResultView extends StatelessWidget {
   const TestResultView({super.key, required this.skillResult});

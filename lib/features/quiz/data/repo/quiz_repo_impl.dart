@@ -74,8 +74,9 @@ class QuizRepoImpl implements QuizRepo {
       var data = await ApiServices().post(
         endPoint: 'QuizAttempts/CalculateQuizAttemptResult/$quizAttemptId',
       );
+      var response = Score.fromJson(data['data']["score"]);
 
-      return right(data['data']["score"]);
+      return right(response);
     } on Exception catch (e) {
       if (e is DioException) {
         return left(ServerFailure.fromDioException(e));
