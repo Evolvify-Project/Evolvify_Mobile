@@ -35,8 +35,6 @@ class PopularSkillGridView extends StatelessWidget {
     );
   }
 
-
-
   List images = [
     Image.asset(Assets.imagesCommunication),
     Image.asset(Assets.imagesInterview),

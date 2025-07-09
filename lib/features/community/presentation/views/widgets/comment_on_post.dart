@@ -21,7 +21,7 @@ class CommentOnPost extends StatelessWidget {
           child: Image.asset(Assets.imagesComment),
         ),
 
-        SizedBox(width: 3),
+        SizedBox(width: 7),
         Text(
           postModel.commentsCount.toString(),
           style: TextStyle(
@@ -30,7 +30,6 @@ class CommentOnPost extends StatelessWidget {
             fontWeight: FontWeight.w300,
           ),
         ),
-        Image.asset(Assets.imagesShare),
       ],
     );
   }

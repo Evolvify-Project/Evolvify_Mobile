@@ -3,8 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:evolvify/core/errors/failures.dart';
 import 'package:evolvify/core/utils/api_services.dart';
 import 'package:evolvify/features/community/data/models/comment.dart';
-
-import 'package:evolvify/features/community/data/models/like_model.dart';
+import 'package:evolvify/features/community/data/models/comment_model.dart';
 import 'package:evolvify/features/community/data/models/post.dart';
 import 'package:evolvify/features/community/data/models/reply.dart';
 
@@ -18,7 +17,7 @@ class RepoPostImpl implements RepoPost {
         endPoint: 'Community/Post',
         data: {'content': content},
       );
-      print(PostModel.fromJson(data));
+      // print(PostModel.fromJson(data));
       return right(PostModel.fromJson(data));
     } on Exception catch (e) {
       if (e is DioException) {
@@ -74,6 +73,7 @@ class RepoPostImpl implements RepoPost {
         endPoint: 'Community/Post/$postId/Comment',
         data: {'content': content},
       );
+      print(data);
       return right(CommentModel.fromJson(data));
     } on Exception catch (e) {
       if (e is DioException) {
@@ -104,4 +104,24 @@ class RepoPostImpl implements RepoPost {
       return left(ServerFailure(e.toString()));
     }
   }
+  
+  @override
+  Future<Either<Failure, List<CommentModel2>>> fetchAllComments(String postId)async {
+    try {
+      var data = await ApiServices().get(endPoint: 'Community/Post/$postId/Comment');
+      List<CommentModel2> commentsList = [];
+      for (var item in data['data']) {
+        commentsList.add(CommentModel2.fromJson(item));
+      }
+      print(commentsList);
+      return right(commentsList);
+    } on Exception catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioException(e));
+      }
+
+      return left(ServerFailure(e.toString()));
+    }
+  }
+  
 }

@@ -9,7 +9,7 @@ class ScoreCubit extends Cubit<ScoreState> {
 
   Future<void> getScore(quizAttemptId) async {
     emit((ScoreLoading()));
-    
+
     var result = await QuizRepoImpl().getScore(quizAttemptId: quizAttemptId);
     result.fold(
       (failure) {

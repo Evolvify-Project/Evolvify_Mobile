@@ -1,8 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:evolvify/features/community/data/models/comment.dart';
-
 import 'package:evolvify/features/community/data/repo/repo_post_impl.dart';
-import 'package:meta/meta.dart';
+import 'package:flutter/material.dart';
 
 part 'comment_state.dart';
 

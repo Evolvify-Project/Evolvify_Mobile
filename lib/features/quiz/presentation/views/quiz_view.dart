@@ -23,13 +23,14 @@ class QuizView extends StatefulWidget {
 class _QuizViewState extends State<QuizView> {
   @override
   void initState() {
+    super.initState();
     context.read<QuizAttemptsCubit>().quizAttempts(1);
   }
 
   int currentIndex = 0;
-  bool isSelect = false;
+  // bool isSelect = false;
   Map<int, int> userAnswers = {};
-  Map<int, bool> isSelectedMap = {};
+  // Map<int, bool> isSelectedMap = {};
 
   @override
   Widget build(BuildContext context) {

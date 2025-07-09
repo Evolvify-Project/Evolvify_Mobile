@@ -1,17 +1,18 @@
 import 'package:evolvify/core/utils/app_images.dart';
 import 'package:evolvify/core/utils/app_style.dart';
 import 'package:evolvify/core/utils/constant.dart';
+import 'package:evolvify/features/community/data/models/comment_model.dart';
 
 import 'package:flutter/material.dart';
 
-class CommentSection extends StatefulWidget {
-  const CommentSection({super.key, this.onTapReply});
+class CommentSection extends StatelessWidget {
+  const CommentSection({
+    super.key,
+    this.onTapReply,
+    required this.commentModel,
+  });
   final void Function()? onTapReply;
-  @override
-  State<CommentSection> createState() => _CommentSectionState();
-}
-
-class _CommentSectionState extends State<CommentSection> {
+  final CommentModel2 commentModel;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -25,7 +26,7 @@ class _CommentSectionState extends State<CommentSection> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Courtney Henry',
+                commentModel.userName ?? 'Ali',
                 style: TextStyle(
                   fontSize: getResponsiveFontSize(context, fontSize: 12),
                   fontWeight: FontWeight.w600,
@@ -35,13 +36,14 @@ class _CommentSectionState extends State<CommentSection> {
               SizedBox(height: 8),
               Text(
                 maxLines: 3,
-                'Ultricies ultricies interdum dolor sodales. \n Vitae feugiat vitae vitae quis id consectetur.',
+                commentModel.content ?? '',
                 style: TextStyle(
                   fontSize: getResponsiveFontSize(context, fontSize: 12),
                   fontWeight: FontWeight.w400,
                 ),
               ),
               SizedBox(height: 8),
+            
               Row(
                 children: [
                   GestureDetector(
@@ -57,7 +59,7 @@ class _CommentSectionState extends State<CommentSection> {
                   ),
                   SizedBox(width: 5),
                   GestureDetector(
-                    onTap: widget.onTapReply,
+                    onTap: onTapReply,
                     child: Text(
                       'Reply .',
                       style: TextStyle(

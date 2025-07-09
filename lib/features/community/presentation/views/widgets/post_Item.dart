@@ -2,14 +2,13 @@ import 'package:evolvify/core/utils/app_images.dart';
 import 'package:evolvify/core/utils/app_style.dart';
 import 'package:evolvify/features/community/data/models/UserInfo_model.dart';
 import 'package:evolvify/features/community/data/models/post.dart';
-
 import 'package:evolvify/features/community/presentation/views/widgets/User_Info_ListTile.dart';
 import 'package:evolvify/features/community/presentation/views/widgets/comment_on_post.dart';
 import 'package:evolvify/features/community/presentation/views/widgets/like_on_post.dart';
 import 'package:flutter/material.dart';
 
 class PostItem extends StatelessWidget {
-  PostItem({super.key, required this.postModel});
+  const PostItem({super.key, required this.postModel});
   final PostModel postModel;
 
   @override
@@ -52,6 +51,8 @@ class PostItem extends StatelessWidget {
               children: [
                 CustomLikeOnPost(postModel: postModel),
                 CommentOnPost(postModel: postModel),
+                Expanded(child: SizedBox()),
+                Image.asset(Assets.imagesShare),
               ],
             ),
           ),

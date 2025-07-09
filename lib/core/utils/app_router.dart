@@ -31,6 +31,8 @@ import 'package:evolvify/features/auth/presentation/views/register_view.dart';
 import 'package:evolvify/features/auth/presentation/views/verify_password_view.dart';
 import 'package:evolvify/features/chatbot%20_ai/presentation/views/chatbot_page.dart';
 import 'package:evolvify/features/community/data/models/post.dart';
+import 'package:evolvify/features/community/presentation/manager/comment/comment_cubit.dart';
+import 'package:evolvify/features/community/presentation/manager/fetchAllcomments/fetch_allcomments_cubit.dart';
 import 'package:evolvify/features/community/presentation/views/comments_view.dart';
 import 'package:evolvify/features/community/presentation/views/community_page.dart';
 import 'package:evolvify/features/community/presentation/views/create_post.dart';
@@ -307,11 +309,22 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: kCommentsViewg,
-        pageBuilder: (context, state) {
+        builder: (context, state) {
           final postModel = state.extra as PostModel;
-          return MaterialPage(child: CommentsView(postModel: postModel));
+        return  MultiBlocProvider(
+            providers: [
+              BlocProvider(create: (context) => CommentCubit()),
+              BlocProvider(
+                create:
+                    (context) =>
+                        FetchAllcommentsCubit()..fetchAllComments(postModel.id),
+              ),
+            ],
+            child: CommentsView(postModel: postModel),
+          );
         },
       ),
+
       GoRoute(
         path: kAssessmentView,
         builder: (context, state) => AssessmentView(),

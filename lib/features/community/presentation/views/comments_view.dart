@@ -4,6 +4,7 @@ import 'package:evolvify/core/widgets/cutsom_arrow_ios.dart';
 import 'package:evolvify/core/widgets/showSnackBar.dart';
 import 'package:evolvify/features/community/data/models/post.dart';
 import 'package:evolvify/features/community/presentation/manager/comment/comment_cubit.dart';
+import 'package:evolvify/features/community/presentation/manager/fetchAllcomments/fetch_allcomments_cubit.dart';
 import 'package:evolvify/features/community/presentation/views/widgets/Custom_TextField_Comment.dart';
 import 'package:evolvify/features/community/presentation/views/widgets/comments_list.dart';
 import 'package:flutter/material.dart';
@@ -21,71 +22,68 @@ class _CommentsViewState extends State<CommentsView> {
 
   @override
   Widget build(BuildContext context) {
-    var c = context.read<CommentCubit>;
-
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(height: 20),
-            Row(
-              children: [
-                CutsomArrowios(),
-                Text(
-                  '16 Comments',
-                  style: TextStyle(
-                    fontSize: getResponsiveFontSize(context, fontSize: 14),
-                    fontWeight: FontWeight.w400,
-                  ),
+      resizeToAvoidBottomInset: true,
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(height: 20),
+          Row(
+            children: [
+              CutsomArrowios(),
+              Text(
+                ' Comments',
+                style: TextStyle(
+                  fontSize: getResponsiveFontSize(context, fontSize: 14),
+                  fontWeight: FontWeight.w400,
                 ),
-              ],
-            ),
+              ),
+            ],
+          ),
 
-            CommentsList(),
-            BlocConsumer<CommentCubit, CommentState>(
-              listener: (context, state) {
-                if (state is CommentSuccess) {
-                } else if (state is CommentFailure) {
-                  showSnackBar(context, text: 'Error: ${state.error}');
-                }
-              },
-              builder: (context, state) {
-                return Padding(
-                  padding: const EdgeInsets.all(15),
-                  child: Row(
-                    children: [
-                      CircleAvatar(
-                        backgroundImage: AssetImage(Assets.imagesUser),
-                      ),
-                      SizedBox(width: 10),
-                      Expanded(
-                        child: CustomTextFieldComment(
-                          hintText: '    Add a comment...',
-                          commentController: commentController,
-                          onPressedComment: () async {
-                            final comment = commentController.text.trim();
-                            if (comment.isNotEmpty) {
-                              await BlocProvider.of<CommentCubit>(
-                                context,
-                              ).comment(widget.postModel.id, comment);
-                              print(comment);
-                              commentController.clear();
-                            } else {
-                              showSnackBar(
-                                context,
-                                text: 'comment content cannot be empty.',
-                              );
-                            }
-                          },
-                        ),
-                      ),
-                    ],
-                  ),
-                );
-              },
-            ),
-          ],
+          Expanded(child: CommentsList()),
+        ],
+      ),
+
+      bottomSheet: Container(
+        color: Colors.white,
+        child: Padding(
+          padding: const EdgeInsets.only(
+            bottom: 20,
+            left: 15,
+            right: 15,
+            top: 10,
+          ),
+          child: Row(
+            children: [
+              CircleAvatar(backgroundImage: AssetImage(Assets.imagesUser)),
+              SizedBox(width: 10),
+              Expanded(
+                child: CustomTextFieldComment(
+                  hintText: '    Add a comment...',
+                  commentController: commentController,
+                  onPressedComment: () async {
+                    final comment = commentController.text.trim();
+                    if (comment.isNotEmpty) {
+                      await BlocProvider.of<CommentCubit>(
+                        context,
+                      ).comment(widget.postModel.id, comment);
+                      await context
+                          .read<FetchAllcommentsCubit>()
+                          .fetchAllComments(widget.postModel.id);
+                      print(comment);
+                      commentController.clear();
+                    } else {
+                      showSnackBar(
+                        context,
+                        text: 'comment content cannot be empty.',
+                      );
+                    }
+                  },
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

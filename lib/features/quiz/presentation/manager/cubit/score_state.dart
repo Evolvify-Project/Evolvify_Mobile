@@ -14,7 +14,7 @@ final class ScoreLoading extends ScoreState {}
 final class ScoreSuccess extends ScoreState {
   final Score score;
 
- const ScoreSuccess({required this.score});
+  const ScoreSuccess({required this.score});
 }
 
 final class ScoreFailure extends ScoreState {

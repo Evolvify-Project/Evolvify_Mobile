@@ -39,7 +39,7 @@ void showScore(BuildContext context, Score score) {
               ),
             ),
             Text(
-              'Correct Answer :${score.correct} ',
+              'Correct Answer :${score.correct! - 15} ',
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: getResponsiveFontSize(context, fontSize: 18),

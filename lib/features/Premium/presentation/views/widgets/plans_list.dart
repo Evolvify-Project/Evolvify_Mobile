@@ -11,7 +11,6 @@ class PlansList extends StatelessWidget {
   const PlansList({super.key});
 
   @override
-  @override
   Widget build(BuildContext context) {
     return BlocListener<PaymentSubscriptionCubit, PaymentSubscriptionState>(
       listener: (context, state) async {

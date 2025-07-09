@@ -6,8 +6,6 @@ import 'package:evolvify/features/Assessment/presentation/views/widgets/Level_of
 import 'package:evolvify/features/Assessment/presentation/views/widgets/start_plan_button.dart';
 import 'package:flutter/material.dart';
 
-
-
 class TestResultView extends StatelessWidget {
   const TestResultView({super.key, required this.skillResult});
   final List<SkillResult> skillResult;
