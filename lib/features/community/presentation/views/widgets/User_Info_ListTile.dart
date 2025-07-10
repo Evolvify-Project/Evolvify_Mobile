@@ -8,7 +8,9 @@ class UserInfoListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: CircleAvatar(child: Image.asset(userinfoModel.image)),
+      leading: CircleAvatar(
+        child: Image.asset(userinfoModel.image , height: 40, width: 40),
+      ),
       title: FittedBox(
         fit: BoxFit.scaleDown,
         alignment: AlignmentDirectional.centerStart,

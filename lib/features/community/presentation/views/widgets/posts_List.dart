@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class PostsList extends StatelessWidget {
   const PostsList({super.key});
-
+  
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<FetchPostsCubit, FetchPostsState>(
@@ -26,7 +26,10 @@ class PostsList extends StatelessWidget {
             },
           );
         } else if (state is FetchPostsfailure) {
-          return Text(state.errMassage.toString());
+          return Text(
+            '                 No Posts available '
+            '\n ${state.errMassage.toString()}',
+          );
         }
         return Center(child: Text('No posts available.'));
       },

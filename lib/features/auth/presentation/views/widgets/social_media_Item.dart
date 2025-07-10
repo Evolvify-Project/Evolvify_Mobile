@@ -15,7 +15,7 @@ class SocialMediaItem extends StatelessWidget {
       ),
       child: Padding(
         padding: const EdgeInsets.all(8),
-        child: SvgPicture.asset(image),
+        child: Image.asset(image),
       ),
     );
   }

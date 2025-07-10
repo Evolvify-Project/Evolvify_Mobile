@@ -1,6 +1,6 @@
+import 'package:evolvify/core/utils/app_images.dart';
 import 'package:evolvify/core/utils/app_style.dart';
 import 'package:flutter/material.dart';
-import 'package:svg_flutter/svg.dart';
 
 class CustomHeaderHomePage extends StatelessWidget {
   const CustomHeaderHomePage({super.key});
@@ -10,7 +10,7 @@ class CustomHeaderHomePage extends StatelessWidget {
     return ListTile(
       contentPadding: EdgeInsets.all(0),
       title: Text(
-        'Hi, Mohamed!',
+        'Hi, Amira!',
         style: AppStyle.styleBold22(
           context,
         ).copyWith(fontSize: getResponsiveFontSize(context, fontSize: 25)),
@@ -19,9 +19,7 @@ class CustomHeaderHomePage extends StatelessWidget {
         'Ready to grow today?',
         style: AppStyle.styleRegularGrey14(context),
       ),
-      trailing: CircleAvatar(
-        child: SvgPicture.asset('assets/images/ProfileAvatar.svg'),
-      ),
+      trailing: CircleAvatar(child: Image.asset(Assets.imagesProfileImage)),
     );
   }
 }

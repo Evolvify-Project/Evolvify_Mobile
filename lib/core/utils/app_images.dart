@@ -1,6 +1,10 @@
 // ignore_for_file: prefer_single_quotes
 class Assets {
   Assets._();
+  
+  /// Assets for imagesA
+  /// assets/images/a.png
+  static const String imagesA = "assets/images/a.png";
 
   /// Assets for imagesAdvanced
   /// assets/images/advanced.png
@@ -8,16 +12,11 @@ class Assets {
 
   /// Assets for imagesAdvancedIndicatior
   /// assets/images/advancedIndicatior.png
-  static const String imagesAdvancedIndicatior =
-      "assets/images/advancedIndicatior.png";
+  static const String imagesAdvancedIndicatior = "assets/images/advancedIndicatior.png";
 
   /// Assets for imagesApple
-  /// assets/images/apple.svg
-  static const String imagesApple = "assets/images/apple.svg";
-
-  /// Assets for imagesApple2
-  /// assets/images/apple2.svg
-  static const String imagesApple2 = "assets/images/apple2.svg";
+  /// assets/images/apple.png
+  static const String imagesApple = "assets/images/apple.png";
 
   /// Assets for imagesArticle
   /// assets/images/article.png
@@ -25,8 +24,7 @@ class Assets {
 
   /// Assets for imagesAssessmentBackground
   /// assets/images/assessmentBackground.png
-  static const String imagesAssessmentBackground =
-      "assets/images/assessmentBackground.png";
+  static const String imagesAssessmentBackground = "assets/images/assessmentBackground.png";
 
   /// Assets for imagesBack
   /// assets/images/back.png
@@ -38,8 +36,7 @@ class Assets {
 
   /// Assets for imagesBeginnerIndicatior
   /// assets/images/beginner_Indicatior.png
-  static const String imagesBeginnerIndicatior =
-      "assets/images/beginner_Indicatior.png";
+  static const String imagesBeginnerIndicatior = "assets/images/beginner_Indicatior.png";
 
   /// Assets for imagesBigChat
   /// assets/images/bigChat.svg
@@ -105,27 +102,21 @@ class Assets {
   /// assets/images/emotion.png
   static const String imagesEmotion = "assets/images/emotion.png";
 
-  /// Assets for imagesFacebook
-  /// assets/images/facebook.svg
-  static const String imagesFacebook = "assets/images/facebook.svg";
-
   /// Assets for imagesForget
   /// assets/images/forget.png
   static const String imagesForget = "assets/images/forget.png";
 
   /// Assets for imagesForgetPassword2
   /// assets/images/forgetPassword2.svg
-  static const String imagesForgetPassword2 =
-      "assets/images/forgetPassword2.svg";
+  static const String imagesForgetPassword2 = "assets/images/forgetPassword2.svg";
 
-  /// Assets for imagesForgotPassword
+  /// Assets for imagesForgotPassword 
   /// assets/images/forgot_Password .svg
-  static const String imagesForgotPassword =
-      "assets/images/forgot_Password .svg";
+  static const String imagesForgotPassword  = "assets/images/forgot_Password .svg";
 
   /// Assets for imagesGoogle
-  /// assets/images/google.svg
-  static const String imagesGoogle = "assets/images/google.svg";
+  /// assets/images/google.png
+  static const String imagesGoogle = "assets/images/google.png";
 
   /// Assets for imagesHome
   /// assets/images/home.png
@@ -141,8 +132,7 @@ class Assets {
 
   /// Assets for imagesIntermediateIndicatior
   /// assets/images/Intermediate_Indicatior.png
-  static const String imagesIntermediateIndicatior =
-      "assets/images/Intermediate_Indicatior.png";
+  static const String imagesIntermediateIndicatior = "assets/images/Intermediate_Indicatior.png";
 
   /// Assets for imagesInterview
   /// assets/images/interview.png
@@ -163,6 +153,10 @@ class Assets {
   /// Assets for imagesLogo2
   /// assets/images/logo2.svg
   static const String imagesLogo2 = "assets/images/logo2.svg";
+
+  /// Assets for imagesLogosFacebook
+  /// assets/images/logos_facebook.png
+  static const String imagesLogosFacebook = "assets/images/logos_facebook.png";
 
   /// Assets for imagesMailFill
   /// assets/images/mail-fill.svg
@@ -198,8 +192,7 @@ class Assets {
 
   /// Assets for imagesOnBoardingThree
   /// assets/images/onBoardingThree.svg
-  static const String imagesOnBoardingThree =
-      "assets/images/onBoardingThree.svg";
+  static const String imagesOnBoardingThree = "assets/images/onBoardingThree.svg";
 
   /// Assets for imagesOnBoardingTwo
   /// assets/images/onBoardingTwo.svg
@@ -254,8 +247,12 @@ class Assets {
   static const String imagesProfile = "assets/images/profile.svg";
 
   /// Assets for imagesProfileAvatar
-  /// assets/images/ProfileAvatar.svg
-  static const String imagesProfileAvatar = "assets/images/ProfileAvatar.svg";
+  /// assets/images/ProfileAvatar.png
+  static const String imagesProfileAvatar = "assets/images/ProfileAvatar.png";
+
+  /// Assets for imagesProfileImage
+  /// assets/images/profileImage.png
+  static const String imagesProfileImage = "assets/images/profileImage.png";
 
   /// Assets for imagesRectangle1
   /// assets/images/Rectangle1.png
@@ -359,8 +356,7 @@ class Assets {
 
   /// Assets for imagesWalletSvgrepoCom
   /// assets/images/wallet-svgrepo-com.png
-  static const String imagesWalletSvgrepoCom =
-      "assets/images/wallet-svgrepo-com.png";
+  static const String imagesWalletSvgrepoCom = "assets/images/wallet-svgrepo-com.png";
 
   /// Assets for imagesXp
   /// assets/images/xp.png
@@ -370,3 +366,4 @@ class Assets {
   /// assets/images/xs.svg
   static const String imagesXs = "assets/images/xs.svg";
 }
+

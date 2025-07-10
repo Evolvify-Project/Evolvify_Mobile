@@ -1,15 +1,12 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:evolvify/core/utils/app_images.dart';
-
 import 'package:evolvify/core/utils/constant.dart';
 import 'package:evolvify/features/AI-Assessment/presentation/views/AI-Assessment_view.dart';
-import 'package:evolvify/features/Courses/presentation/views/course_overview.dart';
 import 'package:evolvify/features/Premium/presentation/views/Premium_view.dart';
-
 import 'package:evolvify/features/chatbot%20_ai/presentation/views/chatbot_page.dart';
 import 'package:evolvify/features/community/presentation/views/community_page.dart';
 import 'package:evolvify/features/home/presentation/views/home_view.dart';
-
+import 'package:evolvify/features/profile/presentation/views/profile_view.dart';
 import 'package:flutter/material.dart';
 
 // class CustomBottomNavigationBar extends StatefulWidget {
@@ -118,7 +115,7 @@ class _CurvedNavWithImageState extends State<CurvedNavWithImage> {
     AiassessmentView(),
     CommunityPage(),
 
-    PremiumView(),
+    ProfileScreen(),
   ];
 
   @override

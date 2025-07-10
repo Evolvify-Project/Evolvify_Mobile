@@ -31,7 +31,12 @@ class CommentsList extends StatelessWidget {
             ),
           );
         } else if (state is FetchAllcommentsFailure) {
-          return Center(child: Text(state.errMessage));
+          return Center(
+            child: Text(
+              '                 No comments available '
+              '\n ${state.errMessage.toString()}',
+            ),
+          );
         }
         return Center(child: Text('No Comments yet.'));
       },

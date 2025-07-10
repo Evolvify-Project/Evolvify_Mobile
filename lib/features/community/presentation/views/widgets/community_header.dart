@@ -18,7 +18,7 @@ class CommunityHeader extends StatelessWidget {
           onTap: () async {
             GoRouter.of(context).push(AppRouter.kCreatePost);
           },
-          child: Image.asset(Assets.imagesPlus),
+          child: Image.asset(Assets.imagesProfileImage, height: 45, width: 45),
         ),
       ],
     );

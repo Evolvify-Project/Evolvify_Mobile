@@ -23,9 +23,9 @@ class PostItem extends StatelessWidget {
         children: [
           UserInfoListTile(
             userinfoModel: UserinfoModel(
-              title: 'Nour Zain',
+              title: postModel.username ?? 'Amira',
               subtitle: postModel.createdAt ?? '',
-              image: Assets.imagesUser,
+              image:  Assets.imagesProfileImage,
             ),
           ),
           Padding(

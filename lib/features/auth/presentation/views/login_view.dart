@@ -42,8 +42,8 @@ class _LoginViewState extends State<LoginView> {
             const Center(child: CircularProgressIndicator());
           } else if (state is Loginsuccess) {
             showSnackBar(context, text: 'login success');
-            // GoRouter.of(context).push(AppRouter.kAssessmentView);
-            GoRouter.of(context).push(AppRouter.kCustomBottomNavigationBar);
+            GoRouter.of(context).push(AppRouter.kAssessmentView);
+            // GoRouter.of(context).push(AppRouter.kCustomBottomNavigationBar);
           } else if (state is Loginfailure) {
             showSnackBar(context, text: state.errMassage);
           }
