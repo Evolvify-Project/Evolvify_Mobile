@@ -4,6 +4,8 @@ import 'package:evolvify/features/community/presentation/manager/comment/comment
 import 'package:evolvify/features/community/presentation/manager/createPost_cubit/create_post_cubit.dart';
 import 'package:evolvify/features/community/presentation/manager/fetchPosts_cubit/fetch_posts_cubit.dart';
 import 'package:evolvify/features/community/presentation/manager/like/like_cubit.dart';
+import 'package:evolvify/features/AI-Assessment/presentation/manager/ai_assessment_cubit/ai_assessment_cubit.dart';
+import 'package:evolvify/features/AI-Assessment/data/repos/ai_assessment_repository_impl.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -30,6 +32,9 @@ class EvolvifyApp extends StatelessWidget {
         ),
         BlocProvider<LikeCubit>(create: (_) => LikeCubit()),
         BlocProvider<CommentCubit>(create: (_) => CommentCubit()),
+        BlocProvider<AiAssessmentCubit>(
+          create: (_) => AiAssessmentCubit(AiAssessmentRepositoryImpl()),
+        ),
       ],
       child: MaterialApp.router(
         routerConfig: AppRouter.router,

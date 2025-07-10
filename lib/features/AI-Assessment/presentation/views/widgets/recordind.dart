@@ -1,68 +1,58 @@
 import 'package:evolvify/core/utils/app_images.dart';
+import 'package:evolvify/features/AI-Assessment/presentation/views/widgets/camera_preview_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:camera/camera.dart';
 
-class Recording extends StatelessWidget {
+class Recording extends StatefulWidget {
   const Recording({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        ClipRRect(
-          borderRadius: BorderRadius.circular(16),
-          child: Image.asset(Assets.imagesSimulation, fit: BoxFit.cover),
-        ),
-        Positioned(
-          top: 12,
-          left: 12,
-          child: Column(
-            children: [
-              CircleAvatar(
-                backgroundColor: Colors.black54,
-                child: IconButton(
-                  onPressed: () {},
-                  icon: Icon(Icons.mic, color: Colors.white),
-                ),
-              ),
-              SizedBox(height: 8),
-              CircleAvatar(
-                backgroundColor: Colors.black54,
-                child: IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    Icons.video_camera_front,
-                    color: Colors.white,
-                    size: 20,
-                  ),
-                ),
-              ),
-              SizedBox(height: 8),
-              CircleAvatar(
-                backgroundColor: Colors.black54,
-                child: IconButton(
-                  onPressed: () {},
-                  icon: Icon(Icons.pause, color: Colors.white),
-                ),
-              ),
-              SizedBox(height: 8),
-              CircleAvatar(
-                backgroundColor: Colors.black54,
-                child: IconButton(
-                  onPressed: () {},
-                  icon: Icon(Icons.stop, color: Colors.white),
-                ),
-              ),
-            ],
-          ),
-        ),
+  State<Recording> createState() => _RecordingState();
+}
 
-        const Positioned(
-          bottom: 12,
-          left: 16,
-          right: 16,
-          child: AudioWaveformPlaceholder(),
-        ),
-      ],
+class _RecordingState extends State<Recording> {
+  CameraController? _cameraController;
+  bool _isRecording = false;
+
+  @override
+  void dispose() {
+    _cameraController?.dispose();
+    super.dispose();
+  }
+
+  void _onCameraInitialized(CameraController controller) {
+    setState(() {
+      _cameraController = controller;
+    });
+  }
+
+  void _onStartRecording() {
+    setState(() {
+      _isRecording = true;
+    });
+    // Add recording logic here
+    print('Recording started');
+  }
+
+  void _onStopRecording() {
+    setState(() {
+      _isRecording = false;
+    });
+    // Add stop recording logic here
+    print('Recording stopped');
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 300,
+      margin: const EdgeInsets.symmetric(horizontal: 16),
+      child: CameraPreviewWidget(
+        onCameraInitialized: _onCameraInitialized,
+        isRecording: _isRecording,
+        onStartRecording: _onStartRecording,
+        onStopRecording: _onStopRecording,
+      ),
     );
   }
 }

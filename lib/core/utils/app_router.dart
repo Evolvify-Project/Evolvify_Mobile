@@ -1,5 +1,7 @@
-import 'package:evolvify/core/widgets/bottom_nav_bar.dart';
+import 'package:evolvify/features/AI-Assessment/presentation/views/AI-Assessment_view.dart';
 import 'package:evolvify/features/AI-Assessment/presentation/views/Interview_view.dart';
+import 'package:evolvify/features/AI-Assessment/presentation/manager/ai_assessment_cubit/ai_assessment_cubit.dart';
+import 'package:evolvify/features/AI-Assessment/data/repos/ai_assessment_repository_impl.dart';
 import 'package:evolvify/features/Assessment/data/models/question/skill_result.dart';
 import 'package:evolvify/features/Assessment/presentation/manager/RecommendCourses_cubit/recommend_courses_cubit.dart';
 import 'package:evolvify/features/Assessment/presentation/manager/question_cubit/question_cubit.dart';
@@ -38,7 +40,6 @@ import 'package:evolvify/features/community/presentation/views/community_page.da
 import 'package:evolvify/features/community/presentation/views/create_post.dart';
 import 'package:evolvify/features/community/presentation/views/widgets/create_post_providers.dart';
 import 'package:evolvify/features/home/presentation/manager/AllCoursesOfSkill/all_courses_of_skill_cubit.dart';
-import 'package:evolvify/features/home/presentation/manager/Courses_cubit/courses_cubit.dart';
 import 'package:evolvify/features/home/presentation/views/allcourse_of_skills_view.dart';
 import 'package:evolvify/features/home/presentation/views/home_view.dart';
 import 'package:evolvify/features/on_Boarding/on_Boarding_pageview.dart';
@@ -55,6 +56,10 @@ import 'package:evolvify/features/splash%20screen/splash_screen_one.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+
+import '../../features/home/presentation/manager/Courses_cubit/courses_cubit.dart';
+import '../widgets/bottom_nav_bar.dart';
+import 'package:evolvify/features/AI-Assessment/presentation/views/ai_assessment_evolvisense.dart';
 
 abstract class AppRouter {
   static const klogoView = '/logoView';
@@ -89,6 +94,7 @@ abstract class AppRouter {
   static const kPaymentMethod = '/PaymentMethod';
   static const kCardNumberPage = '/CardNumberPage';
   static const kQuizView = '/QuizView';
+  static const kAiAssessmentEvolviSense = '/aiAssessmentEvolviSense';
 
   static final router = GoRouter(
     routes: [
@@ -248,9 +254,22 @@ abstract class AppRouter {
       GoRoute(
         path: '/',
         builder:
-            (context, state) => BlocProvider(
-              create: (context) => LoginCubit(),
-              child: LoginView(),
+            (context, state) => MultiBlocProvider(
+              providers: [
+                BlocProvider(create: (context) => LoginCubit()),
+                BlocProvider(
+                  create:
+                      (context) =>
+                          AiAssessmentCubit(AiAssessmentRepositoryImpl()),
+                ),
+              ],
+              child: AiAssessmentEvolviSense(
+                prompts: [
+                  "Tell us about yourself",
+                  "Describe a challenge you overcame",
+                  "What motivates you?",
+                ],
+              ),
             ),
       ),
       GoRoute(
@@ -311,7 +330,7 @@ abstract class AppRouter {
         path: kCommentsViewg,
         builder: (context, state) {
           final postModel = state.extra as PostModel;
-        return  MultiBlocProvider(
+          return MultiBlocProvider(
             providers: [
               BlocProvider(create: (context) => CommentCubit()),
               BlocProvider(
@@ -364,6 +383,17 @@ abstract class AppRouter {
         builder:
             (context, state) =>
                 CreatePostProviders.buildWithProviders(CreatePostPage()),
+      ),
+      GoRoute(
+        path: kAiAssessmentEvolviSense,
+        builder:
+            (context, state) => AiAssessmentEvolviSense(
+              prompts: const [
+                'Tell us about yourself.',
+                'Describe a challenge you overcame.',
+                'What motivates you?',
+              ],
+            ),
       ),
     ],
   );

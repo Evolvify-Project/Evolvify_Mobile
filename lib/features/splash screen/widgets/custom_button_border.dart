@@ -37,6 +37,5 @@ class CustomButtonBorder extends StatelessWidget {
         ),
       ),
     );
-    ;
   }
 }

@@ -34,6 +34,7 @@ class PaymentPlanModel {
     'currency': currency,
     'interval': interval,
   };
+  @override
   String toString() {
     return 'PaymentPlanModel(name: $name, description: $description, price: $price, currency: $currency, interval: $interval, stripePriceId: $stripePriceId)';
   }

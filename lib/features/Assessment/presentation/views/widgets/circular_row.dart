@@ -26,7 +26,7 @@ class CircularRow extends StatelessWidget {
               ),
             ),
             Text(
-              '${value}',
+              value,
               // '${value}/20',
               style: TextStyle(
                 color: Color(0xff8093A6),

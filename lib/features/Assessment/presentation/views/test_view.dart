@@ -31,9 +31,9 @@ class _TestViewState extends State<TestView> {
   String? selectedAnswer;
 
   String getSectionName(int index) {
-    if (index < 6)
+    if (index < 6) {
       return "Interview";
-    else if (index < 12)
+    } else if (index < 12)
       return "Communication";
     else if (index < 18)
       return "Time_Management";
