@@ -1,8 +1,6 @@
 import 'dart:io';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:evolvify/core/utils/app_images.dart';
 
 class CameraPreviewWidget extends StatefulWidget {
   final Function(CameraController) onCameraInitialized;
@@ -33,7 +31,7 @@ class _CameraPreviewWidgetState extends State<CameraPreviewWidget>
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
-    _checkIfEmulator();
+    _detectEmulator();
     _initializeCamera();
   }
 
@@ -44,41 +42,25 @@ class _CameraPreviewWidgetState extends State<CameraPreviewWidget>
     super.dispose();
   }
 
-  Future<void> _checkIfEmulator() async {
-    try {
-      if (Platform.isAndroid) {
-        // Check if running on emulator
-        const platform = MethodChannel('flutter/platform');
-        final bool isEmulator = await platform.invokeMethod('isEmulator');
-        setState(() {
-          _isEmulator = isEmulator;
-        });
-        print('Camera: Running on emulator: $_isEmulator');
-      }
-    } catch (e) {
-      print('Camera: Error checking emulator status: $e');
-      // Fallback emulator detection
-      _detectEmulatorFallback();
-    }
-  }
-
-  void _detectEmulatorFallback() {
-    // Simple fallback detection based on common emulator characteristics
+  void _detectEmulator() {
+    // Simple emulator detection based on common characteristics
     bool isEmulator = false;
 
     try {
-      // Check for common emulator indicators
       if (Platform.isAndroid) {
-        // These are common emulator characteristics
+        // Check for common emulator indicators
+        // For now, we'll assume it's an emulator if we're on Android
+        // This is a simplified approach - in a real app you might want more sophisticated detection
         isEmulator = true; // Assume emulator for safety
       }
     } catch (e) {
-      print('Camera: Fallback emulator detection failed: $e');
+      print('Camera: Emulator detection failed: $e');
     }
 
     setState(() {
       _isEmulator = isEmulator;
     });
+    print('Camera: Running on emulator: $_isEmulator');
   }
 
   Future<void> _initializeCamera() async {

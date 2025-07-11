@@ -9,6 +9,7 @@ import 'package:evolvify/features/AI-Assessment/presentation/views/widgets/emoti
 import 'package:evolvify/features/AI-Assessment/presentation/manager/ai_assessment_cubit/ai_assessment_cubit.dart';
 import 'package:evolvify/features/AI-Assessment/presentation/manager/ai_assessment_cubit/ai_assessment_state.dart';
 import 'package:evolvify/features/AI-Assessment/presentation/views/analysis_results_view.dart';
+import 'package:evolvify/features/AI-Assessment/presentation/views/ai_assessment_evolvisense.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -52,8 +53,9 @@ class AiassessmentView extends StatelessWidget {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder:
-                      (context) =>
-                          AnalysisResultsView(videoAnalysisResult: state.result),
+                      (context) => AnalysisResultsView(
+                        videoAnalysisResult: state.result,
+                      ),
                 ),
               );
             } else if (state is EmotionStreamSuccess) {
@@ -119,9 +121,18 @@ class AiassessmentView extends StatelessWidget {
                               context
                                   .read<AiAssessmentCubit>()
                                   .startEmotionStream();
-                              GoRouter.of(context).push(AppRouter.kInterviewView);
+                              GoRouter.of(
+                                context,
+                              ).push(AppRouter.kInterviewView);
                             }
                           },
+                        ),
+                        SizedBox(height: 17),
+                        // New EvolviSense-style assessment
+                        CustomButton(
+                          title: 'Start EvolviSense Assessment',
+                          borderRadius: 15,
+                          onTap: () => _startEvolviSenseAssessment(context),
                         ),
                         SizedBox(height: 17),
                         // Debug button to test cubit
@@ -145,6 +156,27 @@ class AiassessmentView extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+
+  void _startEvolviSenseAssessment(BuildContext context) {
+    // Mock prompts for the assessment
+    final List<String> interviewPrompts = [
+      "Tell me about yourself and your background.",
+      "What are your greatest strengths and weaknesses?",
+      "How do you handle stress and pressure?",
+      "Where do you see yourself in five years?",
+      "Why should we hire you for this position?",
+    ];
+
+    // Navigate using the router
+    GoRouter.of(context).push(
+      AppRouter.kAiAssessmentEvolviSense,
+      extra: {
+        'testType': 'Interview Assessment',
+        'prompts': interviewPrompts,
+        'durationPerPrompt': 30,
+      },
     );
   }
 

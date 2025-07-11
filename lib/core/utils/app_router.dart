@@ -58,6 +58,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../features/home/presentation/manager/Courses_cubit/courses_cubit.dart';
+import '../../features/on_Boarding/presentation/views/logo_view.dart';
 import '../widgets/bottom_nav_bar.dart';
 import 'package:evolvify/features/AI-Assessment/presentation/views/ai_assessment_evolvisense.dart';
 
@@ -265,10 +266,11 @@ abstract class AppRouter {
               ],
               child: AiAssessmentEvolviSense(
                 prompts: [
-                  "Tell us about yourself",
-                  "Describe a challenge you overcame",
+                  "Tell us about yourself,",
+                  "Describe a challenge you overcame.",
                   "What motivates you?",
                 ],
+                testType: 'interview Assessment',
               ),
             ),
       ),
@@ -386,14 +388,27 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: kAiAssessmentEvolviSense,
-        builder:
-            (context, state) => AiAssessmentEvolviSense(
-              prompts: const [
+        builder: (context, state) {
+          final extra = state.extra as Map<String, dynamic>?;
+          final testType = extra?['testType'] ?? 'Interview Assessment';
+          final prompts =
+              extra?['prompts'] ??
+              [
                 'Tell us about yourself.',
                 'Describe a challenge you overcame.',
                 'What motivates you?',
-              ],
+              ];
+          final durationPerPrompt = extra?['durationPerPrompt'] ?? 30;
+
+          return BlocProvider.value(
+            value: BlocProvider.of<AiAssessmentCubit>(context),
+            child: AiAssessmentEvolviSense(
+              testType: testType,
+              prompts: prompts,
+              durationPerPrompt: durationPerPrompt,
             ),
+          );
+        },
       ),
     ],
   );
