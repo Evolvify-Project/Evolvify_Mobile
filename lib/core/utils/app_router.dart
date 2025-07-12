@@ -32,6 +32,7 @@ import 'package:evolvify/features/auth/presentation/views/login_view.dart';
 import 'package:evolvify/features/auth/presentation/views/register_view.dart';
 import 'package:evolvify/features/auth/presentation/views/verify_password_view.dart';
 import 'package:evolvify/features/chatbot%20_ai/presentation/views/chatbot_page.dart';
+import 'package:evolvify/features/chatbot _ai/presentation/views/chatbot_page_with_cubit.dart';
 import 'package:evolvify/features/community/data/models/post.dart';
 import 'package:evolvify/features/community/presentation/manager/comment/comment_cubit.dart';
 import 'package:evolvify/features/community/presentation/manager/fetchAllcomments/fetch_allcomments_cubit.dart';
@@ -96,6 +97,8 @@ abstract class AppRouter {
   static const kCardNumberPage = '/CardNumberPage';
   static const kQuizView = '/QuizView';
   static const kAiAssessmentEvolviSense = '/aiAssessmentEvolviSense';
+  static const kPresentationTest = '/PresentationTest';
+  static const kInterviewTest = '/InterviewTest>';
 
   static final router = GoRouter(
     routes: [
@@ -252,8 +255,9 @@ abstract class AppRouter {
             (context, state) =>
                 CreatePostProviders.buildWithProviders(CommunityPage()),
       ),
+      GoRoute(path: '/', builder: (context, state) => ChatbotPageWithCubit()),
       GoRoute(
-        path: '/',
+        path: kInterviewTest,
         builder:
             (context, state) => MultiBlocProvider(
               providers: [
@@ -270,7 +274,29 @@ abstract class AppRouter {
                   "Describe a challenge you overcame.",
                   "What motivates you?",
                 ],
-                testType: 'interview Assessment',
+                testType: 'Interview Assessment',
+              ),
+            ),
+      ),
+      GoRoute(
+        path: kPresentationTest,
+        builder:
+            (context, state) => MultiBlocProvider(
+              providers: [
+                BlocProvider(create: (context) => LoginCubit()),
+                BlocProvider(
+                  create:
+                      (context) =>
+                          AiAssessmentCubit(AiAssessmentRepositoryImpl()),
+                ),
+              ],
+              child: AiAssessmentEvolviSense(
+                prompts: [
+                  "Introduce yourself,",
+                  "What is the main idea of your presentation?",
+                  "What is the main message of your presentation?",
+                ],
+                testType: 'Presentation Assessment',
               ),
             ),
       ),

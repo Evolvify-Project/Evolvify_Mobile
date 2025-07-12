@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -6,6 +7,8 @@ import 'package:image_picker/image_picker.dart';
 import 'package:video_player/video_player.dart';
 import 'package:camera/camera.dart';
 import 'package:fl_chart/fl_chart.dart';
+import 'package:keep_screen_on/keep_screen_on.dart';
+
 import 'package:evolvify/core/utils/app_style.dart';
 import 'package:evolvify/core/utils/constant.dart';
 import 'package:evolvify/core/widgets/custom_button.dart';
@@ -64,6 +67,16 @@ class _AiAssessmentEvolviSenseState extends State<AiAssessmentEvolviSense>
     WidgetsBinding.instance.addObserver(this);
     _promptTimer = widget.durationPerPrompt;
     _countdown = widget.prompts.length * widget.durationPerPrompt;
+
+    // Keep screen on while camera is active
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+
+    // Keep screen on while camera is active
+    KeepScreenOn.turnOn();
+
     _initializeCamera();
   }
 
@@ -84,6 +97,10 @@ class _AiAssessmentEvolviSenseState extends State<AiAssessmentEvolviSense>
       }
       _cameraController = null;
     }
+
+    // Turn off keep screen on and reset system UI settings
+    KeepScreenOn.turnOff();
+    SystemChrome.setPreferredOrientations([]);
 
     super.dispose();
   }
@@ -125,7 +142,8 @@ class _AiAssessmentEvolviSenseState extends State<AiAssessmentEvolviSense>
         break;
       case AppLifecycleState.resumed:
         // Reinitialize camera when app comes back to foreground
-        if (mounted && !_isDisposing && !_isCameraInitialized) {
+        if (mounted && !_isDisposing) {
+          // Force reinitialize camera regardless of current state
           _initializeCamera();
         }
         break;
@@ -340,6 +358,8 @@ class _AiAssessmentEvolviSenseState extends State<AiAssessmentEvolviSense>
       _isVideoPlaying = false;
     });
 
+    // Reinitialize camera after reset
+    _initializeCamera();
     _showMessage('Session reset');
   }
 
@@ -379,8 +399,8 @@ class _AiAssessmentEvolviSenseState extends State<AiAssessmentEvolviSense>
       // Force cleanup any existing camera resources
       await _forceCameraCleanup();
 
-      // Add a small delay to ensure camera resources are released
-      await Future.delayed(const Duration(milliseconds: 200));
+      // Add a longer delay to ensure camera resources are released
+      await Future.delayed(const Duration(milliseconds: 500));
 
       _cameras = await availableCameras();
       if (_cameras.isEmpty) {
