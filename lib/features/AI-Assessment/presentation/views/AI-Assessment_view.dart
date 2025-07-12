@@ -63,95 +63,96 @@ class AiassessmentView extends StatelessWidget {
               // Optionally handle real-time emotion data here, or show a dialog/snackbar
             }
           },
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Column(
-              children: [
-                SizedBox(height: 35),
-                UpgradetoPremiumSection(),
-                SizedBox(height: 50),
-                Image.asset(Assets.imagesSelectCamera),
-                SizedBox(height: 18),
-                Text(
-                  'Try Now',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w600,
-                    color: AppColors.kPrimaryColor,
-                    fontSize: getResponsiveFontSize(context, fontSize: 26),
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Column(
+                children: [
+                  SizedBox(height: 35),
+                  UpgradetoPremiumSection(),
+                  SizedBox(height: 50),
+                  Image.asset(Assets.imagesSelectCamera),
+                  SizedBox(height: 18),
+                  Text(
+                    'Try Now',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      color: AppColors.kPrimaryColor,
+                      fontSize: getResponsiveFontSize(context, fontSize: 26),
+                    ),
                   ),
-                ),
-                SizedBox(height: 18),
-                Text(
-                  'Enhance your soft skills through immersive \n                                     simulations.',
-                  style: TextStyle(
-                    color: Color(0xff92919A),
-                    fontWeight: FontWeight.w400,
-                    fontSize: getResponsiveFontSize(context, fontSize: 16),
+                  SizedBox(height: 18),
+                  Text(
+                    'Enhance your soft skills through immersive \n                                     simulations.',
+                    style: TextStyle(
+                      color: Color(0xff92919A),
+                      fontWeight: FontWeight.w400,
+                      fontSize: getResponsiveFontSize(context, fontSize: 16),
+                    ),
                   ),
-                ),
-                SizedBox(height: 50),
-                BlocBuilder<AiAssessmentCubit, AiAssessmentState>(
-                  builder: (context, state) {
-                    return Column(
-                      children: [
-                        CustomButton(
-                          title:
-                              state is Loading
-                                  ? 'Analyzing...'
-                                  : 'Start Presentation Analysis',
-                          borderRadius: 15,
-                          onTap:
-                              state is Loading
-                                  ? null
-                                  : () => _pickVideoAndAnalyze(context),
-                        ),
-                        SizedBox(height: 17),
-                        CustomButton(
-                          title:
-                              state is Streaming
-                                  ? 'Stop Stream'
-                                  : 'Start Interview Analysis',
-                          borderRadius: 15,
-                          onTap: () {
-                            if (state is Streaming) {
-                              context
-                                  .read<AiAssessmentCubit>()
-                                  .stopEmotionStream();
-                            } else {
-                              context
-                                  .read<AiAssessmentCubit>()
-                                  .startEmotionStream();
-                              GoRouter.of(
-                                context,
-                              ).push(AppRouter.kInterviewView);
-                            }
-                          },
-                        ),
-                        SizedBox(height: 17),
-                        // New EvolviSense-style assessment
-                        CustomButton(
-                          title: 'Start EvolviSense Assessment',
-                          borderRadius: 15,
-                          onTap: () => _startEvolviSenseAssessment(context),
-                        ),
-                        SizedBox(height: 17),
-                        // Debug button to test cubit
-                        CustomButton(
-                          title: 'Test Mock Analysis',
-                          borderRadius: 15,
-                          onTap: () => _testMockAnalysis(context),
-                        ),
-                        SizedBox(height: 17),
-                        CustomButton(
-                          title: 'Test Cubit',
-                          borderRadius: 15,
-                          onTap: () => _testCubit(context),
-                        ),
-                      ],
-                    );
-                  },
-                ),
-              ],
+                  SizedBox(height: 50),
+                  BlocBuilder<AiAssessmentCubit, AiAssessmentState>(
+                    builder: (context, state) {
+                      return Column(
+                        children: [
+                          CustomButton(
+                            title:
+                                state is Loading
+                                    ? 'Analyzing...'
+                                    : 'Start Presentation Analysis',
+                            borderRadius: 15,
+                            onTap:
+                                state is Loading
+                                    ? null
+                                    : () => _startPresentationTest(context),
+                          ),
+                          SizedBox(height: 17),
+                          CustomButton(
+                            title:
+                                state is Streaming
+                                    ? 'Stop Stream'
+                                    : 'Start Interview Analysis',
+                            borderRadius: 15,
+                            onTap: () {
+                              if (state is Streaming) {
+                                context
+                                    .read<AiAssessmentCubit>()
+                                    .stopEmotionStream();
+                              } else {
+                                context
+                                    .read<AiAssessmentCubit>()
+                                    .startEmotionStream();
+                                _startInterviewTest(context);
+                              }
+                            },
+                          ),
+                          SizedBox(height: 17),
+                          // New EvolviSense-style assessment
+                          CustomButton(
+                            title: 'Start EvolviSense Assessment',
+                            borderRadius: 15,
+                            onTap: () => _startEvolviSenseAssessment(context),
+                          ),
+                          SizedBox(height: 17),
+                          // Debug button to test cubit
+                          CustomButton(
+                            title: 'Test Mock Analysis',
+                            borderRadius: 15,
+                            onTap: () => _testMockAnalysis(context),
+                          ),
+                          SizedBox(height: 17),
+                          CustomButton(
+                            title: 'Test Cubit',
+                            borderRadius: 15,
+                            onTap: () => _testCubit(context),
+                          ),
+                        ],
+                      );
+                    },
+                  ),
+                  SizedBox(height: 20), // Add bottom padding for scroll
+                ],
+              ),
             ),
           ),
         ),
@@ -209,5 +210,15 @@ class AiassessmentView extends StatelessWidget {
     // Test if we can emit a simple state
     cubit.emit(const Loading());
     print('AI Assessment View: Emitted Loading state');
+  }
+
+  void _startPresentationTest(BuildContext context) {
+    print('AI Assessment View: Starting presentation test');
+    GoRouter.of(context).push(AppRouter.kPresentationTest);
+  }
+
+  void _startInterviewTest(BuildContext context) {
+    print('AI Assessment View: Starting interview test');
+    GoRouter.of(context).push(AppRouter.kInterviewTest);
   }
 }

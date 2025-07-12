@@ -77,4 +77,23 @@ class AssessmentRepoImpl implements AssessmentRepo {
       return left(ServerFailure(e.toString()));
     }
   }
+
+  @override
+  Future<Either<Failure, bool>> hasCompletedAssessment() async {
+    try {
+      var data = await ApiServices().get(endPoint: 'Assessments/Result');
+
+      // Check if the response has data, which indicates assessment is completed
+      // If the API returns data, it means the user has completed the assessment
+      bool hasCompleted = data['data'] != null && data['data'].isNotEmpty;
+
+      return right(hasCompleted);
+    } on Exception catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioException(e));
+      }
+
+      return left(ServerFailure(e.toString()));
+    }
+  }
 }

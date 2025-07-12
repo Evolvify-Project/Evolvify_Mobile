@@ -12,12 +12,16 @@ class Goalofpremium extends StatelessWidget {
       children: [
         Image.asset(Assets.imagesStar),
         SizedBox(width: 10),
-        Text(
-          text,
-          style: TextStyle(
-            color: AppColors.kPrimaryColor,
-            fontWeight: FontWeight.w500,
-            fontSize: getResponsiveFontSize(context, fontSize: 16),
+        Flexible(
+          child: Text(
+            text,
+            style: TextStyle(
+              color: AppColors.kPrimaryColor,
+              fontWeight: FontWeight.w500,
+              fontSize: getResponsiveFontSize(context, fontSize: 16),
+            ),
+            overflow: TextOverflow.ellipsis,
+            maxLines: 2,
           ),
         ),
       ],
@@ -30,24 +34,37 @@ class GoalsPremium extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        SizedBox(height: 25),
-        Row(
-          children: [
-            Goalofpremium(text: 'Ad-Free Experience'),
-            Expanded(child: SizedBox()),
-            Goalofpremium(text: ' Advanced Analytics'),
-          ],
-        ),
-        Row(
-          children: [
-            Goalofpremium(text: 'Exclusive AI Insights'),
-            Expanded(child: SizedBox()),
-            Goalofpremium(text: 'Premium Simulations'),
-          ],
-        ),
-      ],
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          SizedBox(height: 25),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    Expanded(child: Goalofpremium(text: 'Ad-Free Experience')),
+                    SizedBox(width: 20),
+                    Expanded(child: Goalofpremium(text: 'Advanced Analytics')),
+                  ],
+                ),
+                SizedBox(height: 15),
+                Row(
+                  children: [
+                    Expanded(
+                      child: Goalofpremium(text: 'Exclusive AI Insights'),
+                    ),
+                    SizedBox(width: 20),
+                    Expanded(child: Goalofpremium(text: 'Premium Simulations')),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          SizedBox(height: 20),
+        ],
+      ),
     );
   }
 }

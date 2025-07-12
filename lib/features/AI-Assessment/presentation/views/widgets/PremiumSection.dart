@@ -1,6 +1,8 @@
 import 'package:evolvify/core/utils/app_images.dart';
+import 'package:evolvify/core/utils/app_router.dart';
 import 'package:evolvify/core/utils/app_style.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class UpgradetoPremiumSection extends StatelessWidget {
   const UpgradetoPremiumSection({super.key});
@@ -65,7 +67,9 @@ class UpgradetoPremiumSection extends StatelessWidget {
                   elevation: 0,
                   backgroundColor: Colors.black,
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  GoRouter.of(context).push(AppRouter.kPremiumView);
+                },
                 child: Center(
                   child: Text(
                     'Subscribe Now',

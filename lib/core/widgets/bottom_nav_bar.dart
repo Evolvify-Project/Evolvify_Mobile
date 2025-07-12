@@ -3,7 +3,7 @@ import 'package:evolvify/core/utils/app_images.dart';
 import 'package:evolvify/core/utils/constant.dart';
 import 'package:evolvify/features/AI-Assessment/presentation/views/AI-Assessment_view.dart';
 import 'package:evolvify/features/Premium/presentation/views/Premium_view.dart';
-import 'package:evolvify/features/chatbot%20_ai/presentation/views/chatbot_page.dart';
+import 'package:evolvify/features/chatbot _ai/presentation/views/chatbot_page_with_cubit.dart';
 import 'package:evolvify/features/community/presentation/views/community_page.dart';
 import 'package:evolvify/features/home/presentation/views/home_view.dart';
 import 'package:evolvify/features/profile/presentation/views/profile_view.dart';
@@ -111,7 +111,7 @@ class _CurvedNavWithImageState extends State<CurvedNavWithImage> {
 
   final List<Widget> _pages = [
     HomeView(),
-    ChatbotPage(),
+    ChatbotPageWithCubit(),
     AiassessmentView(),
     CommunityPage(),
 

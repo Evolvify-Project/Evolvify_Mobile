@@ -98,7 +98,8 @@ abstract class AppRouter {
   static const kQuizView = '/QuizView';
   static const kAiAssessmentEvolviSense = '/aiAssessmentEvolviSense';
   static const kPresentationTest = '/PresentationTest';
-  static const kInterviewTest = '/InterviewTest>';
+  static const kInterviewTest = '/InterviewTest';
+  static const kChatbotPageWithCubit = '/ChatbotPageWithCubit';
 
   static final router = GoRouter(
     routes: [
@@ -255,7 +256,10 @@ abstract class AppRouter {
             (context, state) =>
                 CreatePostProviders.buildWithProviders(CommunityPage()),
       ),
-      GoRoute(path: '/', builder: (context, state) => ChatbotPageWithCubit()),
+      GoRoute(
+        path: kChatbotPageWithCubit,
+        builder: (context, state) => ChatbotPageWithCubit(),
+      ),
       GoRoute(
         path: kInterviewTest,
         builder:
@@ -399,7 +403,7 @@ abstract class AppRouter {
         },
       ),
 
-      // GoRoute(path: '/', builder: (context, state) => LogoView()),
+      GoRoute(path: '/', builder: (context, state) => LogoView()),
       GoRoute(
         path: kOnBordingView,
         builder: (context, state) => OnBoardingPageview(),

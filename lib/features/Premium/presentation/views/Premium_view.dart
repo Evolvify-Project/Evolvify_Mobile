@@ -13,42 +13,46 @@ class PremiumView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Column(
-            children: [
-              SizedBox(height: 15),
-              Align(alignment: Alignment.topLeft, child: CutsomArrowios()),
-              Image.asset(Assets.imagesPremiumImage),
-              Text(
-                'Upgrade to ',
-                style: TextStyle(
-                  color: AppColors.kPrimaryColor,
-                  fontWeight: FontWeight.bold,
-                  fontSize: getResponsiveFontSize(context, fontSize: 40),
+      backgroundColor: Colors.white,
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Column(
+              children: [
+                SizedBox(height: 15),
+                Align(alignment: Alignment.topLeft, child: CutsomArrowios()),
+                Image.asset(Assets.imagesPremiumImage),
+                Text(
+                  'Upgrade to ',
+                  style: TextStyle(
+                    color: AppColors.kPrimaryColor,
+                    fontWeight: FontWeight.bold,
+                    fontSize: getResponsiveFontSize(context, fontSize: 40),
+                  ),
                 ),
-              ),
-              Text(
-                'Premium',
-                style: TextStyle(
-                  color: Color(0xffFFAE6C),
-                  fontWeight: FontWeight.bold,
-                  fontSize: getResponsiveFontSize(context, fontSize: 40),
+                Text(
+                  'Premium',
+                  style: TextStyle(
+                    color: Color(0xffFFAE6C),
+                    fontWeight: FontWeight.bold,
+                    fontSize: getResponsiveFontSize(context, fontSize: 40),
+                  ),
                 ),
-              ),
-              SizedBox(height: 18),
-              Text(
-                'Upgrade to Premium for Advanced Insights!',
-                style: TextStyle(
-                  color: AppColors.kPrimaryColor,
-                  fontWeight: FontWeight.w500,
-                  fontSize: getResponsiveFontSize(context, fontSize: 19),
+                SizedBox(height: 18),
+                Text(
+                  'Upgrade to Premium for Advanced Insights!',
+                  style: TextStyle(
+                    color: AppColors.kPrimaryColor,
+                    fontWeight: FontWeight.w500,
+                    fontSize: getResponsiveFontSize(context, fontSize: 19),
+                  ),
                 ),
-              ),
-              GoalsPremium(),
-              PlansList(),
-            ],
+                GoalsPremium(),
+                PlansList(),
+                SizedBox(height: 20), // Add bottom padding for scroll
+              ],
+            ),
           ),
         ),
       ),

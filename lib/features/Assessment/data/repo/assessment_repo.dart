@@ -10,4 +10,5 @@ abstract class AssessmentRepo {
     Map<String, Map<String, String>> answers,
   );
   Future<Either<Failure, List<RecommendCoursesModel>>> getRecommendCourses();
+  Future<Either<Failure, bool>> hasCompletedAssessment();
 }

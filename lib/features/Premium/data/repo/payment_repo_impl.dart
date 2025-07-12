@@ -40,7 +40,7 @@ class PaymentRepoImpl implements PaymentRepo {
 
       final response = await ApiServices().post(
         endPoint: 'Payment/create-subscription',
-        data: jsonEncode(stripePriceId),
+        data: {'PriceId': stripePriceId},
       );
 
       print(" Full API Response: $response");

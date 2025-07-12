@@ -23,89 +23,109 @@ class ChatbotCubit extends Cubit<ChatbotState> {
     // Add user message to the list
     final userMessage = ChatMessageModel.userMessage(message);
     _messages.add(userMessage);
-    emit(ChatbotMessagesUpdated(messages: List.from(_messages)));
+    if (!isClosed) {
+      emit(ChatbotMessagesUpdated(messages: List.from(_messages)));
+    }
 
     // Send to API and get response
-    emit(ChatbotLoading());
+    if (!isClosed) {
+      emit(ChatbotLoading());
+    }
 
     final result = await _repository.sendTextMessage(message);
 
-    result.fold(
-      (failure) {
-        emit(ChatbotError(message: failure.errMessge));
-      },
-      (aiResponse) {
-        _messages.add(aiResponse);
-        emit(ChatbotMessagesUpdated(messages: List.from(_messages)));
-      },
-    );
+    if (!isClosed) {
+      result.fold(
+        (failure) {
+          emit(ChatbotError(message: failure.errMessge));
+        },
+        (aiResponse) {
+          _messages.add(aiResponse);
+          emit(ChatbotMessagesUpdated(messages: List.from(_messages)));
+        },
+      );
+    }
   }
 
   /// Convert speech to text
   Future<void> convertSpeechToText(File audioFile) async {
-    emit(ChatbotLoading());
+    if (!isClosed) {
+      emit(ChatbotLoading());
+    }
 
     final result = await _repository.speechToText(audioFile);
 
-    result.fold(
-      (failure) {
-        emit(ChatbotError(message: failure.errMessge));
-      },
-      (speechResult) {
-        if (speechResult.isSuccess) {
-          // Add the transcribed text as a user message
-          final userMessage = ChatMessageModel.userMessage(
-            speechResult.transcription!,
-          );
-          _messages.add(userMessage);
-          emit(ChatbotMessagesUpdated(messages: List.from(_messages)));
+    if (!isClosed) {
+      result.fold(
+        (failure) {
+          emit(ChatbotError(message: failure.errMessge));
+        },
+        (speechResult) {
+          if (speechResult.isSuccess) {
+            // Add the transcribed text as a user message
+            final userMessage = ChatMessageModel.userMessage(
+              speechResult.transcription!,
+            );
+            _messages.add(userMessage);
+            emit(ChatbotMessagesUpdated(messages: List.from(_messages)));
 
-          // Send the transcribed text to get AI response
-          sendTextMessage(speechResult.transcription!);
-        } else {
-          emit(
-            ChatbotError(
-              message: speechResult.error ?? 'Failed to transcribe speech',
-            ),
-          );
-        }
-      },
-    );
+            // Send the transcribed text to get AI response
+            sendTextMessage(speechResult.transcription!);
+          } else {
+            emit(
+              ChatbotError(
+                message: speechResult.error ?? 'Failed to transcribe speech',
+              ),
+            );
+          }
+        },
+      );
+    }
   }
 
   /// Convert text to speech
   Future<void> convertTextToSpeech(String text) async {
-    emit(ChatbotLoading());
+    if (!isClosed) {
+      emit(ChatbotLoading());
+    }
 
     final result = await _repository.textToSpeech(text);
 
-    result.fold(
-      (failure) {
-        emit(ChatbotError(message: failure.errMessge));
-      },
-      (speechResult) {
-        if (speechResult.isSuccess) {
-          emit(ChatbotTextToSpeechSuccess(audioData: speechResult.audioData!));
-        } else {
-          emit(
-            ChatbotError(
-              message: speechResult.error ?? 'Failed to generate speech',
-            ),
-          );
-        }
-      },
-    );
+    if (!isClosed) {
+      result.fold(
+        (failure) {
+          emit(ChatbotError(message: failure.errMessge));
+        },
+        (speechResult) {
+          if (speechResult.isSuccess) {
+            emit(
+              ChatbotTextToSpeechSuccess(audioData: speechResult.audioData!),
+            );
+          } else {
+            emit(
+              ChatbotError(
+                message: speechResult.error ?? 'Failed to generate speech',
+              ),
+            );
+          }
+        },
+      );
+    }
   }
 
   /// Clear all messages
   void clearMessages() {
     _messages.clear();
-    emit(ChatbotMessagesUpdated(messages: List.from(_messages)));
+    if (!isClosed) {
+      emit(ChatbotMessagesUpdated(messages: List.from(_messages)));
+    }
   }
 
   /// Reset to initial state
   void reset() {
     _messages.clear();
-    emit(ChatbotInitial());
+    if (!isClosed) {
+      emit(ChatbotInitial());
+    }
   }
 }

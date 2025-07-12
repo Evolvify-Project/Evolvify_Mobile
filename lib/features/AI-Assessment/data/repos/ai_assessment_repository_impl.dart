@@ -53,6 +53,34 @@ class AiAssessmentRepositoryImpl implements AiAssessmentRepository {
       return _emotionStreamController!.stream;
     }
 
+    // Use mock data for now to prevent hanging
+    print('Using mock data for emotion stream (WebSocket disabled)');
+    Timer.periodic(const Duration(seconds: 3), (timer) {
+      if (_emotionStreamController?.isClosed == false) {
+        final mockEmotion = EmotionAnalysisResponseModel(
+          emotion:
+              ['Happy', 'Neutral', 'Sad', 'Angry'][DateTime.now().second % 4],
+          confidence: 0.7 + (DateTime.now().millisecond % 30) / 100,
+          mentalHealth: MentalHealthModel(
+            stress: 0.2 + (DateTime.now().second % 40) / 100,
+            anxiety: 0.15 + (DateTime.now().second % 35) / 100,
+            confidence: 0.8 + (DateTime.now().second % 20) / 100,
+          ),
+          trendData: TrendDataModel(
+            stressHistory: [0.2, 0.25, 0.3, 0.22, 0.28],
+            anxietyHistory: [0.15, 0.18, 0.22, 0.19, 0.21],
+            confidenceHistory: [0.8, 0.82, 0.78, 0.85, 0.83],
+          ),
+        );
+        _emotionStreamController?.add(mockEmotion);
+      } else {
+        timer.cancel();
+      }
+    });
+    return _emotionStreamController!.stream;
+
+    // Commented out WebSocket implementation to prevent hanging
+    /*
     final wsUrl = Uri.parse('$_wsBaseUrl/ws/emotion-stream/');
     _channel = WebSocketChannel.connect(wsUrl);
 
@@ -68,21 +96,19 @@ class AiAssessmentRepositoryImpl implements AiAssessmentRepository {
           _emotionStreamController?.addError(
             'Error parsing WebSocket message: $e',
           );
-          // Consider more robust error handling/logging
         }
       },
       onError: (error) {
         _emotionStreamController?.addError('WebSocket error: $error');
-        // Consider attempting to reconnect or notifying the user
-        disconnectFromEmotionStream(); // Clean up on error
+        disconnectFromEmotionStream();
       },
       onDone: () {
         _emotionStreamController?.close();
-        // Connection closed by the server
       },
       cancelOnError: true,
     );
     return _emotionStreamController!.stream;
+    */
   }
 
   @override

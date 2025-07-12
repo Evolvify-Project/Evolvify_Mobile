@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:evolvify/features/AI-Assessment/data/repos/ai_assessment_repository.dart';
@@ -34,16 +35,39 @@ class AiAssessmentCubit extends Cubit<AiAssessmentState> {
 
     try {
       final stream = _repository.connectToEmotionStream();
+
+      // Add timeout to prevent hanging
+      Timer(const Duration(seconds: 30), () {
+        if (!isClosed && state is Streaming) {
+          print('Emotion stream timeout - stopping stream');
+          stopEmotionStream();
+        }
+      });
+
       stream.listen(
         (emotionData) {
-          emit(EmotionStreamSuccess(emotionData));
+          if (!isClosed) {
+            emit(EmotionStreamSuccess(emotionData));
+          }
         },
         onError: (error) {
-          emit(Error(error.toString()));
+          if (!isClosed) {
+            print('Emotion stream error: $error');
+            emit(Error(error.toString()));
+          }
+        },
+        onDone: () {
+          if (!isClosed) {
+            print('Emotion stream completed');
+            emit(const Initial());
+          }
         },
       );
     } catch (error) {
-      emit(Error(error.toString()));
+      if (!isClosed) {
+        print('Error starting emotion stream: $error');
+        emit(Error(error.toString()));
+      }
     }
   }
 
