@@ -128,24 +128,24 @@ class AiassessmentView extends StatelessWidget {
                           ),
                           SizedBox(height: 17),
                           // New EvolviSense-style assessment
-                          CustomButton(
-                            title: 'Start EvolviSense Assessment',
-                            borderRadius: 15,
-                            onTap: () => _startEvolviSenseAssessment(context),
-                          ),
-                          SizedBox(height: 17),
+                          // CustomButton(
+                          //   title: 'Start EvolviSense Assessment',
+                          //   borderRadius: 15,
+                          //   onTap: () => _startEvolviSenseAssessment(context),
+                          // ),
+                          // SizedBox(height: 17),
                           // Debug button to test cubit
-                          CustomButton(
-                            title: 'Test Mock Analysis',
-                            borderRadius: 15,
-                            onTap: () => _testMockAnalysis(context),
-                          ),
-                          SizedBox(height: 17),
-                          CustomButton(
-                            title: 'Test Cubit',
-                            borderRadius: 15,
-                            onTap: () => _testCubit(context),
-                          ),
+                          // CustomButton(
+                          //   title: 'Test Mock Analysis',
+                          //   borderRadius: 15,
+                          //   onTap: () => _testMockAnalysis(context),
+                          // ),
+                          // SizedBox(height: 17),
+                          // CustomButton(
+                          //   title: 'Test Cubit',
+                          //   borderRadius: 15,
+                          //   onTap: () => _testCubit(context),
+                          // ),
                         ],
                       );
                     },

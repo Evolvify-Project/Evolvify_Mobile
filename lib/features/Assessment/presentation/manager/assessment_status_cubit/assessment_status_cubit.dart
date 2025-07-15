@@ -17,9 +17,13 @@ class AssessmentStatusCubit extends Cubit<AssessmentStatusState> {
     if (!isClosed) {
       result.fold(
         (failure) {
+          print('❌ Assessment status check failed: ${failure.errMessge}');
           emit(AssessmentStatusFailure(errMessage: failure.errMessge));
         },
         (hasCompleted) {
+          print(
+            '✅ Assessment status check completed: hasCompleted = $hasCompleted',
+          );
           emit(AssessmentStatusSuccess(hasCompleted: hasCompleted));
         },
       );

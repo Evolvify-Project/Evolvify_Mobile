@@ -13,12 +13,23 @@ class AssessmentRepoImpl implements AssessmentRepo {
     try {
       var data = await ApiServices().get(endPoint: 'Assessments/questions');
 
+      // Check if the assessment is already completed
+      if (data['success'] == false &&
+          data['message'] == "Assessment already completed.") {
+        // Return empty list if assessment is already completed
+        print(
+          '📝 Assessment already completed, returning empty questions list',
+        );
+        return right([]);
+      }
+
       List<QuestionModel> questionList =
           (data["data"] as List?)
               ?.map((question) => QuestionModel.fromJson(question))
               .toList() ??
           [];
 
+      print('📝 Questions fetched: ${questionList.length} questions');
       return right(questionList);
     } on Exception catch (e) {
       if (e is DioException) {
@@ -81,11 +92,19 @@ class AssessmentRepoImpl implements AssessmentRepo {
   @override
   Future<Either<Failure, bool>> hasCompletedAssessment() async {
     try {
-      var data = await ApiServices().get(endPoint: 'Assessments/Result');
+      var data = await ApiServices().get(endPoint: 'Assessments/questions');
 
-      // Check if the response has data, which indicates assessment is completed
-      // If the API returns data, it means the user has completed the assessment
-      bool hasCompleted = data['data'] != null && data['data'].isNotEmpty;
+      // Check if the assessment is already completed by looking for the specific message
+      // If the API returns success: false and message: "Assessment already completed.",
+      // it means the user has completed the assessment
+      bool hasCompleted =
+          data['success'] == false &&
+          data['message'] == "Assessment already completed.";
+
+      print('🔍 Assessment Status Check:');
+      print('   Success: ${data['success']}');
+      print('   Message: ${data['message']}');
+      print('   Has Completed: $hasCompleted');
 
       return right(hasCompleted);
     } on Exception catch (e) {

@@ -69,6 +69,25 @@ class _TestViewState extends State<TestView> {
               return Center(child: CircularProgressIndicator());
             } else if (state is QuestionSuccess) {
               final questions = state.questionsList;
+
+              // If questions list is empty, it means assessment is already completed
+              if (questions.isEmpty) {
+                // Redirect to home screen since assessment is already completed
+                print(
+                  '📝 Test View: Questions list is empty, assessment already completed',
+                );
+                print('📝 Test View: Redirecting to home screen');
+                WidgetsBinding.instance.addPostFrameCallback((_) {
+                  GoRouter.of(
+                    context,
+                  ).pushReplacement(AppRouter.kCustomBottomNavigationBar);
+                });
+                return Center(child: CircularProgressIndicator());
+              }
+
+              print(
+                '📝 Test View: Questions loaded: ${questions.length} questions',
+              );
               final question = questions[currentIndex];
               final section = getSectionName(currentIndex);
               final progress = (currentIndex + 1) / questions.length;

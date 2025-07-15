@@ -56,15 +56,28 @@ class SignUpView extends StatelessWidget {
       child: BlocListener<AssessmentStatusCubit, AssessmentStatusState>(
         listener: (context, state) {
           if (state is AssessmentStatusSuccess) {
+            print('🔐 Register: Assessment status check successful');
+            print('🔐 Register: hasCompleted = ${state.hasCompleted}');
             if (state.hasCompleted) {
               // User has completed assessment, go to home screen
-              GoRouter.of(context).pushReplacement(AppRouter.kCustomBottomNavigationBar);
+              print(
+                '🔐 Register: Redirecting to home screen (assessment completed)',
+              );
+              GoRouter.of(
+                context,
+              ).pushReplacement(AppRouter.kCustomBottomNavigationBar);
             } else {
               // User hasn't completed assessment, go to assessment view
+              print(
+                '🔐 Register: Redirecting to assessment view (assessment not completed)',
+              );
               GoRouter.of(context).pushReplacement(AppRouter.kAssessmentView);
             }
           } else if (state is AssessmentStatusFailure) {
             // If there's an error checking assessment status, default to assessment view
+            print(
+              '🔐 Register: Assessment status check failed, defaulting to assessment view',
+            );
             GoRouter.of(context).pushReplacement(AppRouter.kAssessmentView);
           }
         },
@@ -77,7 +90,21 @@ class SignUpView extends StatelessWidget {
               // Check assessment status and redirect accordingly
               context.read<AssessmentStatusCubit>().checkAssessmentStatus();
             } else if (state is Registerfailure) {
-              showSnackBar(context, text: state.errMassage);
+              // Clear username field if it's a username taken error
+              if (state.errMassage.contains('Username is already taken')) {
+                c.userNameController.clear();
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(
+                      'Username is already taken. Please choose a different username.',
+                    ),
+                    backgroundColor: Colors.orange,
+                    duration: Duration(seconds: 4),
+                  ),
+                );
+              } else {
+                showSnackBar(context, text: state.errMassage);
+              }
             }
           },
           builder: (context, state) {

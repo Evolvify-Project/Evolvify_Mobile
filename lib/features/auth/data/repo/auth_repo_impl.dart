@@ -54,6 +54,21 @@ class AuthRepoImpl implements AuthRepo {
       return right(AuthModel.fromJson(data['data']));
     } on Exception catch (e) {
       if (e is DioException) {
+        // Handle specific username taken error
+        if (e.response?.statusCode == 400) {
+          final responseData = e.response?.data;
+          if (responseData != null && responseData['errors'] != null) {
+            final errors = responseData['errors'] as List;
+            if (errors.isNotEmpty &&
+                errors[0].toString().contains('Username')) {
+              return left(
+                ServerFailure(
+                  'Username is already taken. Please choose a different username.',
+                ),
+              );
+            }
+          }
+        }
         return left(ServerFailure.fromDioException(e));
       }
 

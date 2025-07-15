@@ -11,27 +11,30 @@ class PopularSkillGridView extends StatelessWidget {
   int skillId = 0;
   @override
   Widget build(BuildContext context) {
-    return SliverGrid.builder(
-      itemCount: 5,
+    return SliverToBoxAdapter(
+      child: GridView.builder(
+        shrinkWrap: true,
+        physics: NeverScrollableScrollPhysics(),
+        itemCount: 5,
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          childAspectRatio: 2.3 / 3,
+          crossAxisCount: 2,
+          crossAxisSpacing: 15,
+          mainAxisSpacing: 0,
+        ),
+        itemBuilder: (context, index) {
+          final skillId = index + 1;
 
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        childAspectRatio: 2.3 / 3,
-        crossAxisCount: 2,
-        crossAxisSpacing: 15,
-        mainAxisSpacing: 0,
+          return GestureDetector(
+            onTap: () {
+              GoRouter.of(
+                context,
+              ).push(AppRouter.kAllcourseOfSkillsView, extra: skillId);
+            },
+            child: AspectRatio(aspectRatio: 1 / 2, child: images[index]),
+          );
+        },
       ),
-      itemBuilder: (context, index) {
-        final skillId = index + 1;
-
-        return GestureDetector(
-          onTap: () {
-            GoRouter.of(
-              context,
-            ).push(AppRouter.kAllcourseOfSkillsView, extra: skillId);
-          },
-          child: AspectRatio(aspectRatio: 1 / 2, child: images[index]),
-        );
-      },
     );
   }
 

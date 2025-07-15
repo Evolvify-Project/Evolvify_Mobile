@@ -12,24 +12,28 @@ class RecommendCourseList extends StatelessWidget {
     return BlocBuilder<RecommendCoursesCubit, RecommendCoursesState>(
       builder: (context, state) {
         if (state is RecommendCoursesLosding) {
-          return Center(child: CircularProgressIndicator());
+          return SliverToBoxAdapter(
+            child: Center(child: CircularProgressIndicator()),
+          );
         } else if (state is RecommendCoursesSuccess) {
           final List<RecommendCoursesModel> recommededCourses =
               state.recommendCoursesList;
           print(recommededCourses);
-          return ListView.builder(
-            shrinkWrap: true,
-            itemCount: recommededCourses.length,
-            itemBuilder: (context, index) {
+          return SliverList(
+            delegate: SliverChildBuilderDelegate((context, index) {
               return RecommendCourse(
                 recommendCoursesModel: recommededCourses[index],
               );
-            },
+            }, childCount: recommededCourses.length),
           );
         } else if (state is RecommendCoursesFailure) {
-          return Center(child: Text(state.errMessage.toString()));
+          return SliverToBoxAdapter(
+            child: Center(child: Text(state.errMessage.toString())),
+          );
         }
-        return Center(child: Text('No courses available.'));
+        return SliverToBoxAdapter(
+          child: Center(child: Text('No courses available.')),
+        );
       },
     );
   }

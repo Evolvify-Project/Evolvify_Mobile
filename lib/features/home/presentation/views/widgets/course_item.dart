@@ -34,16 +34,22 @@ class CourseItem extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              AspectRatio(
-                aspectRatio: 1.3 / 1,
-                child: CachedNetworkImage(
-                  imageUrl: coursesModel.imageUrl ?? '',
-
-                  fit: BoxFit.fill,
-                  errorWidget: (context, url, error) => const Icon(Icons.error),
-                  placeholder:
-                      (context, url) =>
-                          const Center(child: CircularProgressIndicator()),
+              ClipRRect(
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(16),
+                  topRight: Radius.circular(16),
+                ),
+                child: AspectRatio(
+                  aspectRatio: 1.3 / 1,
+                  child: CachedNetworkImage(
+                    imageUrl: coursesModel.imageUrl ?? '',
+                    fit: BoxFit.cover,
+                    errorWidget:
+                        (context, url, error) => const Icon(Icons.error),
+                    placeholder:
+                        (context, url) =>
+                            const Center(child: CircularProgressIndicator()),
+                  ),
                 ),
               ),
 
@@ -72,32 +78,38 @@ class CourseItem extends StatelessWidget {
                     SizedBox(height: 8),
                     Row(
                       children: [
-                        // Image.asset(Assets.imagesClock),
                         Icon(
                           Icons.access_time,
                           color: Color(0xff888C94),
                           size: 20,
                         ),
                         SizedBox(width: 6),
-                        Text(
-                          coursesModel.duration ?? '',
-                          style: TextStyle(
-                            color: Color(0xff888C94),
-                            fontSize: getResponsiveFontSize(
-                              context,
-                              fontSize: 11,
+                        Expanded(
+                          child: Text(
+                            coursesModel.duration ?? '',
+                            style: TextStyle(
+                              color: Color(0xff888C94),
+                              fontSize: getResponsiveFontSize(
+                                context,
+                                fontSize: 11,
+                              ),
                             ),
+                            overflow: TextOverflow.ellipsis,
                           ),
                         ),
-                        SizedBox(width: 30),
-                        Text(
-                          coursesModel.skill ?? '',
-                          style: TextStyle(
-                            color: Color(0xff888C94),
-                            fontSize: getResponsiveFontSize(
-                              context,
-                              fontSize: 11,
+                        SizedBox(width: 8),
+                        Expanded(
+                          child: Text(
+                            coursesModel.skill ?? '',
+                            style: TextStyle(
+                              color: Color(0xff888C94),
+                              fontSize: getResponsiveFontSize(
+                                context,
+                                fontSize: 11,
+                              ),
                             ),
+                            overflow: TextOverflow.ellipsis,
+                            textAlign: TextAlign.end,
                           ),
                         ),
                       ],

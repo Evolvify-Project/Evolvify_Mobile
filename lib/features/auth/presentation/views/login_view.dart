@@ -41,17 +41,28 @@ class _LoginViewState extends State<LoginView> {
       child: BlocListener<AssessmentStatusCubit, AssessmentStatusState>(
         listener: (context, state) {
           if (state is AssessmentStatusSuccess) {
+            print('🔐 Login: Assessment status check successful');
+            print('🔐 Login: hasCompleted = ${state.hasCompleted}');
             if (state.hasCompleted) {
               // User has completed assessment, go to home screen
+              print(
+                '🔐 Login: Redirecting to home screen (assessment completed)',
+              );
               GoRouter.of(
                 context,
               ).pushReplacement(AppRouter.kCustomBottomNavigationBar);
             } else {
               // User hasn't completed assessment, go to assessment view
+              print(
+                '🔐 Login: Redirecting to assessment view (assessment not completed)',
+              );
               GoRouter.of(context).pushReplacement(AppRouter.kAssessmentView);
             }
           } else if (state is AssessmentStatusFailure) {
             // If there's an error checking assessment status, default to assessment view
+            print(
+              '🔐 Login: Assessment status check failed, defaulting to assessment view',
+            );
             GoRouter.of(context).pushReplacement(AppRouter.kAssessmentView);
           }
         },
